@@ -480,6 +480,86 @@
     }
 
     /* ========================================
+       STAT CALLOUT
+       ======================================== */
+    .stat-callout {
+      border-left: 2px solid var(--chamoisee);
+      padding: 1.5rem 0 1.5rem 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--chamoisee);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-source {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--khaki);
+      opacity: 0.6;
+      margin-top: 0.5rem;
+    }
+
+    /* ========================================
+       DAY WALKTHROUGH
+       ======================================== */
+    .day-block {
+      margin-bottom: 3rem;
+      padding-left: 0;
+    }
+
+    .day-block h3 {
+      text-transform: none;
+      font-size: 1.4rem;
+      color: var(--chamoisee);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ========================================
+       VALUE STACK
+       ======================================== */
+    .value-list {
+      list-style: none;
+      padding: 0;
+      max-width: 650px;
+      margin: 2rem auto;
+      text-align: left;
+    }
+
+    .value-list li {
+      padding: 0.8rem 0 0.8rem 2rem;
+      font-family: 'EB Garamond', serif;
+      font-size: 1.05rem;
+      color: #3a3a3a;
+      line-height: 1.6;
+      position: relative;
+      border-bottom: 1px solid rgba(160,127,86,0.12);
+    }
+
+    .value-list li::before {
+      content: '✦';
+      position: absolute;
+      left: 0;
+      color: var(--chamoisee);
+      font-size: 0.7rem;
+      top: 1rem;
+    }
+
+    .anchor-compare {
+      max-width: 600px;
+      margin: 2.5rem auto;
+      padding: 2rem;
+      background: rgba(0,0,0,0.04);
+      text-align: left;
+    }
+
+    /* ========================================
        INVESTMENT SECTION
        ======================================== */
     .investment-section {
@@ -601,37 +681,48 @@
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <img src="images/logo-reverse.svg" alt="Higher Love" class="hero-logo">
-      <h1>The Brotherhood for Accomplished Gay Founders, Entrepreneurs, and Executives</h1>
-      <div class="tagline">An Invite-Only Gathering</div>
+      <h1>Stop Being the Only One in the Room.</h1>
+      <p class="body-text body-text-white" style="max-width: 600px; margin: 0 auto 1rem; font-size: 1.1rem;">The first luxury summit built exclusively for accomplished gay founders, entrepreneurs, and executives who are done code switching their way through rooms that were never designed for them.</p>
+      <div class="tagline">An Invite-Only Gathering &middot; 22 Founding Members</div>
       <div class="hero-details">
-        September 2026 <span>&middot;</span> Austin, Texas <span>&middot;</span> 22 Founding Seats
+        September 2026 <span>&middot;</span> Austin, Texas
       </div>
-      <a href="#book-call" class="cta-button">Request Your Seat</a>
+      <a href="#book-call" class="cta-button">Book Your Call With Re</a>
     </div>
   </section>
 
-  <!-- THE LETTER: OPENING -->
+  <!-- THE LETTER -->
   <section>
     <div class="container letter">
       <p class="salutation">Hey, brother.</p>
       <p class="body-text body-text-white">You're here because I personally invited you, or because someone I deeply trust felt this would land.</p>
-      <p class="body-text body-text-white">Here's why.</p>
-      <p class="body-text body-text-white">You're an accomplished founder, entrepreneur, or executive. You care about growth, professionally, personally, spiritually. You're intentional about the rooms you step into.</p>
-      <p class="body-text body-text-white" style="font-size: 1.3rem; color: var(--linen);">And yet.</p>
-      <p class="body-text">You've probably spent most of your career in hetero-dominant masterminds and business communities, grateful for the access, quietly aware that something was always slightly off.</p>
-      <p class="body-text">And when you step into gay spaces, something else is missing. Either you've outgrown them, or they were never quite built for who you are.</p>
+      <p class="body-text body-text-white">Let me tell you why.</p>
+      <p class="body-text body-text-white">You've built something real. A company, a career, a body of work that commands respect. You've navigated boardrooms, keynote stages, and high level masterminds with brilliance and composure.</p>
+      <p class="body-text body-text-white" style="font-size: 1.3rem; color: var(--linen);">And in almost every one of those rooms, you were the only gay man.</p>
+      <p class="body-text">Not because you were hiding. But because no one was building rooms at your level that held all of who you are.</p>
+      <p class="body-text">Think about it like this: you've been invited to a hundred extraordinary tables. Brilliant people, powerful conversations, real access. But none of those tables were set for you. You've always been a welcome guest in someone else's house, never a man sitting in his own.</p>
+      <p class="body-text">So you code switched. You edited. You brought 90% of yourself and quietly managed the other 10%. You did it so well that most people never noticed.</p>
+      <p class="body-text body-text-white" style="font-style: italic;">But you noticed.</p>
+
+      <div class="stat-callout">
+        <div class="stat-number">74%</div>
+        <p class="body-text" style="margin: 0;">of LGBTQ+ professionals say they code switch at work to avoid negative stereotypes. You've felt this number your entire career, even if you've never seen it.</p>
+        <p class="stat-source">LinkedIn / INvolve Pride at Work Report</p>
+      </div>
+
+      <p class="body-text">And when you do step into gay spaces, something else is off. The rooms are either built for a different season of life, a different level of ambition, or a different kind of man. It's like being fluent in two languages, but never finding a room where you can speak both at the same time.</p>
+
+      <div class="stat-callout">
+        <div class="stat-number">3 to 4x</div>
+        <p class="body-text" style="margin: 0;">Gay men experience loneliness at three to four times the rate of the general population. Not because they lack people around them, but because they lack people who hold all of who they are.</p>
+        <p class="stat-source">Journal of Homosexuality, 2025</p>
+      </div>
+
+      <p class="body-text body-text-white">Here's what those numbers add up to: the most accomplished, heart centered gay men in the world have no room that was built for them. They've climbed the first mountain, the one the world told them to climb, and they're standing at the top, successful, respected, and quietly asking: "Is this it? Or is there something I haven't been able to access because I've never been in a room where I didn't have to perform?"</p>
 
       <div class="divider"></div>
 
-      <p class="body-text emphasis-line">So I want to ask you the questions I've been sitting with for years:</p>
-
-      <ol class="letter-questions">
-        <li>Where do the accomplished, heart-centered gay founders and executives gather, as peers, as brothers, in a room that holds both the business and the man?</li>
-        <li>Where do they go to let their guard down and explore what mature brotherhood among gay men actually looks like?</li>
-        <li>Where do gay men who are building something significant in the world convene, not just for safety and belonging, but for impact, for legacy, for the kind of depth that most rooms never reach?</li>
-      </ol>
-
-      <p class="body-text body-text-white" style="margin-top: 2rem;">I looked for that room.</p>
+      <p class="body-text body-text-white" style="margin-top: 2rem;">I looked for that room for over two decades.</p>
       <p class="body-text body-text-white">I couldn't find it.</p>
       <p class="body-text body-text-white" style="font-size:1.25rem; color: var(--chamoisee);">So I'm building it.</p>
     </div>
@@ -643,42 +734,13 @@
     <div class="overlay"></div>
   </div>
 
-  <!-- THE ROOM THAT DOESN'T YET EXIST -->
-  <section>
-    <div class="container letter">
-      <p class="eyebrow">The Invitation</p>
-      <h2 style="margin-bottom: 2.5rem;">The Room That Doesn't<br>Yet Exist</h2>
-
-      <p class="body-text">There was a time when gay men gathered in off-the-beaten-path places just to find each other. To find safety. To discover who we were. That mattered. It was necessary.</p>
-      <p class="body-text">But that season has passed for many of us.</p>
-      <p class="body-text body-text-white">You've built something real. You've navigated corporate environments, boardrooms, and business communities where being gay was something you managed rather than something you brought.</p>
-      <p class="body-text">You've shown up in hetero-dominant masterminds and delivered, brilliantly, while quietly knowing the room wasn't quite designed for the full version of you.</p>
-      <p class="body-text">And the LGBTQ+ professional spaces that do exist? They're good, but you're looking for something more honed. More nuanced. Built for the gay man in his 40s, 50s, and early 60s who has already climbed the first mountain and is now asking a different set of questions.</p>
-      <p class="body-text body-text-white">You have an impressive body of work. A solid network. But if you're honest, most of the people in your closest orbit are not gay.</p>
-      <p class="body-text" style="color: var(--linen); font-style: italic; font-size: 1.15rem;">And there's a craving. For something you can't quite name. Something you didn't even know could exist.</p>
-
-      <div class="divider"></div>
-
-      <p class="body-text emphasis-line">Have you ever wondered:</p>
-
-      <ol class="letter-questions">
-        <li>Where can I go to have deep intellectual conversations, not over loud club music, but in a room where the men around me have built what I've built and understand what it cost?</li>
-        <li>Where can I let the hard shell soften for a few days, and explore real intimacy with other gay men that is clean, non-sexual, and genuinely nourishing?</li>
-        <li>Where do gay men gather to share resources, do deals, learn and grow, not competitively, but as brothers?</li>
-      </ol>
-
-      <p class="body-text body-text-white" style="margin-top: 2rem;">I asked those questions for years.</p>
-      <p class="body-text body-text-white" style="font-size:1.3rem; color: var(--chamoisee);">Higher Love is the answer I built.</p>
-    </div>
-  </section>
-
   <!-- FULL IMAGE BREAK: DINNER -->
   <div class="full-image-break">
     <img src="images/curated-dinner.jpg" alt="Curated gathering">
     <div class="overlay"></div>
   </div>
 
-  <!-- WHO I AM -->
+  <!-- YOUR HOST -->
   <section class="section-linen">
     <div class="container-wide">
       <div class="about-re">
@@ -686,34 +748,15 @@
           <img src="images/re5.jpg" alt="Re Perez">
         </div>
         <div class="fade-in">
-          <p class="eyebrow" style="color: var(--russet);">Who I Am</p>
-          <h2 style="margin-bottom: 2rem;">And Why I'm<br>Building This</h2>
+          <p class="eyebrow" style="color: var(--russet);">Your Host</p>
+          <h2 style="margin-bottom: 2rem;">Re Perez</h2>
 
-          <p class="body-text">My name is Re Perez.</p>
-          <p class="body-text">I came out in the early 1990s in New York City. And while it was safer then than in previous decades, I still had almost no gay role models who looked like what I wanted to become.</p>
-          <p class="body-text">The openly gay men I could see publicly were either closeted in the professional world or fit a narrow stereotype that didn't reflect me. I didn't see a gay man who was serious, ambitious, spiritually curious, and building something of consequence.</p>
-          <p class="body-text" style="color: var(--black); font-weight: 500;">So I became that man, largely without a map.</p>
-          <p class="body-text">For 24 years I've been a brand consultant, leading transformations for founders, executives, and companies across industries. I'm a speaker and the author of <em>Your Brand Should Be Gay (Even If You're Not)</em>.</p>
-          <p class="body-text">I recently launched <em>Category of One</em>, a video podcast and YouTube channel exploring what it means to build a brand, and a life, that stands alone in its category.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHO I AM CONTINUED -->
-  <section>
-    <div class="container letter">
-      <div class="about-re" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
-        <div class="fade-in">
-          <p class="body-text">In parallel, I've spent 24 years inside some of the most powerful personal development and transformation communities. Plant medicine ceremonies. High-vibe, conscious gatherings of entrepreneurs who weren't just financially successful, they were spiritually and emotionally evolved.</p>
-          <p class="body-text body-text-white">People living intentional lives. People using their businesses for impact and purpose.</p>
-          <p class="body-text">I love all of it.</p>
-          <p class="body-text body-text-white" style="font-style: italic;">And I kept wondering: where are the other gay men in these rooms?</p>
-          <p class="body-text">The answer, most of the time, was: I was the only one.</p>
-          <p class="body-text body-text-white" style="font-size: 1.2rem; color: var(--chamoisee);">Higher Love is the room I kept waiting for someone else to build.</p>
-        </div>
-        <div class="about-re-image fade-in">
-          <img src="images/Re1.jpg" alt="Re Perez" style="aspect-ratio: 1/1; object-position: center;">
+          <p class="body-text">My name is Re Perez. I came out in the early 1990s in New York City, and I've spent the last 24 years living at the intersection of two worlds.</p>
+          <p class="body-text">In one world, I'm a brand strategist who has led transformations for founders, executives, and companies across industries. I'm the author of <em>Your Brand Should Be Gay (Even If You're Not)</em> and the creator of <em>Category of One</em>, a podcast exploring what it means to build a brand and a life that stands alone.</p>
+          <p class="body-text">In the other world, I've spent those same 24 years inside the most powerful personal development and transformation communities on the planet. Plant medicine ceremonies. High vibe mastermind retreats. Rooms full of people who weren't just building wealth, they were building lives of genuine depth and purpose.</p>
+          <p class="body-text" style="color: var(--black); font-weight: 500;">I loved both worlds. And in both worlds, I was almost always the only gay man in the room.</p>
+          <p class="body-text">It's like being a world class musician who has played in a hundred orchestras, but never once heard his own instrument in the arrangement. You know the music is beautiful. You just wonder what it would sound like if someone finally wrote a part for you.</p>
+          <p class="body-text" style="color: var(--russet); font-style: italic; font-size: 1.15rem;">Higher Love is what happens when someone finally decides to stop waiting for that room and builds it himself.</p>
         </div>
       </div>
     </div>
@@ -723,7 +766,7 @@
   <section class="section-dark">
     <div class="container" style="text-align: center;">
       <p class="eyebrow">The Experience</p>
-      <h2 style="margin-bottom: 1.5rem;">What Higher Love Is</h2>
+      <h2 style="margin-bottom: 1.5rem;">3.5 Days That Will Change How You<br>Show Up in Every Room After</h2>
       <div class="divider"></div>
 
       <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin: 3rem 0 2rem;">
@@ -735,11 +778,45 @@
 
       <p class="body-text body-text-white" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;">A summit.</p>
 
-      <p class="body-text" style="max-width: 700px; margin: 0 auto 1.5rem;">Higher Love is a 3.5-day immersive gathering, intimate, curated, luxury, for accomplished gay founders, entrepreneurs, and executives who are ready to go somewhere they have never been: a room full of men who are exactly like them, in every dimension that matters.</p>
+      <p class="body-text" style="max-width: 700px; margin: 0 auto 1.5rem;">Higher Love is a 3.5 day immersive gathering at a private luxury venue in the Texas Hill Country for 22 accomplished gay founders, entrepreneurs, and executives. Think of it as the room you would have designed yourself if someone had handed you a blank canvas, a guest list of the 21 most extraordinary gay men you've never met, and said: "Build whatever you wish existed."</p>
 
-      <p class="body-text body-text-white" style="max-width: 700px; margin: 0 auto 1.5rem; font-style: italic;">There is another frequency of love available to us as gay men.</p>
-      <p class="body-text" style="max-width: 700px; margin: 0 auto 1.5rem;">In our businesses. In our leadership. In our relationships. In the communities we build and the legacies we leave.</p>
-      <p class="body-text body-text-white" style="max-width: 700px; margin: 0 auto;">Higher Love is an invitation into that frequency, with 21 other men who are ready to access it alongside you.</p>
+      <p class="body-text body-text-white" style="max-width: 700px; margin: 0 auto 1.5rem;">Here is what those 3.5 days look like:</p>
+    </div>
+
+    <!-- Day walkthrough -->
+    <div class="container" style="text-align: left; margin-top: 3rem;">
+      <div class="day-block fade-in">
+        <h3>Morning</h3>
+        <p class="body-text">Start each day with guided wellness, meditation, breathwork, and intentional movement in an open air pavilion overlooking the Hill Country at sunrise. No performative spirituality. Just the kind of stillness that men like you rarely give themselves permission to access. Like finally exhaling a breath you didn't know you'd been holding for twenty years.</p>
+      </div>
+      <div class="day-block fade-in">
+        <h3>Midday</h3>
+        <p class="body-text">Facilitated peer sessions built around the topics that matter most to men operating at your level. Business strategy, legacy planning, relationship depth, health optimization, creative expression, and spiritual growth, not in silos, but woven together the way they actually exist in your life. Imagine a boardroom with the strategic rigor of your best mastermind and the emotional depth of the conversations you've only ever had at 2am with your closest friend.</p>
+      </div>
+      <div class="day-block fade-in">
+        <h3>Evening</h3>
+        <p class="body-text">Curated dinners around long tables with candlelight, exceptional food, and the kind of conversation you've been craving. The kind where you can talk about your exit strategy and your plant medicine journey in the same breath and no one flinches. Where you don't have to choose which version of yourself to bring because the table was finally set for the whole man.</p>
+      </div>
+      <div class="day-block fade-in">
+        <h3>Late Night</h3>
+        <p class="body-text">Firepit conversations under the Texas stars. Whiskey in hand. Guards down. There's a reason the deepest conversations in life happen between 10pm and 1am. The armor comes off. The real questions surface. And when the men around you understand what it cost to build what you've built, those conversations don't just feel good. They change the trajectory of your next decade.</p>
+      </div>
+    </div>
+
+    <!-- What you walk away with -->
+    <div class="container" style="margin-top: 4rem;">
+      <div class="divider"></div>
+      <p class="eyebrow" style="text-align: center; margin-top: 2.5rem;">What You Walk Away With</p>
+
+      <div class="stat-callout" style="border-color: var(--khaki);">
+        <p class="body-text body-text-white" style="margin: 0; font-size: 1.1rem;">A peer advisory network of 21 men who operate at your level and share your experience of the world.</p>
+        <p class="body-text" style="margin: 1rem 0 0;">Research shows that CEOs in peer groups outperform their competitors by 2.5% to 5% annually, and committing goals to a peer group improves your likelihood of achieving them by 65%. Now imagine a peer group where you don't have to leave any part of yourself at the door.</p>
+        <p class="stat-source">Dun & Bradstreet / Vistage &middot; Association for Talent Development</p>
+      </div>
+
+      <p class="body-text body-text-white" style="margin: 2rem 0;">A recalibration of what is possible when you stop performing and start showing up as the full version of yourself. Most of the men in this room have spent decades being excellent in spaces that required them to leave something behind. Higher Love is where you bring everything.</p>
+
+      <p class="body-text" style="margin: 2rem 0;">Relationships that don't expire when the event ends. The 22 founding members of Higher Love become the foundation of something that grows far beyond September 2026. You're not attending an event. You're joining a founding circle.</p>
     </div>
 
     <!-- Experience cards -->
@@ -748,7 +825,7 @@
         <div class="what-it-is-card fade-in">
           <img src="images/brotherhood-conversation.jpg" alt="Deep conversation">
           <h3>Deep Connection</h3>
-          <p class="body-text" style="font-size: 0.95rem;">Peer-level intellectual challenge from men who have built what you've built and hold your full identity without agenda.</p>
+          <p class="body-text" style="font-size: 0.95rem;">Peer level intellectual challenge from men who have built what you've built and hold your full identity without agenda.</p>
         </div>
         <div class="what-it-is-card fade-in">
           <img src="images/curated-dinner.jpg" alt="Luxury experience">
@@ -872,8 +949,25 @@
       <p class="eyebrow" style="color: var(--russet);">The Investment</p>
       <h2 style="color: var(--black);">Your Founding Seat</h2>
       <div class="investment-amount">$7,500</div>
-      <p class="body-text" style="max-width: 600px; margin: 0 auto 2.5rem; text-align: center;">Your investment includes the full 3.5-day immersive experience, curated meals, programming, and your place among the 22 founding members of Higher Love.</p>
-      <div style="text-align: center;">
+
+      <p class="body-text" style="max-width: 650px; margin: 0 auto 1rem; text-align: center; font-weight: 500; color: var(--black);">Here is what your founding membership includes:</p>
+
+      <ul class="value-list">
+        <li>The full 3.5 day immersive summit experience at a private luxury Hill Country venue</li>
+        <li>All curated meals, from chef prepared dinners to working breakfasts</li>
+        <li>Morning wellness programming including guided meditation, breathwork, and movement</li>
+        <li>Facilitated peer advisory sessions with 21 other accomplished gay founders and executives</li>
+        <li>Evening experiences including curated dinners, firepit conversations, and unstructured connection</li>
+        <li>Founding member status in the Higher Love community, with priority access to all future gatherings</li>
+        <li>A private peer network that continues long after the summit ends</li>
+      </ul>
+
+      <div class="anchor-compare">
+        <p class="body-text" style="margin: 0; font-size: 1rem;">To put this in perspective: most high caliber mastermind memberships for executives start at $25,000 to $50,000 per year. A single night at a luxury Hill Country retreat runs $800 to $1,500. A private facilitated retreat weekend with a curator of Re's caliber is $5,000 to $10,000.</p>
+        <p class="body-text" style="margin: 1rem 0 0; font-size: 1rem; color: var(--black); font-weight: 500;">Higher Love is not competing with any of those. It is something that has never existed before. And the 22 men who take their founding seats will be the ones who shape what it becomes.</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 2.5rem;">
         <a href="#book-call" class="cta-button" style="border-color: var(--black); color: var(--black);">Book Your Call With Re</a>
       </div>
     </div>
@@ -884,9 +978,11 @@
     <div class="final-cta-bg"></div>
     <div class="container fade-in">
       <img src="images/logo-reverse.svg" alt="Higher Love" style="width: 180px; margin: 0 auto 2.5rem;">
-      <h2 style="margin-bottom: 1.5rem;">Ready to Step Into<br>The Room?</h2>
+      <h2 style="margin-bottom: 1.5rem;">This Room Won't Wait.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 600px; margin: 0 auto 3rem; text-align: center; font-size: 1.15rem;">22 founding seats. One room. The beginning of something that has never existed before. If this landed for you, let's talk.</p>
+      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center; font-size: 1.1rem;">22 founding seats. Not 23. Not "we'll add more if there's demand."</p>
+      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who take these seats will become the founding circle of something that has never existed before: a brotherhood of accomplished gay founders, entrepreneurs, and executives who chose to stop being the only one.</p>
+      <p class="body-text" style="max-width: 620px; margin: 0 auto 3rem; text-align: center;">If everything on this page landed the way I think it did, let's talk. The call is a conversation, not a pitch. I want to know who you are and what you're building, the same way you'll want to know that about the other 21 men in the room.</p>
       <!-- REPLACE href with actual Calendly or booking link -->
       <a href="https://calendly.com/reperez" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem;">Book a Call With Re</a>
       <p style="margin-top: 2rem; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--khaki);">SEPTEMBER 2026 &middot; AUSTIN, TEXAS</p>
