@@ -792,6 +792,24 @@
       font-style: italic;
     }
 
+    .form-input.error {
+      border-color: #c0392b;
+      background: rgba(192,57,43,0.08);
+    }
+
+    .form-error {
+      display: none;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      color: #e74c3c;
+      margin-top: 0.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .form-error.visible {
+      display: block;
+    }
+
     .form-textarea {
       resize: vertical;
       min-height: 80px;
@@ -1316,10 +1334,12 @@
             <div>
               <label class="form-label">First Name *</label>
               <input type="text" name="first_name" required class="form-input" placeholder="First name">
+              <span class="form-error" data-for="first_name">Please enter your first name</span>
             </div>
             <div>
               <label class="form-label">Last Name *</label>
               <input type="text" name="last_name" required class="form-input" placeholder="Last name">
+              <span class="form-error" data-for="last_name">Please enter your last name</span>
             </div>
           </div>
 
@@ -1327,6 +1347,7 @@
           <div style="margin-bottom: 1.5rem;">
             <label class="form-label">Email *</label>
             <input type="email" name="email" required class="form-input" placeholder="your@email.com">
+            <span class="form-error" data-for="email">Please enter a valid email address</span>
           </div>
 
           <!-- Referral -->
@@ -1339,6 +1360,7 @@
           <div style="margin-bottom: 1.5rem;">
             <label class="form-label">What do you do? *</label>
             <input type="text" name="role" required class="form-input" placeholder="e.g. Founder of Acme Co, VP Marketing at XYZ">
+            <span class="form-error" data-for="role">Please tell us what you do</span>
           </div>
 
           <!-- LinkedIn (optional, helps Re research) -->
@@ -1382,6 +1404,7 @@
           <div style="margin-bottom: 2rem;">
             <label class="form-label">What would being in a room like this mean for you right now? *</label>
             <textarea name="meaning" required class="form-input form-textarea" placeholder="There's no right answer here. Just tell Re what's on your mind." rows="4"></textarea>
+            <span class="form-error" data-for="meaning">Please share what this room would mean for you</span>
           </div>
 
           <!-- Anything else -->
@@ -1399,8 +1422,8 @@
         <!-- Success state (hidden by default) -->
         <div id="form-success" style="display: none; text-align: center; padding: 2rem 0;">
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--chamoisee); margin-bottom: 1rem;">Thank you.</p>
-          <p class="body-text body-text-white" style="margin-bottom: 2rem;">Your application has been received. The next step is to book your conversation with Re.</p>
-          <!-- REPLACE with actual Calendly or booking link -->
+          <p class="body-text body-text-white" style="margin-bottom: 1.5rem;">Your application has been received. A booking page should have opened in a new tab.</p>
+          <p class="body-text body-text-white" style="margin-bottom: 2rem; opacity: 0.7; font-size: 0.9rem;">If it didn't open, click below to book your conversation with Re.</p>
           <a href="https://calendly.com/reperez" target="_blank" rel="noopener" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem;">Book Your Call Now &rarr;</a>
         </div>
       </div>
@@ -1445,14 +1468,71 @@
     // CHANGE THIS to your deployed worker URL after deploying higher-love-api
     const API_URL = 'https://higher-love-api.james-d13.workers.dev/apply';
 
+    // Clear error state when user starts typing
+    document.querySelectorAll('.form-input').forEach(input => {
+      const events = input.tagName === 'TEXTAREA' ? ['input'] : ['input', 'change'];
+      events.forEach(evt => {
+        input.addEventListener(evt, () => {
+          input.classList.remove('error');
+          const errEl = input.parentElement.querySelector('.form-error');
+          if (errEl) errEl.classList.remove('visible');
+        });
+      });
+    });
+
+    // Validate a single field, returns true if valid
+    function validateField(input) {
+      const name = input.name;
+      const value = input.value.trim();
+      const errEl = input.parentElement.querySelector('.form-error[data-for="' + name + '"]');
+      let valid = true;
+
+      if (input.hasAttribute('required') && !value) {
+        valid = false;
+      }
+
+      if (name === 'email' && value) {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(value)) valid = false;
+      }
+
+      if (!valid) {
+        input.classList.add('error');
+        if (errEl) errEl.classList.add('visible');
+      } else {
+        input.classList.remove('error');
+        if (errEl) errEl.classList.remove('visible');
+      }
+
+      return valid;
+    }
+
     // Application form handler
     async function handleSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('hl-application');
       const submitBtn = form.querySelector('button[type="submit"]');
-      const formData = new FormData(form);
 
-      // Collect form data into an object
+      // Validate all required fields
+      const requiredInputs = form.querySelectorAll('[required]');
+      let allValid = true;
+      let firstInvalid = null;
+
+      requiredInputs.forEach(input => {
+        if (!validateField(input)) {
+          allValid = false;
+          if (!firstInvalid) firstInvalid = input;
+        }
+      });
+
+      if (!allValid) {
+        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalid.focus();
+        return;
+      }
+
+      // Collect form data
+      const formData = new FormData(form);
       const data = {};
       formData.forEach((value, key) => {
         if (key === 'resonance') {
@@ -1468,6 +1548,9 @@
       submitBtn.disabled = true;
       submitBtn.style.opacity = '0.6';
 
+      // Default calendar URL
+      let calendarUrl = 'https://calendly.com/reperez';
+
       try {
         const res = await fetch(API_URL, {
           method: 'POST',
@@ -1478,33 +1561,27 @@
         const result = await res.json();
 
         if (res.ok && result.success) {
-          // Update calendar link if returned from API
-          if (result.calendar_url) {
-            const calLink = document.querySelector('#form-success a');
-            if (calLink) calLink.href = result.calendar_url;
-          }
-
-          // Show success state
-          form.style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-          document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          if (result.calendar_url) calendarUrl = result.calendar_url;
         } else {
           throw new Error(result.error || 'Something went wrong');
         }
       } catch (err) {
-        // Fallback: store locally and still show success
+        // Fallback: store locally so data is not lost
         try {
           const submissions = JSON.parse(localStorage.getItem('hl_submissions') || '[]');
           data.submitted_at = new Date().toISOString();
           submissions.push(data);
           localStorage.setItem('hl_submissions', JSON.stringify(submissions));
         } catch(e) {}
-
-        // Still show success to the user (data is saved locally)
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-        document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
+
+      // Always redirect to Calendly after submission (even on error, data is saved)
+      window.open(calendarUrl, '_blank');
+
+      // Show success state
+      form.style.display = 'none';
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   </script>
 
