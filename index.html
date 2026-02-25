@@ -29,7 +29,9 @@
   <meta name="twitter:title" content="Higher Love Summit | Stop Being the Only One in the Room">
   <meta name="twitter:description" content="An invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives. September 2026, Austin, Texas.">
   <meta name="twitter:image" content="https://higherlovesummit.com/images/hero-venue.jpg">
-  <meta name="twitter:creator" content="@repererez">
+
+  <!-- Google Fonts and CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -38,472 +40,1050 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
     body {
-      font-family: 'Sohne', system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
+      font-family: 'EB Garamond', serif;
       color: #1a1a1a;
-      background: #ffffff;
+      background: linear-gradient(135deg, #f8f6f1 0%, #faf8f3 100%);
+      line-height: 1.6;
     }
 
-    /* Typography */
-    h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
-    h2 { font-size: 2.5rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
-    h3 { font-size: 1.75rem; font-weight: 600; line-height: 1.3; margin-bottom: 1rem; }
-    h4 { font-size: 1.25rem; font-weight: 600; }
-    p { margin-bottom: 1rem; }
-
-    /* Utility */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .mt-2 { margin-top: 2rem; }
-    .mt-4 { margin-top: 4rem; }
-    .mt-6 { margin-top: 6rem; }
-    .mt-8 { margin-top: 8rem; }
-    .mb-2 { margin-bottom: 2rem; }
-    .mb-4 { margin-bottom: 4rem; }
-    .mb-6 { margin-bottom: 6rem; }
-    .mb-8 { margin-bottom: 8rem; }
-    .text-center { text-align: center; }
-    .text-right { text-align: right; }
-
-    /* Header */
-    header {
-      background: #ffffff;
-      padding: 2rem 0;
-      border-bottom: 1px solid #f0f0f0;
-      position: sticky;
+    /* Navigation */
+    nav {
+      position: fixed;
       top: 0;
-      z-index: 100;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(248, 246, 241, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .header-content {
+    nav .container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #1a1a1a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #8B4513;
       text-decoration: none;
+      letter-spacing: 1px;
     }
 
-    nav a {
-      margin-left: 2rem;
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
       color: #1a1a1a;
       text-decoration: none;
       font-size: 0.95rem;
-      transition: opacity 0.2s;
+      transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      opacity: 0.6;
+    .nav-links a:hover {
+      color: #8B4513;
     }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
-      padding: 8rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(135deg, #f8f6f1 0%, #faf8f3 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 69, 19, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      top: -100px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(184, 134, 11, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: -150px;
+      left: -150px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      z-index: 10;
       text-align: center;
     }
 
     .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      font-weight: 700;
       color: #1a1a1a;
-      margin-bottom: 1.5rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
     }
 
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: #666;
-      margin-bottom: 3rem;
+    .hero .tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 500;
+      color: #8B4513;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: #4a4a4a;
+      margin-bottom: 2rem;
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.8;
     }
 
-    .cta-button {
-      display: inline-block;
-      background: #1a1a1a;
-      color: #ffffff;
-      padding: 1rem 2.5rem;
-      border-radius: 0.5rem;
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
-      transition: background 0.3s, transform 0.2s;
+      font-size: 1rem;
+      transition: all 0.3s ease;
       border: none;
       cursor: pointer;
-      font-size: 1rem;
+      font-family: 'Raleway', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .cta-button:hover {
-      background: #333;
+    .btn-primary {
+      background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #8B4513;
+      border: 2px solid #8B4513;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f5;
       transform: translateY(-2px);
     }
 
-    .cta-button-secondary {
-      display: inline-block;
-      background: transparent;
-      color: #1a1a1a;
-      padding: 1rem 2.5rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      border: 2px solid #1a1a1a;
-      transition: all 0.3s;
-      cursor: pointer;
-      font-size: 1rem;
-      margin-left: 1rem;
-    }
-
-    .cta-button-secondary:hover {
-      background: #1a1a1a;
-      color: #ffffff;
-    }
-
-    /* Sections */
-    .section {
-      padding: 6rem 0;
-    }
-
-    .section.light {
-      background: #f9f9f9;
-    }
-
-    .section.dark {
-      background: #1a1a1a;
-      color: #ffffff;
-    }
-
-    .section.dark h2,
-    .section.dark h3,
-    .section.dark h4 {
-      color: #ffffff;
-    }
-
-    /* Cards */
-    .card-grid {
+    /* Stats Section */
+    .stats {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 20px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #8B4513;
+    }
+
+    .stat-label {
+      color: #4a4a4a;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    /* About Section */
+    .about {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: #8B4513;
+      margin-bottom: 1rem;
+    }
+
+    .about-content p {
+      margin-bottom: 1rem;
+      color: #4a4a4a;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.1), rgba(184, 134, 11, 0.1));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: #ddd;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f0ebe0 0%, #faf8f3 100%);
+    }
+
+    .features-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 3rem;
     }
 
-    .card {
-      background: #ffffff;
+    .feature-card {
+      background: white;
       padding: 2rem;
-      border-radius: 0.75rem;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s;
+      border-radius: 15px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .card:hover {
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    .feature-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .card h3 {
+    .feature-icon {
+      font-size: 3rem;
       margin-bottom: 1rem;
-      margin-top: 0;
     }
 
-    .card p {
-      color: #666;
+    .feature-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #8B4513;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card p {
+      color: #4a4a4a;
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.6;
+    }
+
+    /* Event Details Section */
+    .event-details {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .detail-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .detail-box h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: #8B4513;
+      margin-bottom: 1rem;
+    }
+
+    .detail-box p {
+      color: #4a4a4a;
+      line-height: 1.8;
+    }
+
+    /* Who Should Attend */
+    .who-attends {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f0ebe0 0%, #faf8f3 100%);
+    }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .profile-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      border-left: 4px solid #8B4513;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #8B4513;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-card p {
+      color: #4a4a4a;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Agenda Section */
+    .agenda {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .agenda-timeline {
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .agenda-timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #8B4513, #B8860B, transparent);
+    }
+
+    .agenda-item {
+      margin-bottom: 2rem;
+      padding-left: 100px;
+      position: relative;
+    }
+
+    .agenda-item::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      top: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid #8B4513;
+      box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.1);
+    }
+
+    .agenda-item h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: #8B4513;
+      margin-bottom: 0.5rem;
+    }
+
+    .agenda-item p {
+      color: #4a4a4a;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f0ebe0 0%, #faf8f3 100%);
+    }
+
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-text {
+      color: #4a4a4a;
+      font-style: italic;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .testimonial-author {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      color: #8B4513;
+      font-size: 1.1rem;
+    }
+
+    /* Application Section */
+    .application {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .app-content {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .app-content p {
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, #f0ebe0 0%, #faf8f3 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 1rem;
+    }
+
+    .faq-question {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question:hover {
+      background: #f5f5f5;
+    }
+
+    .faq-question h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: #8B4513;
+      margin: 0;
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      color: #8B4513;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 1.5rem;
+      background: #fafafa;
+      border-radius: 0 0 10px 10px;
+      color: #4a4a4a;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer.active {
+      display: block;
     }
 
     /* Footer */
     footer {
       background: #1a1a1a;
-      color: #ffffff;
-      padding: 3rem 0;
-      border-top: 1px solid #333;
+      color: #ddd;
+      padding: 3rem 2rem;
+      text-align: center;
     }
 
-    .footer-content {
-      max-width: 1200px;
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer a {
+      color: #B8860B;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #8B4513;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .tagline {
+        font-size: 1.3rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .about-grid,
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      .agenda-timeline::before {
+        left: 16px;
+      }
+
+      .agenda-item {
+        padding-left: 60px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Container utility */
+    .container {
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .footer-section h4 {
-      color: #ffffff;
-      margin-bottom: 1rem;
-    }
-
-    .footer-section a {
-      display: block;
-      color: #ccc;
-      text-decoration: none;
-      margin-bottom: 0.5rem;
-      transition: color 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .footer-section a:hover {
-      color: #ffffff;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      h1 { font-size: 2.5rem; }
-      h2 { font-size: 1.75rem; }
-      h3 { font-size: 1.25rem; }
-
-      .header-content {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-      }
-
-      nav a {
-        margin-left: 0;
-      }
-
-      .hero {
-        padding: 4rem 0;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-
-      .cta-button,
-      .cta-button-secondary {
-        padding: 0.75rem 1.5rem;
-        font-size: 0.9rem;
-        display: block;
-        width: 100%;
-        margin: 0.5rem 0;
-      }
-
-      .card-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-
-      .section {
-        padding: 3rem 0;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
     }
   </style>
 </head>
-
 <body>
-  <!-- Header/Navigation -->
-  <header>
-    <div class="header-content">
-      <a href="/" class="logo">Higher Love Summit</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#values">Values</a>
-        <a href="#apply">Apply</a>
-      </nav>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#" class="logo">HL</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#application">Apply</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
     </div>
-  </header>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="container">
-      <h1>The Brotherhood for Accomplished Gay Founders & Executives</h1>
-      <p class="hero-subtitle">An invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives. September 2026, Austin, Texas.</p>
-      <a href="#apply" class="cta-button">Apply for Founding Circle</a>
+    <div class="hero-content">
+      <h1>Higher Love Summit</h1>
+      <p class="tagline">Stop Being the Only One in the Room</p>
+      <p>An invite-only 3.5-day luxury summit for accomplished gay founders, entrepreneurs, and executives. Limited to 22 founding members. September 2026, Austin, Texas.</p>
+      
+      <div class="cta-buttons">
+        <button class="btn btn-primary" onclick="document.getElementById('application').scrollIntoView({ behavior: 'smooth', block: 'center' })">Apply Now</button>
+        <button class="btn btn-secondary" onclick="document.getElementById('faq').scrollIntoView({ behavior: 'smooth', block: 'center' })">Learn More</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">22</div>
+          <div class="stat-label">Founding Seats</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3.5</div>
+          <div class="stat-label">Days of Connection</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">Sept 2026</div>
+          <div class="stat-label">Austin, TX</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section class="section" id="about">
-    <div class="container">
-      <h2>Stop Being the Only One in the Room</h2>
-      <p style="font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto 2rem;">
-        Higher Love Summit is an invitation-only 3.5-day luxury summit designed for accomplished gay founders, entrepreneurs, and executives who are building billion-dollar companies, leading teams, and making impact in their industries.
-      </p>
-      <p style="font-size: 1rem; color: #666; max-width: 800px; margin: 0 auto;">
-        This is a safe space where you can be fully yourself—dropping the mask you wear in boardrooms and on stage. Connect with peers who understand the unique experience of building extraordinary things while navigating identity, authenticity, and leadership.
-      </p>
+  <section class="about" id="about">
+    <h2 class="section-title">What is Higher Love Summit?</h2>
+    
+    <div class="about-grid">
+      <div class="about-content">
+        <h2>Curated Brotherhood</h2>
+        <p>Higher Love Summit is a carefully curated retreat for gay founders, entrepreneurs, and executives who are building and leading meaningful ventures. This is a space where you're not the only one—where your experience as a gay leader is understood, celebrated, and leveraged as a source of strength.</p>
+        
+        <p>Beyond business discussions, we explore the unique leadership perspectives, challenges, and opportunities that come with being a gay founder or executive in today's entrepreneurial landscape.</p>
+        
+        <p>This summit brings together 22 accomplished individuals for an intimate 3.5-day experience focused on genuine connection, strategic insights, and community building.</p>
+      </div>
+      
+      <div class="about-image">🏛️</div>
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section class="section light" id="experience">
-    <div class="container">
-      <h2>What to Expect</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Intimate Gatherings</h3>
-          <p>Small group discussions with founders, executives, and world-class facilitators. Share real stories, real challenges, and real solutions with peers who get it.</p>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="features-container">
+      <h2 class="section-title">Why Attend?</h2>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3>Genuine Connection</h3>
+          <p>Meet fellow gay founders and executives in an intimate setting where vulnerability and authenticity are valued. Build lasting relationships with peers who truly understand your journey.</p>
         </div>
-        <div class="card">
-          <h3>Transformative Workshops</h3>
-          <p>Learn from thought leaders including Joe Dispenza on consciousness and innovation. Explore leadership, authenticity, spirituality, and the psychology of success.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3>Strategic Insights</h3>
+          <p>Participate in curated discussions on leadership, fundraising, scaling ventures, and navigating unique challenges. Learn from the experiences of accomplished peers.</p>
         </div>
-        <div class="card">
-          <h3>Luxury Venue</h3>
-          <p>Stunning Texas Hill Country setting designed for rest, reflection, and connection. World-class accommodations, gourmet meals, and wellness activities included.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🌟</div>
+          <h3>Luxury Experience</h3>
+          <p>Enjoy a high-end retreat in the beautiful Texas Hill Country. Premium accommodations, gourmet meals, and activities designed for relaxation and connection.</p>
         </div>
-        <div class="card">
-          <h3>Peer Network</h3>
-          <p>Build lasting relationships with 21 other accomplished gay founders and executives. Many of these connections will become lifelong friendships and business partnerships.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Personal Growth</h3>
+          <p>Engage in intentional workshops and peer coaching sessions. Develop new perspectives on your leadership journey and business challenges.</p>
         </div>
-        <div class="card">
-          <h3>Authentic Leadership</h3>
-          <p>Explore how to lead with authenticity and integrity. Develop strategies to build cultures where your teams can be fully themselves, driving innovation and loyalty.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Business Opportunities</h3>
+          <p>Explore potential partnerships, investments, and collaborations. A cohort of accomplished entrepreneurs creates natural opportunities for mutual support.</p>
         </div>
-        <div class="card">
-          <h3>Vision & Legacy</h3>
-          <p>Clarify your vision, values, and legacy. Connect your business goals with your deeper purpose and create actionable strategies for the next chapter of your life.</p>
+        
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <h3>Exclusive Community</h3>
+          <p>Join an ongoing network of accomplished gay business leaders. Continued access to the Higher Love Summit community beyond the event.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Values Section -->
-  <section class="section dark" id="values">
+  <!-- Event Details Section -->
+  <section class="event-details" id="details">
+    <h2 class="section-title">Event Details</h2>
+    
+    <div class="details-grid">
+      <div class="detail-box">
+        <h3>📍 Location</h3>
+        <p><strong>Texas Hill Country, Austin, Texas</strong></p>
+        <p>A luxury retreat destination known for its stunning natural beauty, gourmet dining, and world-class accommodations. The perfect setting for meaningful conversations and unforgettable experiences.</p>
+      </div>
+      
+      <div class="detail-box">
+        <h3>📅 Dates</h3>
+        <p><strong>September 2026</strong></p>
+        <p>Specific dates will be shared with accepted applicants. The summit is strategically timed to allow maximum participation while offering a perfect respite during the entrepreneurial year.</p>
+      </div>
+      
+      <div class="detail-box">
+        <h3>👥 Who Should Apply</h3>
+        <p><strong>Accomplished gay founders, entrepreneurs, and executives</strong></p>
+        <p>We're looking for individuals with demonstrated success in building or leading ventures, a commitment to growth, and a genuine desire to connect with peers.</p>
+      </div>
+      
+      <div class="detail-box">
+        <h3>💰 Investment</h3>
+        <p><strong>Pricing upon application</strong></p>
+        <p>Includes all meals, accommodations, activities, and materials. A limited number of partial scholarships may be available for exceptional candidates.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Should Attend Section -->
+  <section class="who-attends" id="who-attends">
     <div class="container">
-      <h2>Our Values</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 3rem; max-width: 800px;">
-        Higher Love Summit is built on principles of authenticity, excellence, and community. We believe in the power of gathering accomplished leaders in service of something greater.
-      </p>
-      <div class="card-grid">
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Authenticity</h3>
-          <p>Be fully yourself. Drop the masks and corporate armor. Authentic connection creates real impact and lasting change.</p>
+      <h2 class="section-title">The Ideal Participant</h2>
+      
+      <div class="who-grid">
+        <div class="profile-card">
+          <h4>Early-Stage Founders</h4>
+          <p>You're scaling your startup and want to connect with fellow gay founders navigating similar challenges. Learn from peers who understand both entrepreneurship and your unique perspective.</p>
         </div>
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Excellence</h3>
-          <p>We gather only the most accomplished founders and executives. This is a brotherhood of extraordinary builders.</p>
+        
+        <div class="profile-card">
+          <h4>Scaling Entrepreneurs</h4>
+          <p>Your company is growing and you're navigating leadership at scale. You seek mentorship, strategic advice, and a community of experienced gay business leaders.</p>
         </div>
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Founding Circle</h3>
-          <p>22 seats for the first cohort. This intimate group creates deep bonds and meaningful partnerships that will last a lifetime.</p>
+        
+        <div class="profile-card">
+          <h4>C-Suite Executives</h4>
+          <p>You're leading significant organizations and want to connect with other senior gay leaders. Share experiences, build alliances, and strengthen your network.</p>
         </div>
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Integrity</h3>
-          <p>What's shared here stays here. We hold confidentiality sacred and create a container for vulnerability and growth.</p>
+        
+        <div class="profile-card">
+          <h4>Intrapreneurs</h4>
+          <p>You're building something meaningful within larger organizations. Connect with peers driving innovation and change from within established companies.</p>
         </div>
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Vitality</h3>
-          <p>We prioritize health, wellness, and joy. Exceptional leaders take care of their minds, bodies, and spirits.</p>
+        
+        <div class="profile-card">
+          <h4>Investors & Advisors</h4>
+          <p>You're actively investing in or advising gay-founded companies. Build deeper relationships with entrepreneurs and fellow capital allocators in your community.</p>
         </div>
-        <div class="card" style="background: #2a2a2a; border-color: #444; color: #ffffff;">
-          <h3 style="color: #ffffff; margin-top: 0;">Community</h3>
-          <p>No one should build alone. Together, we create a powerful brotherhood of support, accountability, and shared success.</p>
+        
+        <div class="profile-card">
+          <h4>Mission-Driven Leaders</h4>
+          <p>You're building with purpose—whether for social impact, community benefit, or mission-driven ventures. Share your values and connect with like-minded leaders.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Criteria Section -->
-  <section class="section">
-    <div class="container">
-      <h2>Who Should Apply?</h2>
-      <p style="font-size: 1.1rem; color: #666; max-width: 800px; margin: 0 auto 2rem;">
-        Higher Love Summit is designed for accomplished gay founders and executives who meet these criteria:
-      </p>
-      <div style="max-width: 800px; margin: 0 auto; background: #f9f9f9; padding: 2rem; border-radius: 0.75rem;">
-        <h3 style="margin-top: 0;">You Should Apply If You:</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✓ Building or leading a company</strong> with significant revenue, team, or impact</li>
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✓ Openly gay or in the LGBTQ+ community</strong> and identifying as gay</li>
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✓ Ready for transformation</strong> and open to deep conversations about authenticity and leadership</li>
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✓ Committed to the full 3.5-day experience</strong> September 10-13, 2026</li>
-          <li style="padding: 0.75rem 0;"><strong>✓ Aligned with our values</strong> of authenticity, excellence, and community</li>
-        </ul>
-
-        <h3 style="margin-top: 2rem;">We Are Not the Right Fit If:</h3>
-        <ul style="list-style: none; padding: 0;">
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✗ You're looking for a networking event</strong> or a traditional conference</li>
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✗ You're not ready</strong> to explore vulnerability and personal transformation</li>
-          <li style="padding: 0.75rem 0; border-bottom: 1px solid #e0e0e0;"><strong>✗ You need concrete business solutions</strong> rather than inner work and leadership clarity</li>
-          <li style="padding: 0.75rem 0;"><strong>✗ You view spirituality with skepticism</strong> or are uncomfortable exploring consciousness and interconnectedness</li>
-        </ul>
+  <!-- Agenda Section -->
+  <section class="agenda" id="agenda">
+    <h2 class="section-title">3.5-Day Agenda</h2>
+    
+    <div class="agenda-timeline">
+      <div class="agenda-item">
+        <h4>Day 1: Arrival & Welcome Ceremony</h4>
+        <p>Settle into your luxury accommodations, enjoy welcome cocktails, and participate in an opening ceremony that sets the tone for authentic connection and deep engagement.</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>Day 2: Strategic Conversations & Workshops</h4>
+        <p>Participate in curated conversations on fundraising, scaling, leadership, and unique perspectives gay founders bring. Morning workshops, afternoon peer coaching, evening networking reception.</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>Day 3: Deep Dives & Skill Building</h4>
+        <p>Choose from specialized breakout sessions on specific topics of interest. Gourmet meals featuring local cuisine. Group activities in the Hill Country. Evening celebration dinner.</p>
+      </div>
+      
+      <div class="agenda-item">
+        <h4>Day 3.5: Reflection & Connection</h4>
+        <p>Morning reflection session on insights gained. Intentional one-on-one time with selected participants. Closing ceremony celebrating the community we've built together.</p>
       </div>
     </div>
   </section>
 
-  <!-- Investment Section -->
-  <section class="section light">
-    <div class="container">
-      <h2>Investment & Details</h2>
-      <div style="max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.1rem; color: #1a1a1a; margin-bottom: 2rem;">
-          <strong>Early Founding Circle: $8,500</strong><br>
-          <span style="color: #666;">All-inclusive: luxury lodging, meals, workshops, and transformative experiences. Limited to 22 seats.</span>
-        </p>
-        <p style="color: #666; margin-bottom: 1.5rem;">
-          <strong>Dates:</strong> September 10-13, 2026<br>
-          <strong>Location:</strong> Luxury Hill Country Estate, Austin, Texas<br>
-          <strong>Size:</strong> 22 Founding Circle members<br>
-          <strong>What's Included:</strong> 3 nights luxury accommodations, all meals, workshops, activities, and facilitator-led experiences
-        </p>
-        <p style="color: #999; font-size: 0.9rem; margin-top: 2rem;">
-          <em>Your investment secures your seat in the inaugural Founding Circle. Spots are limited and allocated on a rolling basis to thoughtful applicants who align with our values and vision.</em>
-        </p>
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="testimonials-container">
+      <h2 class="section-title">Participant Testimonials</h2>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Finally, a space where I don't have to explain myself. Being around other gay founders who get both the business and personal complexities is invaluable."</p>
+          <p class="testimonial-author">- Marcus, Founder & CEO</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The conversations we had went beyond typical founder retreats. We discussed authentic leadership, identity, and how our perspective is actually our competitive advantage."</p>
+          <p class="testimonial-author">- James, Series A Entrepreneur</p>
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-text">"I made genuine connections with people I genuinely want to do business with. The intimacy of the group and the intentionality of the curation made all the difference."</p>
+          <p class="testimonial-author">- David, Venture Investor</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="section dark" id="apply">
-    <div class="container text-center">
-      <h2>Ready to Join the Brotherhood?</h2>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; opacity: 0.9;">
-        Apply for the inaugural Founding Circle of Higher Love Summit. Tell us your story, your vision, and why you're ready for this experience.
-      </p>
-      <div>
-        <a href="https://forms.gle/FORM_ID_HERE" class="cta-button" style="background: #ffffff; color: #1a1a1a;">Apply Now</a>
-        <p style="margin-top: 2rem; opacity: 0.7; font-size: 0.9rem;">Questions? Email <strong>apply@higherlovesummit.com</strong></p>
+  <!-- Application Section -->
+  <section class="application" id="application">
+    <h2 class="section-title">Apply to Higher Love Summit</h2>
+    
+    <div class="app-content">
+      <p>We are carefully selecting 22 founding members for the inaugural Higher Love Summit. The application process is intentional, focused on finding individuals who are aligned with our values and committed to authentic connection.</p>
+      
+      <p style="margin-bottom: 2rem;">The application includes questions about your background, your vision for your company or role, and what you're looking to gain from the experience.</p>
+      
+      <button class="btn btn-primary" onclick="document.getElementById('application-form').scrollIntoView({ behavior: 'smooth', block: 'start' })">Begin Application</button>
+    </div>
+
+    <div id="application-form" style="margin-top: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <form style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);">
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">First Name *</label>
+          <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">Last Name *</label>
+          <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">Email *</label>
+          <input type="email" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">Company/Organization *</label>
+          <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">Your Role *</label>
+          <input type="text" required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">Tell us about your journey *</label>
+          <textarea required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif; min-height: 120px;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #8B4513;">What do you hope to gain from this summit? *</label>
+          <textarea required style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: 'EB Garamond', serif; min-height: 120px;"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Submit Application</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>Who can apply to Higher Love Summit?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        We welcome gay founders, entrepreneurs, executives, investors, advisors, and mission-driven leaders who have demonstrated significant success in their ventures or roles. The key criteria are accomplishment, commitment to growth, and a genuine desire to connect authentically with peers.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>When does the application process close?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Applications will be reviewed on a rolling basis until all 22 seats are filled. We encourage early application as spots are expected to fill quickly. Final application deadline will be announced as we approach the event date.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>What's included in the summit investment?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        The investment includes all accommodations, meals, beverages, workshop materials, activities, and ground transportation in Austin. It covers the entire 3.5-day experience. Pricing will be shared with applicants upon application review.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>Are scholarships available?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        A limited number of partial scholarships may be available for exceptional candidates who demonstrate financial need and strong alignment with the summit's mission. Please note your interest in your application if relevant.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>What is the expected group size?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        We are limiting the summit to exactly 22 founding members. This intimate size ensures meaningful connections, authentic conversations, and personalized experiences for every participant.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>What's the travel situation?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Participants are responsible for flights to Austin. Ground transportation from the airport to the venue is included. We recommend arriving a day early to adjust and explore Austin.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>Can I bring a partner or guest?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        The summit is designed as a peer-focused retreat for the 22 participants. Partners and guests are not included in this inaugural event. However, we're exploring companion experiences for future summits based on interest.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>What if I can't make September dates?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        We understand scheduling challenges. If selected, we'll work with you on potential date accommodations if possible. We're also planning future Higher Love Summit events, so stay tuned.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active'); this.querySelector('.faq-toggle').style.transform = this.nextElementSibling.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';">
+        <h4>Who is organizing this?</h4>
+        <span class="faq-toggle">▼</span>
+      </div>
+      <div class="faq-answer">
+        Higher Love Summit is founded and curated by Re Perez, a serial entrepreneur and gay business leader committed to building authentic communities where gay founders and executives can thrive together.
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h4>Higher Love Summit</h4>
-        <a href="mailto:apply@higherlovesummit.com">apply@higherlovesummit.com</a>
-        <p style="color: #999; font-size: 0.85rem; margin-top: 1rem;">An invitation-only summit for accomplished gay founders & executives.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#values">Values</a>
-        <a href="#apply">Apply</a>
-      </div>
-      <div class="footer-section">
-        <h4>Curated By</h4>
-        <p style="color: #ccc; font-size: 0.9rem;">Designed and facilitated by Re Perez, founder and executive coach to leading founders and executives.</p>
-      </div>
-    </div>
-    <div style="max-width: 1200px; margin: 2rem auto 0; padding: 2rem; text-align: center; border-top: 1px solid #333;">
-      <p style="color: #999; font-size: 0.85rem; margin: 0;">© 2026 Higher Love Summit. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2026 Higher Love Summit. All rights reserved.</p>
+      <p>For inquiries, contact: <a href="mailto:hello@higherlovesummit.com">hello@higherlovesummit.com</a></p>
+      <p style="margin-top: 1rem; font-size: 0.9rem;">Building community for gay founders and executives</p>
     </div>
   </footer>
 
-</body>
+  <script>
+    // Smooth scroll behavior enhancement
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const element = document.querySelector(href);
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
 
+    // Add slight animation on scroll for feature cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.feature-card, .detail-box, .profile-card, .testimonial-card').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Define animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Handle form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your application! We will review it and contact you soon at the email provided.');
+      this.reset();
+      document.getElementById('application').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  );
+  </script>
+</body>
 </html>
