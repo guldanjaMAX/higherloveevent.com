@@ -1,858 +1,1026 @@
 /* ========================================
-       RESET & BASE
-       ======================================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --black: #000000;
-      --white: #ffffff;
-      --chamoisee: #a07f56;
-      --khaki: #BCB2A6;
-      --linen: #ede3da;
-      --ebony: #5D685B;
-      --sage: #a4a082;
-      --paynes-gray: #607077;
-      --cadet-gray: #789094;
-      --russet: #915335;
-      --dark-bg: #0a0a0a;
-      --section-dark: #111111;
-    }
-
-    html { scroll-behavior: smooth; font-size: 18px; }
-
-    body {
-      font-family: 'EB Garamond', Georgia, serif;
-      color: var(--white);
-      background-color: var(--black);
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; height: auto; display: block; }
-    a { color: var(--chamoisee); text-decoration: none; transition: color 0.3s ease; }
-    a:hover { color: var(--khaki); }
-
-    /* ========================================
-       TYPOGRAPHY
-       ======================================== */
-    .eyebrow {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--chamoisee);
-      margin-bottom: 1rem;
-    }
-
-    h1, h2, h3 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 700;
-      line-height: 1.15;
-      text-transform: uppercase;
-    }
-
-    h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.04em; }
-    h2 { font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: 0.03em; }
-    h3 { font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.02em; }
-
-    .body-text {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
-      line-height: 1.8;
-      color: #CCC5BA;
-    }
-
-    .body-text-white { color: rgba(255,255,255,0.88); }
-    .text-gold { color: var(--chamoisee); }
-    .text-linen { color: var(--linen); }
-
-    /* ========================================
-       LAYOUT
-       ======================================== */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .container-wide {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section {
-      padding: 6rem 0;
-    }
-
-    .section-linen {
-      background-color: var(--linen);
-      color: var(--black);
-    }
-
-    .section-linen .body-text { color: #3a3a3a; }
-    .section-linen h2, .section-linen h3 { color: var(--black); }
-
-    .section-dark { background-color: var(--section-dark); }
-
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: var(--chamoisee);
-      margin: 2.5rem auto;
-    }
-
-    .divider-left {
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    /* ========================================
-       CTA BUTTON
-       ======================================== */
-    .cta-button {
-      display: inline-block;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 1.2rem 3rem;
-      border: 1.5px solid var(--chamoisee);
-      color: var(--chamoisee);
-      background: transparent;
-      cursor: pointer;
-      transition: all 0.4s ease;
-    }
-
-    .cta-button:hover {
-      background: var(--chamoisee);
-      color: var(--black);
-    }
-
-    .cta-button-solid {
-      background: var(--chamoisee);
-      color: var(--black);
-    }
-
-    .cta-button-solid:hover {
-      background: transparent;
-      color: var(--chamoisee);
-    }
-
-    /* ========================================
-       NAV
-       ======================================== */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 1.5rem 2rem;
-      background: rgba(0,0,0,0.92);
-      backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: padding 0.3s ease;
-    }
-
-    nav.scrolled { padding: 0.8rem 2rem; }
-
-    nav .logo img, nav .logo svg {
-      height: 40px;
-      width: auto;
-    }
-
-    nav .nav-cta {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.7rem 1.8rem;
-      border: 1px solid var(--chamoisee);
-      color: var(--chamoisee);
-      transition: all 0.3s ease;
-    }
-
-    nav .nav-cta:hover {
-      background: var(--chamoisee);
-      color: var(--black);
-    }
-
-    /* ========================================
-       HERO
-       ======================================== */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      padding-top: 70px;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background: url('images/hero-venue.jpg') center center / cover no-repeat;
-      filter: brightness(0.4);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.95) 100%);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 2rem;
-    }
-
-    .hero-logo {
-      width: 180px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .hero h1 {
-      color: var(--white);
-      margin-bottom: 1rem;
-      font-size: clamp(1.8rem, 3.8vw, 2.8rem);
-      font-weight: 500;
-      text-transform: none;
-      letter-spacing: 0.01em;
-    }
-
-    .hero .tagline {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--chamoisee);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-details {
-      font-family: 'EB Garamond', serif;
-      font-size: 1.2rem;
-      color: var(--khaki);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-details span {
-      margin: 0 0.8rem;
-      color: rgba(255,255,255,0.2);
-    }
-
-    /* ========================================
-       LETTER SECTION
-       ======================================== */
-    .letter p {
-      margin-bottom: 1.5rem;
-    }
-
-    .letter .salutation {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-style: italic;
-      color: var(--white);
-      margin-bottom: 2rem;
-    }
-
-    .letter .emphasis-line {
-      color: var(--white);
-      font-size: 1.15rem;
-      font-weight: 500;
-    }
-
-    .letter-questions {
-      margin: 2.5rem 0;
-      padding-left: 0;
-      list-style: none;
-      counter-reset: question;
-    }
-
-    .letter-questions li {
-      counter-increment: question;
-      padding: 1.2rem 0 1.2rem 0;
-      border-bottom: 1px solid rgba(160,127,86,0.15);
-      font-size: 1.15rem;
-      color: var(--linen);
-      font-style: italic;
-    }
-
-    .letter-questions li::before {
-      content: counter(question) ".";
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 700;
-      color: var(--chamoisee);
-      font-size: 1.3rem;
-      margin-right: 0.8rem;
-      font-style: normal;
-    }
-
-    /* ========================================
-       IMAGE SECTIONS
-       ======================================== */
-    .full-image-break {
-      position: relative;
-      height: 50vh;
-      min-height: 350px;
-      overflow: hidden;
-    }
-
-    .full-image-break img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .full-image-break .overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
-    }
-
-    /* ========================================
-       ABOUT RE SECTION
-       ======================================== */
-    .about-re {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .about-re-image {
-      position: relative;
-    }
-
-    .about-re-image img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .about-re-image::after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      right: -12px;
-      width: 100%;
-      height: 100%;
-      border: 1px solid var(--chamoisee);
-      z-index: -1;
-    }
-
-    /* ========================================
-       WHAT IT IS SECTION
-       ======================================== */
-    .what-it-is-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .what-it-is-card {
-      text-align: center;
-      padding: 2rem 1.5rem;
-    }
-
-    .what-it-is-card img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      opacity: 0.85;
-    }
-
-    .what-it-is-card h3 {
-      font-size: 1.1rem;
-      color: var(--chamoisee);
-      margin-bottom: 0.75rem;
-      text-transform: none;
-      letter-spacing: 0.05em;
-    }
-
-    /* ========================================
-       QUALIFICATION LIST
-       ======================================== */
-    .qual-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .qual-list li {
-      padding: 1.2rem 0;
-      border-bottom: 1px solid rgba(160,127,86,0.12);
-      font-size: 1.12rem;
-      line-height: 1.75;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-
-    .qual-list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 1.65rem;
-      width: 6px;
-      height: 6px;
-      background: var(--chamoisee);
-      border-radius: 50%;
-    }
-
-    .not-for-you .qual-list li::before {
-      background: var(--khaki);
-    }
-
-    /* ========================================
-       TESTIMONIALS
-       ======================================== */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .testimonial-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(160,127,86,0.15);
-      padding: 2.5rem;
-    }
-
-    .testimonial-card blockquote {
-      font-size: 1.12rem;
-      font-style: italic;
-      color: var(--linen);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .testimonial-author img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .testimonial-author .name {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--chamoisee);
-    }
-
-    .testimonial-author .role {
-      font-family: 'EB Garamond', serif;
-      font-size: 0.95rem;
-      color: var(--khaki);
-    }
-
-    /* ========================================
-       STAT CALLOUT
-       ======================================== */
-    .stat-callout {
-      border-left: 2px solid var(--chamoisee);
-      padding: 1.5rem 0 1.5rem 2rem;
-      margin: 2.5rem 0;
-    }
-
-    .stat-number {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--chamoisee);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-source {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      color: var(--khaki);
-      opacity: 0.6;
-      margin-top: 0.5rem;
-    }
-
-    /* ========================================
-       DAY WALKTHROUGH
-       ======================================== */
-    .day-block {
-      margin-bottom: 3rem;
-      padding-left: 0;
-    }
-
-    .day-block h3 {
-      text-transform: none;
-      font-size: 1.5rem;
-      color: var(--chamoisee);
-      margin-bottom: 0.75rem;
-    }
-
-    /* ========================================
-       VALUE STACK
-       ======================================== */
-    .value-list {
-      list-style: none;
-      padding: 0;
-      max-width: 650px;
-      margin: 2rem auto;
-      text-align: left;
-    }
-
-    .value-list li {
-      padding: 0.8rem 0 0.8rem 2rem;
-      font-family: 'EB Garamond', serif;
-      font-size: 1.12rem;
-      color: #3a3a3a;
-      line-height: 1.6;
-      position: relative;
-      border-bottom: 1px solid rgba(160,127,86,0.12);
-    }
-
-    .value-list li::before {
-      content: 'â¦';
-      position: absolute;
-      left: 0;
-      color: var(--chamoisee);
-      font-size: 0.7rem;
-      top: 1rem;
-    }
-
-    .anchor-compare {
-      max-width: 600px;
-      margin: 2.5rem auto;
-      padding: 2rem;
-      background: rgba(0,0,0,0.04);
-      text-align: left;
-    }
-
-    /* ========================================
-       INVESTMENT SECTION
-       ======================================== */
-    .investment-section {
-      text-align: center;
-    }
-
-    .investment-amount {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5rem);
-      font-weight: 700;
-      color: var(--chamoisee);
-      margin: 1.5rem 0;
-    }
-
-    /* ========================================
-       FINAL CTA
-       ======================================== */
-    .final-cta {
-      text-align: center;
-      padding: 8rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .final-cta-bg {
-      position: absolute;
-      inset: 0;
-      background: url('images/firepit-evening.jpg') center center / cover no-repeat;
-      filter: brightness(0.3);
-    }
-
-    .final-cta .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ========================================
-       FOOTER
-       ======================================== */
-    footer {
-      padding: 3rem 0;
-      text-align: center;
-      border-top: 1px solid rgba(160,127,86,0.12);
-      background: var(--black);
-    }
-
-    footer .footer-logo {
-      width: 120px;
-      margin: 0 auto 1.5rem;
-      opacity: 0.6;
-    }
-
-    footer p {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      color: var(--khaki);
-      opacity: 0.5;
-    }
-
-    /* ========================================
-       APPLICATION FORM
-       ======================================== */
-    .form-label {
-      display: block;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--chamoisee);
-      margin-bottom: 0.5rem;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 0.85rem 1rem;
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 1.05rem;
-      color: var(--white);
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(160,127,86,0.25);
-      outline: none;
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-
-    .form-input:focus {
-      border-color: var(--chamoisee);
-      background: rgba(255,255,255,0.09);
-    }
-
-    .form-input::placeholder {
-      color: rgba(188,178,166,0.4);
-      font-style: italic;
-    }
-
-    .form-input.error {
-      border-color: #c0392b;
-      background: rgba(192,57,43,0.08);
-    }
-
-    .form-error {
-      display: none;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.72rem;
-      color: #e74c3c;
-      margin-top: 0.35rem;
-      letter-spacing: 0.03em;
-    }
-
-    .form-error.visible {
-      display: block;
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-      line-height: 1.6;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .checkbox-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      cursor: pointer;
-      font-family: 'EB Garamond', Georgia, serif;
-      font-size: 1rem;
-      color: var(--linen);
-      line-height: 1.5;
-    }
-
-    .checkbox-item input[type="checkbox"] {
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      min-width: 18px;
-      border: 1px solid rgba(160,127,86,0.4);
-      background: rgba(255,255,255,0.06);
-      cursor: pointer;
-      margin-top: 3px;
-      position: relative;
-      transition: all 0.2s ease;
-    }
-
-    .checkbox-item input[type="checkbox"]:checked {
-      background: var(--chamoisee);
-      border-color: var(--chamoisee);
-    }
-
-    .checkbox-item input[type="checkbox"]:checked::after {
-      content: 'â';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--black);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
-
-    /* Tablet */
-    @media (max-width: 1024px) {
-      .about-re { gap: 3rem; }
-      .container-wide { padding: 0 1.5rem; }
-      .testimonials-grid { gap: 1.5rem; }
-    }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      html { font-size: 17px; }
-      section { padding: 3.5rem 0; }
-      .container { padding: 0 1.5rem; }
-      .container-wide { padding: 0 1.5rem; }
-
-      .about-re {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .about-re-image::after { display: none; }
-      .about-re-image img { aspect-ratio: 4/5; }
-
-      .what-it-is-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .what-it-is-card { padding: 1.5rem 1rem; }
-
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .testimonial-card { padding: 2rem 1.5rem; }
-
-      .hero { min-height: 100svh; padding-top: 60px; }
-      .hero-logo { width: 130px; margin-bottom: 1.2rem; }
-      .hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 0.8rem; }
-      .hero .body-text { font-size: 1rem !important; }
-      .hero .tagline { font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 1.2rem; }
-      .hero-details { font-size: 1rem; margin-bottom: 1.2rem; }
-      .hero-details span { display: block; margin: 0.3rem 0; color: transparent; }
-
-      .cta-button { padding: 1rem 2rem; font-size: 0.78rem; letter-spacing: 0.15em; }
-
-      nav { padding: 1rem 1.25rem; }
-      nav.scrolled { padding: 0.6rem 1.25rem; }
-      nav .logo img, nav .logo svg { height: 32px; }
-      nav .nav-cta { padding: 0.6rem 1.4rem; font-size: 0.65rem; }
-
-      .letter .salutation { font-size: 1.5rem; }
-      .letter-questions li { font-size: 1.05rem; }
-
-      .stat-callout { padding: 1.2rem 0 1.2rem 1.5rem; }
-      .stat-number { font-size: 2.2rem; }
-
-      .full-image-break { height: 35vh; min-height: 250px; }
-
-      .qual-list li { font-size: 1.05rem; padding-left: 1.3rem; }
-
-      .investment-amount { font-size: clamp(2.5rem, 10vw, 4rem); }
-      .value-list li { padding: 0.7rem 0 0.7rem 1.5rem; font-size: 1.05rem; }
-      .anchor-compare { padding: 1.5rem; margin: 2rem auto; }
-
-      #application-form { padding: 2rem 1.25rem !important; }
-      #application-form div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-      .form-label { font-size: 0.7rem; }
-      .form-input { font-size: 1rem; padding: 0.75rem 0.85rem; }
-      .checkbox-item { font-size: 0.95rem; }
-
-      .final-cta { padding: 5rem 0; }
-      .final-cta h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
-
-      .day-block h3 { font-size: 1.3rem; }
-
-      /* Fix for iOS safe area */
-      .hero { padding-bottom: env(safe-area-inset-bottom, 0px); }
-    }
-
-    /* Small phones */
-    @media (max-width: 400px) {
-      html { font-size: 16px; }
-      .container { padding: 0 1.25rem; }
-      .hero-content { padding: 1.5rem; }
-      .hero-logo { width: 130px; }
-      nav .nav-cta { padding: 0.5rem 1rem; font-size: 0.6rem; }
-      .testimonial-card { padding: 1.5rem 1.25rem; }
-      #application-form { padding: 1.5rem 1rem !important; }
-      .cta-button { padding: 0.9rem 1.5rem; }
-    }
-
-    /* Hover states only on devices that support hover */
-    @media (hover: none) {
-      .cta-button:hover { background: transparent; color: var(--chamoisee); }
-      .cta-button-solid:hover { background: var(--chamoisee); color: var(--black); }
-      nav .nav-cta:hover { background: transparent; color: var(--chamoisee); }
-    }
-
-    /* Reduce motion for accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .fade-in { opacity: 1; transform: none; transition: none; }
-      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
-    }
-
-    /* Print styles */
-    @media print {
-      nav, .cta-button, #application-form, .full-image-break, footer { display: none; }
-      body { color: #000; background: #fff; }
-      section { padding: 1rem 0; }
-      .body-text, .body-text-white { color: #333; }
-    }
-
-    /* ========================================
-       ANIMATIONS
-       ======================================== */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  
-    /* Mobile typography fixes per brand guidelines (16pt min body copy) */
-    @media (max-width: 768px) {
-      html { font-size: 16px; }
-      .body-text { font-size: 1.05rem; line-height: 1.85; }
-      .hero h1 { font-size: 1.6rem; }
-      .qual-list li { font-size: 1.05rem; }
-      .stat-callout .body-text { font-size: 1rem; }
-      .form-label { font-size: 0.78rem; }
-      .form-input { font-size: 1rem; }
-      .testimonial-card blockquote { font-size: 1.05rem; }
-      .anchor-compare .body-text { font-size: 0.95rem; }
-    }
-
-    @media (max-width: 400px) {
-      .body-text { font-size: 1rem; }
-      .hero h1 { font-size: 1.4rem; }
-    }
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --chamoisee: #a07f56;
+  --khaki: #BCB2A6;
+  --linen: #ede3da;
+  --ebony: #5D685B;
+  --sage: #a4a082;
+  --paynes-gray: #607077;
+  --cadet-gray: #789094;
+  --russet: #915335;
+  --dark-bg: #0a0a0a;
+  --section-dark: #111111;
+}
+
+html { scroll-behavior: smooth; font-size: 18px; }
+
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  color: var(--white);
+  background-color: var(--black);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--chamoisee); text-decoration: none; transition: color 0.3s ease; }
+a:hover { color: var(--khaki); }
+
+/* ========================================
+   SKIP LINK (accessibility)
+   ======================================== */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 200;
+  padding: 0.8rem 1.5rem;
+  background: var(--chamoisee);
+  color: var(--black);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border-radius: 0 0 4px 4px;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+.eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: 0.04em; }
+h2 { font-size: clamp(1.8rem, 4vw, 3rem); letter-spacing: 0.03em; }
+h3 { font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: 0.02em; }
+
+.body-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  line-height: 1.8;
+  color: #CCC5BA;
+}
+
+.body-text-white { color: rgba(255,255,255,0.88); }
+.text-gold { color: var(--chamoisee); }
+.text-linen { color: var(--linen); }
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.section-linen {
+  background-color: var(--linen);
+  color: var(--black);
+}
+
+.section-linen .body-text { color: #3a3a3a; }
+.section-linen h2, .section-linen h3 { color: var(--black); }
+
+.section-dark { background-color: var(--section-dark); }
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--chamoisee);
+  margin: 2.5rem auto;
+}
+
+.divider-left {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+/* ========================================
+   CTA BUTTON
+   ======================================== */
+.cta-button {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1.2rem 3rem;
+  border: 1.5px solid var(--chamoisee);
+  color: var(--chamoisee);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.cta-button:hover {
+  background: var(--chamoisee);
+  color: var(--black);
+}
+
+.cta-button-solid {
+  background: var(--chamoisee);
+  color: var(--black);
+}
+
+.cta-button-solid:hover {
+  background: transparent;
+  color: var(--chamoisee);
+}
+
+/* ========================================
+   NAV
+   ======================================== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.5rem 2rem;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.3s ease;
+}
+
+nav.scrolled { padding: 0.8rem 2rem; }
+
+nav .logo img,
+nav .logo svg {
+  height: 40px;
+  width: auto;
+}
+
+.nav-logo-img {
+  height: 40px;
+  width: auto;
+}
+
+nav .nav-cta {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.8rem;
+  border: 1px solid var(--chamoisee);
+  color: var(--chamoisee);
+  transition: all 0.3s ease;
+}
+
+nav .nav-cta:hover {
+  background: var(--chamoisee);
+  color: var(--black);
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding-top: 70px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('images/hero-venue.jpg') center center / cover no-repeat;
+  filter: brightness(0.4);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 60%, rgba(0,0,0,0.95) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.hero-logo {
+  width: 180px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero h1 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.01em;
+}
+
+.hero-sub {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+}
+
+.hero .tagline {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 1.5rem;
+}
+
+.hero-details {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--khaki);
+  margin-bottom: 1.5rem;
+}
+
+.hero-details span {
+  margin: 0 0.8rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ========================================
+   LETTER SECTION
+   ======================================== */
+.letter p {
+  margin-bottom: 1.5rem;
+}
+
+.letter .salutation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--white);
+  margin-bottom: 2rem;
+}
+
+.letter-emphasis {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.5;
+  margin: 2rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--chamoisee);
+}
+
+.letter-buildline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--chamoisee);
+  margin-top: 1rem;
+  line-height: 1.3;
+}
+
+/* ========================================
+   INLINE STATS
+   ======================================== */
+.stat-inline {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: 1.75;
+  color: rgba(255,255,255,0.8);
+  margin: 2.5rem 0;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+  border-left: 2px solid rgba(160,127,86,0.35);
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--chamoisee);
+}
+
+.stat-src {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--khaki);
+  opacity: 0.5;
+  margin-top: 0.6rem;
+}
+
+/* ========================================
+   IMAGE SECTIONS
+   ======================================== */
+.full-image-break {
+  position: relative;
+  height: 50vh;
+  min-height: 350px;
+  overflow: hidden;
+}
+
+.full-image-break img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.full-image-break .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.6) 100%);
+}
+
+/* ========================================
+   ABOUT RE SECTION
+   ======================================== */
+.about-re {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-re-image {
+  position: relative;
+}
+
+.about-re-image img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.about-re-image::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--chamoisee);
+  z-index: -1;
+}
+
+/* ========================================
+   EXPERIENCE GRID (visual cards)
+   ======================================== */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.experience-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(160,127,86,0.12);
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+}
+
+.experience-card:hover {
+  border-color: rgba(160,127,86,0.3);
+}
+
+.experience-card-img {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.experience-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.experience-card:hover .experience-card-img img {
+  transform: scale(1.03);
+}
+
+.experience-card-body {
+  padding: 2rem;
+}
+
+.experience-card-body h3 {
+  font-size: 1.1rem;
+  color: var(--chamoisee);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+.experience-card-body .body-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+/* ========================================
+   SHIFT QUOTE
+   ======================================== */
+.shift-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--chamoisee);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   OUTCOME GRID
+   ======================================== */
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.outcome-card {
+  padding: 2rem 1.5rem;
+  border-top: 2px solid var(--chamoisee);
+}
+
+.outcome-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--chamoisee);
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.outcome-card h3 {
+  font-size: 1.2rem;
+  text-transform: none;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.02em;
+}
+
+.outcome-card .body-text {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.outcome-source {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: var(--khaki);
+  opacity: 0.45;
+  margin-top: 0.75rem;
+}
+
+/* ========================================
+   HIGHER GRID (acronym)
+   ======================================== */
+.higher-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.higher-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(160,127,86,0.1);
+}
+
+.higher-item.last {
+  border-bottom: none;
+}
+
+.higher-letter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--chamoisee);
+  line-height: 1;
+  min-width: 32px;
+}
+
+.higher-item .body-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   VALUE STACK (Investment)
+   ======================================== */
+.value-stack {
+  max-width: 650px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.value-stack-item {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(160,127,86,0.12);
+}
+
+.value-stack-item:last-child {
+  border-bottom: none;
+}
+
+.value-stack-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--russet);
+  margin-bottom: 0.5rem;
+}
+
+.value-stack-item p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: #3a3a3a;
+}
+
+.anchor-compare {
+  max-width: 600px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: rgba(0,0,0,0.04);
+  text-align: left;
+}
+
+/* ========================================
+   INVESTMENT SECTION
+   ======================================== */
+.investment-section {
+  text-align: center;
+}
+
+.investment-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+  color: var(--chamoisee);
+  margin: 1.5rem 0;
+}
+
+/* ========================================
+   QUALIFICATION LIST
+   ======================================== */
+.qual-list {
+  list-style: none;
+  padding: 0;
+}
+
+.qual-list li {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(160,127,86,0.12);
+  font-size: 1.12rem;
+  line-height: 1.75;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.qual-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1.65rem;
+  width: 6px;
+  height: 6px;
+  background: var(--chamoisee);
+  border-radius: 50%;
+}
+
+.not-for-you .qual-list li::before {
+  background: var(--khaki);
+}
+
+/* ========================================
+   TESTIMONIALS
+   ======================================== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(160,127,86,0.15);
+  padding: 2.5rem;
+}
+
+.testimonial-card blockquote {
+  font-size: 1.12rem;
+  font-style: italic;
+  color: var(--linen);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonial-author .name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+}
+
+.testimonial-author .role {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.95rem;
+  color: var(--khaki);
+}
+
+/* ========================================
+   FINAL CTA
+   ======================================== */
+.final-cta {
+  text-align: center;
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.final-cta-bg {
+  position: absolute;
+  inset: 0;
+  background: url('images/firepit-night.jpg') center center / cover no-repeat;
+  filter: brightness(0.25);
+}
+
+.final-cta .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* ========================================
+   APPLICATION FORM
+   ======================================== */
+.application-box {
+  max-width: 640px;
+  margin: 2.5rem auto 0;
+  padding: 3rem 2.5rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(160,127,86,0.15);
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(160,127,86,0.25);
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--chamoisee);
+  background: rgba(255,255,255,0.09);
+}
+
+.form-input::placeholder {
+  color: rgba(188,178,166,0.4);
+  font-style: italic;
+}
+
+.form-input.error {
+  border-color: #c0392b;
+  background: rgba(192,57,43,0.08);
+}
+
+.form-error {
+  display: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  color: #e74c3c;
+  margin-top: 0.35rem;
+  letter-spacing: 0.03em;
+}
+
+.form-error.visible {
+  display: block;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.6;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: var(--linen);
+  line-height: 1.5;
+}
+
+.checkbox-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1px solid rgba(160,127,86,0.4);
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  margin-top: 3px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+  background: var(--chamoisee);
+  border-color: var(--chamoisee);
+}
+
+.checkbox-item input[type="checkbox"]:checked::after {
+  content: '\2713';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+footer {
+  padding: 3rem 0;
+  text-align: center;
+  border-top: 1px solid rgba(160,127,86,0.12);
+  background: var(--black);
+}
+
+footer .footer-logo {
+  width: 120px;
+  margin: 0 auto 1.5rem;
+  opacity: 0.6;
+}
+
+footer p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: var(--khaki);
+  opacity: 0.5;
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   RESPONSIVE: Tablet
+   ======================================== */
+@media (max-width: 1024px) {
+  .about-re { gap: 3rem; }
+  .container-wide { padding: 0 1.5rem; }
+  .testimonials-grid { gap: 1.5rem; }
+  .experience-grid { gap: 1.5rem; }
+  .outcome-grid { gap: 2rem; }
+  .higher-grid { gap: 1rem 2rem; }
+}
+
+/* ========================================
+   RESPONSIVE: Mobile
+   ======================================== */
+@media (max-width: 768px) {
+  html { font-size: 16px; }
+  section { padding: 3.5rem 0; }
+  .container { padding: 0 1.5rem; }
+  .container-wide { padding: 0 1.5rem; }
+
+  .body-text { font-size: 1.05rem; line-height: 1.85; }
+
+  nav { padding: 1rem 1.25rem; }
+  nav.scrolled { padding: 0.6rem 1.25rem; }
+  nav .logo img, nav .logo svg, .nav-logo-img { height: 32px; }
+  nav .nav-cta { padding: 0.6rem 1.4rem; font-size: 0.65rem; }
+
+  .hero { min-height: 100svh; padding-top: 60px; }
+  .hero-logo { width: 130px; margin-bottom: 1.2rem; }
+  .hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 0.8rem; }
+  .hero-sub { font-size: 1rem; }
+  .hero .tagline { font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 1.2rem; }
+  .hero-details { font-size: 1rem; margin-bottom: 1.2rem; }
+  .hero-details span { display: block; margin: 0.3rem 0; color: transparent; }
+  .cta-button { padding: 1rem 2rem; font-size: 0.78rem; letter-spacing: 0.15em; }
+
+  .letter .salutation { font-size: 1.5rem; }
+  .letter-emphasis { font-size: 1.2rem; padding-left: 1.2rem; }
+  .letter-buildline { font-size: 1.35rem; }
+
+  .stat-inline { padding: 1.2rem 0 1.2rem 1.2rem; }
+  .stat-num { font-size: 1.4rem; }
+
+  .full-image-break { height: 35vh; min-height: 250px; }
+
+  .about-re {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about-re-image::after { display: none; }
+  .about-re-image img { aspect-ratio: 4/5; }
+
+  .experience-grid { grid-template-columns: 1fr; }
+  .experience-card-img { height: 180px; }
+  .experience-card-body { padding: 1.5rem; }
+
+  .outcome-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .outcome-card { padding: 1.5rem 1rem; }
+
+  .higher-grid { grid-template-columns: 1fr; gap: 0.25rem; }
+  .higher-item { padding: 0.8rem 0; }
+
+  .qual-list li { font-size: 1.05rem; padding-left: 1.3rem; }
+
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .testimonial-card { padding: 2rem 1.5rem; }
+  .testimonial-card blockquote { font-size: 1.05rem; }
+
+  .investment-amount { font-size: clamp(2.5rem, 10vw, 4rem); }
+  .value-stack-item p { font-size: 1rem; }
+  .anchor-compare { padding: 1.5rem; margin: 2rem auto; }
+  .anchor-compare .body-text { font-size: 0.95rem; }
+
+  .application-box { padding: 2rem 1.25rem; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .form-label { font-size: 0.7rem; }
+  .form-input { font-size: 1rem; padding: 0.75rem 0.85rem; }
+  .checkbox-item { font-size: 0.95rem; }
+
+  .final-cta { padding: 5rem 0; }
+  .final-cta h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  .hero { padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+
+/* ========================================
+   RESPONSIVE: Small Phones
+   ======================================== */
+@media (max-width: 400px) {
+  html { font-size: 16px; }
+  .container { padding: 0 1.25rem; }
+  .hero-content { padding: 1.5rem; }
+  .hero-logo { width: 130px; }
+  .hero h1 { font-size: 1.4rem; }
+  .body-text { font-size: 1rem; }
+  nav .nav-cta { padding: 0.5rem 1rem; font-size: 0.6rem; }
+  .testimonial-card { padding: 1.5rem 1.25rem; }
+  .application-box { padding: 1.5rem 1rem; }
+  .cta-button { padding: 0.9rem 1.5rem; }
+}
+
+/* ========================================
+   HOVER: touch device overrides
+   ======================================== */
+@media (hover: none) {
+  .cta-button:hover { background: transparent; color: var(--chamoisee); }
+  .cta-button-solid:hover { background: var(--chamoisee); color: var(--black); }
+  nav .nav-cta:hover { background: transparent; color: var(--chamoisee); }
+  .experience-card:hover { border-color: rgba(160,127,86,0.12); }
+  .experience-card:hover .experience-card-img img { transform: none; }
+}
+
+/* ========================================
+   ACCESSIBILITY: Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+
+/* ========================================
+   PRINT
+   ======================================== */
+@media print {
+  nav, .cta-button, #application-form, .full-image-break, footer { display: none; }
+  body { color: #000; background: #fff; }
+  section { padding: 1rem 0; }
+  .body-text, .body-text-white { color: #333; }
+  .section-dark { background: #fff; }
+  .section-linen { background: #fff; }
+}

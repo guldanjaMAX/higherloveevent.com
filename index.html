@@ -31,13 +31,13 @@
   <meta name="twitter:image" content="https://higherlovesummit.com/images/hero-venue.jpg">
   <meta name="twitter:image:alt" content="Higher Love Summit luxury venue in the Texas Hill Country">
 
-  <!-- Structured Data: Event (JSON-LD) -->
+  <!-- Structured Data: Event -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "Higher Love Summit 2026",
-    "description": "An invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives. Deep connection, curated luxury, and whole-man growth in the Texas Hill Country.",
+    "description": "An invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives.",
     "startDate": "2026-09-01",
     "endDate": "2026-09-04",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -45,34 +45,17 @@
     "location": {
       "@type": "Place",
       "name": "Private Luxury Venue, Texas Hill Country",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Austin",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      }
+      "address": { "@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "addressCountry": "US" }
     },
     "image": "https://higherlovesummit.com/images/hero-venue.jpg",
-    "organizer": {
-      "@type": "Person",
-      "name": "Re Perez",
-      "url": "https://reperez.com"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "7500",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/LimitedAvailability",
-      "validFrom": "2025-01-01",
-      "url": "https://higherlovesummit.com/#application-form"
-    },
+    "organizer": { "@type": "Person", "name": "Re Perez", "url": "https://reperez.com" },
+    "offers": { "@type": "Offer", "price": "7500", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherlovesummit.com/#application-form" },
     "maximumAttendeeCapacity": 22,
-    "typicalAgeRange": "30-60",
     "url": "https://higherlovesummit.com/"
   }
   </script>
 
-  <!-- Structured Data: Organization (JSON-LD) -->
+  <!-- Structured Data: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,67 +63,29 @@
     "name": "Higher Love Summit",
     "url": "https://higherlovesummit.com",
     "logo": "https://higherlovesummit.com/images/logo-full-color.svg",
-    "description": "The first luxury summit built exclusively for accomplished gay founders, entrepreneurs, and executives.",
-    "founder": {
-      "@type": "Person",
-      "name": "Re Perez"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "applications@higherlovesummit.com",
-      "contactType": "event inquiries"
-    }
+    "founder": { "@type": "Person", "name": "Re Perez" },
+    "contactPoint": { "@type": "ContactPoint", "email": "applications@higherlovesummit.com", "contactType": "event inquiries" }
   }
   </script>
 
-  <!-- Structured Data: FAQPage for AI/Search visibility -->
+  <!-- Structured Data: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the Higher Love Summit?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Higher Love is an invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives. It takes place in September 2026 at a private venue in the Texas Hill Country near Austin, Texas. The experience includes morning wellness, facilitated peer advisory sessions, curated dinners, and firepit conversations designed to create the first room built specifically for high-achieving gay men."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is the Higher Love Summit for?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Higher Love is designed for accomplished gay founders, entrepreneurs, and executives who have built something real in their careers, invested in personal development, live intentionally, and are looking for a peer group that holds all of who they are without code-switching or editing. It is not a networking event or conference; it is an intimate gathering for men operating at the highest levels."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much does the Higher Love Summit cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Founding membership is $7,500, which includes the full 3.5-day immersive experience, all curated meals, morning wellness programming, facilitated peer advisory sessions, evening experiences, founding member status, and access to the ongoing private peer network. Only 22 founding seats are available."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Who is Re Perez?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Re Perez is a brand strategist, author of the bestselling book 'Your Brand Should Be Gay (Even If You're Not)', and host of the Category of One podcast. He has spent over 24 years working with founders and executives while also participating in high-level personal development and transformation communities. He created Higher Love to build the room he spent decades looking for."
-        }
-      }
+      { "@type": "Question", "name": "What is the Higher Love Summit?", "acceptedAnswer": { "@type": "Answer", "text": "Higher Love is an invite-only 3.5-day luxury summit for 22 accomplished gay founders, entrepreneurs, and executives in the Texas Hill Country near Austin, Texas." } },
+      { "@type": "Question", "name": "How much does the Higher Love Summit cost?", "acceptedAnswer": { "@type": "Answer", "text": "Founding membership is $7,500, which includes the full 3.5-day experience, all curated meals, wellness programming, peer advisory sessions, founding member status, and access to the ongoing private peer network." } },
+      { "@type": "Question", "name": "Who is Re Perez?", "acceptedAnswer": { "@type": "Answer", "text": "Re Perez is a brand strategist, bestselling author of 'Your Brand Should Be Gay (Even If You're Not)', and host of the Category of One podcast. He created Higher Love to build the room he spent decades looking for." } }
     ]
   }
   </script>
 
-  <!-- Favicon (inline SVG as data URI for now) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23a07f56' font-family='Georgia' font-size='18' font-weight='bold'%3EHL%3C/text%3E%3C/svg%3E">
   <meta name="theme-color" content="#0a0a0a">
-  <meta name="msapplication-TileColor" content="#0a0a0a">
 
-  <!-- Preconnect & Fonts -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -148,14 +93,13 @@
 </head>
 <body>
 
-  <!-- Skip to content for accessibility -->
-  <a href="#main-content" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-label="Skip to main content">Skip to content</a>
+  <a href="#main-content" class="skip-link" aria-label="Skip to main content">Skip to content</a>
 
   <!-- NAV -->
   <nav id="nav" role="navigation" aria-label="Main navigation">
     <div class="logo">
       <a href="/" aria-label="Higher Love Summit home">
-        <img src="images/logo-white.svg" alt="Higher Love Summit" width="140" height="40">
+        <img src="images/logo-1line-white.svg" alt="Higher Love Summit" class="nav-logo-img">
       </a>
     </div>
     <a href="#application-form" class="nav-cta" aria-label="Apply for a founding seat">Apply Now</a>
@@ -168,12 +112,10 @@
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <img src="images/logo-reverse.svg" alt="Higher Love" class="hero-logo">
-      <h1>Stop Being the Only Gay Man in the Room.</h1>
-      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1rem; font-size: 1.15rem;">The first summit of its kind, built exclusively for accomplished gay founders, entrepreneurs, and executives who are ready to walk into a room that was designed for every part of who they are.</p>
+      <h1>You've earned every room you've walked into.<br>This is the first one built for you.</h1>
+      <p class="hero-sub">The first summit of its kind for accomplished gay founders, entrepreneurs, and executives who are done editing themselves to fit rooms that were never designed for the whole man.</p>
       <div class="tagline">An Invite-Only Gathering &middot; 22 Founding Members</div>
-      <div class="hero-details">
-        September 2026 <span>&middot;</span> Austin, Texas
-      </div>
+      <div class="hero-details">September 2026 <span>&middot;</span> Austin, Texas</div>
       <a href="#application-form" class="cta-button">Apply for Your Seat</a>
     </div>
   </section>
@@ -184,218 +126,183 @@
       <p class="salutation">Hey, brother.</p>
       <p class="body-text body-text-white">You're here because I personally invited you, or because someone I deeply trust felt this would land.</p>
       <p class="body-text body-text-white">Let me tell you why.</p>
-      <p class="body-text body-text-white">You've built something extraordinary. A company, a career, a body of work that commands respect. You've sat in boardrooms. You've spoken on stages. You've navigated high level masterminds and business communities with brilliance and composure. And you've done it with your head held high and confidence in who you are, because you know you belong at the table.</p>
-      <p class="body-text body-text-white" style="font-size: 1.3rem; color: var(--linen);">And in almost every one of those rooms, you were the only gay man.</p>
-      <p class="body-text">Not because you were hiding. But because no one was building rooms at your level that held all of who you are.</p>
-      <p class="body-text">Think about it like this: you've been invited to a hundred extraordinary tables. Brilliant people, powerful conversations, real access. But none of those tables were set for you. You've always been a welcome guest in someone else's house, never a gay man sitting in his own.</p>
+      <p class="body-text body-text-white">You've built something extraordinary. A company, a career, a body of work that commands respect. You've sat in boardrooms and spoken on stages. You've navigated masterminds and executive communities with brilliance and composure.</p>
+
+      <p class="letter-emphasis">And in almost every one of those rooms, you were the only gay man.</p>
+
+      <p class="body-text">Not because you were hiding. Because no one was building rooms at your level that held all of who you are. You've been invited to a hundred extraordinary tables. Brilliant people, powerful conversations, real access. But none of those tables were set for you. You've always been a welcome guest in someone else's house.</p>
       <p class="body-text">So you code switched. You edited. You brought 90% of yourself and quietly managed the other 10%. You did it so well that most people never noticed.</p>
       <p class="body-text body-text-white" style="font-style: italic;">But you noticed.</p>
 
-      <div class="stat-callout">
-        <div class="stat-number">74%</div>
-        <p class="body-text" style="margin: 0;">of LGBTQ+ professionals say they code switch at work to avoid negative stereotypes. You've felt this number your entire career, even if you've never seen it.</p>
-        <p class="stat-source">LinkedIn / INvolve Pride at Work Report</p>
+      <div class="stat-inline">
+        <span class="stat-num">74%</span> of LGBTQ+ professionals say they code switch at work to avoid negative stereotypes. You've felt this number your entire career.
+        <span class="stat-src">LinkedIn / INvolve Pride at Work Report</span>
       </div>
 
-      <p class="body-text">And when you do step into gay spaces, something else is off. The rooms are either built for a different season of life, a different level of ambition, or a different kind of man. It's like being fluent in two languages, but never finding a room where you can speak both at the same time.</p>
+      <p class="body-text">And when you do step into gay spaces, the rooms are built for a different season of life, a different level of ambition, or a different kind of man. It's like being fluent in two languages but never finding a room where you can speak both at the same time.</p>
 
-      <div class="stat-callout">
-        <div class="stat-number">3 to 4x</div>
-        <p class="body-text" style="margin: 0;">Research shows that gay men experience isolation at three to four times the rate of the general population. Not because they lack community, but because the rooms built at the highest levels of business and personal development were never designed to hold all of who they are. The issue is not loneliness. The issue is access to a room that matches both your caliber and your full identity.</p>
-        <p class="stat-source">Journal of Homosexuality, 2025</p>
+      <div class="stat-inline">
+        Gay men experience isolation at <span class="stat-num">3 to 4x</span> the rate of the general population. Not because they lack community, but because the rooms built at the highest levels were never designed for who they are.
+        <span class="stat-src">Journal of Homosexuality, 2025</span>
       </div>
 
-      <p class="body-text body-text-white">Here's what those numbers add up to: the most accomplished, heart centered gay men in the world have no room that was built for them. They've climbed the first mountain, the one the world told them to climb, and they're standing at the top, successful, respected, and quietly asking: "Is this it? Or is there something I haven't been able to access because I've never been in a room where I didn't have to perform?"</p>
+      <p class="body-text body-text-white">The most accomplished, heart centered gay men in the world have no room that was built for them. They've climbed the mountain the world told them to climb and they're standing at the top asking: "Is this it? Or is there something I haven't been able to access because I've never been in a room where I didn't have to perform?"</p>
 
       <div class="divider"></div>
 
-      <p class="body-text body-text-white" style="margin-top: 2rem;">I looked for that room for over two decades.</p>
-      <p class="body-text body-text-white">I couldn't find it.</p>
-      <p class="body-text body-text-white" style="font-size:1.25rem; color: var(--chamoisee);">So I'm building it.</p>
+      <p class="body-text body-text-white">I looked for that room for over two decades. I couldn't find it.</p>
+      <p class="letter-buildline">So I'm building it.</p>
     </div>
   </section>
 
-  <!-- FULL IMAGE BREAK: DINNER -->
-  <div class="full-image-break" role="img" aria-label="A beautifully curated dinner table set for an intimate gathering">
+  <!-- DINNER IMAGE BREAK -->
+  <div class="full-image-break" role="img" aria-label="A beautifully curated dinner table">
     <img src="images/curated-dinner.jpg" alt="Candlelit long-table dinner experience at Higher Love Summit" loading="lazy">
     <div class="overlay"></div>
   </div>
 
-  
-  <!-- CULTURAL CATALYST -->
-  <section class="section-dark" style="position: relative; overflow: hidden;">
-    <div style="position: absolute; bottom: -50px; right: -50px; width: 400px; height: 400px; opacity: 0.12; pointer-events: none;">
-      <img src="images/cultural-catalyst.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <div class="container" style="text-align: center; position: relative; z-index: 1;">
-      <p class="eyebrow">A Different Kind of Man</p>
-      <h2 style="margin-bottom: 1.5rem;">We Don't Just Participate in Culture.<br>We Shape It.</h2>
-      <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 720px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">Gay men have been cultural catalysts for generations. The pioneers, the innovators, the ones who moved into overlooked spaces and turned them into movements. From underground clubs to global stages. From fringe aesthetics to mainstream fashion. From redefining masculinity to normalizing the idea that a man could care about how he shows up in the world.</p>
-      <p class="body-text" style="max-width: 720px; margin: 0 auto 1.5rem;">We learned to self-author early. Growing up different forces a kind of self-awareness that most people spend decades trying to develop. You learn to read a room. You learn to construct identity consciously. You learn to refine your presence. That muscle, built in adolescence, becomes cultural fluency in adulthood.</p>
-      <p class="body-text body-text-white" style="max-width: 720px; margin: 0 auto 1.5rem; font-size: 1.15rem;">The conversation about what it means to be a gay man has moved through three chapters. The first was about who we love. The second became about what we identify as. The third, the one Higher Love is building for, is about who we can become. As leaders. As culture-shifting icons. As men who leave a legacy not just for the world, but for the next generation of gay leaders coming behind us.</p>
-      <p class="body-text" style="max-width: 720px; margin: 0 auto 2rem; font-style: italic; color: var(--chamoisee); font-size: 1.15rem;">A gay man at his peak potential can do remarkable things. Higher Love is where that potential gets activated.</p>
-    </div>
-  </section>
-
-  <!-- YOUR HOST -->
-  <section class="section-linen" style="position: relative; overflow: hidden;">
-    <div style="position: absolute; top: 0; right: 0; width: 50%; height: 100%; opacity: 0.06; pointer-events: none;">
-      <img src="images/venue-interior.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    <div class="container-wide" style="position: relative; z-index: 1;">
+  <!-- YOUR HOST (60% shorter) -->
+  <section class="section-linen">
+    <div class="container-wide">
       <div class="about-re">
         <div class="about-re-image fade-in">
           <img src="images/re5.jpg" alt="Re Perez, founder and host of the Higher Love Summit" loading="lazy">
         </div>
         <div class="fade-in">
           <p class="eyebrow" style="color: var(--russet);">Your Host</p>
-          <h2 style="margin-bottom: 2rem;">Re Perez</h2>
+          <h2>Re Perez</h2>
 
-          <p class="body-text">My name is Re Perez. I came out in the early 1990s in New York City at nineteen years old, and honestly, I never saw myself living past 30. There were no role models of gay men living vibrant, thriving lives past 50. Now at 53, I feel like I could live another 40 years. And I've spent the last 24 years living at the intersection of two worlds.</p>
-          <p class="body-text">In one world, I'm a brand strategist with a Fortune 500 background who has spent 14 years running <em>Branding for the People</em>, transforming how founders, executives, and companies show up in the world. I created <em>Category of One</em>, a framework and podcast exploring what it means to build a brand and a life that stands alone.</p>
-
-          <div style="background: rgba(0,0,0,0.04); border-left: 3px solid var(--russet); padding: 1.8rem 2rem; margin: 2rem 0;">
-            <p class="body-text" style="margin: 0; font-weight: 500; color: var(--black);">I also wrote the book <em>Your Brand Should Be Gay (Even If You're Not)</em>, which became a bestseller on the premise that the most powerful brands in the world do exactly what gay people have always had to do: figure out who they truly are, own it completely, and show the world something authentic enough to move them.</p>
-            <p style="margin: 0.8rem 0 0; font-family: 'Raleway', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em;"><a href="https://reperez.com/book" target="_blank" rel="noopener" style="color: var(--russet);">AVAILABLE ON AMAZON &rarr;</a></p>
-          </div>
-
-          <p class="body-text">In the other world, I've spent those same 24 years inside the most powerful personal development and transformation communities on the planet. Landmark. Tony Robbins. High vibe mastermind retreats. Rooms full of people who weren't just building wealth, they were building lives of genuine depth and purpose.</p>
-          <p class="body-text">I have hosted transformational retreats, Journey For The People, REVEAL, and NOURISH, and I created the Spiritual Capitalism Mastermind. I am, by nature, a superconnector. I am masterful at curating rooms and experiences. And I have a track record of transformation, whether it's with companies I've branded, people I've coached, stages I've spoken on, retreats I've hosted, or even a single conversation that changed someone's trajectory.</p>
+          <p class="body-text">I came out in the early 1990s in New York City at nineteen. Honestly, I never saw myself living past 30. There were no role models of gay men living vibrant, thriving lives past 50. Now at 53, I feel like I could live another 40 years.</p>
+          <p class="body-text">For the last 24 years, I've lived at the intersection of two worlds. In one, I'm a brand strategist with a Fortune 500 background who has spent 14 years running <em>Branding for the People</em>. I wrote the bestseller <em>Your Brand Should Be Gay (Even If You're Not)</em> and created the <em>Category of One</em> podcast.</p>
+          <p class="body-text">In the other world, I've invested those same years inside the most powerful personal development communities on the planet. Landmark. Tony Robbins. High caliber mastermind retreats. I've hosted transformational retreats, created the Spiritual Capitalism Mastermind, and built a reputation as a superconnector who is masterful at curating rooms and experiences.</p>
           <p class="body-text" style="color: var(--black); font-weight: 500;">I loved both worlds. And in both worlds, I was almost always the only gay man in the room.</p>
-          <p class="body-text">It's like being a world class musician who has played in a hundred orchestras, but never once heard his own instrument in the arrangement. You know the music is beautiful. You just wonder what it would sound like if someone finally wrote a part for you.</p>
           <p class="body-text" style="color: var(--russet); font-style: italic; font-size: 1.15rem;">Higher Love is what happens when someone finally decides to stop waiting for that room and builds it himself.</p>
         </div>
       </div>
     </div>
-    </div>
   </section>
 
-  <!-- WHAT HIGHER LOVE IS -->
+  <!-- THE EXPERIENCE -->
   <section class="section-dark">
     <div class="container" style="text-align: center;">
       <p class="eyebrow">The Experience</p>
-      <h2 style="margin-bottom: 1.5rem;">3.5 Days That Will Change How You<br>Show Up in Every Room After</h2>
+      <h2>3.5 Days That Will Change How You<br>Show Up in Every Room After</h2>
       <div class="divider"></div>
-
-      <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; margin: 3rem 0 2rem;">
-        <span class="body-text" style="color: var(--khaki); font-style: italic;">Not a conference.</span>
-        <span class="body-text" style="color: var(--khaki); font-style: italic;">Not another mastermind.</span>
-        <span class="body-text" style="color: var(--khaki); font-style: italic;">Not a circuit party.</span>
-        <span class="body-text" style="color: var(--khaki); font-style: italic;">Not a retreat.</span>
-      </div>
-
-      <p class="body-text body-text-white" style="font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem;">A summit.</p>
-
-      <p class="body-text" style="max-width: 700px; margin: 0 auto 1.5rem;">Higher Love is a 3.5 day immersive gathering at a private luxury venue in the Texas Hill Country for 22 accomplished gay founders, entrepreneurs, and executives. Think of it as the room you would have designed yourself if someone had handed you a blank canvas, a guest list of the 21 most extraordinary gay men you've never met, and said: "Build whatever you wish existed."</p>
-
-      <p class="body-text body-text-white" style="max-width: 700px; margin: 0 auto 1.5rem;">Here is what those 3.5 days look like:</p>
+      <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">A 3.5 day immersive gathering at a private luxury venue in the Texas Hill Country for 22 accomplished gay founders, entrepreneurs, and executives. The room you would have designed yourself if someone handed you a blank canvas and a guest list of the 21 most extraordinary gay men you've never met.</p>
     </div>
 
-    <!-- Day walkthrough -->
-    <div class="container" style="text-align: left; margin-top: 3rem;">
-      <div class="day-block fade-in">
-        <h3>Morning</h3>
-        <p class="body-text">Start each day with guided wellness, meditation, breathwork, and intentional movement in an open air pavilion overlooking the Hill Country at sunrise. No performative spirituality. Just the kind of stillness that men like you rarely give themselves permission to access. Like finally exhaling a breath you didn't know you'd been holding for twenty years.</p>
-      </div>
-      <div class="day-block fade-in">
-        <h3>Midday</h3>
-        <p class="body-text">Facilitated peer sessions built around the topics that matter most to gay men operating at your level. Business strategy, legacy planning, relationship depth, health optimization, creative expression, and spiritual growth, not in silos, but woven together the way they actually exist in your life. Imagine a boardroom with the strategic rigor of your best mastermind and the emotional depth of the conversations you've only ever had at 2am with your closest friend.</p>
-      </div>
-      <!-- Peer conversation visual -->
-      <div class="full-image-break" style="height: 30vh; margin: 2rem 0;">
-        <img src="images/peer-conversation.jpg" alt="Two men in deep conversation in a warm, modern lounge" loading="lazy" style="object-position: center 40%;">
-        <div class="overlay" style="opacity: 0.15;"></div>
-      </div>
+    <div class="container-wide">
+      <div class="experience-grid">
+        <div class="experience-card fade-in">
+          <div class="experience-card-img">
+            <img src="images/morning-wellness.jpg" alt="Open-air meditation at sunrise in the Hill Country" loading="lazy">
+          </div>
+          <div class="experience-card-body">
+            <h3>Morning</h3>
+            <p class="body-text">Guided wellness, meditation, breathwork, and intentional movement in an open air pavilion at sunrise. No performative spirituality. Just the kind of stillness that men like you rarely give themselves permission to access.</p>
+          </div>
+        </div>
 
-      <div class="day-block fade-in">
-        <h3>Evening</h3>
-        <p class="body-text">Curated dinners around long tables with candlelight, exceptional food, and the kind of conversation you've been craving. The kind where you can talk about your exit strategy and your spiritual practice in the same breath and no one flinches. Where you don't have to choose which version of yourself to bring because the table was finally set for the whole man.</p>
-      </div>
-      <div class="day-block fade-in">
-        <h3>Late Night</h3>
-        <p class="body-text">Firepit conversations under the Texas stars. Guards down. The kind of hour where armor comes off and real questions surface. And when the men around you understand what it cost to build what you've built, those conversations don't just feel good. They change the trajectory of your next decade.</p>
+        <div class="experience-card fade-in">
+          <div class="experience-card-img">
+            <img src="images/peer-conversation.jpg" alt="Deep conversation in a warm, modern lounge" loading="lazy">
+          </div>
+          <div class="experience-card-body">
+            <h3>Midday</h3>
+            <p class="body-text">Facilitated peer sessions on the topics that matter most to gay men at your level. Business strategy, legacy, relationships, health, creative expression, and spiritual growth. Imagine a boardroom with the rigor of your best mastermind and the emotional depth of your closest friendship.</p>
+          </div>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-card-img">
+            <img src="images/curated-dinner.jpg" alt="Candlelit long-table dinner" loading="lazy">
+          </div>
+          <div class="experience-card-body">
+            <h3>Evening</h3>
+            <p class="body-text">Curated dinners around long tables with candlelight, exceptional food, and the kind of conversation you've been craving. Where you can talk about your exit strategy and your spiritual practice in the same breath and no one flinches.</p>
+          </div>
+        </div>
+
+        <div class="experience-card fade-in">
+          <div class="experience-card-img">
+            <img src="images/firepit-night.jpg" alt="Firepit under the Texas night sky" loading="lazy">
+          </div>
+          <div class="experience-card-body">
+            <h3>Late Night</h3>
+            <p class="body-text">Firepit conversations under the Texas stars. Guards down, armor off, real questions surfacing. When the men around you understand what it cost to build what you've built, those conversations change the trajectory of your next decade.</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="container" style="margin-top: 3rem; text-align: center;">
-      <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto; font-style: italic; font-size: 1.15rem; color: var(--chamoisee);">By the third morning, something will have shifted. You will not be able to name it yet. But you will notice that you stopped editing yourself sometime on day two, and it did not cost you anything. In fact, it gave you something back that you forgot you had.</p>
+      <p class="shift-quote">By the third morning, something will have shifted. You won't be able to name it yet. But you'll notice that you stopped editing yourself sometime on day two, and it didn't cost you anything. In fact, it gave you something back that you forgot you had.</p>
     </div>
+  </section>
 
-    <!-- Wellness image break within section -->
-    <div class="full-image-break" style="height: 35vh; margin-top: 3rem;">
-      <img src="images/morning-wellness.jpg" alt="Open-air meditation pavilion with cushions overlooking the Texas Hill Country at sunrise" loading="lazy" style="object-position: center 40%;">
-      <div class="overlay"></div>
-    </div>
-
-    <!-- What you walk away with -->
-    <div class="container" style="margin-top: 4rem;">
+  <!-- WHAT YOU WALK AWAY WITH -->
+  <section>
+    <div class="container">
+      <p class="eyebrow" style="text-align: center;">What You Walk Away With</p>
+      <h2 style="text-align: center; margin-bottom: 2rem;">The Room That Never Closes</h2>
       <div class="divider"></div>
-      <p class="eyebrow" style="text-align: center; margin-top: 2.5rem;">What You Walk Away With</p>
 
-      <div class="stat-callout" style="border-color: var(--khaki);">
-        <p class="body-text body-text-white" style="margin: 0; font-size: 1.1rem;">A peer advisory network of 21 men who operate at your level and share your experience of the world.</p>
-        <p class="body-text" style="margin: 1rem 0 0;">Research shows that CEOs in peer groups outperform their competitors by 2.5% to 5% annually, and committing goals to a peer group improves your likelihood of achieving them by 65%. Now imagine a peer group where you don't have to leave any part of yourself at the door.</p>
-        <p class="stat-source">Dun & Bradstreet / Vistage &middot; Association for Talent Development</p>
-      </div>
-
-      <p class="body-text body-text-white" style="margin: 2rem 0;">A recalibration of what is possible when you stop performing and start showing up as the full version of yourself. Most of the men in this room have spent decades being excellent in spaces that required them to leave something behind. Higher Love is where you bring everything.</p>
-
-      <p class="body-text" style="margin: 2rem 0;">Relationships that don't expire when the event ends. The 22 founding members of Higher Love become the foundation of something that grows far beyond September 2026. You're not attending an event. You're joining a founding circle.</p>
-    </div>
-
-    <!-- Experience cards -->
-    <div class="container-wide">
-      <div class="what-it-is-grid" style="margin-top: 4rem;">
-        <div class="what-it-is-card fade-in" style="border: 1px solid rgba(160,127,86,0.15); padding: 2.5rem 2rem;">
-          <h3>Deep Connection</h3>
-          <p class="body-text" style="font-size: 0.95rem;">Peer level intellectual challenge from gay men who have built what you've built and hold your full identity without agenda.</p>
+      <div class="outcome-grid">
+        <div class="outcome-card fade-in">
+          <div class="outcome-number">01</div>
+          <h3>A Peer Advisory Network</h3>
+          <p class="body-text">21 men who operate at your level and share your experience of the world. Research shows CEOs in peer groups outperform competitors by 2.5% to 5% annually, and committing goals to a peer group improves achievement by 65%. Now imagine a peer group where you don't have to leave any part of yourself at the door.</p>
+          <span class="outcome-source">Dun & Bradstreet / Vistage &middot; Association for Talent Development</span>
         </div>
-        <div class="what-it-is-card fade-in" style="border: 1px solid rgba(160,127,86,0.15); padding: 2.5rem 2rem;">
+
+        <div class="outcome-card fade-in">
+          <div class="outcome-number">02</div>
+          <h3>A Recalibration</h3>
+          <p class="body-text">Of what is possible when you stop performing and start showing up as the full version of yourself. Most of the men in this room have spent decades being excellent in spaces that required them to leave something behind. Higher Love is where you bring everything.</p>
+        </div>
+
+        <div class="outcome-card fade-in">
+          <div class="outcome-number">03</div>
           <h3>A Founding Circle</h3>
-          <p class="body-text" style="font-size: 0.95rem;">You are not attending an event. You are joining a founding circle of 22 gay men who will shape what Higher Love becomes.</p>
-        </div>
-        <div class="what-it-is-card fade-in" style="border: 1px solid rgba(160,127,86,0.15); padding: 2.5rem 2rem;">
-          <h3>Whole-Man Growth</h3>
-          <p class="body-text" style="font-size: 0.95rem;">Business, health, spirituality, relationships, and legacy, not in silos, but woven together as one integrated conversation.</p>
+          <p class="body-text">Relationships that don't expire when the event ends. The 22 founding members become the foundation of something that grows far beyond September 2026. You're not attending an event. You're joining a founding circle.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FIREPIT UNDER THE STARS -->
-  <div class="full-image-break" style="height: 40vh;">
-    <img src="images/firepit-night.jpg" alt="Men gathered around a stone fire pit under the Texas night sky" loading="lazy" style="object-position: center 50%;">
+  <!-- BROTHERHOOD WALK -->
+  <div class="full-image-break" style="height: 45vh;">
+    <img src="images/men-walking.jpg" alt="Men walking together on a Hill Country path at golden hour" loading="lazy" style="object-position: center 55%;">
     <div class="overlay"></div>
   </div>
 
-  <!-- BROTHERHOOD WALK -->
-  <div class="full-image-break" style="height: 40vh;">
-    <img src="images/men-walking.jpg" alt="Four men walking together on a Hill Country path at golden hour" loading="lazy" style="object-position: center 55%;">
-    <div class="overlay"></div>
-  </div>
+  <!-- SIX MONTHS LATER -->
+  <section class="section-dark" style="padding: 5rem 0;">
+    <div class="container" style="text-align: center;">
+      <p class="eyebrow">Six Months Later</p>
+      <div class="divider" style="margin: 1.5rem auto 2.5rem;"></div>
+      <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">Your phone buzzes with a text from one of the 21 men you shared that room with. It's about a business challenge, a relationship question, or an idea too big to share with anyone who doesn't know the full story.</p>
+      <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">You respond without editing.</p>
+      <p class="body-text" style="max-width: 650px; margin: 0 auto; font-style: italic; color: var(--chamoisee); font-size: 1.15rem;">And in that moment you understand what you actually invested in: not a summit, but a room that never closes.</p>
+    </div>
+  </section>
 
   <!-- IS THIS YOUR ROOM? -->
   <section>
     <div class="container">
       <p class="eyebrow">Qualifying</p>
       <h2 style="margin-bottom: 1rem;">Is This Your Room?</h2>
-      <p class="body-text" style="margin-bottom: 0.5rem; font-style: italic;">This is not for the gay man who is still figuring out who he is.</p>
-      <p class="body-text body-text-white" style="margin-bottom: 1.5rem;">This is for the man who knows, and is ready to stop apologizing for it with his presence.</p>
-      <p class="body-text" style="margin-bottom: 3rem;">This is also for the man who believes that we can set the standard for future gay men. Future gay leaders. The ones coming behind us who deserve to inherit a different story than the one we were given.</p>
+      <p class="body-text body-text-white" style="margin-bottom: 2.5rem;">This is not for the man still figuring out who he is. This is for the man who knows and is ready to stop apologizing for it with his presence.</p>
 
       <p class="eyebrow">This room was built for you if</p>
-
       <ul class="qual-list body-text">
-        <li>You're a gay founder, entrepreneur, or executive who has built something extraordinary, a business, a career, a body of work that reflects who you actually are.</li>
-        <li>You've done the inner work. Landmark. Tony Robbins. Joe Dispenza. Therapy. You've sat with your shadows. You've done the programs, read the books, attended the seminars, and you know that the next layer isn't something you can access alone.</li>
-        <li>You're spiritually curious without being performative about it. You're drawn to consciousness, human design, plant medicine, the bigger questions, but you get quietly frustrated by the spiritual community's tendency toward surface and spiritual bypassing.</li>
+        <li>You're a gay founder, entrepreneur, or executive who has built something extraordinary that reflects who you actually are.</li>
+        <li>You've done the inner work. Landmark, Tony Robbins, Joe Dispenza, therapy. You know the next layer isn't something you can access alone.</li>
+        <li>You're spiritually curious without being performative about it. Drawn to consciousness and the bigger questions, but frustrated by surface level spiritual bypassing.</li>
         <li>You're into health and your body. Fitness, optimization, maybe biohacking. The instrument matters to you.</li>
-        <li>You live an intentional life. Your calendar reflects your values, not just your obligations. Who you spend time with is a deliberate choice.</li>
-        <li>You get bored by surface conversation. You are not interested in what the weather is like. You want the conversation that shifts something.</li>
-        <li>You love business but you're building from a different place now, from joy, from purpose, from mission, or you're actively seeking how to make that transition.</li>
-        <li>At times, you don't feel like you fully fit in gay culture. You've always found yourself in rooms that were mostly not gay, not out of shame, but because those were the rooms being built at the level you were operating.</li>
-        <li>Even though you're in your 40s, 50s, maybe early 60s, you still have a lot of life in you. You're on your second or third or fourth mountain. Life is happening through you, not to you.</li>
+        <li>You live an intentional life. Your calendar reflects your values. Who you spend time with is a deliberate choice.</li>
+        <li>You love business but you're building from a different place now. From joy, from purpose, from mission.</li>
+        <li>Even though you're in your 40s, 50s, maybe early 60s, you still have a lot of life in you. You're on your second or third mountain.</li>
         <li style="color: var(--chamoisee); font-weight: 500;">You are ready, genuinely ready, to be in a room where you are not the only one.</li>
       </ul>
     </div>
@@ -407,10 +314,9 @@
       <p class="eyebrow" style="color: var(--khaki);">Equally Important</p>
       <h3 style="margin-bottom: 2rem; color: var(--khaki);">This room is not for you if</h3>
       <ul class="qual-list body-text">
-        <li>You're coming to network, pitch, or grow your contact list. This room was not designed for surface level exchange.</li>
-        <li>You want the credential without the depth, the presence in the room without the willingness to be present inside it.</li>
-        <li>You're not willing to go deep. Not willing to have vulnerable, uncomfortable conversations.</li>
-        <li>You're not willing to show up fully present.</li>
+        <li>You're coming to network, pitch, or grow your contact list.</li>
+        <li>You want the credential without the depth.</li>
+        <li>You're not willing to have vulnerable, uncomfortable conversations.</li>
         <li>You are not yet ready to let the performance go, even for three and a half days.</li>
       </ul>
     </div>
@@ -423,67 +329,41 @@
         <p class="eyebrow">What Leaders Say About Re</p>
         <h2>In Good Company</h2>
       </div>
-
       <div class="testimonials-grid">
         <div class="testimonial-card fade-in">
           <blockquote>"The 8-figure companies that grow every year has everything to do with branding. Re has helped many of my friends build powerhouse brands."</blockquote>
           <div class="testimonial-author">
             <img src="images/michael-lovitch.jpg" alt="Michael Lovitch" loading="lazy" width="48" height="48">
-            <div>
-              <div class="name">Michael Lovitch</div>
-              <div class="role">Co-Founder, Baby Bathwater Institute</div>
-            </div>
+            <div><div class="name">Michael Lovitch</div><div class="role">Co-Founder, Baby Bathwater Institute</div></div>
           </div>
         </div>
         <div class="testimonial-card fade-in">
           <blockquote>"When it comes to branding and authenticity, there's no one I know who exudes more brilliance in both than Re Perez."</blockquote>
           <div class="testimonial-author">
             <img src="images/ryan-deiss.jpg" alt="Ryan Deiss" loading="lazy" width="48" height="48">
-            <div>
-              <div class="name">Ryan Deiss</div>
-              <div class="role">Co-Founder, Digital Marketer</div>
-            </div>
+            <div><div class="name">Ryan Deiss</div><div class="role">Co-Founder, Digital Marketer</div></div>
           </div>
         </div>
         <div class="testimonial-card fade-in">
           <blockquote>"Re Perez's intuition and creative flare are unmatched. He's one of the most thought-provoking, caring, genuine people I've met."</blockquote>
           <div class="testimonial-author">
             <img src="images/drew-cameron.jpg" alt="Drew Cameron" loading="lazy" width="48" height="48">
-            <div>
-              <div class="name">Drew Cameron</div>
-              <div class="role">CEO, Flow Odyssey</div>
-            </div>
+            <div><div class="name">Drew Cameron</div><div class="role">CEO, Flow Odyssey</div></div>
           </div>
         </div>
         <div class="testimonial-card fade-in">
           <blockquote>"Re Perez is my go-to oracle when it comes to branding, communications, and business strategy. He has been fundamental in helping me transform multiple companies."</blockquote>
           <div class="testimonial-author">
             <img src="images/brent-weaver.jpg" alt="Brent Weaver" loading="lazy" width="48" height="48">
-            <div>
-              <div class="name">Brent Weaver</div>
-              <div class="role">CEO, E2M Solutions</div>
-            </div>
+            <div><div class="name">Brent Weaver</div><div class="role">CEO, E2M Solutions</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SIX MONTHS LATER (Future Pacing) -->
-  <section class="section-dark" style="padding: 5rem 0;">
-    <div class="container" style="text-align: center;">
-      <p class="eyebrow">Six Months Later</p>
-      <div class="divider" style="margin: 1.5rem auto 2.5rem;"></div>
-      <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">Your phone will buzz with a text from one of the 21 men you shared that room with. It will be about a business challenge, or a relationship question, or an idea that is too big to share with anyone who does not know the full story.</p>
-      <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">You will respond without editing.</p>
-      <p class="body-text" style="max-width: 650px; margin: 0 auto 1.5rem; font-style: italic;">And in that moment you will understand what you actually invested in: not a summit, but a room that never closes.</p>
-      <p class="body-text" style="max-width: 650px; margin: 0 auto; font-size: 0.95rem; color: var(--khaki);">The summit is the beginning. What comes after, the Higher Love Brotherhood, will be shaped by the 22 men who were in the room when it started.</p>
-    </div>
-  </section>
-
-  
   <!-- WHAT HIGHER MEANS -->
-  <section class="section-dark" style="padding: 5rem 0; position: relative;">
+  <section class="section-dark" style="position: relative;">
     <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 200px; opacity: 0.15; pointer-events: none;">
       <img src="images/flame-higher.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; mask-image: radial-gradient(circle, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);">
     </div>
@@ -491,36 +371,15 @@
       <p class="eyebrow">Why Higher Love</p>
       <h2 style="margin-bottom: 1.5rem;">What It Means to Live Higher</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 650px; margin: 2rem auto 3rem;">The name is not accidental. Each letter in HIGHER represents a commitment that every man in this room shares.</p>
-
-      <div style="max-width: 600px; margin: 0 auto; text-align: left;">
-        <div style="padding: 1.2rem 0; border-bottom: 1px solid rgba(160,127,86,0.15);">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">H</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We lead from the <strong style="color: var(--linen);">Heart</strong>, not from ego or performance.</span>
-        </div>
-        <div style="padding: 1.2rem 0; border-bottom: 1px solid rgba(160,127,86,0.15);">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">I</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We are people who <strong style="color: var(--linen);">Inspire</strong> others by how we live, not just what we've built.</span>
-        </div>
-        <div style="padding: 1.2rem 0; border-bottom: 1px solid rgba(160,127,86,0.15);">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">G</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We are <strong style="color: var(--linen);">Generous</strong> givers of time, wisdom, and presence.</span>
-        </div>
-        <div style="padding: 1.2rem 0; border-bottom: 1px solid rgba(160,127,86,0.15);">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">H</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We are <strong style="color: var(--linen);">Healthy</strong> in mind, body, and spirit.</span>
-        </div>
-        <div style="padding: 1.2rem 0; border-bottom: 1px solid rgba(160,127,86,0.15);">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">E</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We <strong style="color: var(--linen);">Elevate</strong> every room we walk into.</span>
-        </div>
-        <div style="padding: 1.2rem 0;">
-          <span style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--chamoisee); margin-right: 1rem;">R</span>
-          <span class="body-text body-text-white" style="font-size: 1.1rem;">We live <strong style="color: var(--linen);">Richly</strong>, in purpose, in depth, and in legacy.</span>
-        </div>
+      <p class="body-text body-text-white" style="max-width: 650px; margin: 2rem auto 3rem;">Each letter in HIGHER represents a commitment that every man in this room shares.</p>
+      <div class="higher-grid">
+        <div class="higher-item"><span class="higher-letter">H</span><span class="body-text body-text-white">We lead from the <strong class="text-linen">Heart</strong>, not from ego or performance.</span></div>
+        <div class="higher-item"><span class="higher-letter">I</span><span class="body-text body-text-white">We <strong class="text-linen">Inspire</strong> others by how we live, not just what we've built.</span></div>
+        <div class="higher-item"><span class="higher-letter">G</span><span class="body-text body-text-white">We are <strong class="text-linen">Generous</strong> givers of time, wisdom, and presence.</span></div>
+        <div class="higher-item"><span class="higher-letter">H</span><span class="body-text body-text-white">We are <strong class="text-linen">Healthy</strong> in mind, body, and spirit.</span></div>
+        <div class="higher-item"><span class="higher-letter">E</span><span class="body-text body-text-white">We <strong class="text-linen">Elevate</strong> every room we walk into.</span></div>
+        <div class="higher-item last"><span class="higher-letter">R</span><span class="body-text body-text-white">We live <strong class="text-linen">Richly</strong>, in purpose, in depth, and in legacy.</span></div>
       </div>
-
-      <p class="body-text" style="max-width: 600px; margin: 3rem auto 0; font-style: italic;">This is not a code of conduct handed to you. It is a shared language that the founding 22 will shape together.</p>
     </div>
   </section>
 
@@ -530,23 +389,25 @@
       <p class="eyebrow" style="color: var(--russet);">The Investment</p>
       <h2 style="color: var(--black);">Your Founding Seat</h2>
       <div class="investment-amount">$7,500</div>
+      <p class="body-text" style="max-width: 650px; margin: 0 auto 2rem; text-align: center; font-size: 0.95rem; color: #666;">Payment plans available: 3 monthly payments of $2,500</p>
 
-      <p class="body-text" style="max-width: 650px; margin: 0 auto 0.5rem; text-align: center; font-weight: 500; color: var(--black);">Here is what your founding summit seat includes:</p>
-      <p class="body-text" style="max-width: 650px; margin: 0 auto 1rem; text-align: center; font-size: 0.95rem; color: #666;">Payment plans available: 3 monthly payments of $2,500</p>
-
-      <ul class="value-list">
-        <li>The full 3.5 day immersive summit experience at a private luxury Hill Country venue</li>
-        <li>All curated meals, from chef prepared dinners to working breakfasts</li>
-        <li>Morning wellness programming including guided meditation, breathwork, and movement</li>
-        <li>Facilitated peer advisory sessions with 21 other accomplished gay founders and executives</li>
-        <li>Evening experiences including curated dinners, firepit conversations, and unstructured connection</li>
-        <li>Founding member status in the Higher Love community, with priority access to all future gatherings</li>
-        <li>A private peer network that continues long after the summit ends</li>
-      </ul>
+      <div class="value-stack">
+        <div class="value-stack-item">
+          <div class="value-stack-label">The Summit</div>
+          <p>3.5 days at a private luxury Hill Country venue with all curated meals, morning wellness, facilitated peer sessions, evening experiences, and firepit conversations.</p>
+        </div>
+        <div class="value-stack-item">
+          <div class="value-stack-label">The Network</div>
+          <p>A peer advisory circle of 21 accomplished gay founders and executives that continues beyond September 2026. Priority access to all future Higher Love gatherings.</p>
+        </div>
+        <div class="value-stack-item">
+          <div class="value-stack-label">The Status</div>
+          <p>Founding member status in the Higher Love community. The 22 men who take these seats shape what this becomes.</p>
+        </div>
+      </div>
 
       <div class="anchor-compare">
-        <p class="body-text" style="margin: 0; font-size: 1rem;">To put this in perspective: most high caliber mastermind memberships for executives start at $25,000 to $50,000 per year. A single night at a luxury Hill Country retreat runs $800 to $1,500. A private facilitated retreat weekend with a curator of Re Perez's caliber is $5,000 to $10,000.</p>
-        <p class="body-text" style="margin: 1rem 0 0; font-size: 1rem; color: var(--black); font-weight: 500;">Higher Love is not competing with any of those. It is something that has never existed before. And the 22 men who take their founding seats will be the ones who shape what it becomes.</p>
+        <p class="body-text" style="margin: 0; font-size: 1rem;">For perspective: most executive mastermind memberships start at $25,000 to $50,000 per year. A private facilitated retreat with a curator of Re's caliber is $5,000 to $10,000. Higher Love is not competing with any of those. It is something that has never existed before.</p>
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
@@ -562,18 +423,17 @@
       <h2 style="margin-bottom: 1.5rem;">This Room Won't Wait.</h2>
       <div class="divider"></div>
       <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center; font-size: 1.1rem;">22 founding seats. Not 23. Not "we'll add more if there's demand."</p>
-      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who take these founding seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man, as a founding member of something that will outlast the weekend.</p>
-      <p class="body-text" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">If everything on this page landed the way I think it did, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
-      <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center; font-size: 0.95rem; color: var(--khaki);">Know someone who belongs in this room? You can also nominate a gay founder, entrepreneur, or executive you believe would be an extraordinary fit. Send their name and a brief introduction to <a href="mailto:applications@higherlovesummit.com" style="color: var(--chamoisee);">applications@higherlovesummit.com</a>.</p>
+      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who take these seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man.</p>
+      <p class="body-text" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">If everything on this page landed, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
+      <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center; font-size: 0.95rem; color: var(--khaki);">Know someone who belongs in this room? Send their name and a brief introduction to <a href="mailto:applications@higherlovesummit.com" style="color: var(--chamoisee);">applications@higherlovesummit.com</a>.</p>
 
       <!-- APPLICATION FORM -->
-      <div id="application-form" style="max-width: 600px; margin: 0 auto; background: rgba(10,10,10,0.92); border: 1px solid rgba(160,127,86,0.3); padding: 3rem 2.5rem; backdrop-filter: blur(16px);">
+      <div id="application-form" class="application-box">
         <p class="eyebrow" style="text-align: center; margin-bottom: 0.5rem;">Founding Member Application</p>
         <p class="body-text" style="text-align: center; font-size: 0.95rem; margin-bottom: 2.5rem; color: var(--khaki);">This takes about 2 minutes. Your answers help Re Perez prepare for a meaningful conversation.</p>
 
         <form id="hl-application" onsubmit="handleSubmit(event)" aria-label="Higher Love Summit founding member application">
-          <!-- Name -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="form-row-2">
             <div>
               <label class="form-label">First Name *</label>
               <input type="text" name="first_name" required class="form-input" placeholder="First name">
@@ -585,84 +445,49 @@
               <span class="form-error" data-for="last_name">Please enter your last name</span>
             </div>
           </div>
-
-          <!-- Email -->
-          <div style="margin-bottom: 1.5rem;">
+          <div class="form-group">
             <label class="form-label">Email *</label>
             <input type="email" name="email" required class="form-input" placeholder="your@email.com">
             <span class="form-error" data-for="email">Please enter a valid email address</span>
           </div>
-
-          <!-- Referral -->
-          <div style="margin-bottom: 1.5rem;">
+          <div class="form-group">
             <label class="form-label">Who referred you to Higher Love?</label>
             <input type="text" name="referral" class="form-input" placeholder="Name of the person who shared this with you">
           </div>
-
-          <!-- What they do -->
-          <div style="margin-bottom: 1.5rem;">
+          <div class="form-group">
             <label class="form-label">What do you do? *</label>
             <input type="text" name="role" required class="form-input" placeholder="e.g. Founder of Acme Co, VP Marketing at XYZ">
             <span class="form-error" data-for="role">Please tell us what you do</span>
           </div>
-
-          <!-- LinkedIn (optional, helps Re research) -->
-          <div style="margin-bottom: 2rem;">
+          <div class="form-group" style="margin-bottom: 2rem;">
             <label class="form-label">LinkedIn Profile <span style="opacity: 0.5;">(optional)</span></label>
             <input type="url" name="linkedin" class="form-input" placeholder="https://linkedin.com/in/yourprofile">
           </div>
-
-          <!-- Resonance checkboxes -->
-          <div style="margin-bottom: 2rem;">
+          <div class="form-group" style="margin-bottom: 2rem;">
             <label class="form-label" style="margin-bottom: 1rem;">Which of these resonate with you? <span style="opacity: 0.5;">(check all that apply)</span></label>
             <div class="checkbox-group">
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="only_one">
-                <span>I've often been the only gay man in the professional or personal development rooms I'm in</span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="code_switch">
-                <span>I've code switched or edited parts of myself in business or mastermind contexts</span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="inner_work">
-                <span>I've invested significantly in personal development, therapy, coaching, or transformational experiences</span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="gay_spaces">
-                <span>I've struggled to find gay spaces that match my level of ambition or depth</span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="peer_group">
-                <span>I'm looking for a peer group that holds all of who I am, not just my professional identity</span>
-              </label>
-              <label class="checkbox-item">
-                <input type="checkbox" name="resonance" value="next_chapter">
-                <span>I'm in a season of life where I'm building from purpose, not just achievement</span>
-              </label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="only_one"><span>I've often been the only gay man in the professional or personal development rooms I'm in</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="code_switch"><span>I've code switched or edited parts of myself in business or mastermind contexts</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="inner_work"><span>I've invested significantly in personal development, therapy, coaching, or transformational experiences</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="gay_spaces"><span>I've struggled to find gay spaces that match my level of ambition or depth</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="peer_group"><span>I'm looking for a peer group that holds all of who I am</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="resonance" value="next_chapter"><span>I'm in a season of life where I'm building from purpose, not just achievement</span></label>
             </div>
           </div>
-
-          <!-- What would this mean -->
-          <div style="margin-bottom: 2rem;">
+          <div class="form-group" style="margin-bottom: 2rem;">
             <label class="form-label">What would being in a room like this mean for you right now? *</label>
             <textarea name="meaning" required class="form-input form-textarea" placeholder="There's no right answer here. Just tell Re what's on your mind." rows="4"></textarea>
             <span class="form-error" data-for="meaning">Please share what this room would mean for you</span>
           </div>
-
-          <!-- Anything else -->
-          <div style="margin-bottom: 2.5rem;">
+          <div class="form-group" style="margin-bottom: 2.5rem;">
             <label class="form-label">Anything else Re Perez should know before your call? <span style="opacity: 0.5;">(optional)</span></label>
-            <textarea name="additional" class="form-input form-textarea" placeholder="" rows="3"></textarea>
+            <textarea name="additional" class="form-input form-textarea" rows="3"></textarea>
           </div>
-
-          <!-- Submit -->
           <div style="text-align: center;">
             <button type="submit" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem; cursor: pointer; border: 1.5px solid var(--chamoisee); width: 100%; max-width: 400px;">Submit & Book Your Call With Re Perez</button>
           </div>
         </form>
 
-        <!-- Success state (hidden by default) -->
         <div id="form-success" style="display: none; text-align: center; padding: 2rem 0;">
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--chamoisee); margin-bottom: 1rem;">Thank you.</p>
           <p class="body-text body-text-white" style="margin-bottom: 1.5rem;">Your application has been received. A booking page should have opened in a new tab.</p>
@@ -685,8 +510,6 @@
     <p style="margin-top: 0.8rem;"><a href="mailto:applications@higherlovesummit.com" style="color: var(--khaki); opacity: 0.5; font-size: 0.72rem;">applications@higherlovesummit.com</a></p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script src="script.js"></script>
-
 </body>
 </html>
