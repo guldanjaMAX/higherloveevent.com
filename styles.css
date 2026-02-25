@@ -532,7 +532,7 @@
     }
 
     .value-list li::before {
-      content: 'â¦';
+      content: 'â¦';
       position: absolute;
       left: 0;
       color: var(--chamoisee);
@@ -705,7 +705,7 @@
     }
 
     .checkbox-item input[type="checkbox"]:checked::after {
-      content: 'â';
+      content: 'â';
       position: absolute;
       top: 50%;
       left: 50%;
