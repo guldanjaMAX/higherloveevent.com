@@ -137,11 +137,11 @@ section {
 .cta-button {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 1.3rem 3.2rem;
+  padding: 1.1rem 2.8rem;
   border: 1.5px solid var(--chamoisee);
   color: var(--chamoisee);
   background: transparent;
@@ -173,7 +173,7 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1.5rem 2rem;
+  padding: 0.7rem 2rem;
   background: rgba(0,0,0,0.92);
   backdrop-filter: blur(12px);
   display: flex;
@@ -182,26 +182,41 @@ nav {
   transition: padding 0.3s ease;
 }
 
-nav.scrolled { padding: 0.8rem 2rem; }
+nav.scrolled { padding: 0.55rem 2rem; }
 
 nav .logo img,
 nav .logo svg {
-  height: 40px;
+  height: 28px;
   width: auto;
 }
 
 .nav-logo-img {
-  height: 40px;
+  height: 28px;
   width: auto;
+}
+
+.nav-logo-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-logo-text:hover {
+  color: var(--linen);
 }
 
 nav .nav-cta {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  padding: 0.8rem 2rem;
+  padding: 0.55rem 1.6rem;
   border: 1px solid var(--chamoisee);
   color: var(--chamoisee);
   transition: all 0.3s ease;
@@ -217,13 +232,14 @@ nav .nav-cta:hover {
    ======================================== */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  padding-top: 70px;
+  padding-top: 40px;
 }
 
 .hero-bg {
@@ -243,7 +259,7 @@ nav .nav-cta:hover {
   position: relative;
   z-index: 2;
   max-width: 800px;
-  padding: 2rem;
+  padding: 1rem 2rem;
 }
 
 .hero-logo {
@@ -253,8 +269,8 @@ nav .nav-cta:hover {
 
 .hero h1 {
   color: var(--white);
-  margin-bottom: 1rem;
-  font-size: clamp(1.8rem, 3.8vw, 2.8rem);
+  margin-bottom: 0.8rem;
+  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0.01em;
@@ -262,11 +278,11 @@ nav .nav-cta:hover {
 
 .hero-sub {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
-  line-height: 1.8;
+  font-size: clamp(1.05rem, 1.6vw, 1.15rem);
+  line-height: 1.75;
   color: rgba(255,255,255,0.88);
-  max-width: 640px;
-  margin: 0 auto 1.5rem;
+  max-width: 620px;
+  margin: 0 auto 1.2rem;
 }
 
 .hero .tagline {
@@ -276,14 +292,14 @@ nav .nav-cta:hover {
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--chamoisee);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero-details {
   font-family: 'EB Garamond', serif;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--linen);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.4rem;
 }
 
 .hero-details span {
@@ -942,19 +958,20 @@ button:focus-visible {
 
   .body-text { font-size: 1.05rem; line-height: 1.85; }
 
-  nav { padding: 1rem 1.25rem; }
-  nav.scrolled { padding: 0.6rem 1.25rem; }
-  nav .logo img, nav .logo svg, .nav-logo-img { height: 32px; }
-  nav .nav-cta { padding: 0.6rem 1.4rem; font-size: 0.65rem; }
+  nav { padding: 0.6rem 1.25rem; }
+  nav.scrolled { padding: 0.5rem 1.25rem; }
+  nav .logo img, nav .logo svg, .nav-logo-img { height: 24px; }
+  .nav-logo-text { font-size: 0.95rem; }
+  nav .nav-cta { padding: 0.5rem 1.2rem; font-size: 0.6rem; }
 
-  .hero { min-height: 100svh; padding-top: 60px; }
-  .hero-logo { width: 130px; margin-bottom: 1.2rem; }
-  .hero h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); margin-bottom: 0.8rem; }
-  .hero-sub { font-size: 1rem; }
-  .hero .tagline { font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 1.2rem; }
-  .hero-details { font-size: 1rem; margin-bottom: 1.2rem; }
+  .hero { height: 100svh; padding-top: 44px; }
+  .hero-logo { width: 110px; margin-bottom: 0.8rem; }
+  .hero h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); margin-bottom: 0.6rem; }
+  .hero-sub { font-size: 0.95rem; margin-bottom: 0.8rem; }
+  .hero .tagline { font-size: 0.72rem; letter-spacing: 0.2em; margin-bottom: 0.8rem; }
+  .hero-details { font-size: 0.95rem; margin-bottom: 0.8rem; }
   .hero-details span { display: block; margin: 0.3rem 0; color: transparent; }
-  .cta-button { padding: 1rem 2rem; font-size: 0.78rem; letter-spacing: 0.15em; }
+  .cta-button { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; }
 
   .letter .salutation { font-size: 1.5rem; }
   .letter-emphasis { font-size: 1.2rem; padding-left: 1.2rem; }
@@ -1011,9 +1028,9 @@ button:focus-visible {
 @media (max-width: 400px) {
   html { font-size: 16px; }
   .container { padding: 0 1.25rem; }
-  .hero-content { padding: 1.5rem; }
-  .hero-logo { width: 130px; }
-  .hero h1 { font-size: 1.4rem; }
+  .hero-content { padding: 1rem; }
+  .hero-logo { width: 100px; }
+  .hero h1 { font-size: 1.3rem; }
   .body-text { font-size: 1rem; }
   nav .nav-cta { padding: 0.5rem 1rem; font-size: 0.6rem; }
   .testimonial-card { padding: 1.5rem 1.25rem; }
