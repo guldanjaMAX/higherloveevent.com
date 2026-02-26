@@ -247,7 +247,7 @@ nav .nav-cta:hover {
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: #000;
+  background: #000 url('images/hero-venue.jpg') center/cover no-repeat;
 }
 
 .hero-bg video {
