@@ -232,20 +232,21 @@ nav .nav-cta:hover {
    ======================================== */
 .hero {
   position: relative;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  overflow: hidden;
-  padding-top: 40px;
+  overflow: visible;
+  padding-top: 100px;
+  padding-bottom: 2rem;
 }
 
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url('images/hero-venue.jpg') center center / cover no-repeat;
+  background: url('images/hero-venue.jpg') center 25% / cover no-repeat;
   filter: brightness(0.4);
 }
 
@@ -265,6 +266,16 @@ nav .nav-cta:hover {
 .hero-logo {
   width: 180px;
   margin: 0 auto 1.5rem;
+}
+
+.hero-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--linen);
+  margin-bottom: 1.2rem;
 }
 
 .hero h1 {
@@ -964,8 +975,9 @@ button:focus-visible {
   .nav-logo-text { font-size: 0.95rem; }
   nav .nav-cta { padding: 0.5rem 1.2rem; font-size: 0.6rem; }
 
-  .hero { height: 100svh; padding-top: 44px; }
+  .hero { min-height: 100svh; padding-top: 80px; padding-bottom: 1.5rem; }
   .hero-logo { width: 110px; margin-bottom: 0.8rem; }
+  .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.25em; margin-bottom: 0.8rem; }
   .hero h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); margin-bottom: 0.6rem; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 0.8rem; }
   .hero .tagline { font-size: 0.72rem; letter-spacing: 0.2em; margin-bottom: 0.8rem; }
