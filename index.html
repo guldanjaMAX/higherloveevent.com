@@ -220,6 +220,78 @@
       .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
     }
 
+    /* Hero text rotation */
+    .hero-rotating-text {
+      display: inline-block;
+      position: relative;
+      min-height: 1.2em;
+    }
+    .hero-rotating-text .rotate-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      white-space: nowrap;
+    }
+    .hero-rotating-text .rotate-line.active {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Community section */
+    .community-bridge {
+      text-align: center;
+      padding: 4rem 0;
+      background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(160,127,86,0.06) 50%, rgba(10,10,10,0) 100%);
+    }
+    .community-bridge .manifesto-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--chamoisee);
+      line-height: 1.5;
+      max-width: 650px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Year One badge */
+    .year-one-badge {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      border: 1px solid rgba(160,127,86,0.35);
+      padding: 0.4rem 1.2rem;
+      margin-top: 1rem;
+    }
+
+    /* Section with bg image overlay */
+    .section-with-bg {
+      position: relative;
+      overflow: hidden;
+    }
+    .section-with-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .section-with-bg > * {
+      position: relative;
+      z-index: 1;
+    }
+
     /* Cookie Consent Banner */
     #cookie-banner {
       position: fixed;
@@ -308,8 +380,11 @@
     <div class="hero-content fade-in">
       <h1>22 Seats. Zero Code Switching.</h1>
       <p class="hero-sub">The first room designed for the whole man. Three days with the most extraordinary gay founders and executives you've never met.</p>
-      <div class="tagline">An Invite-Only Gathering &middot; 22 Founding Members</div>
-      <div class="hero-details">September 17&ndash;21, 2026 <span>&middot;</span> Austin, Texas</div>
+      <div class="tagline hero-rotating-text" aria-live="polite">
+        <span class="rotate-line active">An Invite-Only Gathering &middot; 22 Founding Members</span>
+        <span class="rotate-line">Three Days. Four Nights. One Room.</span>
+        <span class="rotate-line">September 17&ndash;21, 2026 &middot; Austin, Texas</span>
+      </div>
       <div class="hero-cta-group">
         <a href="#application-form" class="cta-button">Nominate Yourself</a>
         <a href="#nominate-form" class="cta-button cta-button-outline">Nominate a Friend</a>
@@ -634,6 +709,15 @@
     </div>
   </section>
 
+  <!-- COMMUNITY BRIDGE -->
+  <section class="community-bridge">
+    <div class="container">
+      <p class="manifesto-line">You are not buying a ticket. You are joining the brotherhood you have been looking for your entire career.</p>
+      <p class="body-text body-text-white" style="max-width: 580px; margin: 0 auto; font-size: 1.05rem;">The event is where it begins. The ongoing private peer network, the relationships, the access to 21 men who understand your world without explanation. That is what you are investing in.</p>
+      <span class="year-one-badge">Year One &middot; The Founding Circle</span>
+    </div>
+  </section>
+
   <!-- INVESTMENT -->
   <section class="section-linen investment-section">
     <div class="container">
@@ -818,5 +902,18 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    // Hero text rotation
+    (function() {
+      const lines = document.querySelectorAll('.hero-rotating-text .rotate-line');
+      if (lines.length < 2) return;
+      let current = 0;
+      setInterval(function() {
+        lines[current].classList.remove('active');
+        current = (current + 1) % lines.length;
+        lines[current].classList.add('active');
+      }, 3500);
+    })();
+  </script>
 </body>
 </html>
