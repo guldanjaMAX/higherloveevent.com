@@ -435,7 +435,7 @@ nav .nav-cta:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 20%;
 }
 
 .host-overlay {
@@ -1072,7 +1072,7 @@ button:focus-visible {
 
   .host-section { grid-template-columns: 1fr; min-height: auto; }
   .host-bg { order: 1; height: 60vh; min-height: 400px; }
-  .host-bg img { object-position: center 15%; }
+  .host-bg img { object-position: center 20%; }
   .host-overlay {
     background: linear-gradient(
       to top,
