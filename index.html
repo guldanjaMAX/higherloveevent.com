@@ -154,36 +154,34 @@
       margin: 0 auto;
       display: none; /* hidden, replaced by grid */
     }
-    .higher-values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      max-width: 1000px;
+    .higher-values-vertical {
+      max-width: 800px;
       margin: 0 auto;
-    }
-    .higher-value-card {
       text-align: left;
-      padding: 2rem 1.75rem;
-      border: 1px solid rgba(160,127,86,0.2);
-      background: rgba(255,255,255,0.03);
-      transition: border-color 0.4s ease, transform 0.3s ease;
     }
-    .higher-value-card:hover {
-      border-color: rgba(160,127,86,0.45);
-      transform: translateY(-3px);
-    }
-    .higher-value-header {
+    .higher-value-row {
       display: flex;
-      align-items: baseline;
-      gap: 0.75rem;
-      margin-bottom: 0.85rem;
+      align-items: flex-start;
+      gap: 1.75rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid rgba(160,127,86,0.15);
+    }
+    .higher-value-row:last-child {
+      border-bottom: none;
     }
     .higher-value-letter {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
+      font-size: 3.4rem;
       font-weight: 700;
       color: var(--chamoisee);
       line-height: 1;
+      min-width: 50px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .higher-value-body {
+      flex: 1;
+      padding-top: 0.3rem;
     }
     .higher-value-word {
       font-family: 'Raleway', sans-serif;
@@ -192,6 +190,7 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--linen);
+      margin-bottom: 0.5rem;
     }
     .higher-value-desc {
       font-family: 'Raleway', sans-serif;
@@ -200,15 +199,8 @@
       color: rgba(245,240,235,0.7);
     }
     @media (max-width: 768px) {
-      .higher-values-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-      }
-    }
-    @media (min-width: 769px) and (max-width: 1024px) {
-      .higher-values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .higher-value-row { gap: 1.25rem; }
+      .higher-value-letter { font-size: 2.6rem; min-width: 38px; }
     }
     .higher-h-item {
       text-align: center;
@@ -428,10 +420,7 @@
   <main id="main-content">
   <section class="hero">
     <div class="hero-bg">
-      <video autoplay muted loop playsinline preload="metadata" poster="images/hero-venue.jpg" id="hero-video">
-        <source src="images/hero-video.mp4" type="video/mp4">
-        <track kind="captions" label="English" srclang="en" default>
-      </video>
+      <img src="images/hero-venue.jpg" alt="Higher Love Summit venue" style="width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.45);">
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
@@ -737,48 +726,48 @@
       <h2 style="margin-bottom: 1.5rem;">HIGHER</h2>
       <div class="divider"></div>
       <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 3rem;">These are not aspirations. They are commitments. Every man in this room lives by these six values, and they are the filter through which we select every founding member.</p>
-      <div class="higher-values-grid">
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">H</span>
-            <span class="higher-value-word">Heart</span>
+      <div class="higher-values-vertical">
+        <div class="higher-value-row">
+          <span class="higher-value-letter">H</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Heart</div>
+            <p class="higher-value-desc">Lead with emotional courage. We built our businesses with strategy, but we built our lives with vulnerability. In this room, the armor comes off. We show up fully, feel deeply, and connect from a place of truth rather than performance.</p>
           </div>
-          <p class="higher-value-desc">Lead with emotional courage. We built our businesses with strategy, but we built our lives with vulnerability. In this room, the armor comes off. We show up fully, feel deeply, and connect from a place of truth rather than performance.</p>
         </div>
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">I</span>
-            <span class="higher-value-word">Inspire</span>
+        <div class="higher-value-row">
+          <span class="higher-value-letter">I</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Inspire</div>
+            <p class="higher-value-desc">Raise the standard by living it. Every man here has a story that would change someone else's trajectory. We share openly, challenge each other respectfully, and leave every conversation having lit something in the person across from us.</p>
           </div>
-          <p class="higher-value-desc">Raise the standard by living it. Every man here has a story that would change someone else's trajectory. We share openly, challenge each other respectfully, and leave every conversation having lit something in the person across from us.</p>
         </div>
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">G</span>
-            <span class="higher-value-word">Generous</span>
+        <div class="higher-value-row">
+          <span class="higher-value-letter">G</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Generous</div>
+            <p class="higher-value-desc">Give before you ask. The most powerful thing in this room is what you offer freely: your network, your hard won lessons, your time, your honest feedback. Generosity is the currency that makes this brotherhood compound over time.</p>
           </div>
-          <p class="higher-value-desc">Give before you ask. The most powerful thing in this room is what you offer freely: your network, your hard won lessons, your time, your honest feedback. Generosity is the currency that makes this brotherhood compound over time.</p>
         </div>
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">H</span>
-            <span class="higher-value-word">Healthy</span>
+        <div class="higher-value-row">
+          <span class="higher-value-letter">H</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Healthy</div>
+            <p class="higher-value-desc">Protect the vessel that carries the mission. Success means nothing if you are burning out to get it. We prioritize physical health, mental clarity, and the kind of rest that actually restores. We hold each other accountable to showing up whole.</p>
           </div>
-          <p class="higher-value-desc">Protect the vessel that carries the mission. Success means nothing if you are burning out to get it. We prioritize physical health, mental clarity, and the kind of rest that actually restores. We hold each other accountable to showing up whole.</p>
         </div>
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">E</span>
-            <span class="higher-value-word">Elevate</span>
+        <div class="higher-value-row">
+          <span class="higher-value-letter">E</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Elevate</div>
+            <p class="higher-value-desc">Lift as you climb. When one man in this room wins, the room wins. We make introductions without being asked. We celebrate each other's milestones without comparison. The goal is not to be the most successful person here. The goal is to make everyone here more successful.</p>
           </div>
-          <p class="higher-value-desc">Lift as you climb. When one man in this room wins, the room wins. We make introductions without being asked. We celebrate each other's milestones without comparison. The goal is not to be the most successful person here. The goal is to make everyone here more successful.</p>
         </div>
-        <div class="higher-value-card">
-          <div class="higher-value-header">
-            <span class="higher-value-letter">R</span>
-            <span class="higher-value-word">Richly</span>
+        <div class="higher-value-row">
+          <span class="higher-value-letter">R</span>
+          <div class="higher-value-body">
+            <div class="higher-value-word">Richly</div>
+            <p class="higher-value-desc">Live a life of depth, not just wealth. Rich in relationships. Rich in meaning. Rich in the experiences that money alone cannot buy. We are building something more valuable than another zero on a balance sheet: a life you do not need a vacation from.</p>
           </div>
-          <p class="higher-value-desc">Live a life of depth, not just wealth. Rich in relationships. Rich in meaning. Rich in the experiences that money alone cannot buy. We are building something more valuable than another zero on a balance sheet: a life you do not need a vacation from.</p>
         </div>
       </div>
     </div>
