@@ -93,6 +93,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Pillar Grid Styles -->
+  <style>
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .pillar-card {
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(160,127,86,0.15);
+      background: rgba(0,0,0,0.03);
+      transition: border-color 0.4s ease, transform 0.3s ease;
+    }
+    .pillar-card:hover {
+      border-color: rgba(160,127,86,0.4);
+      transform: translateY(-2px);
+    }
+    .pillar-card h3 {
+      font-size: 1rem;
+      color: var(--russet);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.6rem;
+    }
+    .pillar-card .body-text {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #3a3a3a;
+    }
+    @media (max-width: 1024px) {
+      .pillars-grid { gap: 1rem; }
+    }
+    @media (max-width: 768px) {
+      .pillars-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .pillar-card { padding: 1.5rem 1rem; }
+      .pillar-card h3 { font-size: 0.9rem; }
+      .pillar-card .body-text { font-size: 0.9rem; }
+    }
+    @media (max-width: 400px) {
+      .pillars-grid { grid-template-columns: 1fr; }
+    }
+    @media (hover: none) {
+      .pillar-card:hover { border-color: rgba(160,127,86,0.15); transform: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -120,7 +168,7 @@
     <div class="hero-content fade-in">
       <div class="hero-eyebrow">Higher Love Summit</div>
       <h1>You've earned every room you've walked into.<br>This is the first one built for you.</h1>
-      <p class="hero-sub">The first summit of its kind for accomplished gay founders, entrepreneurs, and executives who are done editing themselves to fit rooms that were never designed for the whole man.</p>
+      <p class="hero-sub">The first brotherhood of its kind for accomplished gay founders, entrepreneurs, and executives who are done editing themselves to fit rooms that were never designed for the whole man.</p>
       <div class="tagline">An Invite-Only Gathering &middot; 22 Founding Members</div>
       <div class="hero-details">September 18&ndash;20, 2026 <span>&middot;</span> Austin, Texas</div>
       <a href="#application-form" class="cta-button">Apply for Your Seat</a>
@@ -141,17 +189,7 @@
       <p class="body-text">So you code switched. You edited. You brought 90% of yourself and quietly managed the other 10%. You did it so well that most people never noticed.</p>
       <p class="body-text body-text-white" style="font-style: italic;">But you noticed.</p>
 
-      <div class="stat-inline">
-        <span class="stat-num">74%</span> of LGBTQ+ professionals say they code switch at work to avoid negative stereotypes. You've felt this number your entire career.
-        <span class="stat-src">LinkedIn / INvolve Pride at Work Report</span>
-      </div>
-
       <p class="body-text">And when you do step into gay spaces, the rooms are built for a different season of life, a different level of ambition, or a different kind of man. It's like being fluent in two languages but never finding a room where you can speak both at the same time.</p>
-
-      <div class="stat-inline">
-        Gay men experience isolation at <span class="stat-num">3 to 4x</span> the rate of the general population. Not because they lack community, but because the rooms built at the highest levels were never designed for who they are.
-        <span class="stat-src">Journal of Homosexuality, 2025</span>
-      </div>
 
       <p class="body-text body-text-white">The most accomplished, heart centered gay men in the world have no room that was built for them. They've climbed the mountain the world told them to climb and they're standing at the top asking: "Is this it? Or is there something I haven't been able to access because I've never been in a room where I didn't have to perform?"</p>
 
@@ -159,6 +197,7 @@
 
       <p class="body-text body-text-white">I looked for that room for over two decades. I couldn't find it.</p>
       <p class="letter-buildline">So I'm building it.</p>
+      <p class="body-text" style="margin-top: 1.5rem; font-style: italic; color: var(--chamoisee);">The most intentional brotherhood ever created for accomplished gay men who've conquered every room except the one built for the whole man.</p>
     </div>
   </section>
 
@@ -247,6 +286,55 @@
     </div>
   </section>
 
+  <!-- WHAT WE'LL EXPLORE -->
+  <section class="section-linen">
+    <div class="container" style="text-align: center;">
+      <p class="eyebrow" style="color: var(--russet);">What We'll Explore</p>
+      <h2 style="color: var(--black); margin-bottom: 1rem;">The Conversations That Matter Most</h2>
+      <div class="divider"></div>
+      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">Every session, every meal, every late night firepit conversation will be shaped by the topics that sit at the intersection of ambition, identity, and purpose. These are the pillars that define the Higher Love experience.</p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card fade-in">
+          <h3>Business Growth &amp; Scaling</h3>
+          <p class="body-text">Strategy, systems, and the next level of what you're building.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Leadership Development</h3>
+          <p class="body-text">Leading from authenticity, not performance.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>AI Adoption &amp; Integration</h3>
+          <p class="body-text">Leveraging the tools reshaping every industry.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Health Optimization</h3>
+          <p class="body-text">Fitness, biohacking, and the body as instrument.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Spiritual Growth</h3>
+          <p class="body-text">Consciousness, plant medicine, breathwork, and the deeper questions.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Branding &amp; Marketing</h3>
+          <p class="body-text">Building a brand that reflects the full man behind it.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Aging &amp; Longevity</h3>
+          <p class="body-text">Thriving in your 40s, 50s, 60s, and far beyond.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Wealth Creation</h3>
+          <p class="body-text">Money as a tool for freedom and legacy.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Self Love, Sexuality &amp; Intimacy</h3>
+          <p class="body-text">The conversations no other room is brave enough to hold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT YOU WALK AWAY WITH -->
   <section>
     <div class="container">
@@ -271,7 +359,7 @@
         <div class="outcome-card fade-in">
           <div class="outcome-number">03</div>
           <h3>A Founding Circle</h3>
-          <p class="body-text">Relationships that don't expire when the event ends. The 22 founding members become the foundation of something that grows far beyond September 2026. You're not attending an event. You're joining a founding circle.</p>
+          <p class="body-text">Relationships that don't expire when the event ends. The 22 founding members become the foundation of something that grows far beyond September 2026. This is the first gathering, not the only one. You're not attending an event. You're joining a brotherhood that compounds over years, not days.</p>
         </div>
       </div>
     </div>
@@ -290,7 +378,7 @@
       <div class="divider" style="margin: 1.5rem auto 2.5rem;"></div>
       <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">Your phone buzzes with a text from one of the 21 men you shared that room with. It's about a business challenge, a relationship question, or an idea too big to share with anyone who doesn't know the full story.</p>
       <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto 1.5rem; font-size: 1.15rem;">You respond without editing.</p>
-      <p class="body-text" style="max-width: 650px; margin: 0 auto; font-style: italic; color: var(--chamoisee); font-size: 1.15rem;">And in that moment you understand what you actually invested in: not a summit, but a room that never closes.</p>
+      <p class="body-text" style="max-width: 650px; margin: 0 auto; font-style: italic; color: var(--chamoisee); font-size: 1.15rem;">And in that moment you understand what you actually invested in: not a summit, but a brotherhood. A room that never closes. A circle that only deepens with time.</p>
     </div>
   </section>
 
@@ -306,6 +394,7 @@
         <li>You're a gay founder, entrepreneur, or executive who has built something extraordinary that reflects who you actually are.</li>
         <li>You've done the inner work. Landmark, Tony Robbins, Joe Dispenza, therapy. You know the next layer isn't something you can access alone.</li>
         <li>You're spiritually curious without being performative about it. Drawn to consciousness and the bigger questions, but frustrated by surface level spiritual bypassing.</li>
+        <li>You've explored or are drawn to plant medicine journeys, breathwork ceremonies, or transformational practices that go beyond the conventional. You understand that real growth sometimes asks you to go deeper than a weekend workshop.</li>
         <li>You're into health and your body. Fitness, optimization, maybe biohacking. The instrument matters to you.</li>
         <li>You live an intentional life. Your calendar reflects your values. Who you spend time with is a deliberate choice.</li>
         <li>You love business but you're building from a different place now. From joy, from purpose, from mission.</li>
