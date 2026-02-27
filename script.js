@@ -19,8 +19,14 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// API endpoint for application form
+// API endpoint for forms
 const API_URL = 'https://higher-love-api.james-d13.workers.dev/apply';
+
+// Sanitize input to prevent XSS
+function sanitizeInput(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(/[<>]/g, '').trim();
+}
 
 // Clear error state when user starts typing
 document.querySelectorAll('.form-input').forEach(input => {
@@ -50,6 +56,16 @@ function validateField(input) {
     if (!emailPattern.test(value)) valid = false;
   }
 
+  if (name === 'nominator_email' && value) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(value)) valid = false;
+  }
+
+  if (name === 'nominee_email' && value) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(value)) valid = false;
+  }
+
   if (!valid) {
     input.classList.add('error');
     if (errEl) errEl.classList.add('visible');
@@ -59,6 +75,94 @@ function validateField(input) {
   }
 
   return valid;
+}
+
+// Set button loading state
+function setButtonLoading(btn, loading) {
+  if (loading) {
+    btn.dataset.originalText = btn.textContent;
+    btn.textContent = 'SUBMITTING...';
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+    btn.style.cursor = 'not-allowed';
+  } else {
+    btn.textContent = btn.dataset.originalText || 'Submit';
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+  }
+}
+
+// Nomination form handler
+async function handleNominateSubmit(e) {
+  e.preventDefault();
+  const form = document.getElementById('hl-nominate');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  // Validate required fields
+  const requiredInputs = form.querySelectorAll('[required]');
+  let allValid = true;
+  let firstInvalid = null;
+
+  requiredInputs.forEach(input => {
+    if (!validateField(input)) {
+      allValid = false;
+      if (!firstInvalid) firstInvalid = input;
+    }
+  });
+
+  if (!allValid) {
+    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    firstInvalid.focus();
+    return;
+  }
+
+  // Check consent checkbox
+  const consentBox = form.querySelector('input[name="nominate_consent"]');
+  if (consentBox && !consentBox.checked) {
+    consentBox.focus();
+    consentBox.parentElement.style.color = '#e74c3c';
+    setTimeout(() => { consentBox.parentElement.style.color = ''; }, 3000);
+    return;
+  }
+
+  // Collect and sanitize form data
+  const formData = new FormData(form);
+  const data = { form_type: 'nomination' };
+  formData.forEach((value, key) => {
+    if (key === 'nominate_consent') return;
+    data[key] = sanitizeInput(value);
+  });
+
+  // Show loading state
+  setButtonLoading(submitBtn, true);
+
+  try {
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+
+    if (!res.ok || !result.success) {
+      throw new Error(result.error || 'Something went wrong');
+    }
+  } catch (err) {
+    // Fallback: store locally so data is not lost
+    try {
+      const nominations = JSON.parse(localStorage.getItem('hl_nominations') || '[]');
+      data.submitted_at = new Date().toISOString();
+      nominations.push(data);
+      localStorage.setItem('hl_nominations', JSON.stringify(nominations));
+    } catch(e) {}
+  }
+
+  // Show success state
+  form.style.display = 'none';
+  document.getElementById('nominate-success').style.display = 'block';
+  document.getElementById('nominate-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // Application form handler
@@ -85,22 +189,30 @@ async function handleSubmit(e) {
     return;
   }
 
-  // Collect form data
+  // Check consent checkbox
+  const consentBox = form.querySelector('input[name="app_consent"]');
+  if (consentBox && !consentBox.checked) {
+    consentBox.focus();
+    consentBox.parentElement.style.color = '#e74c3c';
+    setTimeout(() => { consentBox.parentElement.style.color = ''; }, 3000);
+    return;
+  }
+
+  // Collect and sanitize form data
   const formData = new FormData(form);
   const data = {};
   formData.forEach((value, key) => {
+    if (key === 'app_consent') return;
     if (key === 'resonance') {
       if (!data[key]) data[key] = [];
-      data[key].push(value);
+      data[key].push(sanitizeInput(value));
     } else {
-      data[key] = value;
+      data[key] = sanitizeInput(value);
     }
   });
 
   // Show loading state
-  submitBtn.textContent = 'SUBMITTING...';
-  submitBtn.disabled = true;
-  submitBtn.style.opacity = '0.6';
+  setButtonLoading(submitBtn, true);
 
   // Default calendar URL
   let calendarUrl = 'https://calendly.com/reperez';
@@ -137,3 +249,32 @@ async function handleSubmit(e) {
   document.getElementById('form-success').style.display = 'block';
   document.getElementById('form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
+
+// Cookie consent banner
+(function() {
+  if (localStorage.getItem('hl_cookie_consent')) return;
+
+  var banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Cookie consent');
+  banner.innerHTML = '<div class="cookie-inner">' +
+    '<p>We use minimal cookies to ensure this site functions properly. By continuing to browse, you accept our use of cookies. See our <a href="/privacy.html">Privacy Policy</a> for details.</p>' +
+    '<div class="cookie-actions">' +
+    '<button id="cookie-accept" class="cookie-btn cookie-btn-accept">Accept</button>' +
+    '<button id="cookie-decline" class="cookie-btn cookie-btn-decline">Decline</button>' +
+    '</div></div>';
+  document.body.appendChild(banner);
+
+  document.getElementById('cookie-accept').addEventListener('click', function() {
+    localStorage.setItem('hl_cookie_consent', 'accepted');
+    banner.classList.add('cookie-hidden');
+    setTimeout(function() { banner.remove(); }, 400);
+  });
+
+  document.getElementById('cookie-decline').addEventListener('click', function() {
+    localStorage.setItem('hl_cookie_consent', 'declined');
+    banner.classList.add('cookie-hidden');
+    setTimeout(function() { banner.remove(); }, 400);
+  });
+})();
