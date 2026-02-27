@@ -15,7 +15,7 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://higherloveevent.com/">
-  <meta property="og:title" content="Higher Love | Finally, A Room Built For Successful Gay Founders And Executives">
+  <meta property="og:title" content="Higher Love | 22 Seats. Zero Code Switching.">
   <meta property="og:description" content="An invite-only luxury gathering for 22 accomplished gay founders, entrepreneurs, and executives. September 17-21, 2026, Austin, Texas.">
   <meta property="og:image" content="https://higherloveevent.com/images/og-dinner.jpg">
   <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Higher Love | Finally, A Room Built For Successful Gay Founders And Executives">
+  <meta name="twitter:title" content="Higher Love | 22 Seats. Zero Code Switching.">
   <meta name="twitter:description" content="An invite-only luxury gathering for 22 accomplished gay founders, entrepreneurs, and executives. September 17-21, 2026, Austin, Texas.">
   <meta name="twitter:image" content="https://higherloveevent.com/images/og-dinner.jpg">
   <meta name="twitter:image:alt" content="Higher Love luxury venue in the Texas Hill Country">
@@ -78,7 +78,7 @@
     "@type": "FAQPage",
     "mainEntity": [
       { "@type": "Question", "name": "What is Higher Love?", "acceptedAnswer": { "@type": "Answer", "text": "Higher Love is an invite-only luxury gathering for 22 accomplished gay founders, entrepreneurs, and executives in the Texas Hill Country near Austin, Texas. Welcome reception September 17, main event September 18-20, 2026." } },
-      { "@type": "Question", "name": "How much does Higher Love cost?", "acceptedAnswer": { "@type": "Answer", "text": "The first 10 founding members who commit receive an early bird rate of $7,500. After those seats are claimed, the investment is $10,000. Both tiers include the full experience: all curated meals, wellness programming, peer advisory sessions, founding member status, and access to the ongoing private peer network. Payment plans are available." } },
+      { "@type": "Question", "name": "How much does Higher Love cost?", "acceptedAnswer": { "@type": "Answer", "text": "The investment is $10,000. The first 10 founding members who commit receive an early commitment rate of $7,500. Both tiers include the full experience: all curated meals, wellness programming, peer advisory sessions, founding member status, and access to the ongoing private peer network. Payment plans are available." } },
       { "@type": "Question", "name": "Who is Re Perez?", "acceptedAnswer": { "@type": "Answer", "text": "Re Perez is a brand strategist, bestselling author of 'Your Brand Should Be Gay (Even If You're Not)', and host of the Category of One podcast. He created Higher Love to build the room he spent decades looking for." } }
     ]
   }
@@ -94,7 +94,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Pillar Grid + Dual CTA Styles -->
+  <!-- Pillar Grid + Dual CTA + HIGHER Horizontal Styles -->
   <style>
     .pillars-grid {
       display: grid;
@@ -143,8 +143,62 @@
     .cta-button-outline:hover {
       background: rgba(160,127,86,0.15);
     }
+
+    /* HIGHER horizontal layout */
+    .higher-horizontal {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .higher-h-item {
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    .higher-h-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--chamoisee);
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .higher-h-word {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--linen);
+      display: block;
+    }
+
+    /* Full-bleed image treatment */
+    .full-image-bleed {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      height: 55vh;
+      min-height: 380px;
+      overflow: hidden;
+    }
+    .full-image-bleed img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .full-image-bleed .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.5) 100%);
+    }
+
     @media (max-width: 1024px) {
       .pillars-grid { gap: 1rem; }
+      .higher-horizontal { gap: 2rem; }
     }
     @media (max-width: 768px) {
       .pillars-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -152,14 +206,20 @@
       .pillar-card h3 { font-size: 0.9rem; }
       .pillar-card .body-text { font-size: 0.9rem; }
       .hero-cta-group { flex-direction: column; align-items: center; }
+      .higher-horizontal { gap: 1.5rem; }
+      .higher-h-letter { font-size: 2.2rem; }
+      .higher-h-word { font-size: 0.65rem; }
+      .full-image-bleed { height: 40vh; min-height: 280px; }
     }
     @media (max-width: 400px) {
       .pillars-grid { grid-template-columns: 1fr; }
+      .higher-horizontal { gap: 1rem; }
+      .higher-h-letter { font-size: 1.8rem; }
     }
     @media (hover: none) {
       .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
     }
-  
+
     /* Cookie Consent Banner */
     #cookie-banner {
       position: fixed;
@@ -246,8 +306,8 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
-      <h1>Finally, A Room Built For Successful Gay Founders And Executives.</h1>
-      <p class="hero-sub">You've earned every room you've walked into. Now walk into the first one designed for the whole man. Three days with 21 men who understand exactly what it took to build what you've built.</p>
+      <h1>22 Seats. Zero Code Switching.</h1>
+      <p class="hero-sub">The first room designed for the whole man. Three days with the most extraordinary gay founders and executives you've never met.</p>
       <div class="tagline">An Invite-Only Gathering &middot; 22 Founding Members</div>
       <div class="hero-details">September 17&ndash;21, 2026 <span>&middot;</span> Austin, Texas</div>
       <div class="hero-cta-group">
@@ -283,8 +343,8 @@
     </div>
   </section>
 
-  <!-- DINNER IMAGE BREAK -->
-  <div class="full-image-break" role="img" aria-label="A beautifully curated dinner table">
+  <!-- DINNER IMAGE BREAK (full bleed) -->
+  <div class="full-image-bleed" role="img" aria-label="A beautifully curated dinner table">
     <img src="images/curated-dinner.jpg" alt="Candlelit long-table dinner experience at Higher Love" loading="lazy">
     <div class="overlay"></div>
   </div>
@@ -368,13 +428,13 @@
     </div>
   </section>
 
-  <!-- WHAT WE'LL EXPLORE -->
+  <!-- THE PILLARS -->
   <section class="section-linen">
     <div class="container" style="text-align: center;">
-      <p class="eyebrow" style="color: var(--russet);">What We'll Explore</p>
-      <h2 style="color: var(--black); margin-bottom: 1rem;">The Conversations That Matter Most</h2>
+      <p class="eyebrow" style="color: var(--russet);">The Pillars</p>
+      <h2 style="color: var(--black); margin-bottom: 1rem;">What Higher Love Is Built On</h2>
       <div class="divider"></div>
-      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">Every session, every meal, every late night firepit conversation will be shaped by the topics that sit at the intersection of ambition, identity, and purpose. These are the pillars that define the Higher Love experience.</p>
+      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">Every session, every meal, every late night firepit conversation is shaped by the topics that sit at the intersection of ambition, identity, and purpose. These are the pillars that define the Higher Love experience.</p>
 
       <div class="pillars-grid">
         <div class="pillar-card fade-in">
@@ -446,8 +506,8 @@
     </div>
   </section>
 
-  <!-- BROTHERHOOD WALK -->
-  <div class="full-image-break" style="height: 45vh;">
+  <!-- BROTHERHOOD WALK (full bleed) -->
+  <div class="full-image-bleed" style="height: 45vh;">
     <img src="images/men-walking.jpg" alt="Men walking together on a Hill Country path at golden hour" loading="lazy" style="object-position: center 35%;">
     <div class="overlay"></div>
   </div>
@@ -535,23 +595,41 @@
     </div>
   </section>
 
-  <!-- WHAT HIGHER MEANS -->
+  <!-- HIGHER (horizontal acronym layout) -->
   <section class="section-dark" style="position: relative;">
     <div style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 200px; opacity: 0.15; pointer-events: none;">
       <img src="images/flame-higher.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; mask-image: radial-gradient(circle, black 30%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);">
     </div>
     <div class="container" style="text-align: center;">
-      <p class="eyebrow">Why Higher Love</p>
-      <h2 style="margin-bottom: 1.5rem;">What It Means to Love Higher</h2>
+      <p class="eyebrow">The Code We Live By</p>
+      <h2 style="margin-bottom: 1.5rem;">HIGHER</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 650px; margin: 2rem auto 3rem;">Each letter in HIGHER represents a commitment that every man in this room shares.</p>
-      <div class="higher-grid">
-        <div class="higher-item"><span class="higher-letter">H</span><span class="body-text body-text-white">We lead from the <strong class="text-linen">Heart</strong>, not from ego or performance.</span></div>
-        <div class="higher-item"><span class="higher-letter">I</span><span class="body-text body-text-white">We <strong class="text-linen">Inspire</strong> others by how we live, not just what we've built.</span></div>
-        <div class="higher-item"><span class="higher-letter">G</span><span class="body-text body-text-white">We are <strong class="text-linen">Generous</strong> givers of time, wisdom, and presence.</span></div>
-        <div class="higher-item"><span class="higher-letter">H</span><span class="body-text body-text-white">We are <strong class="text-linen">Healthy</strong> in mind, body, and spirit.</span></div>
-        <div class="higher-item"><span class="higher-letter">E</span><span class="body-text body-text-white">We <strong class="text-linen">Elevate</strong> every room we walk into.</span></div>
-        <div class="higher-item last"><span class="higher-letter">R</span><span class="body-text body-text-white">We love <strong class="text-linen">Richly</strong>, in purpose, in depth, and in legacy.</span></div>
+      <p class="body-text body-text-white" style="max-width: 650px; margin: 2rem auto 3rem;">Each letter represents a commitment that every man in this room shares.</p>
+      <div class="higher-horizontal">
+        <div class="higher-h-item">
+          <span class="higher-h-letter">H</span>
+          <span class="higher-h-word">Heart</span>
+        </div>
+        <div class="higher-h-item">
+          <span class="higher-h-letter">I</span>
+          <span class="higher-h-word">Inspire</span>
+        </div>
+        <div class="higher-h-item">
+          <span class="higher-h-letter">G</span>
+          <span class="higher-h-word">Generous</span>
+        </div>
+        <div class="higher-h-item">
+          <span class="higher-h-letter">H</span>
+          <span class="higher-h-word">Healthy</span>
+        </div>
+        <div class="higher-h-item">
+          <span class="higher-h-letter">E</span>
+          <span class="higher-h-word">Elevate</span>
+        </div>
+        <div class="higher-h-item">
+          <span class="higher-h-letter">R</span>
+          <span class="higher-h-word">Richly</span>
+        </div>
       </div>
     </div>
   </section>
@@ -563,9 +641,9 @@
       <h2 style="color: var(--black);">Your Founding Seat</h2>
 
       <div class="investment-tier" style="text-align: center; margin-bottom: 2.5rem;">
-        <div class="investment-amount">$7,500</div>
-        <p class="body-text" style="max-width: 550px; margin: 0.75rem auto 0; font-size: 0.95rem; color: #666;">Payment plans available: 3 monthly payments of $2,500</p>
-        <p class="body-text" style="max-width: 550px; margin: 1.5rem auto 0; font-size: 1.05rem; color: var(--black); font-weight: 500;">Only 10 founding seats at this price. Once they're claimed, the investment increases to $10,000.</p>
+        <div class="investment-amount">$10,000</div>
+        <p class="body-text" style="max-width: 580px; margin: 0.75rem auto 0; font-size: 1.1rem; color: var(--black); font-weight: 500;">The first 10 founding members who commit receive an early commitment rate of $7,500.</p>
+        <p class="body-text" style="max-width: 550px; margin: 1rem auto 0; font-size: 0.95rem; color: #666;">Payment plans available: 3 monthly payments of $3,000</p>
         <p class="body-text" style="max-width: 550px; margin: 1rem auto 0; font-size: 0.9rem; color: #888;">Full refund (minus $500 fee) if cancelled 90+ days before the event. 50% refund 60 to 90 days before. Seat transfers available within 60 days. <a href="/terms.html" style="color: var(--russet);">Full cancellation policy</a></p>
       </div>
 
@@ -600,7 +678,6 @@
     <div class="container fade-in">
       <h2 style="margin-bottom: 1.5rem;">This Room Won't Wait.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center; font-size: 1.1rem;">22 founding seats. Not 23. Not "we'll add more if there's demand."</p>
       <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who are invited into these seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man.</p>
       <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
 
