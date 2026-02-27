@@ -269,28 +269,6 @@
       .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
     }
 
-    /* Hero text rotation */
-    .hero-rotating-text {
-      display: inline-block;
-      position: relative;
-      min-height: 1.2em;
-    }
-    .hero-rotating-text .rotate-line {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-      white-space: nowrap;
-    }
-    .hero-rotating-text .rotate-line.active {
-      position: relative;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* Hero h1 animated headline */
     .h1-static {
       color: #ffffff;
@@ -451,10 +429,10 @@
     <div class="hero-content fade-in">
       <h1><span class="h1-static">22 Gay Men.</span> <span class="h1-rotating" aria-live="polite"><span class="h1-frame active">Zero Code-Switching.</span><span class="h1-frame">Zero Editing.</span><span class="h1-frame">Zero Performing.</span><span class="h1-frame">Zero Armor.</span><span class="h1-frame">One Room for the Whole Man.</span></span></h1>
       <p class="hero-sub">The first room designed for the whole man. Three days with the most extraordinary gay founders and executives you've never met.</p>
-      <div class="tagline hero-rotating-text" aria-live="polite">
-        <span class="rotate-line active">An Invite-Only Gathering &middot; 22 Founding Members</span>
-        <span class="rotate-line">Three Days. Four Nights. One Room.</span>
-        <span class="rotate-line">September 17&ndash;21, 2026 &middot; Austin, Texas</span>
+      <div class="tagline">
+        <span>An Invite-Only Gathering &middot; 22 Founding Members</span><br>
+        <span>Three Days. Four Nights. One Room.</span><br>
+        <span>September 17&ndash;21, 2026 &middot; Austin, Texas</span>
       </div>
       <div class="hero-cta-group">
         <a href="#application-form" class="cta-button">Nominate Yourself</a>
@@ -989,18 +967,6 @@
 
   <script src="script.js"></script>
   <script>
-    // Hero tagline rotation (below h1)
-    (function() {
-      const lines = document.querySelectorAll('.hero-rotating-text .rotate-line');
-      if (lines.length < 2) return;
-      let current = 0;
-      setInterval(function() {
-        lines[current].classList.remove('active');
-        current = (current + 1) % lines.length;
-        lines[current].classList.add('active');
-      }, 3500);
-    })();
-
     // Hero h1 animated headline
     (function() {
       const frames = document.querySelectorAll('.h1-frame');
