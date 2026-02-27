@@ -50,7 +50,7 @@
     "image": "https://higherloveevent.com/images/og-dinner.jpg",
     "organizer": { "@type": "Person", "name": "Re Perez", "url": "https://reperez.com" },
     "offers": [
-      { "@type": "Offer", "name": "Early Bird Founding Seat", "price": "7500", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherloveevent.com/#application-form", "description": "First 10 founding seats at the early commitment price" },
+      { "@type": "Offer", "name": "Founding Seat (Early Bird)", "price": "7500", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherloveevent.com/#application-form", "description": "First 10 founding seats at the early commitment price" },
       { "@type": "Offer", "name": "Founding Seat", "price": "10000", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherloveevent.com/#application-form" }
     ],
     "maximumAttendeeCapacity": 22,
@@ -67,7 +67,7 @@
     "url": "https://higherloveevent.com",
     "logo": "https://higherloveevent.com/images/logo-white.svg",
     "founder": { "@type": "Person", "name": "Re Perez" },
-    "contactPoint": { "@type": "ContactPoint", "email": "applications@higherlovesummit.com", "contactType": "event inquiries" }
+    "contactPoint": { "@type": "ContactPoint", "email": "applications@higherloveevent.com", "contactType": "event inquiries" }
   }
   </script>
 
@@ -159,6 +159,66 @@
     @media (hover: none) {
       .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
     }
+  
+    /* Cookie Consent Banner */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(10,10,10,0.97);
+      border-top: 1px solid rgba(160,127,86,0.3);
+      backdrop-filter: blur(12px);
+      padding: 1.25rem 2rem;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    #cookie-banner.cookie-hidden {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    .cookie-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .cookie-inner p {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .cookie-inner a { color: var(--chamoisee); }
+    .cookie-actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-btn {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.5rem;
+      border: 1px solid var(--chamoisee);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .cookie-btn-accept {
+      background: var(--chamoisee);
+      color: var(--black);
+    }
+    .cookie-btn-accept:hover { background: transparent; color: var(--chamoisee); }
+    .cookie-btn-decline {
+      background: transparent;
+      color: var(--chamoisee);
+    }
+    .cookie-btn-decline:hover { background: rgba(160,127,86,0.15); }
+    @media (max-width: 768px) {
+      .cookie-inner { flex-direction: column; gap: 1rem; text-align: center; }
+      .cookie-actions { justify-content: center; }
+    }
   </style>
 </head>
 <body>
@@ -181,6 +241,7 @@
     <div class="hero-bg">
       <video autoplay muted loop playsinline preload="metadata" poster="images/hero-venue.jpg" id="hero-video">
         <source src="images/hero-video.mp4" type="video/mp4">
+        <track kind="captions" label="English" srclang="en" default>
       </video>
     </div>
     <div class="hero-overlay"></div>
@@ -505,6 +566,7 @@
         <div class="investment-amount">$7,500</div>
         <p class="body-text" style="max-width: 550px; margin: 0.75rem auto 0; font-size: 0.95rem; color: #666;">Payment plans available: 3 monthly payments of $2,500</p>
         <p class="body-text" style="max-width: 550px; margin: 1.5rem auto 0; font-size: 1.05rem; color: var(--black); font-weight: 500;">Only 10 founding seats at this price. Once they're claimed, the investment increases to $10,000.</p>
+        <p class="body-text" style="max-width: 550px; margin: 1rem auto 0; font-size: 0.9rem; color: #888;">Full refund (minus $500 fee) if cancelled 90+ days before the event. 50% refund 60 to 90 days before. Seat transfers available within 60 days. <a href="/terms.html" style="color: var(--russet);">Full cancellation policy</a></p>
       </div>
 
       <div class="value-stack">
@@ -550,27 +612,33 @@
         <form id="hl-nominate" onsubmit="handleNominateSubmit(event)" aria-label="Nominate someone for Higher Love">
           <div class="form-row-2">
             <div>
-              <label class="form-label">Your Name *</label>
-              <input type="text" name="nominator_name" required class="form-input" placeholder="Your full name">
+              <label class="form-label" for="nominator_name">Your Name *</label>
+              <input type="text" name="nominator_name" id="nominator_name" required class="form-input" placeholder="Your full name">
             </div>
             <div>
-              <label class="form-label">Your Email *</label>
-              <input type="email" name="nominator_email" required class="form-input" placeholder="your@email.com">
+              <label class="form-label" for="nominator_email">Your Email *</label>
+              <input type="email" name="nominator_email" id="nominator_email" required class="form-input" placeholder="your@email.com">
             </div>
           </div>
           <div class="form-row-2">
             <div>
-              <label class="form-label">His Name *</label>
-              <input type="text" name="nominee_name" required class="form-input" placeholder="His full name">
+              <label class="form-label" for="nominee_name">His Name *</label>
+              <input type="text" name="nominee_name" id="nominee_name" required class="form-input" placeholder="His full name">
             </div>
             <div>
-              <label class="form-label">His Email *</label>
-              <input type="email" name="nominee_email" required class="form-input" placeholder="his@email.com">
+              <label class="form-label" for="nominee_email">His Email *</label>
+              <input type="email" name="nominee_email" id="nominee_email" required class="form-input" placeholder="his@email.com">
             </div>
           </div>
           <div class="form-group" style="margin-bottom: 2rem;">
             <label class="form-label">Why does he belong in this room? <span style="opacity: 0.5;">(optional)</span></label>
             <textarea name="nominate_reason" class="form-input form-textarea" rows="3" placeholder="A sentence or two is plenty."></textarea>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="checkbox-item" style="font-size: 0.95rem;">
+              <input type="checkbox" name="nominate_consent" required>
+              <span>I confirm that I have a reasonable basis to believe the person I am nominating would welcome being contacted about Higher Love, and I agree to the <a href="/privacy.html" target="_blank" style="color: var(--chamoisee);">Privacy Policy</a>.</span>
+            </label>
           </div>
           <div style="text-align: center;">
             <button type="submit" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem; cursor: pointer; border: 1.5px solid var(--chamoisee); width: 100%; max-width: 400px;">Submit Nomination</button>
@@ -591,33 +659,33 @@
         <form id="hl-application" onsubmit="handleSubmit(event)" aria-label="Higher Love founding member application">
           <div class="form-row-2">
             <div>
-              <label class="form-label">First Name *</label>
-              <input type="text" name="first_name" required class="form-input" placeholder="First name">
+              <label class="form-label" for="first_name">First Name *</label>
+              <input type="text" name="first_name" id="first_name" required class="form-input" placeholder="First name">
               <span class="form-error" data-for="first_name">Please enter your first name</span>
             </div>
             <div>
-              <label class="form-label">Last Name *</label>
-              <input type="text" name="last_name" required class="form-input" placeholder="Last name">
+              <label class="form-label" for="last_name">Last Name *</label>
+              <input type="text" name="last_name" id="last_name" required class="form-input" placeholder="Last name">
               <span class="form-error" data-for="last_name">Please enter your last name</span>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">Email *</label>
-            <input type="email" name="email" required class="form-input" placeholder="your@email.com">
+            <label class="form-label" for="app_email">Email *</label>
+            <input type="email" name="email" id="app_email" required class="form-input" placeholder="your@email.com">
             <span class="form-error" data-for="email">Please enter a valid email address</span>
           </div>
           <div class="form-group">
-            <label class="form-label">Who referred you to Higher Love?</label>
-            <input type="text" name="referral" class="form-input" placeholder="Name of the person who shared this with you">
+            <label class="form-label" for="referral">Who referred you to Higher Love?</label>
+            <input type="text" name="referral" id="referral" class="form-input" placeholder="Name of the person who shared this with you">
           </div>
           <div class="form-group">
-            <label class="form-label">What do you do? *</label>
-            <input type="text" name="role" required class="form-input" placeholder="e.g. Founder of Acme Co, VP Marketing at XYZ">
+            <label class="form-label" for="role">What do you do? *</label>
+            <input type="text" name="role" id="role" required class="form-input" placeholder="e.g. Founder of Acme Co, VP Marketing at XYZ">
             <span class="form-error" data-for="role">Please tell us what you do</span>
           </div>
           <div class="form-group" style="margin-bottom: 2rem;">
-            <label class="form-label">LinkedIn Profile <span style="opacity: 0.5;">(optional)</span></label>
-            <input type="url" name="linkedin" class="form-input" placeholder="https://linkedin.com/in/yourprofile">
+            <label class="form-label" for="linkedin">LinkedIn Profile <span style="opacity: 0.5;">(optional)</span></label>
+            <input type="url" name="linkedin" id="linkedin" class="form-input" placeholder="https://linkedin.com/in/yourprofile">
           </div>
           <div class="form-group" style="margin-bottom: 2rem;">
             <label class="form-label" id="resonance-label" style="margin-bottom: 1rem;">Which of these resonate with you? <span style="opacity: 0.5;">(check all that apply)</span></label>
@@ -639,6 +707,12 @@
             <label class="form-label">Anything else Re Perez should know before your call? <span style="opacity: 0.5;">(optional)</span></label>
             <textarea name="additional" class="form-input form-textarea" rows="3"></textarea>
           </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="checkbox-item" style="font-size: 0.95rem;">
+              <input type="checkbox" name="app_consent" required>
+              <span>I agree to the <a href="/privacy.html" target="_blank" style="color: var(--chamoisee);">Privacy Policy</a> and <a href="/terms.html" target="_blank" style="color: var(--chamoisee);">Terms &amp; Conditions</a>.</span>
+            </label>
+          </div>
           <div style="text-align: center;">
             <button type="submit" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem; cursor: pointer; border: 1.5px solid var(--chamoisee); width: 100%; max-width: 400px;">Submit & Book Your Call With Re Perez</button>
           </div>
@@ -648,11 +722,11 @@
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--chamoisee); margin-bottom: 1rem;">Thank you.</p>
           <p class="body-text body-text-white" style="margin-bottom: 1.5rem;">Your application has been received. A booking page should have opened in a new tab.</p>
           <p class="body-text body-text-white" style="margin-bottom: 2rem; opacity: 0.7; font-size: 0.9rem;">If it didn't open, click below to book your conversation with Re Perez.</p>
-          <a href="https://calendly.com/reperez" target="_blank" rel="noopener" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem;">Book Your Call Now &rarr;</a>
+          <a href="https://calendly.com/reperez" target="_blank" rel="noopener" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem;">Book Your Call Now →</a>
         </div>
       </div>
 
-      <p style="margin-top: 2.5rem; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--khaki); text-align: center;">SEPTEMBER 17&ndash;21, 2026 &middot; AUSTIN, TEXAS</p>
+      <p style="margin-top: 2.5rem; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--khaki); text-align: center;">SEPTEMBER 17–21, 2026 · AUSTIN, TEXAS</p>
     </div>
   </section>
 
@@ -662,6 +736,7 @@
   <footer role="contentinfo">
     <img src="images/logo-white.svg" alt="Higher Love" class="footer-logo" loading="lazy">
     <p>&copy; 2026 Higher Love. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;"><a href="/privacy.html" style="color: var(--khaki); opacity: 0.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html" style="color: var(--khaki); opacity: 0.7;">Terms & Conditions</a></p>
     <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
   </footer>
 
