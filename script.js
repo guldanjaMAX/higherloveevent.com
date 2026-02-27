@@ -56,15 +56,6 @@ function validateField(input) {
     if (!emailPattern.test(value)) valid = false;
   }
 
-  if (name === 'nominator_email' && value) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(value)) valid = false;
-  }
-
-  if (name === 'nominee_email' && value) {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(value)) valid = false;
-  }
 
   if (!valid) {
     input.classList.add('error');
@@ -91,78 +82,6 @@ function setButtonLoading(btn, loading) {
     btn.style.opacity = '1';
     btn.style.cursor = 'pointer';
   }
-}
-
-// Nomination form handler
-async function handleNominateSubmit(e) {
-  e.preventDefault();
-  const form = document.getElementById('hl-nominate');
-  const submitBtn = form.querySelector('button[type="submit"]');
-
-  // Validate required fields
-  const requiredInputs = form.querySelectorAll('[required]');
-  let allValid = true;
-  let firstInvalid = null;
-
-  requiredInputs.forEach(input => {
-    if (!validateField(input)) {
-      allValid = false;
-      if (!firstInvalid) firstInvalid = input;
-    }
-  });
-
-  if (!allValid) {
-    firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    firstInvalid.focus();
-    return;
-  }
-
-  // Check consent checkbox
-  const consentBox = form.querySelector('input[name="nominate_consent"]');
-  if (consentBox && !consentBox.checked) {
-    consentBox.focus();
-    consentBox.parentElement.style.color = '#e74c3c';
-    setTimeout(() => { consentBox.parentElement.style.color = ''; }, 3000);
-    return;
-  }
-
-  // Collect and sanitize form data
-  const formData = new FormData(form);
-  const data = { form_type: 'nomination' };
-  formData.forEach((value, key) => {
-    if (key === 'nominate_consent') return;
-    data[key] = sanitizeInput(value);
-  });
-
-  // Show loading state
-  setButtonLoading(submitBtn, true);
-
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data),
-    });
-
-    const result = await res.json();
-
-    if (!res.ok || !result.success) {
-      throw new Error(result.error || 'Something went wrong');
-    }
-  } catch (err) {
-    // Fallback: store locally so data is not lost
-    try {
-      const nominations = JSON.parse(localStorage.getItem('hl_nominations') || '[]');
-      data.submitted_at = new Date().toISOString();
-      nominations.push(data);
-      localStorage.setItem('hl_nominations', JSON.stringify(nominations));
-    } catch(e) {}
-  }
-
-  // Show success state
-  form.style.display = 'none';
-  document.getElementById('nominate-success').style.display = 'block';
-  document.getElementById('nominate-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 // Application form handler
