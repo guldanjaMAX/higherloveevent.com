@@ -291,6 +291,31 @@
       transform: translateY(0);
     }
 
+    /* Hero h1 animated headline */
+    .h1-static {
+      color: #ffffff;
+    }
+    .h1-rotating {
+      display: inline-block;
+      position: relative;
+      vertical-align: baseline;
+    }
+    .h1-frame {
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      white-space: nowrap;
+      color: var(--chamoisee, #a07f56);
+    }
+    .h1-frame.active {
+      position: relative;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     /* Community section */
     .community-bridge {
       text-align: center;
@@ -424,7 +449,7 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
-      <h1>22 Gay Men. Zero Code Switching.</h1>
+      <h1><span class="h1-static">22 Gay Men.</span> <span class="h1-rotating" aria-live="polite"><span class="h1-frame active">Zero Code-Switching.</span><span class="h1-frame">Zero Editing.</span><span class="h1-frame">Zero Performing.</span><span class="h1-frame">Zero Armor.</span><span class="h1-frame">One Room for the Whole Man.</span></span></h1>
       <p class="hero-sub">The first room designed for the whole man. Three days with the most extraordinary gay founders and executives you've never met.</p>
       <div class="tagline hero-rotating-text" aria-live="polite">
         <span class="rotate-line active">An Invite-Only Gathering &middot; 22 Founding Members</span>
@@ -964,7 +989,7 @@
 
   <script src="script.js"></script>
   <script>
-    // Hero text rotation
+    // Hero tagline rotation (below h1)
     (function() {
       const lines = document.querySelectorAll('.hero-rotating-text .rotate-line');
       if (lines.length < 2) return;
@@ -974,6 +999,21 @@
         current = (current + 1) % lines.length;
         lines[current].classList.add('active');
       }, 3500);
+    })();
+
+    // Hero h1 animated headline
+    (function() {
+      const frames = document.querySelectorAll('.h1-frame');
+      if (frames.length < 2) return;
+      let current = 0;
+      var durations = [3500, 3500, 3500, 3500, 5000];
+      function advance() {
+        frames[current].classList.remove('active');
+        current = (current + 1) % frames.length;
+        frames[current].classList.add('active');
+        setTimeout(advance, durations[current]);
+      }
+      setTimeout(advance, durations[0]);
     })();
   </script>
 </body>
