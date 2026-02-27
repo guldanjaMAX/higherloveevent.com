@@ -416,6 +416,58 @@ nav .nav-cta:hover {
 /* ========================================
    ABOUT RE SECTION
    ======================================== */
+/* Host Section — immersive composite background */
+.host-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.host-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.host-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.host-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.75) 35%,
+    rgba(0, 0, 0, 0.3) 65%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+}
+
+.host-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  padding: 6rem 4rem 6rem 8%;
+}
+
+.host-content h2 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+
+.host-content .eyebrow {
+  color: var(--chamoisee);
+}
+
+/* Legacy about-re styles (kept for reference) */
 .about-re {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -966,6 +1018,7 @@ button:focus-visible {
    RESPONSIVE: Tablet
    ======================================== */
 @media (max-width: 1024px) {
+  .host-content { padding: 5rem 3rem 5rem 5%; max-width: 500px; }
   .about-re { gap: 3rem; }
   .container-wide { padding: 0 1.5rem; }
   .testimonials-grid { gap: 1.5rem; }
@@ -1010,6 +1063,18 @@ button:focus-visible {
   .stat-num { font-size: 1.4rem; }
 
   .full-image-break { height: 35vh; min-height: 250px; }
+
+  .host-section { min-height: auto; }
+  .host-bg img { object-position: 65% 20%; }
+  .host-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.7) 50%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  }
+  .host-content { max-width: 100%; padding: 4rem 1.5rem; }
 
   .about-re {
     grid-template-columns: 1fr;
