@@ -477,6 +477,7 @@ nav .nav-cta:hover {
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s ease;
+  filter: brightness(1.1);
 }
 
 .experience-card:hover .experience-card-img img {
@@ -526,6 +527,7 @@ nav .nav-cta:hover {
 .outcome-card {
   padding: 2rem 1.5rem;
   border-top: 2px solid var(--chamoisee);
+  background: rgba(255,255,255,0.03);
 }
 
 .outcome-number {
@@ -549,6 +551,7 @@ nav .nav-cta:hover {
 .outcome-card .body-text {
   font-size: 1.05rem;
   line-height: 1.75;
+  color: rgba(255,255,255,0.85);
 }
 
 .outcome-source {
@@ -667,7 +670,7 @@ nav .nav-cta:hover {
 
 .qual-list li {
   padding: 1.2rem 0;
-  border-bottom: 1px solid rgba(160,127,86,0.12);
+  border-bottom: 1px solid rgba(160,127,86,0.2);
   font-size: 1.15rem;
   line-height: 1.8;
   position: relative;
@@ -703,6 +706,11 @@ nav .nav-cta:hover {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(160,127,86,0.15);
   padding: 2.5rem;
+  transition: border-color 0.4s ease;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(160,127,86,0.3);
 }
 
 .testimonial-card blockquote {
@@ -917,7 +925,7 @@ footer {
 footer .footer-logo {
   width: 120px;
   margin: 0 auto 1.5rem;
-  opacity: 0.6;
+  opacity: 0.75;
 }
 
 footer p {
@@ -925,7 +933,7 @@ footer p {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 /* ========================================
@@ -990,7 +998,8 @@ button:focus-visible {
   .hero-sub { font-size: 0.95rem; margin-bottom: 0.8rem; }
   .hero .tagline { font-size: 0.72rem; letter-spacing: 0.2em; margin-bottom: 0.8rem; }
   .hero-details { font-size: 0.95rem; margin-bottom: 0.8rem; }
-  .hero-details span { display: block; margin: 0.3rem 0; color: transparent; }
+  .hero-details span { display: none; }
+  .hero-details { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
   .cta-button { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; }
 
   .letter .salutation { font-size: 1.5rem; }
@@ -1067,6 +1076,7 @@ button:focus-visible {
   nav .nav-cta:hover { background: transparent; color: var(--chamoisee); }
   .experience-card:hover { border-color: rgba(160,127,86,0.12); }
   .experience-card:hover .experience-card-img img { transform: none; }
+  .testimonial-card:hover { border-color: rgba(160,127,86,0.15); }
 }
 
 /* ========================================
