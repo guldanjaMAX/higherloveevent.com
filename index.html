@@ -831,88 +831,24 @@
         <p class="eyebrow" style="text-align: center; margin-bottom: 0.5rem;">Apply for Your Founding Seat</p>
         <p class="body-text" style="text-align: center; font-size: 0.95rem; margin-bottom: 2.5rem; color: var(--khaki);">This takes about 2 minutes. Your answers help Re Perez prepare for a meaningful conversation.</p>
 
-        <form id="hl-application" onsubmit="handleSubmit(event)" aria-label="Higher Love founding member application">
-          <div class="form-row-2">
-            <div>
-              <label class="form-label" for="first_name">First Name *</label>
-              <input type="text" name="first_name" id="first_name" required class="form-input" placeholder="First name">
-              <span class="form-error" data-for="first_name">Please enter your first name</span>
-            </div>
-            <div>
-              <label class="form-label" for="last_name">Last Name *</label>
-              <input type="text" name="last_name" id="last_name" required class="form-input" placeholder="Last name">
-              <span class="form-error" data-for="last_name">Please enter your last name</span>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="app_email">Email *</label>
-            <input type="email" name="email" id="app_email" required class="form-input" placeholder="your@email.com">
-            <span class="form-error" data-for="email">Please enter a valid email address</span>
-          </div>
-          <div class="form-row-2">
-            <div>
-              <label class="form-label" for="phone">Phone *</label>
-              <input type="tel" name="phone" id="phone" required class="form-input" placeholder="(555) 555-5555">
-              <span class="form-error" data-for="phone">Please enter your phone number</span>
-            </div>
-            <div>
-              <label class="form-label" for="city">City <span style="opacity: 0.5;">(optional)</span></label>
-              <input type="text" name="city" id="city" class="form-input" placeholder="e.g. Austin, TX">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="role">What do you do? *</label>
-            <input type="text" name="role" id="role" required class="form-input" placeholder="e.g. Founder &amp; CEO, VP of Marketing">
-            <span class="form-error" data-for="role">Please tell us what you do</span>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="company">Company / Organization <span style="opacity: 0.5;">(optional)</span></label>
-            <input type="text" name="company" id="company" class="form-input" placeholder="e.g. Acme Co">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="linkedin">LinkedIn Profile <span style="opacity: 0.5;">(optional)</span></label>
-            <input type="url" name="linkedin" id="linkedin" class="form-input" placeholder="https://linkedin.com/in/yourprofile">
-          </div>
-          <div class="form-group" style="margin-bottom: 2rem;">
-            <label class="form-label" for="referral">How did you hear about Higher Love? <span style="opacity: 0.5;">(optional)</span></label>
-            <input type="text" name="referral" id="referral" class="form-input" placeholder="A friend, Re's podcast, social media, etc.">
-          </div>
-          <div class="form-group" style="margin-bottom: 2rem;">
-            <label class="form-label" id="resonance-label" style="margin-bottom: 1rem;">Which of these resonate with you? <span style="opacity: 0.5;">(check all that apply)</span></label>
-            <div class="checkbox-group" role="group" aria-labelledby="resonance-label">
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="only_one"><span>I'm usually the only gay man in the room.</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="edited_myself"><span>I've edited myself in rooms that weren't built for all of me.</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="inner_work"><span>I've done the inner work, not because it was trendy, but because I needed it.</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="gay_spaces"><span>Most gay spaces don't match where I am in life.</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="peer_group"><span>I want a peer group where I don't have to leave any part of myself at the door.</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="resonance" value="purpose"><span>I'm building from purpose now, not just achievement.</span></label>
-            </div>
-          </div>
-          <div class="form-group" style="margin-bottom: 2rem;">
-            <label class="form-label">What would being in a room like this mean for you right now? *</label>
-            <textarea name="meaning" required class="form-input form-textarea" placeholder="There's no right answer here. Just tell Re what's on your mind." rows="4"></textarea>
-            <span class="form-error" data-for="meaning">Please share what this room would mean for you</span>
-          </div>
-          <div class="form-group" style="margin-bottom: 2.5rem;">
-            <label class="form-label">Anything else Re Perez should know before your call? <span style="opacity: 0.5;">(optional)</span></label>
-            <textarea name="additional" class="form-input form-textarea" rows="3"></textarea>
-          </div>
-          <div class="form-group" style="margin-bottom: 1.5rem;">
-            <label class="checkbox-item" style="font-size: 0.95rem;">
-              <input type="checkbox" name="app_consent" required>
-              <span>I agree to the <a href="/privacy.html" target="_blank" style="color: var(--chamoisee);">Privacy Policy</a> and <a href="/terms.html" target="_blank" style="color: var(--chamoisee);">Terms &amp; Conditions</a>.</span>
-            </label>
-          </div>
-          <div style="text-align: center;">
-            <button type="submit" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem; cursor: pointer; border: 1.5px solid var(--chamoisee); width: 100%; max-width: 400px;">Submit & Book Your Call With Re Perez</button>
-          </div>
-        </form>
-
-        <div id="form-success" style="display: none; text-align: center; padding: 2rem 0;">
-          <p style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--chamoisee); margin-bottom: 1rem;">Thank you.</p>
-          <p class="body-text body-text-white" style="margin-bottom: 1.5rem;">Your application has been received. A booking page should have opened in a new tab.</p>
-          <p class="body-text body-text-white" style="margin-bottom: 2rem; opacity: 0.7; font-size: 0.9rem;">If it didn't open, click below to book your conversation with Re Perez.</p>
-          <a href="https://calendly.com/reperez" target="_blank" rel="noopener" class="cta-button cta-button-solid" style="font-size: 0.85rem; padding: 1.3rem 3.5rem;">Book Your Call Now →</a>
+        <div class="ghl-form-wrapper" style="width: 100%; min-height: 800px;">
+          <iframe
+            src="https://link.reperez.com/widget/form/kZ02GVx5DOTSdsqZez7n"
+            style="width:100%;height:800px;border:none;border-radius:3px"
+            id="inline-kZ02GVx5DOTSdsqZez7n"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Higher Love Summit"
+            data-height="800"
+            data-layout-iframe-id="inline-kZ02GVx5DOTSdsqZez7n"
+            data-form-id="kZ02GVx5DOTSdsqZez7n"
+            title="Higher Love Summit Application"
+          ></iframe>
         </div>
       </div>
 
@@ -943,6 +879,7 @@
     <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
   </footer>
 
+  <script src="https://link.reperez.com/js/form_embed.js"></script>
   <script src="script.js"></script>
   <script>
     // Hero h1 animated headline
