@@ -429,14 +429,13 @@ nav .nav-cta:hover {
 .host-bg {
   position: relative;
   order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .host-bg img {
-  width: auto;
-  height: 85%;
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  height: calc(100vh - 60px);
   max-width: none;
   object-fit: contain;
   object-position: center bottom;
