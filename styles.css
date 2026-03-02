@@ -1262,8 +1262,8 @@ button:focus-visible {
   .hero { min-height: 100svh; padding-top: 80px; padding-bottom: 1.5rem; }
   .hero-logo { width: 140px; margin-bottom: 1rem; }
   .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.25em; margin-bottom: 0.8rem; }
-  .hero h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); margin-bottom: 0.6rem; }
-  .hero-sub { font-size: 0.95rem; margin-bottom: 0.8rem; }
+  .hero h1 { font-size: clamp(2rem, 8vw, 2.8rem); margin-bottom: 0.75rem; line-height: 1.15; }
+  .hero-sub { font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.6; }
   .hero-details { font-size: 0.75rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
   .cta-button { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; }
 
@@ -1337,7 +1337,7 @@ button:focus-visible {
   .container { padding: 0 1.25rem; }
   .hero-content { padding: 1rem; }
   .hero-logo { width: 100px; }
-  .hero h1 { font-size: 1.3rem; }
+  .hero h1 { font-size: clamp(1.8rem, 7.5vw, 2.4rem); }
   .body-text { font-size: 1.08rem; }
   nav .nav-cta { padding: 0.5rem 1rem; font-size: 0.6rem; }
   .testimonial-card { padding: 1.5rem 1.25rem; }
