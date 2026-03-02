@@ -272,8 +272,9 @@ nav .nav-cta:hover {
 }
 
 .hero-logo {
-  width: 180px;
-  margin: 0 auto 1.5rem;
+  width: 260px;
+  margin: 0 auto 2rem;
+  opacity: 0.95;
 }
 
 .hero-eyebrow {
@@ -315,15 +316,18 @@ nav .nav-cta:hover {
 }
 
 .hero-details {
-  font-family: 'EB Garamond', serif;
-  font-size: 1.15rem;
-  color: var(--linen);
-  margin-bottom: 1.4rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 1.8rem;
 }
 
-.hero-details span {
-  margin: 0 0.8rem;
-  color: rgba(255,255,255,0.2);
+.hero-detail-divider {
+  margin: 0 0.6rem;
+  color: rgba(160,127,86,0.4);
 }
 
 /* ========================================
@@ -1256,14 +1260,11 @@ button:focus-visible {
   nav .nav-cta { padding: 0.5rem 1.2rem; font-size: 0.6rem; }
 
   .hero { min-height: 100svh; padding-top: 80px; padding-bottom: 1.5rem; }
-  .hero-logo { width: 110px; margin-bottom: 0.8rem; }
+  .hero-logo { width: 140px; margin-bottom: 1rem; }
   .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.25em; margin-bottom: 0.8rem; }
   .hero h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); margin-bottom: 0.6rem; }
   .hero-sub { font-size: 0.95rem; margin-bottom: 0.8rem; }
-  .hero .tagline { font-size: 0.72rem; letter-spacing: 0.2em; margin-bottom: 0.8rem; }
-  .hero-details { font-size: 0.95rem; margin-bottom: 0.8rem; }
-  .hero-details span { display: none; }
-  .hero-details { display: flex; flex-direction: column; align-items: center; gap: 0.15rem; }
+  .hero-details { font-size: 0.75rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
   .cta-button { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; }
 
   .letter .salutation { font-size: 1.5rem; }

@@ -269,30 +269,6 @@
       .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
     }
 
-    /* Hero h1 animated headline */
-    .h1-static {
-      color: #ffffff;
-    }
-    .h1-rotating {
-      display: inline-block;
-      position: relative;
-      vertical-align: baseline;
-    }
-    .h1-frame {
-      position: absolute;
-      left: 0;
-      top: 0;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-      white-space: nowrap;
-      color: var(--chamoisee, #a07f56);
-    }
-    .h1-frame.active {
-      position: relative;
-      opacity: 1;
-      transform: translateY(0);
-    }
 
     /* Community section */
     .community-bridge {
@@ -427,12 +403,11 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
-      <h1><span class="h1-static">Finally, A Room Designed For The Whole Gay Man.</span><br><span class="h1-rotating" aria-live="polite"><span class="h1-frame active">Zero Code-Switching.</span><span class="h1-frame">Zero Editing.</span><span class="h1-frame">Zero Performing.</span><span class="h1-frame">Zero Armor.</span></span></h1>
-      <p class="hero-sub">An invite-only gathering for accomplished gay founders and executives. Three days. Four nights. One room that sees all of you.</p>
-      <div class="tagline">
-        <span>An Invite-Only Gathering &middot; Founding Members Only</span><br>
-        <span>Three Days. Four Nights. One Room.</span><br>
-        <span>September 17&ndash;21, 2026 &middot; Austin, Texas</span>
+      <img src="images/hls-logo-nav.svg" alt="Higher Love Summit" class="hero-logo">
+      <h1>Finally, A Room Designed<br>For The Whole Gay Man.</h1>
+      <p class="hero-sub">An invite-only gathering for accomplished gay founders and executives who are done editing themselves in every room they enter.</p>
+      <div class="hero-details">
+        <span class="hero-detail-divider">&middot;</span>September 17&ndash;21, 2026<span class="hero-detail-divider">&middot;</span>Austin, Texas<span class="hero-detail-divider">&middot;</span>
       </div>
       <div class="hero-cta-group">
         <a href="#application-form" class="cta-button">Apply Now</a>
@@ -931,20 +906,6 @@
       check();
     })();
 
-    // Hero h1 animated headline
-    (function() {
-      const frames = document.querySelectorAll('.h1-frame');
-      if (frames.length < 2) return;
-      let current = 0;
-      var durations = [3500, 3500, 3500, 3500, 5000];
-      function advance() {
-        frames[current].classList.remove('active');
-        current = (current + 1) % frames.length;
-        frames[current].classList.add('active');
-        setTimeout(advance, durations[current]);
-      }
-      setTimeout(advance, durations[0]);
-    })();
   </script>
 </body>
 </html>
