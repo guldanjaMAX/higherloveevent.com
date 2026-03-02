@@ -429,16 +429,17 @@ nav .nav-cta:hover {
 .host-bg {
   position: relative;
   order: 2;
+  min-height: 100%;
 }
 
 .host-bg img {
-  position: sticky;
-  top: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: calc(100vh - 60px);
-  max-width: none;
-  object-fit: contain;
-  object-position: center bottom;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
 }
 
 .host-overlay {
