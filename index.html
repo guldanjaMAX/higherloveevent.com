@@ -433,15 +433,19 @@
         </video>
         <!-- Custom poster overlay -->
         <div id="video-poster-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(30,20,10,0.88) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;">
-          <img src="images/re-new-nobg.png" alt="Re Perez" style="width: 180px; height: auto; margin-bottom: 1.5rem; filter: brightness(1.1); pointer-events: none;">
+          <!-- "Play me" with hand-drawn arrow -->
+          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 500; color: var(--chamoisee); margin: 0 0 0.3rem; pointer-events: none; opacity: 0.9;">Play me</p>
+          <svg width="24" height="36" viewBox="0 0 24 36" fill="none" style="margin-bottom: 0.8rem; pointer-events: none; opacity: 0.65;">
+            <path d="M12 2C12 2 6 10 9 16C10.5 19 12 17 12 22" stroke="#A07F56" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <path d="M8 19L12 25L16 19" stroke="#A07F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
           <!-- Play button -->
-          <div style="width: 72px; height: 72px; border-radius: 50%; border: 2.5px solid var(--chamoisee); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; transition: transform 0.3s ease, background 0.3s ease; background: rgba(160,127,86,0.1);" onmouseover="this.style.transform='scale(1.1)'; this.style.background='rgba(160,127,86,0.2)';" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(160,127,86,0.1)';">
-            <svg width="28" height="32" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;">
+          <div style="width: 88px; height: 88px; border-radius: 50%; border: 2px solid var(--chamoisee); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; background: rgba(160,127,86,0.08); box-shadow: 0 0 40px rgba(160,127,86,0.15);" onmouseover="this.style.transform='scale(1.12)'; this.style.background='rgba(160,127,86,0.18)'; this.style.boxShadow='0 0 60px rgba(160,127,86,0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(160,127,86,0.08)'; this.style.boxShadow='0 0 40px rgba(160,127,86,0.15)';">
+            <svg width="32" height="36" viewBox="0 0 28 32" fill="none" style="margin-left: 4px;">
               <path d="M28 16L0 32V0L28 16Z" fill="#A07F56"/>
             </svg>
           </div>
-          <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--linen); margin: 0 0 0.4rem; pointer-events: none;">Watch Re's Personal Invitation</p>
-          <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--chamoisee); margin: 0; pointer-events: none;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
+          <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--chamoisee); margin: 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
         </div>
       </div>
 
