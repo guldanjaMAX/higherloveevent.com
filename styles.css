@@ -1076,6 +1076,127 @@ button:focus-visible {
 }
 
 /* ========================================
+   FLOATING CTA (mobile)
+   ======================================== */
+.floating-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.6rem;
+  background: var(--chamoisee);
+  color: var(--black);
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease;
+}
+
+.floating-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-cta:hover {
+  background: var(--linen);
+  color: var(--black);
+}
+
+/* ========================================
+   FORM TRUST BLOCK
+   ======================================== */
+.form-trust-block {
+  max-width: 540px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+
+.form-trust-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.form-spots-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+}
+
+/* ========================================
+   GHL FORM LOADING STATE
+   ======================================== */
+.ghl-form-wrapper {
+  width: 100%;
+  min-height: 800px;
+  position: relative;
+}
+
+.ghl-form-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--khaki);
+  opacity: 0.6;
+}
+
+.ghl-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(160,127,86,0.2);
+  border-top-color: var(--chamoisee);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   FORM FALLBACK LINK
+   ======================================== */
+.form-fallback {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--khaki);
+  opacity: 0.6;
+}
+
+.form-fallback a {
+  color: var(--chamoisee);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 .fade-in {
@@ -1226,6 +1347,7 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .fade-in { opacity: 1; transform: none; transition: none; }
+  .floating-cta { transition: none; }
   * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
 }
 
@@ -1233,10 +1355,11 @@ button:focus-visible {
    PRINT
    ======================================== */
 @media print {
-  nav, .cta-button, #application-form, .full-image-break, footer { display: none; }
+  nav, .cta-button, #application-form, .full-image-break, footer, .floating-cta { display: none; }
   body { color: #000; background: #fff; }
   section { padding: 1rem 0; }
   .body-text, .body-text-white { color: #333; }
   .section-dark { background: #fff; }
   .section-linen { background: #fff; }
+  .form-trust-block::after { content: 'Apply at higherloveevent.com'; display: block; margin-top: 0.5rem; font-size: 0.9rem; color: #666; }
 }

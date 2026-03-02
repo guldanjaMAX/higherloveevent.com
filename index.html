@@ -463,6 +463,10 @@
       <p class="body-text body-text-white">I looked for that room for over two decades. I couldn't find it.</p>
       <p class="letter-buildline">So I'm building it.</p>
       <p class="body-text" style="margin-top: 1.5rem; font-style: italic; color: var(--chamoisee);">The most intentional brotherhood ever created for accomplished gay men who've conquered every room except the one built for the whole man.</p>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#application-form" class="cta-button">I Want In</a>
+      </div>
     </div>
   </section>
 
@@ -594,6 +598,10 @@
           <p class="body-text">Intimacy, desire, and the topics no other room is brave enough to hold.</p>
         </div>
       </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#application-form" class="cta-button">Begin My Application</a>
+      </div>
     </div>
   </section>
 
@@ -658,6 +666,10 @@
         <p>You're in your 40s, 50s, maybe early 60s, and you still have a tremendous amount of life in you. You're on your second or third mountain, and you're looking for men who are climbing with the same intensity and the same heart.</p>
         <p style="color: var(--chamoisee); font-weight: 500; font-style: italic;">You are ready, genuinely ready, to be in a room where you are not the only one.</p>
       </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#application-form" class="cta-button">Reserve My Seat</a>
+      </div>
     </div>
   </section>
 
@@ -679,8 +691,9 @@
   <section>
     <div class="container-wide">
       <div style="text-align: center; margin-bottom: 2rem;">
-        <p class="eyebrow">What Leaders Say About Re</p>
+        <p class="eyebrow">What Leaders Say About Working With Re</p>
         <h2>In Good Company</h2>
+        <p class="body-text body-text-white" style="max-width: 600px; margin: 1rem auto 0; font-size: 1.05rem;">The founders and executives who know Re best on his ability to build rooms and experiences that transform people.</p>
       </div>
       <div class="testimonials-grid">
         <div class="testimonial-card fade-in">
@@ -769,6 +782,10 @@
           </div>
         </div>
       </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="#application-form" class="cta-button">Apply for Your Founding Seat</a>
+      </div>
     </div>
   </section>
 
@@ -826,12 +843,22 @@
       <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who are invited into these seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man.</p>
       <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
 
+      <!-- TRUST BLOCK -->
+      <div class="form-trust-block">
+        <p class="form-trust-text">Your application is reviewed personally by Re Perez and held in strict confidence. This is not a sales funnel. It is a mutual exploration of whether this is your room.</p>
+        <p class="form-spots-text">Limited to 22 founding members &middot; Applications reviewed on a rolling basis</p>
+      </div>
+
       <!-- APPLICATION FORM -->
       <div id="application-form" class="application-box">
         <p class="eyebrow" style="text-align: center; margin-bottom: 0.5rem;">Apply for Your Founding Seat</p>
         <p class="body-text" style="text-align: center; font-size: 0.95rem; margin-bottom: 2.5rem; color: var(--khaki);">This takes about 2 minutes. Your answers help Re Perez prepare for a meaningful conversation.</p>
 
-        <div class="ghl-form-wrapper" style="width: 100%; min-height: 800px;">
+        <div class="ghl-form-wrapper">
+          <div class="ghl-form-loading" aria-hidden="true">
+            <div class="ghl-spinner"></div>
+            <span>Loading application...</span>
+          </div>
           <iframe
             src="https://link.reperez.com/widget/form/kZ02GVx5DOTSdsqZez7n"
             style="width:100%;height:800px;border:none;border-radius:3px"
@@ -848,8 +875,10 @@
             data-layout-iframe-id="inline-kZ02GVx5DOTSdsqZez7n"
             data-form-id="kZ02GVx5DOTSdsqZez7n"
             title="Higher Love Summit Application"
+            onload="this.previousElementSibling.style.display='none'"
           ></iframe>
         </div>
+        <p class="form-fallback">Having trouble viewing the form? <a href="https://link.reperez.com/widget/form/kZ02GVx5DOTSdsqZez7n" target="_blank" rel="noopener">Apply directly here</a>.</p>
       </div>
 
       <p style="margin-top: 2.5rem; font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--khaki); text-align: center;">SEPTEMBER 17–21, 2026 · AUSTIN, TEXAS</p>
@@ -879,9 +908,30 @@
     <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
   </footer>
 
+  <!-- FLOATING CTA (mobile) -->
+  <a href="#application-form" class="floating-cta" id="floatingCta" aria-label="Apply Now">
+    <span>Apply Now</span>
+  </a>
+
   <script src="https://link.reperez.com/js/form_embed.js"></script>
   <script src="script.js"></script>
   <script>
+    // Floating CTA visibility
+    (function() {
+      var fab = document.getElementById('floatingCta');
+      var hero = document.querySelector('.hero');
+      var form = document.getElementById('application-form');
+      if (!fab || !hero) return;
+      function check() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var formTop = form ? form.getBoundingClientRect().top : Infinity;
+        var show = heroBottom < 0 && formTop > window.innerHeight;
+        fab.classList.toggle('visible', show);
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
     // Hero h1 animated headline
     (function() {
       const frames = document.querySelectorAll('.h1-frame');
