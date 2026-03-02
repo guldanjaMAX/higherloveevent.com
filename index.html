@@ -77,9 +77,11 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "What is Higher Love?", "acceptedAnswer": { "@type": "Answer", "text": "Higher Love is an invite-only gathering for accomplished gay founders and executives in the Texas Hill Country near Austin, Texas. Welcome reception September 17, main event September 18-20, 2026." } },
-      { "@type": "Question", "name": "How much does Higher Love cost?", "acceptedAnswer": { "@type": "Answer", "text": "The investment is $10,000. The first 10 founding members who commit receive an early commitment rate of $7,500. Both tiers include the full experience: all curated meals, wellness programming, peer advisory sessions, founding member status, and access to the ongoing private peer network. Payment plans are available." } },
-      { "@type": "Question", "name": "Who is Re Perez?", "acceptedAnswer": { "@type": "Answer", "text": "Re Perez is a brand strategist, bestselling author of 'Your Brand Should Be Gay (Even If You're Not)', and host of the Category of One podcast. He created Higher Love to build the room he spent decades looking for." } }
+      { "@type": "Question", "name": "Who is Higher Love for?", "acceptedAnswer": { "@type": "Answer", "text": "Higher Love is for accomplished gay men who have built something meaningful in business and are looking for a peer group that matches both their professional caliber and their lived experience. Founders, executives, investors, and partners who are tired of being the only one in the room." } },
+      { "@type": "Question", "name": "Can I bring my partner or spouse?", "acceptedAnswer": { "@type": "Answer", "text": "This gathering is designed as a space for gay men to connect with each other. The conversations, exercises, and experiences are built around the shared identity of being a gay man who leads. Austin is an incredible city and many attendees may choose to extend their trip with their partner before or after." } },
+      { "@type": "Question", "name": "What will we actually do over three days?", "acceptedAnswer": { "@type": "Answer", "text": "Each day is designed around a different theme, blending structured peer advisory sessions with open conversation, wellness, and shared experiences. Curated roundtables, facilitated deep dives, morning movement and breathwork, creative expression, Hill Country excursions, and evening firepits." } },
+      { "@type": "Question", "name": "What makes this different from other retreats?", "acceptedAnswer": { "@type": "Answer", "text": "Higher Love is designed from the ground up for accomplished gay men. The conversations, programming, and peer dynamics are all built around the specific intersection of identity, ambition, and lived experience. No code switching. No performing. Just the full version of who you are." } },
+      { "@type": "Question", "name": "What is the refund policy?", "acceptedAnswer": { "@type": "Answer", "text": "If you attend the full gathering and genuinely feel it did not deliver on what was promised, contact Re within 7 days of the event and you will receive a full refund. No hoops. No fine print." } }
     ]
   }
   </script>
@@ -99,12 +101,12 @@
     .pillars-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.2rem;
       margin-top: 2.5rem;
-      text-align: center;
+      text-align: left;
     }
     .pillar-card {
-      padding: 2rem 1.5rem;
+      padding: 1.5rem 1.3rem;
       border: 1px solid rgba(160,127,86,0.25);
       background: rgba(0,0,0,0.06);
       transition: border-color 0.4s ease, transform 0.3s ease;
@@ -114,15 +116,15 @@
       transform: translateY(-2px);
     }
     .pillar-card h3 {
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: var(--russet);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
     .pillar-card .body-text {
-      font-size: 0.95rem;
-      line-height: 1.65;
+      font-size: 0.88rem;
+      line-height: 1.6;
       color: #3a3a3a;
     }
     .hero-cta-group {
@@ -246,14 +248,14 @@
     }
 
     @media (max-width: 1024px) {
-      .pillars-grid { gap: 1rem; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
       .higher-horizontal { gap: 2rem; }
     }
     @media (max-width: 768px) {
-      .pillars-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .pillar-card { padding: 1.5rem 1rem; }
-      .pillar-card h3 { font-size: 0.9rem; }
-      .pillar-card .body-text { font-size: 0.9rem; }
+      .pillars-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .pillar-card { padding: 1.2rem 1rem; }
+      .pillar-card h3 { font-size: 0.8rem; }
+      .pillar-card .body-text { font-size: 0.85rem; }
       .hero-cta-group { flex-direction: column; align-items: center; }
       .higher-horizontal { gap: 1.5rem; }
       .higher-h-letter { font-size: 2.2rem; }
@@ -461,11 +463,12 @@
       <p class="eyebrow">Your Host</p>
       <h2>Re Perez</h2>
 
-      <p class="body-text body-text-white">I came out in the early 1990s in New York City at nineteen. Deep down on a personal level, I never really saw myself living past thirty. There were no role models of gay men living vibrant, thriving lives past 50. Now at 53, I feel like I could live another 40 years.</p>
-      <p class="body-text body-text-white">For the last 24 years, I've built a career at the intersection of branding, business, and transformation. I've spent 14 years running <em>Branding for the People</em>, a brand strategy firm with Fortune 500 roots. I wrote the bestseller <em>Your Brand Should Be Gay (Even If You're Not)</em> and created the <em>Category of One</em> podcast.</p>
-      <p class="body-text body-text-white">At the same time, I've gone deep inside the world's most rigorous personal development communities. I've hosted transformational retreats, led high caliber masterminds, created the Spiritual Capitalism Mastermind, and built a reputation as a superconnector who is masterful at curating rooms and experiences that change people.</p>
-      <p class="body-text body-text-white" style="font-weight: 500;">I loved both worlds. And in both worlds, I was almost always the only gay man in the room.</p>
-      <p class="body-text" style="color: var(--chamoisee); font-style: italic; font-size: 1.15rem;">Higher Love is what happens when someone finally decides to stop waiting for that room and builds it himself.</p>
+      <p class="body-text body-text-white">I came out in the early nineties in New York City. I was nineteen years old, and back then, it was not safe to come out of the closet. I navigated the streets of New York and the professional work environment while going to NYU, and even though it was a city where you'd think you could be yourself, you still had to be undercover.</p>
+      <p class="body-text body-text-white">Deep down on a personal level, I never really saw myself living past thirty. There weren't a lot of role models of gay men who were vibrant, living full lives past a certain age. And the ones who were didn't feel like me.</p>
+      <p class="body-text body-text-white">It wasn't until I landed in the profession of branding that everything clicked. I approached it from a cultural perspective. How can branding impact culture? How can we use this to influence behavior in a positive way? That lens led me to create a brand culture division for a boutique firm, get recruited by top global agencies, and eventually start my own.</p>
+      <p class="body-text body-text-white">I ran that agency for fourteen years. I helped thousands of clients transform their brands. I wrote the boldly titled bestseller <em>Your Brand Should Be Gay (Even If You're Not)</em>. And through all of it, the masterminds, the personal development communities, the meditations, the journeys, I built a reputation as someone who holds a high standard, operates with high integrity, and is masterful at curating rooms and experiences that change people.</p>
+      <p class="body-text body-text-white" style="font-weight: 500;">But here's the thing. The biggest challenge I found is that I would love to surround myself with other gay men who fit the same vibe. Accomplished, intentional, doing the work, living at a high level. And that room didn't exist.</p>
+      <p class="body-text" style="color: var(--chamoisee); font-style: italic; font-size: 1.15rem;">So I built it.</p>
     </div>
   </section>
 
@@ -475,54 +478,10 @@
       <p class="eyebrow">The Experience</p>
       <h2>Three Days. Four Nights.<br>One Room That Changes Everything.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">An immersive gathering at a private luxury venue in the Texas Hill Country for 22 accomplished gay founders and executives. The room you would have designed yourself if someone handed you a blank canvas and a guest list of the 22 most extraordinary gay men you've never met.</p>
+      <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">An immersive gathering at a private luxury venue in the Texas Hill Country for 22 accomplished gay founders and executives. Welcome reception on September 17th. Three full days of programming September 18th through 20th. Depart September 21st. Every session, every meal, every late night firepit conversation is designed around the topics that sit at the intersection of ambition, identity, and purpose.</p>
     </div>
 
-    <div class="container-wide">
-      <div class="experience-grid">
-        <div class="experience-card fade-in">
-          <div class="experience-card-img">
-            <img src="images/morning-wellness.jpg" alt="Welcome reception in the Texas Hill Country" loading="lazy">
-          </div>
-          <div class="experience-card-body">
-            <h3>Day One: Arrive and Exhale</h3>
-            <p class="body-text">Welcome reception. Introductions over a curated dinner where 22 strangers begin the process of becoming brothers. By the time the firepit conversation starts under the Texas stars, you'll already feel it: the relief of being in a room where you don't have to edit a single thing.</p>
-          </div>
-        </div>
-
-        <div class="experience-card fade-in">
-          <div class="experience-card-img">
-            <img src="images/peer-conversation.jpg" alt="Deep conversation in a warm, modern lounge" loading="lazy">
-          </div>
-          <div class="experience-card-body">
-            <h3>Day Two: Go Deep</h3>
-            <p class="body-text">Morning wellness, breathwork, and intentional movement at sunrise. Facilitated peer sessions on the topics that matter most to gay men at your level. Curated meals that become conversations. Evening experiences designed to dissolve the last layer of performance.</p>
-          </div>
-        </div>
-
-        <div class="experience-card fade-in">
-          <div class="experience-card-img">
-            <img src="images/venue-interior.jpg" alt="Elegant evening dining space at the venue" loading="lazy">
-          </div>
-          <div class="experience-card-body">
-            <h3>Day Three: Integrate and Ignite</h3>
-            <p class="body-text">The conversations shift from "who are you" to "what are you building next." Peer advisory circles. Strategy sessions with men who understand your world. The kind of candor that only happens when trust has already been established.</p>
-          </div>
-        </div>
-
-        <div class="experience-card fade-in">
-          <div class="experience-card-img">
-            <img src="images/firepit-night.jpg" alt="Firepit under the Texas night sky" loading="lazy">
-          </div>
-          <div class="experience-card-body">
-            <h3>Day Four: Carry It Forward</h3>
-            <p class="body-text">A closing ceremony. Commitments exchanged. The beginning of a brotherhood that doesn't end when you leave Austin. You'll walk away with 22 phone numbers you'll actually use, and the clarity that comes from finally being fully known.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container" style="margin-top: 3rem; text-align: center;">
+    <div class="container" style="margin-top: 1rem; text-align: center;">
       <p class="shift-quote">By the third morning, something will have shifted. You won't be able to name it yet. But you'll notice that you stopped editing yourself sometime on day two, and it didn't cost you anything. In fact, it gave you something back that you forgot you had.</p>
     </div>
   </section>
@@ -530,47 +489,83 @@
   <!-- THE PILLARS -->
   <section class="section-linen">
     <div class="container" style="text-align: center;">
-      <p class="eyebrow" style="color: var(--russet);">The Pillars</p>
-      <h2 style="color: var(--black); margin-bottom: 1rem;">What Higher Love Is Built On</h2>
+      <p class="eyebrow" style="color: var(--russet);">What We Talk About</p>
+      <h2 style="color: var(--black); margin-bottom: 1rem;">The Conversations That Define Higher Love</h2>
       <div class="divider"></div>
-      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">Every session, every meal, every late night firepit conversation is shaped by the topics that sit at the intersection of ambition, identity, and purpose. These are the pillars that define the Higher Love experience.</p>
+      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">These are the topics that sit at the intersection of ambition, identity, and purpose. The conversations no other room is designed to hold. Every session, every meal, every late night firepit is shaped by what matters most to the men in this room.</p>
 
       <div class="pillars-grid">
         <div class="pillar-card fade-in">
-          <h3>Scaling What You've Built</h3>
-          <p class="body-text">The strategy and systems behind your next level of growth.</p>
+          <h3>Relationships, Intimacy &amp; Partnership</h3>
+          <p class="body-text">The honest conversation about dating and partnership as a successful gay man that almost no professional community will touch.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>Leading Without the Mask</h3>
-          <p class="body-text">What happens when you lead from authenticity, not performance.</p>
+          <h3>Purpose &amp; Meaning</h3>
+          <p class="body-text">What makes the work matter beyond the metrics. The framework that turns achievement into something that actually fulfills you.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>The Future of Aging Longer With AI</h3>
-          <p class="body-text">How the smartest founders are leveraging what's coming next.</p>
+          <h3>The Inner Work</h3>
+          <p class="body-text">Somatics, breathwork, energetic healing. The layer underneath intellectual processing that most men at this level have never accessed.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>The Body as Instrument</h3>
-          <p class="body-text">Fitness, optimization, and the discipline of treating yourself like your most important asset.</p>
+          <h3>AI at the Helm</h3>
+          <p class="body-text">What the smartest leaders are actually doing with AI. Not a keynote. A working conversation between peers who are in it.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>The Deeper Questions</h3>
-          <p class="body-text">Consciousness, plant medicine, breathwork, and what happens when you stop running from stillness.</p>
+          <h3>The Identity Shift</h3>
+          <p class="body-text">Who you become when the title that defined you no longer applies. A transition almost nobody prepares you for.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>Building a Brand That Tells the Truth</h3>
-          <p class="body-text">What your brand looks like when it reflects the full man behind it.</p>
+          <h3>Business Strategy at Altitude</h3>
+          <p class="body-text">Peer level operational and scaling conversations with men who have faced the same complexity and solved it differently.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>Thriving Past 50 (and 60, and 70)</h3>
-          <p class="body-text">Longevity, vitality, and redefining what the second half looks like for gay men.</p>
+          <h3>Legacy</h3>
+          <p class="body-text">What outlasts you. Philanthropy, impact investing, mentorship that scales, and designing a body of work so aligned you never want to retire from it.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>Money, Freedom &amp; Legacy</h3>
-          <p class="body-text">Wealth as a vehicle for the life you actually want to live.</p>
+          <h3>Gay Brotherhood</h3>
+          <p class="body-text">Not mentors. Not mentees. Peers who see you clearly because they are living the same life. Brotherhood built intentionally and with care.</p>
         </div>
         <div class="pillar-card fade-in">
-          <h3>Love, Sex &amp; the Conversations No One Else Will Have</h3>
-          <p class="body-text">Intimacy, desire, and the topics no other room is brave enough to hold.</p>
+          <h3>Influence &amp; Cultural Identity</h3>
+          <p class="body-text">What it means to wield real business power and lived cultural identity to shape industries and create a different world for the men coming behind you.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Health &amp; Longevity</h3>
+          <p class="body-text">Alignment, not optimization. Muscle mass, insulin sensitivity, sleep architecture, nervous system regulation, and the meaning gap that makes it stick.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Sexual Health &amp; Vitality</h3>
+          <p class="body-text">Hormonal shifts, libido, prostate health, long term sexual wellness. The candid conversation your doctor is not having with you.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>The Physical Edge</h3>
+          <p class="body-text">Protocols, peptides, supplementation, and training approaches calibrated for men over 40 who want to perform, not just maintain.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Wealth Architecture</h3>
+          <p class="body-text">Alternative investments, family office thinking, intergenerational wealth design, and the specific complexities of building wealth as a gay man.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Influence Without Exposure</h3>
+          <p class="body-text">How to build the kind of reputation that commands attention at the highest levels without overexposing yourself or compromising your discretion.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>The Ground Shifting Beneath Us</h3>
+          <p class="body-text">Rights being contested. DEI uncertainty. The real cost of visibility in certain boardrooms and markets right now. Navigated with seriousness and candor.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Life After the Exit</h3>
+          <p class="body-text">Freedom without purpose is just emptiness with a view. What a well designed life looks like when the business no longer organizes your days.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Travel &amp; the Art of Living Well</h3>
+          <p class="body-text">Extraordinary settings as catalyst, not backdrop. Conversations over dinner in places you wouldn't have found on your own, with men you wouldn't have met otherwise.</p>
+        </div>
+        <div class="pillar-card fade-in">
+          <h3>Designing Your Richest Life</h3>
+          <p class="body-text">Rich in relationships, in meaning, in experiences that money alone cannot buy. The life you don't need a vacation from.</p>
         </div>
       </div>
 
@@ -582,30 +577,13 @@
 
   <!-- WHAT YOU WALK AWAY WITH -->
   <section>
-    <div class="container">
+    <div class="container" style="max-width: 780px;">
       <p class="eyebrow" style="text-align: center;">What You Walk Away With</p>
       <h2 style="text-align: center; margin-bottom: 2rem;">More Than a Weekend. A Brotherhood.</h2>
       <div class="divider"></div>
 
-      <div class="outcome-grid">
-        <div class="outcome-card fade-in">
-          <div class="outcome-number">01</div>
-          <h3>A Peer Advisory Network</h3>
-          <p class="body-text">22 men who operate at your level and share your experience of the world. Now imagine a peer group where you don't have to leave any part of yourself at the door.</p>
-        </div>
-
-        <div class="outcome-card fade-in">
-          <div class="outcome-number">02</div>
-          <h3>A Recalibration</h3>
-          <p class="body-text">Of what is possible when you stop performing and start showing up as the full version of yourself. Most of the men in this room have spent decades being excellent in spaces that required them to leave something behind. Higher Love is where you bring everything.</p>
-        </div>
-
-        <div class="outcome-card fade-in">
-          <div class="outcome-number">03</div>
-          <h3>A Founding Circle</h3>
-          <p class="body-text">Relationships that don't expire when the gathering ends. The 22 founding members become the foundation of something that grows far beyond September 2026. This is the first gathering, not the only one. You're not attending an event. You're joining a brotherhood that compounds over years, not days.</p>
-        </div>
-      </div>
+      <p class="body-text body-text-white" style="font-size: 1.1rem; line-height: 1.9;">You walk away with 22 men who operate at your level and share your experience of the world. A peer advisory network where you don't have to leave any part of yourself at the door. You walk away with a recalibration of what is possible when you stop performing and start showing up as the full version of yourself. Most of the men in this room have spent decades being excellent in spaces that required them to leave something behind. Higher Love is where you bring everything.</p>
+      <p class="body-text body-text-white" style="font-size: 1.1rem; line-height: 1.9;">And you walk away with a founding circle. Relationships that don't expire when the gathering ends. The 22 founding members become the foundation of something that grows far beyond September 2026. This is the first gathering, not the only one. You're not attending an event. You're joining a brotherhood that compounds over years, not days.</p>
     </div>
   </section>
 
@@ -775,33 +753,21 @@
 
   <!-- INVESTMENT -->
   <section class="section-linen investment-section">
-    <div class="container">
+    <div class="container" style="max-width: 780px;">
       <p class="eyebrow" style="color: var(--russet);">The Investment</p>
       <h2 style="color: var(--black);">Your Founding Seat</h2>
 
-      <div class="investment-tier" style="text-align: center; margin-bottom: 2.5rem;">
-        <div class="investment-amount">$10,000</div>
-        <p class="body-text" style="max-width: 580px; margin: 0.75rem auto 0; font-size: 1.1rem; color: var(--black); font-weight: 500;">The first ten founding members get in at an early commitment rate of $7,500.</p>
+      <div class="investment-tier" style="text-align: center; margin-bottom: 2rem;">
+        <div class="investment-amount-struck" style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #999; text-decoration: line-through; margin-bottom: 0.3rem;">$10,000</div>
+        <div class="investment-amount" style="font-size: 3.5rem;">$7,500</div>
+        <p class="body-text" style="max-width: 520px; margin: 0.5rem auto 0; font-size: 1rem; color: var(--black); font-weight: 500;">Founding Member Rate</p>
       </div>
 
-      <div class="value-stack">
-        <div class="value-stack-item">
-          <div class="value-stack-label">The Gathering</div>
-          <p>Welcome reception on September 17th. Three full days of programming September 18th through 20th at a private luxury Hill Country venue. Depart September 21st. All curated meals, morning wellness, facilitated peer sessions, evening experiences, and firepit conversations included.</p>
-        </div>
-        <div class="value-stack-item">
-          <div class="value-stack-label">The Network</div>
-          <p>A peer advisory circle of 22 accomplished gay founders and executives that continues beyond September 2026. Priority access to all future Higher Love gatherings.</p>
-        </div>
-        <div class="value-stack-item">
-          <div class="value-stack-label">The Status</div>
-          <p>Founding member status in the Higher Love community. The 22 men who are invited into these seats shape what this becomes.</p>
-        </div>
-      </div>
+      <p class="body-text" style="font-size: 1.05rem; line-height: 1.85; color: var(--black); margin-bottom: 1.5rem;">Welcome reception on September 17th. Three full days of programming September 18th through 20th at a private luxury Hill Country venue. Depart September 21st. All curated meals, morning wellness, facilitated peer sessions, evening experiences, and firepit conversations included. Plus a peer advisory circle of 22 accomplished gay founders and executives that continues beyond September 2026, priority access to all future Higher Love gatherings, and founding member status in the community. The 22 men who are invited into these seats shape what this becomes.</p>
 
-      <div class="anchor-compare">
-        <p class="body-text" style="margin: 0; font-size: 1rem;">This is not a conference ticket. It's a seat at the table you've been looking for your entire career. The men, the depth, the access, and the brotherhood that continues long after you leave Austin. If this resonates, the next step is below.</p>
-      </div>
+      <p class="body-text" style="font-size: 1.05rem; line-height: 1.85; color: var(--black); margin-bottom: 1.5rem;">A payment plan is available. If you need flexibility, just mention it in your application and Re will work with you directly.</p>
+
+      <p class="body-text" style="font-size: 0.95rem; line-height: 1.75; color: #666; font-style: italic;">Higher Love stands behind this experience. If you attend the full gathering and genuinely feel it did not deliver what was promised, contact Re within 7 days of the event and you will receive a full refund. No hoops, no fine print. That is how confident we are in what happens in this room.</p>
 
       <div style="text-align: center; margin-top: 2.5rem;">
         <a href="#application-form" class="cta-button" style="border-color: var(--black); color: var(--black);">Apply for Your Founding Seat</a>
@@ -866,8 +832,42 @@
       <h2 style="text-align: center; color: var(--black); margin-bottom: 2rem;">Frequently Asked</h2>
       <div class="divider" style="margin-bottom: 3rem;"></div>
       <div class="faq-list">
-        <!-- FAQ items will be added here -->
-        <p class="body-text" style="text-align: center; color: #999; font-style: italic;">Questions and answers coming soon.</p>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Who is this for?</button>
+          <div class="faq-answer">
+            <p>Higher Love is for accomplished gay men who have built something meaningful in business and are looking for a peer group that matches both their professional caliber and their lived experience. Founders, executives, investors, and partners who are tired of being the only one in the room or the only gay man at the table. If you have spent years succeeding in rooms that required you to edit yourself, this gathering was designed for you.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Can I bring my partner or spouse?</button>
+          <div class="faq-answer">
+            <p>This gathering is designed as a space for gay men to connect with each other without the filter of being someone's partner or plus one. The conversations, exercises, and experiences are built around the shared identity of being a gay man who leads. That said, Austin is an incredible city. Many attendees may choose to extend their trip and bring their partner before or after the gathering. Re is happy to share local recommendations.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What will we actually do over three days?</button>
+          <div class="faq-answer">
+            <p>Each day is designed around a different theme, blending structured peer advisory sessions with open conversation, wellness, and shared experiences. Think curated roundtables, facilitated deep dives, morning movement and breathwork, creative expression, Hill Country excursions, and evening firepits. This is not a conference with panels and name tags. It is an immersive experience where 22 men show up fully and leave transformed. The full schedule will be shared with accepted members.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What makes this different from other retreats or masterminds?</button>
+          <div class="faq-answer">
+            <p>Most retreats and masterminds are designed for a general audience where you happen to be welcome. Higher Love is designed from the ground up for accomplished gay men. The conversations, the programming, and the peer dynamics are all built around the specific intersection of identity, ambition, and lived experience that these 22 men share. There is no code switching. No explaining yourself. No performing. Just the full version of who you are in a room with others who understand because they have lived it too.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What is the refund policy?</button>
+          <div class="faq-answer">
+            <p>Higher Love stands behind this experience completely. If you attend the full gathering and genuinely feel it did not deliver on what was promised, contact Re within 7 days of the event and you will receive a full refund. No hoops. No fine print. That is the level of confidence behind what happens in this room.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -890,6 +890,24 @@
   <script src="https://link.reperez.com/js/form_embed.js"></script>
   <script src="script.js"></script>
   <script>
+    // FAQ accordion
+    (function() {
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.parentElement;
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(function(el) {
+            el.classList.remove('open');
+            el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+
     // Floating CTA visibility
     (function() {
       var fab = document.getElementById('floatingCta');
