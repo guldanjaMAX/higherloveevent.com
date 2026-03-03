@@ -399,47 +399,32 @@
     <a href="#application-form" class="nav-cta" aria-label="Apply for Higher Love">Apply Now</a>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — Split: Text Left, Video Right -->
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-bg">
-      <img src="images/hero-venue.jpg" alt="Higher Love Summit venue" style="width:100%;height:100%;object-fit:cover;object-position:center center;filter:brightness(0.45);">
-    </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content fade-in">
+  <section class="hero hero-split">
+    <div class="hero-split-text fade-in">
       <h1>Finally, A Room Designed<br>For The Whole Gay Man.</h1>
       <p class="hero-sub">An invite-only gathering for accomplished, growth-oriented, high-vibe gay men.</p>
       <div class="hero-details">
         <span class="hero-detail-divider">&middot;</span>September 18&ndash;20, 2026<span class="hero-detail-divider">&middot;</span>Austin, Texas<span class="hero-detail-divider">&middot;</span>
       </div>
-      <div class="hero-cta-group">
+      <div class="hero-cta-group" style="justify-content: flex-start;">
         <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
-  </section>
-
-  <!-- RE'S PERSONAL INVITATION (VIDEO + LETTER) -->
-  <section>
-    <div class="container" style="max-width: 880px; text-align: center; padding: 4rem 1.5rem;">
-      <p class="eyebrow">A Personal Invitation</p>
-      <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Hear It Directly From Re</h2>
-      <p class="body-text body-text-white" style="max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.05rem;">This gathering was born from a gap that no one else was filling. Re shares the story in his own words.</p>
-
-      <!-- Video with custom poster overlay -->
-      <div id="video-wrapper" style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.4); border: 1px solid rgba(160,127,86,0.3); cursor: pointer; aspect-ratio: 16/9; background: #0a0a0a;" onclick="playInvitationVideo()">
+    <div class="hero-split-video fade-in">
+      <div id="video-wrapper" style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); border: 1px solid rgba(160,127,86,0.3); cursor: pointer; aspect-ratio: 16/9; background: #0a0a0a;" onclick="playInvitationVideo()">
         <video id="optin-video" preload="metadata" style="width: 100%; height: 100%; display: block; background: #0a0a0a; object-fit: cover;" playsinline>
           <source src="images/opt-in-video.mp4" type="video/mp4">
           Your browser does not support the video element.
         </video>
         <!-- Custom poster overlay -->
         <div id="video-poster-overlay" style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(30,20,10,0.88) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;">
-          <!-- "Play me" with hand-drawn arrow -->
           <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 500; color: var(--chamoisee); margin: 0 0 0.3rem; pointer-events: none; opacity: 0.9;">Play me</p>
           <svg width="24" height="36" viewBox="0 0 24 36" fill="none" style="margin-bottom: 0.8rem; pointer-events: none; opacity: 0.65;">
             <path d="M12 2C12 2 6 10 9 16C10.5 19 12 17 12 22" stroke="#A07F56" stroke-width="1.5" stroke-linecap="round" fill="none"/>
             <path d="M8 19L12 25L16 19" stroke="#A07F56" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
           </svg>
-          <!-- Play button -->
           <div style="width: 88px; height: 88px; border-radius: 50%; border: 2px solid var(--chamoisee); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease; background: rgba(160,127,86,0.08); box-shadow: 0 0 40px rgba(160,127,86,0.15);" onmouseover="this.style.transform='scale(1.12)'; this.style.background='rgba(160,127,86,0.18)'; this.style.boxShadow='0 0 60px rgba(160,127,86,0.3)';" onmouseout="this.style.transform='scale(1)'; this.style.background='rgba(160,127,86,0.08)'; this.style.boxShadow='0 0 40px rgba(160,127,86,0.15)';">
             <svg width="32" height="36" viewBox="0 0 28 32" fill="none" style="margin-left: 4px;">
               <path d="M28 16L0 32V0L28 16Z" fill="#A07F56"/>
@@ -448,11 +433,21 @@
           <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--chamoisee); margin: 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
         </div>
       </div>
+      <p style="font-family: 'EB Garamond', serif; font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.5); text-align: center; margin-top: 0.75rem;">Hear the story behind Higher Love directly from Re</p>
+    </div>
+  </section>
 
-      <!-- Toggle: Read the letter instead -->
-      <div style="margin-top: 1.75rem;">
+  <!-- RE'S PERSONAL INVITATION (LETTER) -->
+  <section>
+    <div class="container" style="max-width: 880px; text-align: center; padding: 4rem 1.5rem;">
+      <p class="eyebrow">A Personal Invitation</p>
+      <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">A Letter From Re</h2>
+      <p class="body-text body-text-white" style="max-width: 600px; margin: 0 auto 2rem; font-size: 1.05rem;">This gathering was born from a gap that no one else was filling. Re shares the story in his own words.</p>
+
+      <!-- Toggle: Read the letter -->
+      <div style="margin-bottom: 0.5rem;">
         <button id="letter-toggle" onclick="toggleLetter()" style="background: none; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--chamoisee); padding: 0.5rem 1rem; transition: opacity 0.3s ease; opacity: 0.8;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
-          <span id="letter-toggle-text">Prefer to read? See the letter &darr;</span>
+          <span id="letter-toggle-text">Read Re's letter &darr;</span>
         </button>
       </div>
 
