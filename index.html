@@ -477,17 +477,12 @@
             </video>
             <!-- Custom poster overlay -->
             <div id="video-poster-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;" class="video-poster-editorial">
-              <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 400; color: var(--linen); margin: 0 0 0.3rem; pointer-events: none; opacity: 0.9;">Play me</p>
-              <svg width="24" height="36" viewBox="0 0 24 36" fill="none" style="margin-bottom: 0.8rem; pointer-events: none; opacity: 0.6;">
-                <path d="M12 2C12 2 6 10 9 16C10.5 19 12 17 12 22" stroke="#EDE3DA" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                <path d="M8 19L12 25L16 19" stroke="#EDE3DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </svg>
               <div class="play-circle-editorial">
                 <svg width="34" height="38" viewBox="0 0 28 32" fill="none" style="margin-left: 5px;">
                   <path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/>
                 </svg>
               </div>
-              <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
+              <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0.8rem 0 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
             </div>
           </div>
         </div>
@@ -497,6 +492,14 @@
 
     <!-- Background ember particles -->
     <div class="ember-field" id="ember-field"></div>
+  </section>
+
+  <!-- SOCIAL PROOF PULL QUOTE -->
+  <section class="social-proof-strip">
+    <div class="container" style="max-width: 800px; text-align: center; padding: 2.5rem 1.5rem;">
+      <blockquote style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--linen); line-height: 1.6; margin: 0 0 1rem;">&ldquo;When it comes to branding and authenticity, there's no one I know who exudes more brilliance in both than Re Perez.&rdquo;</blockquote>
+      <p style="font-family: 'Raleway', sans-serif; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--chamoisee); margin: 0;">Ryan Deiss &middot; Co-Founder, Digital Marketer</p>
+    </div>
   </section>
 
   <!-- RE'S PERSONAL INVITATION (LETTER) -->
@@ -535,7 +538,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="#application-form" class="cta-button">I Want In</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -611,7 +614,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Begin My Application</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -662,7 +665,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Reserve My Seat</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -725,33 +728,49 @@
         <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto; font-size: 0.95rem; opacity: 0.8;">Hear from leaders who have experienced Re's retreats and masterminds firsthand.</p>
       </div>
       <div class="video-testimonials-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/FkvaVtLkRU8" title="Dr. Anthony Balduzzi testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="FkvaVtLkRU8" data-title="Dr. Anthony Balduzzi testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/FkvaVtLkRU8/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Dr. Anthony Balduzzi</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/1oV0NexnMYY" title="Mike Budny testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="1oV0NexnMYY" data-title="Mike Budny testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/1oV0NexnMYY/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Mike Budny</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/lj3YOt4ZAzI" title="Ben Tchoubineh testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="lj3YOt4ZAzI" data-title="Ben Tchoubineh testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/lj3YOt4ZAzI/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Ben Tchoubineh</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/bZEmezOcKbk" title="Thomas Ruggiero testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="bZEmezOcKbk" data-title="Thomas Ruggiero testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/bZEmezOcKbk/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Thomas Ruggiero</div>
@@ -818,7 +837,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Apply for Your Founding Seat</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -882,7 +901,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="#application-form" class="cta-button" style="border-color: var(--black); color: var(--black); font-size: 0.82rem; padding: 1rem 3rem;">Claim My Founding Seat &rarr;</a>
+        <a href="#application-form" class="cta-button" style="border-color: var(--black); color: var(--black); font-size: 0.82rem; padding: 1rem 3rem;">Apply Now</a>
         <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; color: #999; margin-top: 0.75rem; letter-spacing: 0.1em;">Founding pricing ends when the first 10 seats are claimed</p>
       </div>
     </div>
@@ -894,8 +913,7 @@
     <div class="container fade-in">
       <h2 style="margin-bottom: 1.5rem;">This Room Won't Wait.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who are invited into these seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man.</p>
-      <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
+      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 2rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book a conversation with Re Perez. It is not a pitch. It is a mutual exploration of whether this is your room.</p>
 
       <!-- TRUST BLOCK -->
       <div class="form-trust-block">
@@ -981,6 +999,27 @@
           </div>
         </div>
 
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Where will we stay and is accommodation included?</button>
+          <div class="faq-answer">
+            <p>The gathering takes place at a private luxury venue in the Texas Hill Country outside Austin. Accommodation is included in your investment. You will have your own private room for the duration of the experience. All meals, programming, and excursions are also included. Details on the venue and arrival logistics will be shared with accepted members.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How many men will be in the room?</button>
+          <div class="faq-answer">
+            <p>This is an intimate gathering by design. The founding cohort will be limited to a small group of men, likely between 15 and 25. This is not a conference with hundreds of people. Every man in the room will be personally vetted and every conversation will be personal. The size is intentional so that by the time you leave, there are no strangers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What happens after I apply?</button>
+          <div class="faq-answer">
+            <p>After you submit your application, Re Perez will personally review it. If there is a potential fit, you will be invited to a one on one conversation with Re. This is not a sales call. It is a genuine exploration of whether this gathering is right for you and whether you are right for the room. If it is a mutual yes, you will receive your invitation to join the founding cohort.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -992,6 +1031,7 @@
     <img src="images/hls-logo-stacked.svg" alt="Higher Love Summit" class="footer-logo" loading="lazy">
     <p>&copy; 2026 Higher Love. All rights reserved.</p>
     <p style="margin-top: 0.5rem;"><a href="/privacy.html" style="color: var(--khaki); opacity: 0.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html" style="color: var(--khaki); opacity: 0.7;">Terms & Conditions</a></p>
+    <p style="margin-top: 0.5rem;">Questions? <a href="mailto:hello@higherloveevent.com" style="color: var(--chamoisee); opacity: 0.85;">hello@higherloveevent.com</a></p>
     <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
   </footer>
 
@@ -1020,6 +1060,18 @@
         });
       });
     })();
+
+    // YouTube facade loader
+    function loadYouTube(el) {
+      var id = el.getAttribute('data-video-id');
+      var title = el.getAttribute('data-title') || 'Video';
+      var wrapper = el.querySelector('div');
+      wrapper.innerHTML = '<div style="position: relative; padding-bottom: 56.25%; height: 0;">' +
+        '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="' + title + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>';
+      el.style.cursor = 'default';
+      el.onclick = null;
+    }
+    window.loadYouTube = loadYouTube;
 
     // Video poster overlay + play
     function playInvitationVideo() {

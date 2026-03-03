@@ -228,6 +228,16 @@ nav .nav-cta:hover {
 }
 
 /* ========================================
+   SOCIAL PROOF STRIP
+   ======================================== */
+.social-proof-strip {
+  background: var(--dark-bg);
+  border-top: 1px solid rgba(160,127,86,0.1);
+  border-bottom: 1px solid rgba(160,127,86,0.1);
+  padding: 0;
+}
+
+/* ========================================
    HERO
    ======================================== */
 .hero {
@@ -1633,6 +1643,13 @@ button:focus-visible {
 }
 
 /* ========================================
+   YOUTUBE FACADES
+   ======================================== */
+.yt-facade:hover div[style*="border-radius: 50%"] {
+  transform: scale(1.1);
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 .fade-in {
@@ -1684,9 +1701,20 @@ button:focus-visible {
     min-height: auto;
     text-align: center;
   }
-  .hero-split-text { max-width: 100%; order: 1; }
-  .hero-split-video { order: 0; }
+  .hero-split-text { max-width: 100%; order: 0; }
+  .hero-split-video { order: 1; }
   .hero-split .hero-sub { margin: 0 auto 1rem; }
+
+  /* Reduce flame effects on mobile for performance */
+  .flame-svg-layer { display: none; }
+  .flame-tongue { display: none; }
+  .flame-wisp { display: none; }
+  .heat-shimmer { display: none; }
+  .ember-field { display: none; }
+  .flame-glow-base {
+    opacity: 0.4;
+    filter: blur(50px);
+  }
   .hero-split .hero-cta-group { justify-content: center !important; }
   .hero-logo { width: 140px; margin-bottom: 1rem; }
   .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.25em; margin-bottom: 0.8rem; }
@@ -1739,6 +1767,7 @@ button:focus-visible {
   .testimonials-grid { grid-template-columns: 1fr; }
   .testimonial-card { padding: 2rem 1.5rem; }
   .testimonial-card blockquote { font-size: 1.12rem; }
+  .video-testimonials-grid { grid-template-columns: 1fr !important; }
 
   .investment-amount { font-size: clamp(2.5rem, 10vw, 4rem); }
   .value-stack-item p { font-size: 1.1rem; }
