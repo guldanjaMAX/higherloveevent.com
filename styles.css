@@ -248,7 +248,7 @@ nav .nav-cta:hover {
 .hero.hero-split {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
-  gap: 4rem;
+  gap: 3.5rem;
   align-items: center;
   text-align: left;
   max-width: 1280px;
@@ -298,6 +298,7 @@ nav .nav-cta:hover {
   position: relative;
   z-index: 2;
   padding-left: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .hero-split-video {
@@ -691,7 +692,7 @@ nav .nav-cta:hover {
   line-height: 1.7;
   color: rgba(255,255,255,0.75);
   max-width: 580px;
-  margin: 0 0 1rem;
+  margin: 0.4rem 0 1.2rem;
 }
 
 .hero-split .hero-details {
