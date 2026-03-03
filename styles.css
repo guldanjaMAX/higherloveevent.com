@@ -381,6 +381,256 @@ nav .nav-cta:hover {
 .video-corner-bracket.bl { bottom: -6px; left: -6px; border-bottom-width: 1px; border-left-width: 1px; }
 .video-corner-bracket.br { bottom: -6px; right: -6px; border-bottom-width: 1px; border-right-width: 1px; }
 
+/* ========================================
+   FLAME EFFECTS — Video
+   ======================================== */
+.flame-container {
+  position: relative;
+  padding: 30px;
+}
+
+/* Ambient glow behind video */
+.flame-glow-base {
+  position: absolute;
+  inset: -60px;
+  border-radius: 30px;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 50% 60%, rgba(212,165,68,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 40% 80%, rgba(196,123,43,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(232,150,62,0.06) 0%, transparent 50%);
+  animation: flameGlowPulse 4s ease-in-out infinite;
+}
+@keyframes flameGlowPulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+/* SVG flame layer behind video */
+.flame-svg-layer {
+  position: absolute;
+  bottom: -5%;
+  left: -10%;
+  right: -10%;
+  height: 120%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.12;
+}
+.flame-svg-layer svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Animated SVG flame paths */
+.flame-path-1 {
+  animation: flickerFlame1 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+.flame-path-2 {
+  animation: flickerFlame2 3.5s ease-in-out infinite 0.5s;
+  transform-origin: bottom center;
+}
+.flame-path-3 {
+  animation: flickerFlame3 5s ease-in-out infinite 1s;
+  transform-origin: bottom center;
+}
+@keyframes flickerFlame1 {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.12; }
+  25% { transform: scaleY(1.05) scaleX(0.97); opacity: 0.15; }
+  50% { transform: scaleY(0.95) scaleX(1.03); opacity: 0.1; }
+  75% { transform: scaleY(1.08) scaleX(0.95); opacity: 0.14; }
+}
+@keyframes flickerFlame2 {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.1; }
+  33% { transform: scaleY(1.1) scaleX(0.95); opacity: 0.13; }
+  66% { transform: scaleY(0.92) scaleX(1.05); opacity: 0.08; }
+}
+@keyframes flickerFlame3 {
+  0%, 100% { transform: scaleY(1) scaleX(1); opacity: 0.08; }
+  50% { transform: scaleY(1.06) scaleX(0.98); opacity: 0.12; }
+}
+
+/* CSS flame tongues rising from bottom of video */
+.flame-tongue {
+  position: absolute;
+  bottom: -10px;
+  z-index: 1;
+  border-radius: 50% 50% 20% 20%;
+  filter: blur(8px);
+  opacity: 0;
+  animation: flameRiseFade ease-in-out infinite;
+}
+.flame-tongue:nth-child(3) {
+  left: 10%;
+  width: 60px;
+  height: 100px;
+  background: linear-gradient(to top, rgba(196,123,43,0.5), rgba(212,165,68,0.2), transparent);
+  animation-duration: 2.5s;
+  animation-delay: 0s;
+}
+.flame-tongue:nth-child(4) {
+  left: 30%;
+  width: 80px;
+  height: 130px;
+  background: linear-gradient(to top, rgba(232,150,62,0.4), rgba(212,165,68,0.15), transparent);
+  animation-duration: 3s;
+  animation-delay: 0.4s;
+}
+.flame-tongue:nth-child(5) {
+  left: 50%;
+  width: 70px;
+  height: 110px;
+  background: linear-gradient(to top, rgba(212,165,68,0.5), rgba(196,123,43,0.2), transparent);
+  animation-duration: 2.8s;
+  animation-delay: 0.8s;
+  transform: translateX(-50%);
+}
+.flame-tongue:nth-child(6) {
+  right: 25%;
+  width: 65px;
+  height: 120px;
+  background: linear-gradient(to top, rgba(196,123,43,0.45), rgba(232,150,62,0.15), transparent);
+  animation-duration: 3.2s;
+  animation-delay: 0.2s;
+}
+.flame-tongue:nth-child(7) {
+  right: 8%;
+  width: 55px;
+  height: 90px;
+  background: linear-gradient(to top, rgba(232,150,62,0.4), rgba(212,165,68,0.15), transparent);
+  animation-duration: 2.6s;
+  animation-delay: 0.6s;
+}
+@keyframes flameRiseFade {
+  0% { opacity: 0; transform: translateY(20px) scaleX(1) scaleY(0.8); }
+  20% { opacity: 0.7; }
+  50% { opacity: 0.5; transform: translateY(-30px) scaleX(0.9) scaleY(1.1); }
+  80% { opacity: 0.2; }
+  100% { opacity: 0; transform: translateY(-80px) scaleX(0.7) scaleY(1.3); }
+}
+
+/* Side flame wisps */
+.flame-wisp {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  filter: blur(12px);
+  opacity: 0;
+}
+.flame-wisp-left-1 {
+  left: -20px;
+  bottom: 20%;
+  width: 40px;
+  height: 80px;
+  background: radial-gradient(ellipse, rgba(212,165,68,0.3), transparent);
+  animation: flameWispLeft 3.5s ease-in-out infinite 0.5s;
+}
+.flame-wisp-left-2 {
+  left: -15px;
+  bottom: 40%;
+  width: 35px;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(196,123,43,0.25), transparent);
+  animation: flameWispLeft 4s ease-in-out infinite 1s;
+}
+.flame-wisp-right-1 {
+  right: -20px;
+  bottom: 25%;
+  width: 45px;
+  height: 75px;
+  background: radial-gradient(ellipse, rgba(232,150,62,0.3), transparent);
+  animation: flameWispRight 3.8s ease-in-out infinite 0.3s;
+}
+.flame-wisp-right-2 {
+  right: -10px;
+  bottom: 50%;
+  width: 30px;
+  height: 55px;
+  background: radial-gradient(ellipse, rgba(212,165,68,0.2), transparent);
+  animation: flameWispRight 4.2s ease-in-out infinite 1.2s;
+}
+@keyframes flameWispLeft {
+  0%, 100% { opacity: 0; transform: translateX(0) translateY(0); }
+  30% { opacity: 0.6; }
+  50% { opacity: 0.4; transform: translateX(-10px) translateY(-30px); }
+  100% { opacity: 0; transform: translateX(-15px) translateY(-60px); }
+}
+@keyframes flameWispRight {
+  0%, 100% { opacity: 0; transform: translateX(0) translateY(0); }
+  30% { opacity: 0.5; }
+  50% { opacity: 0.35; transform: translateX(10px) translateY(-25px); }
+  100% { opacity: 0; transform: translateX(15px) translateY(-55px); }
+}
+
+/* Top heat shimmer */
+.heat-shimmer {
+  position: absolute;
+  top: -40px;
+  left: 10%;
+  right: 10%;
+  height: 60px;
+  z-index: 1;
+  background: linear-gradient(to top, rgba(212,165,68,0.06), transparent);
+  filter: blur(15px);
+  animation: heatShimmer 3s ease-in-out infinite;
+}
+@keyframes heatShimmer {
+  0%, 100% { opacity: 0.3; transform: scaleX(1); }
+  50% { opacity: 0.6; transform: scaleX(1.05); }
+}
+
+/* Play button with flame glow pulse */
+.play-circle-editorial {
+  box-shadow: 0 0 40px rgba(212,165,68,0.2), 0 0 80px rgba(196,123,43,0.1), 0 0 120px rgba(232,150,62,0.05);
+  animation: flamePlayPulse 3s ease-in-out infinite;
+}
+@keyframes flamePlayPulse {
+  0%, 100% { box-shadow: 0 0 40px rgba(212,165,68,0.2), 0 0 80px rgba(196,123,43,0.1), 0 0 120px rgba(232,150,62,0.05); }
+  50% { box-shadow: 0 0 60px rgba(212,165,68,0.35), 0 0 100px rgba(196,123,43,0.18), 0 0 160px rgba(232,150,62,0.1); }
+}
+.play-circle-editorial:hover {
+  box-shadow: 0 0 80px rgba(212,165,68,0.5), 0 0 140px rgba(196,123,43,0.25), 0 0 200px rgba(232,150,62,0.12);
+}
+
+/* Video frame with fire shadow */
+#video-wrapper {
+  box-shadow:
+    0 30px 100px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(160,127,86,0.2),
+    0 0 60px rgba(212,165,68,0.08),
+    0 0 120px rgba(196,123,43,0.04);
+  transition: box-shadow 0.4s ease;
+}
+#video-wrapper:hover {
+  box-shadow:
+    0 30px 100px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(160,127,86,0.35),
+    0 0 80px rgba(212,165,68,0.15),
+    0 0 160px rgba(196,123,43,0.08);
+}
+
+/* Background ember particles */
+.ember-field {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ember-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatEmber linear infinite;
+}
+@keyframes floatEmber {
+  0% { opacity: 0; transform: translateY(0) translateX(0) scale(1); }
+  10% { opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { opacity: 0; transform: translateY(-400px) translateX(40px) scale(0); }
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;

@@ -26,6 +26,26 @@ document.querySelectorAll('.fade-in').forEach(el => {
   observer.observe(el);
 });
 
+// Hero ember particles
+(function() {
+  var field = document.getElementById('ember-field');
+  if (!field) return;
+  var colors = ['#D4A544', '#C47B2B', '#E8963E', '#A07F56'];
+  for (var i = 0; i < 20; i++) {
+    var p = document.createElement('div');
+    p.className = 'ember-particle';
+    var size = (1.5 + Math.random() * 3) + 'px';
+    p.style.left = (40 + Math.random() * 55) + '%';
+    p.style.bottom = (-5 + Math.random() * 20) + '%';
+    p.style.width = size;
+    p.style.height = size;
+    p.style.animationDuration = (4 + Math.random() * 6) + 's';
+    p.style.animationDelay = (Math.random() * 8) + 's';
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+    field.appendChild(p);
+  }
+})();
+
 // Cookie consent banner
 (function() {
   if (localStorage.getItem('hl_cookie_consent')) return;
