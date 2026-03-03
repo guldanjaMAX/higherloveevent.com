@@ -244,30 +244,31 @@ nav .nav-cta:hover {
   background: var(--dark-bg);
 }
 
-/* Split hero layout */
+/* Split hero layout — Editorial Luxe */
 .hero.hero-split {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
   align-items: center;
   text-align: left;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 100px 3rem 2rem;
+  padding: 110px 3.5rem 2rem;
   min-height: 100vh;
   min-height: 100svh;
   position: relative;
 }
 
-/* Atmospheric background for split hero */
+/* Rich warm gradient background */
 .hero-split-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(160,127,86,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(145,83,53,0.04) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(18,14,10,1) 40%, rgba(10,10,10,1) 100%);
+    radial-gradient(ellipse at 15% 50%, rgba(160,127,86,0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 75% 40%, rgba(145,83,53,0.07) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(160,127,86,0.05) 0%, transparent 40%),
+    linear-gradient(135deg, #0c0a08 0%, #12100c 30%, #0e0b08 60%, #0a0a0a 100%);
   pointer-events: none;
 }
 .hero-split-bg::after {
@@ -277,20 +278,108 @@ nav .nav-cta:hover {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(160,127,86,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(160,127,86,0.25), transparent);
+}
+
+/* Vertical accent line between columns */
+.hero-accent-line {
+  position: absolute;
+  left: 41%;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(160,127,86,0.3), rgba(160,127,86,0.15), transparent);
+  z-index: 1;
+  pointer-events: none;
 }
 
 .hero-split-text {
-  max-width: 520px;
+  max-width: 440px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
+  padding-left: 0.5rem;
 }
 
 .hero-split-video {
   width: 100%;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
+
+/* Eyebrow label with accent line */
+.hero-eyebrow-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.hero-eyebrow-line {
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--chamoisee);
+  flex-shrink: 0;
+}
+
+/* Italic emphasis on "Whole" */
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--chamoisee);
+}
+
+/* Video poster editorial background */
+.video-poster-editorial {
+  background:
+    radial-gradient(circle at 50% 45%, rgba(160,127,86,0.12) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(15,12,8,0.9) 0%, rgba(20,15,10,0.85) 50%, rgba(10,8,5,0.92) 100%);
+}
+
+/* Play button — editorial luxe */
+.play-circle-editorial {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid rgba(237,227,218,0.5);
+  background: rgba(237,227,218,0.06);
+  box-shadow: 0 0 60px rgba(160,127,86,0.15);
+  transition: all 0.4s ease;
+}
+.play-circle-editorial:hover {
+  transform: scale(1.12);
+  border-color: var(--chamoisee);
+  background: rgba(160,127,86,0.15);
+  box-shadow: 0 0 100px rgba(160,127,86,0.35);
+}
+
+/* Decorative corner brackets on video */
+.video-decor-wrap {
+  position: relative;
+}
+.video-corner-bracket {
+  position: absolute;
+  z-index: 3;
+  width: 24px;
+  height: 24px;
+  border-color: rgba(160,127,86,0.4);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+}
+.video-corner-bracket.tl { top: -6px; left: -6px; border-top-width: 1px; border-left-width: 1px; }
+.video-corner-bracket.tr { top: -6px; right: -6px; border-top-width: 1px; border-right-width: 1px; }
+.video-corner-bracket.bl { bottom: -6px; left: -6px; border-bottom-width: 1px; border-left-width: 1px; }
+.video-corner-bracket.br { bottom: -6px; right: -6px; border-bottom-width: 1px; border-right-width: 1px; }
 
 .hero-bg {
   position: absolute;
@@ -339,17 +428,18 @@ nav .nav-cta:hover {
 .hero h1 {
   color: var(--white);
   margin-bottom: 0.6rem;
-  font-size: clamp(1.6rem, 3.2vw, 2.5rem);
-  font-weight: 500;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 300;
   text-transform: none;
   letter-spacing: 0.01em;
+  line-height: 1.12;
 }
 
 .hero-sub {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.15rem);
   line-height: 1.7;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.75);
   max-width: 580px;
   margin: 0 0 1rem;
 }
