@@ -8,16 +8,23 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Fade-in on scroll
+// Fade-in on scroll (with immediate visibility for above-the-fold elements)
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
 
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+document.querySelectorAll('.fade-in').forEach(el => {
+  // If element is already in viewport on page load, show it immediately
+  const rect = el.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    el.classList.add('visible');
+  }
+  observer.observe(el);
+});
 
 // Cookie consent banner
 (function() {
