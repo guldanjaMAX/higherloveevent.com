@@ -1142,14 +1142,19 @@
     window.loadYouTube = loadYouTube;
 
     // Video poster overlay + play
+    var videoStarted = false;
     function playInvitationVideo() {
       var video = document.getElementById('optin-video');
       var overlay = document.getElementById('video-poster-overlay');
-      if (overlay && video) {
+      if (!videoStarted && overlay && video) {
+        videoStarted = true;
         overlay.style.opacity = '0';
         setTimeout(function() { overlay.style.display = 'none'; }, 500);
         video.controls = true;
         video.play();
+        // Remove wrapper onclick so native controls work on mobile
+        var wrapper = document.getElementById('video-wrapper');
+        if (wrapper) { wrapper.removeAttribute('onclick'); wrapper.style.cursor = 'default'; }
       }
     }
     window.playInvitationVideo = playInvitationVideo;
