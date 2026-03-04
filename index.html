@@ -100,32 +100,78 @@
   <style>
     .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
       margin-top: 2.5rem;
       text-align: left;
     }
     .pillar-card {
-      padding: 1.5rem 1.3rem;
-      border: 1px solid rgba(160,127,86,0.25);
-      background: rgba(0,0,0,0.06);
-      transition: border-color 0.4s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem 2rem;
+      cursor: pointer;
     }
-    .pillar-card:hover {
-      border-color: rgba(160,127,86,0.4);
-      transform: translateY(-2px);
+    .pillar-card .pillar-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .pillar-card:hover .pillar-bg {
+      transform: scale(1.05);
+    }
+    .pillar-card .pillar-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.15) 100%);
+      transition: background 0.5s ease;
+    }
+    .pillar-card:hover .pillar-overlay {
+      background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
     }
     .pillar-card h3 {
-      font-size: 0.85rem;
-      color: var(--russet);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #fff;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
     .pillar-card .body-text {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: #3a3a3a;
+      position: relative;
+      z-index: 2;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+      margin-top: 0;
+    }
+    .pillar-card:hover .body-text {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 0.3rem;
+    }
+    .pillar-card--wide {
+      grid-column: 1 / -1;
+    }
+    .pillar-card .pillar-accent {
+      position: relative;
+      z-index: 2;
+      width: 32px;
+      height: 2px;
+      background: var(--flame-gold);
+      margin-bottom: 0.8rem;
     }
     .hero-cta-group {
       display: flex;
@@ -248,14 +294,16 @@
     }
 
     @media (max-width: 1024px) {
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .pillar-card { min-height: 320px; }
       .higher-horizontal { gap: 2rem; }
     }
     @media (max-width: 768px) {
-      .pillars-grid { grid-template-columns: 1fr; gap: 0.8rem; }
-      .pillar-card { padding: 1.2rem 1rem; }
-      .pillar-card h3 { font-size: 0.8rem; }
-      .pillar-card .body-text { font-size: 0.85rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card { min-height: 280px; padding: 2rem 1.5rem; }
+      .pillar-card h3 { font-size: 1.3rem; }
+      .pillar-card .body-text { max-height: 200px; opacity: 1; margin-top: 0.3rem; font-size: 0.88rem; }
+      .pillar-card--wide { grid-column: auto; }
       .video-testimonials-grid { grid-template-columns: 1fr !important; }
       .hero-cta-group { flex-direction: column; align-items: center; }
       .higher-horizontal { gap: 1.5rem; }
@@ -266,11 +314,13 @@
     }
     @media (max-width: 400px) {
       .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card { min-height: 240px; }
       .higher-horizontal { gap: 1rem; }
       .higher-h-letter { font-size: 1.8rem; }
     }
     @media (hover: none) {
-      .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
+      .pillar-card .body-text { max-height: 200px; opacity: 1; margin-top: 0.3rem; }
+      .pillar-card:hover .pillar-bg { transform: none; }
     }
 
 
@@ -583,37 +633,54 @@
   </section>
 
   <!-- THE PILLARS -->
-  <section class="section-linen">
+  <section class="section-linen" style="padding-bottom: 0;">
     <div class="container" style="text-align: center;">
       <p class="eyebrow" style="color: var(--russet);">What We Talk About</p>
       <h2 style="color: var(--black); margin-bottom: 1rem;">The Conversations That Define Higher Love</h2>
       <div class="divider"></div>
-      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">These are the topics that sit at the intersection of ambition, identity, and purpose. The conversations no other room is designed to hold. Every session, every meal, every late night firepit is shaped by what matters most to the men in this room.</p>
+      <p class="body-text" style="max-width: 700px; margin: 2rem auto 0;">The topics at the intersection of ambition, identity, and purpose. Every session, every meal, every late night firepit is shaped by what matters most to the men in this room.</p>
+    </div>
+    <div style="text-align: center;">
 
       <div class="pillars-grid">
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/business-wealth.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Business &amp; Wealth</h3>
-          <p class="body-text">Whether you're scaling your next venture, running a lifestyle business on your terms, or cash flowing the empire you already built, the conversation here meets you where you are. Strategy, wealth creation, investing, and the caliber of expertise you'd normally have to pay six figures to sit across from.</p>
+          <p class="body-text">Strategy, wealth creation, investing, and the caliber of expertise you'd normally pay six figures to sit across from. The conversation meets you where you are.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/health-wellness.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Health, Wellness &amp; Longevity</h3>
-          <p class="body-text">Mental clarity, hormonal balance, sexual vitality, and a body that actually matches your ambition. We bring together modern medicine, AI driven diagnostics, and holistic practice. Not to help you live longer, but to help you live fully, vibrantly, and on your own terms.</p>
+          <p class="body-text">Mental clarity, hormonal balance, sexual vitality. Modern medicine meets holistic practice. Not to help you live longer, but to help you live fully.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/ai-technology.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>AI, Technology &amp; Innovation</h3>
-          <p class="body-text">The leaders who will define the next decade aren't waiting for permission. Whether you're deploying AI, investing in it, or trying to understand what it means for everything you've built, this is the conversation that keeps you ahead of the curve instead of behind it.</p>
+          <p class="body-text">Whether you're deploying AI, investing in it, or decoding what it means for everything you've built. This keeps you ahead of the curve.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/purpose-spirituality.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Purpose &amp; Spirituality</h3>
-          <p class="body-text">There's a moment when the achievement stops filling the space it used to. This is the room for what opens next. Breathwork, ceremony, plant medicine, inner work, and the kind of breakthroughs that don't come from another strategy session. Transformation at this level requires presence, surrender, and a container built to hold it.</p>
+          <p class="body-text">Breathwork, ceremony, plant medicine, inner work, and the breakthroughs that don't come from another strategy session. The room for what opens next.</p>
         </div>
-        <div class="pillar-card fade-in">
+        <div class="pillar-card pillar-card--wide fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/adventure-lifestyle.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Adventure &amp; Lifestyle</h3>
-          <p class="body-text">Rich isn't a number. It's a Tuesday that feels intentional, a trip that changes something in you, a partnership that meets your depth, and a community you didn't know you were missing. This is where you design the life you don't need a vacation from.</p>
+          <p class="body-text">A Tuesday that feels intentional, a trip that changes something in you, a community you didn't know you were missing. Design the life you don't need a vacation from.</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: 3rem;">
+      <div style="text-align: center; padding: 3rem 0;">
         <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
