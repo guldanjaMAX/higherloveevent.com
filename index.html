@@ -33,67 +33,532 @@
   <meta property="og:site_name" content="Higher Love">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
+  <!-- Twitter / X Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://higherloveevent.com/">
   <meta name="twitter:title" content="Higher Love | A Room Designed For The Whole Gay Man">
-  <meta name="twitter:description" content="An invite-only gathering for accomplished gay founders and executives. Three days. One room that sees all of you. September 18-20, 2026, Austin, Texas.">
+  <meta name="twitter:description" content="An invite-only gathering for accomplished gay founders and executives. September 18-20, 2026, Austin, Texas.">
   <meta name="twitter:image" content="https://higherloveevent.com/images/og-dinner.jpg">
-  <meta name="twitter:image:alt" content="Higher Love luxury venue in the Texas Hill Country">
 
-  <!-- Structured Data: Event -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Higher Love 2026",
-    "description": "An invite-only gathering for accomplished gay founders and executives. Welcome reception September 17, main event September 18-20, 2026.",
-    "startDate": "2026-09-17",
-    "endDate": "2026-09-20",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "location": {
-      "@type": "Place",
-      "name": "Private Venue, Texas Hill Country",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Austin",
-        "addressRegion": "TX",
-        "addressCountry": "US"
-      }
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": "Higher Love",
-      "url": "https://higherloveevent.com"
-    },
-    "performer": {
-      "@type": "Person",
-      "name": "Re Perez",
-      "jobTitle": "Founder, Category of One Branding"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://higherloveevent.com/#application-form",
-      "availability": "https://schema.org/LimitedAvailability",
-      "validFrom": "2025-01-01"
-    },
-    "maximumAttendeeCapacity": 22,
-    "typicalAgeRange": "30-65",
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Gay founders, entrepreneurs, and executives"
-    }
-  }
-  </script>
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="https://higherloveevent.com/images/apple-touch-icon.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' text-anchor='middle' fill='%23a07f56' font-family='Georgia' font-size='18' font-weight='bold'%3EHL%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="https://higherloveevent.com/favicon.png">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=EB+Garamond:wght@400;500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000 0%, #0a0a0a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 800px;
+      padding: 40px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      background-color: #fff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: 2px solid #fff;
+      cursor: pointer;
+    }
+
+    .cta-button:hover {
+      background-color: transparent;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.95);
+      padding: 15px 40px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #ccc;
+    }
+
+    /* Content Section */
+    .content {
+      flex: 1;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      margin-bottom: 30px;
+      line-height: 1.2;
+    }
+
+    h3 {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      color: #e0e0e0;
+    }
+
+    .description {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #b0b0b0;
+      margin-bottom: 30px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .feature {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .feature:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .feature h3 {
+      margin-bottom: 15px;
+    }
+
+    .feature p {
+      font-size: 1rem;
+      color: #a0a0a0;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 20px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .content {
+        padding: 60px 20px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    /* FAB Button */
+    .fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .fab.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .fab:active {
+      transform: scale(0.95);
+    }
+  </style>
 </head>
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="logo">Higher Love</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#details">Details</a></li>
+      <li><a href="#contact" class="cta-button">Join Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Video -->
+  <section class="hero" id="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="https://higherloveevent.com/videos/hero.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Higher Love</h1>
+      <p>A room designed for the whole gay man</p>
+      <a href="#contact" class="cta-button">Learn More</a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <div class="content">
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2>About Higher Love</h2>
+      <p class="description">
+        Higher Love is an invite-only gathering for accomplished gay founders and executives. 
+        It's a space where you can be fully yourself—where ambition, authenticity, and community intersect.
+      </p>
+      <p>
+        For too long, successful gay men have had to compartmentalize who they are. We created Higher Love 
+        to change that. This isn't just another retreat. It's a brotherhood of accomplished men who get it.
+      </p>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+      <h2>The Experience</h2>
+      <p class="description">
+        Three unforgettable days in the Texas Hill Country. World-class dining, meaningful conversations, 
+        and genuine connection with peers who understand your journey.
+      </p>
+      <div class="features">
+        <div class="feature">
+          <h3>Curated Community</h3>
+          <p>Handpicked attendees—founders, executives, and leaders reshaping their industries.</p>
+        </div>
+        <div class="feature">
+          <h3>Luxury Setting</h3>
+          <p>A stunning venue in the Texas Hill Country designed for connection and celebration.</p>
+        </div>
+        <div class="feature">
+          <h3>Meaningful Dialogue</h3>
+          <p>Conversations about business, life, love, and what it means to be your authentic self.</p>
+        </div>
+        <div class="feature">
+          <h3>World-Class Dining</h3>
+          <p>Exceptional meals prepared by top chefs, celebrating the finest food and wine.</p>
+        </div>
+        <div class="feature">
+          <h3>Brotherhood</h3>
+          <p>Form lasting connections with accomplished men from across the country.</p>
+        </div>
+        <div class="feature">
+          <h3>Celebration</h3>
+          <p>Evening celebrations with music, dancing, and pure joy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="section" id="details">
+      <h2>Event Details</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>When</h3>
+          <p>September 18-20, 2026</p>
+        </div>
+        <div class="feature">
+          <h3>Where</h3>
+          <p>Texas Hill Country, Austin Area</p>
+        </div>
+        <div class="feature">
+          <h3>Who</h3>
+          <p>Invite-only for accomplished gay founders and executives</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+      <h2>Join Higher Love</h2>
+      <p class="description">
+        Ready to be part of something special? We're curating an exclusive group of accomplished gay leaders. 
+        Apply or request an invitation to learn more.
+      </p>
+      <a href="mailto:join@higherloveevent.com" class="cta-button">Get in Touch</a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Higher Love. All rights reserved. | <a href="mailto:hello@higherloveevent.com">Contact</a> | <a href="#">Privacy</a></p>
+  </footer>
+
+  <!-- Scroll to Top FAB -->
+  <button class="fab" id="fabButton" title="Scroll to top">↑</button>
+
+  <script>
+    // Navigation Scroll Effect
+    (function() {
+      const navbar = document.getElementById('navbar');
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        if (scrollTop > 100) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    })();
+
+    // Smooth Scroll for Navigation Links
+    (function() {
+      const links = document.querySelectorAll('a[href^="#"]');
+      
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          
+          if (href === '#' || href === '#hero') {
+            e.preventDefault();
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+            return;
+          }
+          
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    })();
+
+    // Floating Action Button (FAB) Scroll Visibility
+    (function() {
+      const fab = document.getElementById('fabButton');
+      
+      fab.addEventListener('click', function() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+
+      function check() {
+        const show = document.documentElement.scrollTop > window.innerHeight;
+        fab.classList.toggle('visible', show);
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+  </script>
+</body>
+</html>
