@@ -1,0 +1,593 @@
+/* ========================================
+   2026 SITE REFRESH — New Section Styles
+   Fixes CSS/HTML mismatch after HTML rewrite
+   ======================================== */
+
+/* --- Hero: Override to new two-column layout --- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  text-align: left;
+  min-height: 100vh;
+  min-height: 100svh;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 3.5rem 3rem;
+  background: var(--dark-bg);
+  position: relative;
+  justify-content: start;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  padding: 0;
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
+  margin-bottom: 1.2rem;
+}
+
+.hero-subtitle {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 0.8rem;
+}
+
+.hero-dates {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 2rem;
+}
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  object-fit: cover;
+  border: 1px solid rgba(160,127,86,0.2);
+}
+
+/* --- About Section --- */
+.about {
+  padding: 6rem 0;
+  background: var(--section-dark);
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.about h2 {
+  color: var(--white);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.about p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 1.8vw, 1.25rem);
+  line-height: 1.9;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 1.5rem;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Experience Section --- */
+.experience {
+  padding: 6rem 0;
+  background: var(--dark-bg);
+}
+
+.experience > h2 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  padding: 0 2rem;
+}
+
+.experience > .experience-grid {
+  max-width: 1100px;
+  margin: 3rem auto 0;
+  padding: 0 2rem;
+}
+
+.experience-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(160,127,86,0.15);
+  padding: 2.5rem 2rem;
+  transition: border-color 0.4s ease, transform 0.3s ease;
+}
+
+.experience-card:hover {
+  border-color: rgba(160,127,86,0.35);
+  transform: translateY(-2px);
+}
+
+.experience-card h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--chamoisee);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.experience-card p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.8);
+}
+
+.experience-card p strong {
+  color: var(--linen);
+  font-weight: 600;
+}
+
+/* --- Details Section --- */
+.details {
+  padding: 6rem 0;
+  background: var(--section-dark);
+}
+
+.details-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.details h2 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.detail-item {
+  padding: 2rem;
+  border-top: 2px solid var(--chamoisee);
+  background: rgba(255,255,255,0.02);
+}
+
+.detail-item h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  color: var(--chamoisee);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+}
+
+.detail-item p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 0.75rem;
+}
+
+.detail-item p:last-child {
+  margin-bottom: 0;
+}
+
+.detail-item p strong {
+  color: var(--linen);
+}
+
+.detail-item p em {
+  color: var(--khaki);
+  font-style: italic;
+}
+
+/* --- Application Section --- */
+.application {
+  padding: 6rem 0;
+  background: var(--dark-bg);
+  position: relative;
+}
+
+.application-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.application h2 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.application-subtitle {
+  text-align: center;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2.5rem;
+}
+
+.form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+}
+
+.form fieldset legend {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(160,127,86,0.2);
+  width: 100%;
+}
+
+.form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form .form-group label {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--linen);
+  margin-bottom: 0.5rem;
+}
+
+.form .form-group input[type="text"],
+.form .form-group input[type="email"],
+.form .form-group input[type="url"],
+.form .form-group textarea,
+.form .form-group select {
+  width: 100%;
+  padding: 1rem 1.15rem;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(160,127,86,0.35);
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.form .form-group input:focus,
+.form .form-group textarea:focus,
+.form .form-group select:focus {
+  border-color: var(--chamoisee);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 2px rgba(160,127,86,0.15);
+}
+
+.form .form-group input::placeholder,
+.form .form-group textarea::placeholder {
+  color: rgba(188,178,166,0.5);
+  font-style: italic;
+}
+
+.form .form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%23a07f56'%3E%3Cpath d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form .form-group select option {
+  background: #1a1a1a;
+  color: var(--white);
+}
+
+.form .form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.7;
+}
+
+/* Checkbox styling */
+.form .form-group.checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.form .form-group.checkbox label {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: rgba(255,255,255,0.82);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.form .form-group.checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border: 2px solid rgba(160,127,86,0.5);
+  border-radius: 3px;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+  position: relative;
+  margin-top: 3px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.form .form-group.checkbox input[type="checkbox"]:hover {
+  border-color: var(--chamoisee);
+  background: rgba(255,255,255,0.12);
+}
+
+.form .form-group.checkbox input[type="checkbox"]:checked {
+  background: var(--chamoisee);
+  border-color: var(--chamoisee);
+}
+
+.form .form-group.checkbox input[type="checkbox"]:checked::after {
+  content: '\2713';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.form .form-group.checkbox a {
+  color: var(--chamoisee);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 1.2rem 2rem;
+  background: var(--chamoisee);
+  color: var(--black);
+  border: 1.5px solid var(--chamoisee);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  margin-top: 1rem;
+}
+
+.submit-button:hover {
+  background: transparent;
+  color: var(--chamoisee);
+}
+
+.form-note {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--khaki);
+  opacity: 0.65;
+  margin-top: 1.5rem;
+}
+
+/* --- FAQ Section --- */
+.faq {
+  padding: 6rem 0;
+  background: var(--section-dark);
+}
+
+.faq > h2 {
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+}
+
+.faq-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.faq-content .faq-item {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(160,127,86,0.12);
+}
+
+.faq-content .faq-item:first-child {
+  border-top: 1px solid rgba(160,127,86,0.12);
+}
+
+.faq-content .faq-item h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--chamoisee);
+  text-transform: none;
+  letter-spacing: 0.01em;
+  margin-bottom: 0.75rem;
+}
+
+.faq-content .faq-item p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.8);
+}
+
+.faq-content .faq-item p strong {
+  color: var(--linen);
+}
+
+.faq-content .faq-item p a {
+  color: var(--chamoisee);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* --- Final CTA (override for new structure) --- */
+.final-cta {
+  text-align: center;
+  padding: 8rem 0;
+  background: var(--dark-bg);
+  position: relative;
+}
+
+.final-cta h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.final-cta p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 2rem;
+}
+
+/* ========================================
+   RESPONSIVE: New sections mobile
+   ======================================== */
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 90px 1.5rem 2rem;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    order: 0;
+  }
+
+  .hero-image {
+    order: 1;
+  }
+
+  .hero-image img {
+    min-height: 250px;
+  }
+
+  .hero-dates {
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+  }
+
+  .about {
+    padding: 3.5rem 0;
+  }
+
+  .about-content {
+    padding: 0 1.5rem;
+  }
+
+  .experience {
+    padding: 3.5rem 0;
+  }
+
+  .experience > .experience-grid {
+    padding: 0 1.5rem;
+  }
+
+  .experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .details {
+    padding: 3.5rem 0;
+  }
+
+  .details-content {
+    padding: 0 1.5rem;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .application {
+    padding: 3.5rem 0;
+  }
+
+  .application-content {
+    padding: 0 1.5rem;
+  }
+
+  .faq {
+    padding: 3.5rem 0;
+  }
+
+  .faq-content {
+    padding: 0 1.5rem;
+  }
+
+  .final-cta {
+    padding: 5rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    padding: 80px 1.25rem 1.5rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .detail-item {
+    padding: 1.5rem 1rem;
+  }
+}
