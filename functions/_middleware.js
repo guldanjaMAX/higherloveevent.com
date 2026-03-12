@@ -1,3 +1,4 @@
+// GA4 Analytics Middleware - Injects tracking into all HTML pages
 export async function onRequest(context) {
   const response = await context.next();
   const contentType = response.headers.get('content-type') || '';
