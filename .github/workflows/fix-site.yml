@@ -1,5 +1,8 @@
 name: Restore site with emotional tweaks
 on:
+  push:
+    paths:
+      - '.github/workflows/fix-site.yml'
   workflow_dispatch:
 
 permissions:
