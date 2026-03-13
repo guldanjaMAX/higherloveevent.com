@@ -32,3 +32,420 @@
   <meta property="og:image:alt" content="Higher Love luxury venue in the Texas Hill Country">
   <meta property="og:site_name" content="Higher Love">
   <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://higherloveevent.com/">
+  <meta name="twitter:title" content="Higher Love | The Brotherhood for Accomplished Gay Founders & Executives">
+  <meta name="twitter:description" content="An invite-only gathering for accomplished gay founders and executives. September 18-20, 2026, Austin, Texas.">
+  <meta name="twitter:image" content="https://higherloveevent.com/images/og-dinner.jpg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background: #f9f9f9;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+    /* Accessibility */
+    .skip-link { position: absolute; top: -40px; left: 0; background: #000; color: #fff; padding: 8px; z-index: 100; }
+    .skip-link:focus { top: 0; }
+
+    /* Navigation -->
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    nav .logo { font-size: 28px; font-weight: 700; color: #000; text-decoration: none; font-family: 'Cormorant Garamond', serif; }
+    nav ul { list-style: none; display: flex; gap: 40px; }
+    nav a { text-decoration: none; color: #666; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: #000; }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 80px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #f0e8ff 0%, #fef5e7 100%);
+      color: #000;
+    }
+    .hero h1 {
+      font-size: 72px;
+      line-height: 1.1;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 24px;
+      margin-bottom: 50px;
+      color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 18px 50px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+    .cta-button:hover {
+      background: #333;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Event Details Section */
+    .event-details {
+      padding: 80px 40px;
+      background: #fff;
+      text-align: center;
+    }
+    .event-details h2 {
+      font-size: 52px;
+      margin-bottom: 60px;
+      color: #000;
+    }
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .detail-card {
+      padding: 40px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .detail-card h3 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #000;
+    }
+    .detail-card p { font-size: 18px; color: #666; }
+
+    /* Letter Section */
+    .letter {
+      padding: 80px 40px;
+      background: #fef5e7;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .letter h2 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      color: #000;
+    }
+    .letter p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    /* Experience Section */
+    .experience {
+      padding: 80px 40px;
+      background: #f0e8ff;
+      text-align: center;
+    }
+    .experience h2 {
+      font-size: 48px;
+      margin-bottom: 60px;
+      color: #000;
+    }
+    .experience-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+    .experience-item {
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .experience-item h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .experience-item p { font-size: 16px; color: #666; }
+
+    /* About Section */
+    .about {
+      padding: 80px 40px;
+      background: #fff;
+      text-align: center;
+    }
+    .about h2 {
+      font-size: 48px;
+      margin-bottom: 40px;
+      color: #000;
+    }
+    .about p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+      color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FAQ Section */
+    .faq {
+      padding: 80px 40px;
+      background: #f9f9f9;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq h2 {
+      font-size: 48px;
+      margin-bottom: 60px;
+      text-align: center;
+      color: #000;
+    }
+    .faq-item {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+    .faq-item h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #000;
+      cursor: pointer;
+    }
+    .faq-item p {
+      font-size: 16px;
+      color: #666;
+      margin: 10px 0 0 0;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px;
+      background: #000;
+      color: #fff;
+      text-align: center;
+    }
+    footer p { font-size: 16px; }
+    footer a { color: #fff; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; flex-direction: column; gap: 20px; }
+      nav ul { gap: 20px; flex-direction: column; }
+      .hero { padding: 40px 20px; margin-top: 100px; }
+      .hero h1 { font-size: 42px; }
+      .hero p { font-size: 18px; }
+      .event-details { padding: 40px 20px; }
+      .event-details h2 { font-size: 36px; }
+      .letter { padding: 40px 20px; }
+      .letter h2 { font-size: 32px; }
+      .experience { padding: 40px 20px; }
+      .experience h2 { font-size: 32px; }
+      .about { padding: 40px 20px; }
+      .about h2 { font-size: 32px; }
+      .faq { padding: 40px 20px; }
+      .faq h2 { font-size: 32px; }
+    }
+
+    /* Floating Action Button (FAB) */
+    .fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      z-index: 999;
+      transition: all 0.3s;
+      opacity: 0;
+      visibility: hidden;
+    }
+    .fab.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+    .fab:hover {
+      background: #333;
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav>
+    <a href="#" class="logo">Higher Love</a>
+    <ul>
+      <li><a href="#event">Event Details</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <section class="hero">
+      <h1>A Room Designed For The Whole Gay Man</h1>
+      <p>Three days. One invitation. A gathering for accomplished gay founders and executives who refuse to shrink themselves.</p>
+      <a href="#contact" class="cta-button">Learn More</a>
+    </section>
+
+    <section id="event" class="event-details">
+      <h2>Event Details</h2>
+      <div class="details-grid">
+        <div class="detail-card">
+          <h3>📅 When</h3>
+          <p>September 18-20, 2026</p>
+        </div>
+        <div class="detail-card">
+          <h3>📍 Where</h3>
+          <p>Austin, Texas</p>
+        </div>
+        <div class="detail-card">
+          <h3>👥 Who</h3>
+          <p>Accomplished gay founders & executives</p>
+        </div>
+      </div>
+      <a href="#contact" class="cta-button">Apply Now</a>
+    </section>
+
+    <section class="letter">
+      <h2>Why This Matters</h2>
+      <p>
+        Success in business often demands we become less of ourselves. We learn to code-switch, to hide parts of our identity, to fit into rooms not designed for us. 70% is not enough. We deserve spaces where being ourselves is not a liability, but a strength.
+      </p>
+      <p>
+        Higher Love is an invitation to step into your full power—as a founder, as an executive, and as a gay man. No apologies. No shrinking. Just authentic connection with peers who understand the unique intersections of your journey.
+      </p>
+    </section>
+
+    <section id="experience" class="experience">
+      <h2>What to Expect</h2>
+      <div class="experience-items">
+        <div class="experience-item">
+          <h3>🎯 Strategic Sessions</h3>
+          <p>Deep conversations about leadership, business, and the intersections of identity in entrepreneurship.</p>
+        </div>
+        <div class="experience-item">
+          <h3>🤝 Authentic Connection</h3>
+          <p>Meet with peers who understand your journey. Build lasting relationships with fellow gay founders and executives.</p>
+        </div>
+        <div class="experience-item">
+          <h3>🌟 Inspiration & Growth</h3>
+          <p>Learn from industry leaders and innovators. Discover new perspectives that challenge and inspire you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about">
+      <h2>About This Gathering</h2>
+      <p>
+        Higher Love was created by Re Perez, a serial entrepreneur and advocate for authentic leadership. The vision is simple: create a space where accomplished gay men in business can show up fully—without the burden of code-switching or hiding parts of themselves.
+      </p>
+      <p>
+        This is not a typical conference. This is a retreat designed for depth, authenticity, and meaningful connection among peers who are redefining what leadership looks like.
+      </p>
+    </section>
+
+    <section id="faq" class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>Who should attend?</h3>
+        <p>Accomplished gay founders, executives, and business leaders who are ready to step into their full power and connect authentically with peers.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is this a networking event?</h3>
+        <p>It's more than networking. This is a curated retreat focused on meaningful connection, strategic growth, and authentic brotherhood.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's the format?</h3>
+        <p>The retreat includes guided sessions, open discussions, networking time, and shared meals in a luxury setting.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I apply?</h3>
+        <p>Visit the contact section below to submit your application. Our team will review and reach out with next steps.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div style="padding: 80px 40px; background: #000; color: #fff; text-align: center;">
+        <h2 style="font-size: 48px; margin-bottom: 40px; color: #fff;">Ready to Join?</h2>
+        <p style="font-size: 18px; margin-bottom: 40px; color: #ccc;">
+          Apply for Higher Love and step into a space designed for the whole you.
+        </p>
+        <a href="mailto:apply@higherloveevent.com" class="cta-button">Apply Now</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Higher Love. All rights reserved. | <a href="mailto:info@higherloveevent.com">Contact Us</a></p>
+  </footer>
+
+  <!-- Floating Action Button (FAB) - Back to top -->
+  <a href="#" class="fab" title="Back to top">↑</a>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Show/hide FAB based on scroll position
+    (function() {
+      const fab = document.querySelector('.fab');
+      const check = function() {
+        const show = window.scrollY > window.innerHeight;
+        fab.classList.toggle('visible', show);
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+  </script>
+</body>
+</html>
