@@ -1,0 +1,113 @@
+name: Restore site with emotional tweaks
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Restore original index.html from last known good commit
+        run: git checkout 29f5fd397caafa568a00bd5db2a6d5dda30c2901 -- index.html
+      
+      - name: Apply Tweak 1+6 - Hero 70% concept + loneliness
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          old = '<p class="hero-sub">An invite-only gathering for accomplished, growth-oriented, high-vibe gay men.</p>'
+          new = '<p class="hero-sub">You have been in rooms full of brilliant people. You have been welcomed. You have been respected. And you have still only ever felt about 70% there. This room exists because 70% is not enough.</p>\n      <p class="hero-sub" style="font-size: 0.95em; margin-top: 0.5rem; opacity: 0.85;">You have built something remarkable. And you still feel lonely. This room is for you.</p>'
+          content = content.replace(old, new)
+          with open('index.html', 'w') as f:
+              f.write(content)
+          SCRIPT
+      
+      - name: Apply Tweak 5 - Letter opening catalyst paragraph
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          marker = "I've spent 20 years building brands"
+          idx = content.index(marker)
+          p_start = content.rfind('<p', 0, idx)
+          insert = '<p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">A few years ago, something happened that scared me into asking the hardest question: what do I actually want? Not what looks impressive. Not what pays well. What do I want? This gathering is my answer.</p>\n        '
+          content = content[:p_start] + insert + content[p_start:]
+          with open('index.html', 'w') as f:
+              f.write(content)
+          SCRIPT
+      
+      - name: Apply Tweak 2 - 10-year-old self paragraph
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          marker = 'peers. Not mentors. Not mentees. Equals who understand your world without explanation because they have lived it too.</p>'
+          idx = content.index(marker)
+          p_end = idx + len(marker)
+          insert = '\n\n        <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">This gathering is a letter to every 10 year old version of us who had to hide. It says: you get to be whoever you want to be. You get to have everything you want out of life. And you get to belong.</p>'
+          content = content[:p_end] + insert + content[p_end:]
+          with open('index.html', 'w') as f:
+              f.write(content)
+          SCRIPT
+      
+      - name: Apply Tweak 3 - Experience feeling language
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          old = 'An immersive gathering at a private luxury venue in the Texas Hill Country for accomplished gay founders and executives. Arrive the evening of September 17th for a welcome reception, then three full days of programming September 18th through 20th. Every session, every meal, every late night firepit conversation is designed around the topics that sit at the intersection of ambition, identity, and purpose.'
+          new = 'By the second day, something shifts. You stop editing yourself. You stop scanning the room. You just... exhale. That is what three days in this room does. A private luxury venue in the Texas Hill Country, September 17th through 20th. Every conversation, every late night firepit, every quiet morning is designed around what actually matters to you.'
+          content = content.replace(old, new)
+          with open('index.html', 'w') as f:
+              f.write(content)
+          SCRIPT
+      
+      - name: Apply Tweak 4 - This Room Won't Wait bet-on-me line
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          marker = 'If everything on this page resonates'
+          idx = content.index(marker)
+          p_start = content.rfind('<p', 0, idx)
+          insert = '<p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.2rem; text-align: center;">The first people through this door are not filling seats. They are making a statement. And I will remember every single one of them.</p>\n      '
+          content = content[:p_start] + insert + content[p_start:]
+          with open('index.html', 'w') as f:
+              f.write(content)
+          SCRIPT
+      
+      - name: Verify all tweaks applied
+        run: |
+          python3 << 'SCRIPT'
+          with open('index.html', 'r') as f:
+              content = f.read()
+          checks = [
+              "70% is not enough",
+              "You have built something remarkable",
+              "10 year old version",
+              "stop editing yourself",
+              "making a statement",
+              "scared me into asking",
+              "Cormorant Garamond",
+              "styles.css",
+              "G-SF3Z0272ZW",
+          ]
+          for c in checks:
+              assert c in content, f"MISSING: {c}"
+              print(f"OK: {c}")
+          print(f"\nAll checks passed. File size: {len(content)} chars")
+          SCRIPT
+      
+      - name: Commit and push
+        run: |
+          git config user.name "James Guldan"
+          git config user.email "james@jamesguldan.com"
+          git add index.html
+          git commit -m "Restore site with 6 emotional copy tweaks (hero, letter, experience, CTA)"
+          git push
