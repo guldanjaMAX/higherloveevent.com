@@ -1,22 +1,54 @@
-name: Restore index.html
+name: Apply structured data fix
 on:
   workflow_dispatch:
 permissions:
   contents: write
 jobs:
-  restore:
+  fix:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Restore index.html from last good commit
+      - name: Add performer and validFrom to structured data
         run: |
-          git checkout 6322b6c786a87a5b02cb42d0fddfb57f8ef8a30f -- index.html
+          python3 << 'PYEOF'
+          import json, re
+
+          with open('index.html', 'r') as f:
+              html = f.read()
+
+          pattern = r'(<script type="application/ld\+json">)(.*?)(</script>)'
+          match = re.search(pattern, html, re.DOTALL)
+          if not match:
+              print("ERROR: No structured data found")
+              exit(1)
+
+          sd = json.loads(match.group(2))
+
+          # Add performer
+          sd["performer"] = {
+              "@type": "Person",
+              "name": "Re Perez",
+              "url": "https://reperez.com"
+          }
+
+          # Add validFrom to each offer
+          for offer in sd.get("offers", []):
+              offer["validFrom"] = "2026-03-01"
+
+          new_json = json.dumps(sd, indent=4)
+          new_block = match.group(1) + "\n  " + new_json + "\n  " + match.group(3)
+          html = html[:match.start()] + new_block + html[match.end():]
+
+          with open('index.html', 'w') as f:
+              f.write(html)
+
+          print("Structured data fix applied successfully")
+          PYEOF
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Restore site to last known good version"
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "fix: add performer and validFrom to Event structured data"
           git push
