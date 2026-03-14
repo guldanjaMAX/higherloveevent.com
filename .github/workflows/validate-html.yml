@@ -1,0 +1,65 @@
+name: Validate HTML
+
+on:
+  push:
+    branches-ignore:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check index.html exists and is not empty
+        run: |
+          if [ ! -f index.html ]; then
+            echo "FAIL: index.html does not exist"
+            exit 1
+          fi
+          if [ ! -s index.html ]; then
+            echo "FAIL: index.html is empty"
+            exit 1
+          fi
+          echo "PASS: index.html exists and is not empty"
+
+      - name: Check index.html is not suspiciously small
+        run: |
+          LINES=$(wc -l < index.html)
+          echo "index.html has $LINES lines"
+          if [ "$LINES" -lt 500 ]; then
+            echo "FAIL: index.html has only $LINES lines. Expected 500+. This looks like the file was accidentally replaced."
+            exit 1
+          fi
+          echo "PASS: index.html has $LINES lines (above 500 minimum)"
+
+      - name: Check for critical page elements
+        run: |
+          ERRORS=0
+          check_element() {
+            if ! grep -qi "$1" index.html; then
+              echo "FAIL: Missing expected element: $2"
+              ERRORS=$((ERRORS + 1))
+            else
+              echo "PASS: Found $2"
+            fi
+          }
+          check_element "<!DOCTYPE html>" "DOCTYPE declaration"
+          check_element "Higher Love" "Higher Love branding"
+          check_element "hero" "Hero section"
+          check_element "youtube.com/embed\|vimeo.com\|wistia\|video" "Video embed"
+          check_element "application/ld\+json" "Structured data (JSON-LD)"
+          check_element "Apply Now\|APPLY NOW" "Apply Now CTA"
+          if [ "$ERRORS" -gt 0 ]; then
+            echo "FAIL: $ERRORS critical elements missing from index.html"
+            exit 1
+          fi
+          echo "ALL CHECKS PASSED"
+
+      - name: Check styles.css exists
+        run: |
+          if [ ! -f styles.css ]; then
+            echo "FAIL: styles.css does not exist"
+            exit 1
+          fi
+          echo "PASS: styles.css exists"
