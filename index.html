@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SF3Z0272ZW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SF3Z0272ZW');
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -43,19 +52,50 @@
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "eventStatus": "https://schema.org/EventScheduled",
     "location": {
-      "@type": "Place",
-      "name": "Private Luxury Venue, Texas Hill Country",
-      "address": { "@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "addressCountry": "US" }
+        "@type": "Place",
+        "name": "Private Luxury Venue, Texas Hill Country",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Austin",
+            "addressRegion": "TX",
+            "addressCountry": "US"
+        }
     },
     "image": "https://higherloveevent.com/images/og-dinner.jpg",
-    "organizer": { "@type": "Person", "name": "Re Perez", "url": "https://reperez.com" },
+    "organizer": {
+        "@type": "Person",
+        "name": "Re Perez",
+        "url": "https://reperez.com"
+    },
     "offers": [
-      { "@type": "Offer", "name": "Founding Seat (Early Bird)", "price": "7500", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherloveevent.com/#application-form", "description": "First 10 founding seats at the early commitment price" },
-      { "@type": "Offer", "name": "Founding Seat", "price": "10000", "priceCurrency": "USD", "availability": "https://schema.org/LimitedAvailability", "url": "https://higherloveevent.com/#application-form" }
+        {
+            "@type": "Offer",
+            "name": "Founding Seat (Early Bird)",
+            "price": "7500",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/LimitedAvailability",
+            "url": "https://higherloveevent.com/#application-form",
+            "description": "First 10 founding seats at the early commitment price",
+            "validFrom": "2026-03-01"
+        },
+        {
+            "@type": "Offer",
+            "name": "Founding Seat",
+            "price": "10000",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/LimitedAvailability",
+            "url": "https://higherloveevent.com/#application-form",
+            "validFrom": "2026-03-01"
+        }
     ],
     "maximumAttendeeCapacity": 50,
-    "url": "https://higherloveevent.com/"
-  }
+    "url": "https://higherloveevent.com/",
+    "performer": {
+        "@type": "Person",
+        "name": "Re Perez",
+        "url": "https://reperez.com"
+    }
+}
   </script>
 
   <!-- Structured Data: Organization -->
@@ -67,7 +107,7 @@
     "url": "https://higherloveevent.com",
     "logo": "https://higherloveevent.com/images/hls-logo-nav.svg",
     "founder": { "@type": "Person", "name": "Re Perez" },
-    "contactPoint": { "@type": "ContactPoint", "email": "applications@higherloveevent.com", "contactType": "event inquiries" }
+    "contactPoint": { "@type": "ContactPoint", "url": "https://higherloveevent.com/#application-form", "contactType": "event inquiries" }
   }
   </script>
 
@@ -100,32 +140,79 @@
   <style>
     .pillars-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
       margin-top: 2.5rem;
       text-align: left;
     }
     .pillar-card {
-      padding: 1.5rem 1.3rem;
-      border: 1px solid rgba(160,127,86,0.25);
-      background: rgba(0,0,0,0.06);
-      transition: border-color 0.4s ease, transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem 2rem;
+      cursor: pointer;
     }
-    .pillar-card:hover {
-      border-color: rgba(160,127,86,0.4);
-      transform: translateY(-2px);
+    .pillar-card .pillar-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .pillar-card:hover .pillar-bg {
+      transform: scale(1.05);
+    }
+    .pillar-card .pillar-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 40%, rgba(0,0,0,0.1) 100%);
+      transition: background 0.5s ease;
+    }
+    .pillar-card:hover .pillar-overlay {
+      background: linear-gradient(0deg, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 45%, rgba(0,0,0,0.15) 100%);
     }
     .pillar-card h3 {
-      font-size: 0.85rem;
-      color: var(--russet);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.6rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.4);
     }
     .pillar-card .body-text {
-      font-size: 0.88rem;
-      line-height: 1.6;
-      color: #3a3a3a;
+      position: relative;
+      z-index: 2;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.88);
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin 0.4s ease;
+      margin-top: 0;
+    }
+    .pillar-card:hover .body-text {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 0.3rem;
+    }
+    .pillar-card--wide {
+      grid-column: 1 / -1;
+    }
+    .pillar-card .pillar-accent {
+      position: relative;
+      z-index: 2;
+      width: 36px;
+      height: 2px;
+      background: var(--flame-gold);
+      margin-bottom: 0.8rem;
+      box-shadow: 0 0 8px rgba(212,165,68,0.4);
     }
     .hero-cta-group {
       display: flex;
@@ -248,29 +335,33 @@
     }
 
     @media (max-width: 1024px) {
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
+      .pillar-card { min-height: 320px; }
       .higher-horizontal { gap: 2rem; }
     }
     @media (max-width: 768px) {
-      .pillars-grid { grid-template-columns: 1fr; gap: 0.8rem; }
-      .pillar-card { padding: 1.2rem 1rem; }
-      .pillar-card h3 { font-size: 0.8rem; }
-      .pillar-card .body-text { font-size: 0.85rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card { min-height: 280px; padding: 2rem 1.5rem; }
+      .pillar-card h3 { font-size: 1.3rem; }
+      .pillar-card .body-text { max-height: 200px; opacity: 1; margin-top: 0.3rem; font-size: 0.88rem; }
+      .pillar-card--wide { grid-column: auto; }
       .video-testimonials-grid { grid-template-columns: 1fr !important; }
       .hero-cta-group { flex-direction: column; align-items: center; }
       .higher-horizontal { gap: 1.5rem; }
       .higher-h-letter { font-size: 2.2rem; }
-      .higher-h-word { font-size: 0.65rem; }
+      .higher-h-word { font-size: 0.75rem; }
       .full-image-bleed { height: 40vh; min-height: 280px; }
       .investment-section .container div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
     }
     @media (max-width: 400px) {
       .pillars-grid { grid-template-columns: 1fr; }
+      .pillar-card { min-height: 240px; }
       .higher-horizontal { gap: 1rem; }
       .higher-h-letter { font-size: 1.8rem; }
     }
     @media (hover: none) {
-      .pillar-card:hover { border-color: rgba(160,127,86,0.25); transform: none; }
+      .pillar-card .body-text { max-height: 200px; opacity: 1; margin-top: 0.3rem; }
+      .pillar-card:hover .pillar-bg { transform: none; }
     }
 
 
@@ -295,13 +386,13 @@
     .year-one-badge {
       display: inline-block;
       font-family: 'Raleway', sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--chamoisee);
       border: 1px solid rgba(160,127,86,0.35);
-      padding: 0.4rem 1.2rem;
+      padding: 0.5rem 1.2rem;
       margin-top: 1rem;
     }
 
@@ -405,11 +496,10 @@
     <div class="hero-split-bg"></div>
     <div class="hero-accent-line"></div>
     <div class="hero-split-text">
-      <div class="hero-eyebrow-label"><span class="hero-eyebrow-line"></span>Higher Love Summit</div>
       <h1>Finally, A Room<br>Designed For<br>The <em>Whole</em> Gay Man.</h1>
-      <p class="hero-sub">An invite-only gathering for accomplished, growth-oriented, high-vibe gay men.</p>
+      <p class="hero-sub">The brotherhood for accomplished, growth-oriented, high-vibe gay men.</p>
       <div class="hero-details">
-        <span class="hero-detail-divider">&middot;</span>September 18&ndash;20, 2026<span class="hero-detail-divider">&middot;</span>Austin, Texas<span class="hero-detail-divider">&middot;</span>
+        September 18&ndash;20, 2026<span class="hero-detail-divider">&middot;</span>Austin, Texas
       </div>
       <div class="hero-cta-group" style="justify-content: flex-start;">
         <a href="#application-form" class="cta-button">Apply Now</a>
@@ -478,17 +568,12 @@
             </video>
             <!-- Custom poster overlay -->
             <div id="video-poster-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;" class="video-poster-editorial">
-              <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-style: italic; font-weight: 400; color: var(--linen); margin: 0 0 0.3rem; pointer-events: none; opacity: 0.9;">Play me</p>
-              <svg width="24" height="36" viewBox="0 0 24 36" fill="none" style="margin-bottom: 0.8rem; pointer-events: none; opacity: 0.6;">
-                <path d="M12 2C12 2 6 10 9 16C10.5 19 12 17 12 22" stroke="#EDE3DA" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                <path d="M8 19L12 25L16 19" stroke="#EDE3DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-              </svg>
               <div class="play-circle-editorial">
                 <svg width="34" height="38" viewBox="0 0 28 32" fill="none" style="margin-left: 5px;">
                   <path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/>
                 </svg>
               </div>
-              <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
+              <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0.8rem 0 0; pointer-events: none; opacity: 0.7;">3 MIN &middot; THE STORY BEHIND HIGHER LOVE</p>
             </div>
           </div>
         </div>
@@ -500,6 +585,14 @@
     <div class="ember-field" id="ember-field"></div>
   </section>
 
+  <!-- SOCIAL PROOF PULL QUOTE -->
+  <section class="social-proof-strip">
+    <div class="container" style="max-width: 800px; text-align: center; padding: 2.5rem 1.5rem;">
+      <blockquote style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--linen); line-height: 1.6; margin: 0 0 1rem;">&ldquo;Re is such a magical curator. He has this ability to see the gifts in people and bring those together. I've been in several masterminds and retreats that Re created, and in each one he was able to notice everyone's unique gifts and put them together in situations where they would flourish.&rdquo;</blockquote>
+      <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--chamoisee); margin: 0;">Thomas Ruggiero</p>
+    </div>
+  </section>
+
   <!-- RE'S PERSONAL INVITATION (LETTER) -->
   <section class="letter-section">
     <div class="container" style="max-width: 880px; text-align: center; padding: 4rem 1.5rem;">
@@ -509,7 +602,7 @@
 
       <!-- Toggle: Read the letter -->
       <div style="margin-bottom: 0.5rem;">
-        <button id="letter-toggle" onclick="toggleLetter()" style="background: none; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--chamoisee); padding: 0.5rem 1rem; transition: opacity 0.3s ease; opacity: 0.8;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+        <button id="letter-toggle" onclick="toggleLetter()" style="background: none; border: none; cursor: pointer; font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--chamoisee); padding: 0.75rem 1rem; min-height: 44px; transition: opacity 0.3s ease; opacity: 0.8;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
           <span id="letter-toggle-text">Read Re's letter &darr;</span>
         </button>
       </div>
@@ -518,6 +611,7 @@
       <div id="invitation-letter" style="display: none; max-width: 680px; margin: 2rem auto 0; text-align: left; padding: 2.5rem; border: 1px solid rgba(160,127,86,0.2); background: rgba(160,127,86,0.04); border-radius: 4px;">
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--linen); margin-bottom: 1.5rem; text-align: center;">A Letter From Re</p>
 
+        <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">A few years ago, something happened that scared me into asking the hardest question: what do I actually want? Not what looks impressive. Not what pays well. What do I want? This gathering is my answer.</p>
         <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">I've spent 20 years building brands for other people. I've sat in every mastermind, every high level retreat, every room that promises transformation. And in almost every single one, I was the only gay man at the table.</p>
 
         <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">Not the only one in the building. The only one at the table. The one who had to decide, every single time, how much of himself to bring into the room. The one who could talk about scaling a company but not about what it's like to build a life as a gay man who leads.</p>
@@ -530,13 +624,16 @@
 
         <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">The men in this room will be your peers. Not mentors. Not mentees. Equals who understand your world without explanation because they have lived it too.</p>
 
-        <p class="body-text" style="line-height: 1.85; color: var(--chamoisee); font-style: italic; margin-bottom: 0;">If everything on this page resonates, I'd love to talk. Fill out the application and let's find out if this is your room.</p>
+        <p class="body-text body-text-white" style="line-height: 1.85; margin-bottom: 1.2rem;">This gathering is a letter to every 10 year old version of us who had to hide. It says: you get to be whoever you want to be. You get to have everything you want out of life. And you get to belong.</p>
+
+        <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.2rem; text-align: center;">The first people through this door are not filling seats. They are making a statement. And I will remember every single one of them.</p>
+      <p class="body-text" style="line-height: 1.85; color: var(--chamoisee); font-style: italic; margin-bottom: 0;">If everything on this page resonates, I'd love to talk. Fill out the application and let's find out if this is your room.</p>
 
         <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--linen); margin-top: 2rem; margin-bottom: 0;">With love,<br><span style="font-weight: 600; color: var(--chamoisee);">Re Perez</span></p>
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="#application-form" class="cta-button">I Want In</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -572,7 +669,7 @@
       <p class="eyebrow">The Experience</p>
       <h2>Three Days.<br>One Room That Changes Everything.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">An immersive gathering at a private luxury venue in the Texas Hill Country for accomplished gay founders and executives. Arrive the evening of September 17th for a welcome reception, then three full days of programming September 18th through 20th. Every session, every meal, every late night firepit conversation is designed around the topics that sit at the intersection of ambition, identity, and purpose.</p>
+      <p class="body-text body-text-white" style="max-width: 700px; margin: 2rem auto 1.5rem; font-size: 1.15rem;">By the second day, something shifts. You stop editing yourself. You stop scanning the room. You just... exhale. That is what three days in this room does. A private luxury venue in the Texas Hill Country, September 17th through 20th. Every conversation, every late night firepit, every quiet morning is designed around what actually matters to you.</p>
     </div>
 
     <div class="container" style="margin-top: 1rem; text-align: center;">
@@ -581,38 +678,55 @@
   </section>
 
   <!-- THE PILLARS -->
-  <section class="section-linen">
+  <section class="section-linen" style="padding-bottom: 0;">
     <div class="container" style="text-align: center;">
       <p class="eyebrow" style="color: var(--russet);">What We Talk About</p>
       <h2 style="color: var(--black); margin-bottom: 1rem;">The Conversations That Define Higher Love</h2>
       <div class="divider"></div>
-      <p class="body-text" style="max-width: 700px; margin: 2rem auto 2.5rem;">These are the topics that sit at the intersection of ambition, identity, and purpose. The conversations no other room is designed to hold. Every session, every meal, every late night firepit is shaped by what matters most to the men in this room.</p>
+      <p class="body-text" style="max-width: 700px; margin: 2rem auto 0;">The topics at the intersection of ambition, identity, and purpose. Every session, every meal, every late night firepit is shaped by what matters most to the men in this room.</p>
+    </div>
+    <div style="text-align: center;">
 
       <div class="pillars-grid">
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/business-wealth.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Business &amp; Wealth</h3>
-          <p class="body-text">Whether you're scaling your next venture, running a lifestyle business on your terms, or cash flowing the empire you already built, the conversation here meets you where you are. Strategy, wealth creation, investing, and the caliber of expertise you'd normally have to pay six figures to sit across from.</p>
+          <p class="body-text">Strategy, wealth creation, investing, and the caliber of expertise you'd normally pay six figures to sit across from. The conversation meets you where you are.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/health-wellness.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Health, Wellness &amp; Longevity</h3>
-          <p class="body-text">Mental clarity, hormonal balance, sexual vitality, and a body that actually matches your ambition. We bring together modern medicine, AI driven diagnostics, and holistic practice. Not to help you live longer, but to help you live fully, vibrantly, and on your own terms.</p>
+          <p class="body-text">Mental clarity, hormonal balance, sexual vitality. Modern medicine meets holistic practice. Not to help you live longer, but to help you live fully.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/ai-technology.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>AI, Technology &amp; Innovation</h3>
-          <p class="body-text">The leaders who will define the next decade aren't waiting for permission. Whether you're deploying AI, investing in it, or trying to understand what it means for everything you've built, this is the conversation that keeps you ahead of the curve instead of behind it.</p>
+          <p class="body-text">Whether you're deploying AI, investing in it, or decoding what it means for everything you've built. This keeps you ahead of the curve.</p>
         </div>
         <div class="pillar-card fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/purpose-spirituality.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Purpose &amp; Spirituality</h3>
-          <p class="body-text">There's a moment when the achievement stops filling the space it used to. This is the room for what opens next. Breathwork, ceremony, plant medicine, inner work, and the kind of breakthroughs that don't come from another strategy session. Transformation at this level requires presence, surrender, and a container built to hold it.</p>
+          <p class="body-text">Breathwork, ceremony, plant medicine, inner work, and the breakthroughs that don't come from another strategy session. The room for what opens next.</p>
         </div>
-        <div class="pillar-card fade-in">
+        <div class="pillar-card pillar-card--wide fade-in">
+          <div class="pillar-bg" style="background-image: url('images/pillars/adventure-lifestyle.jpg');"></div>
+          <div class="pillar-overlay"></div>
+          <div class="pillar-accent"></div>
           <h3>Adventure &amp; Lifestyle</h3>
-          <p class="body-text">Rich isn't a number. It's a Tuesday that feels intentional, a trip that changes something in you, a partnership that meets your depth, and a community you didn't know you were missing. This is where you design the life you don't need a vacation from.</p>
+          <p class="body-text">A Tuesday that feels intentional, a trip that changes something in you, a community you didn't know you were missing. Design the life you don't need a vacation from.</p>
         </div>
       </div>
 
-      <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Begin My Application</a>
+      <div style="text-align: center; padding: 3rem 0;">
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -658,12 +772,12 @@
         <p>You've done the inner work. Not because it was trendy, but because you knew the next layer of your life required it. You're spiritually curious without being performative about it. Drawn to consciousness and the bigger questions, but allergic to surface level spiritual bypassing.</p>
         <p>You care about your body. Not from vanity, but from the understanding that the instrument matters if the mission is going to last.</p>
         <p>You are an industry disruptor, an intellectual omnivore, a man with a sharp sense of humor and a deeper sense of purpose. You build from joy now, not just achievement.</p>
-        <p>You're in your 40s, 50s, maybe early 60s, and you still have a tremendous amount of life in you. You're on your second or third mountain, and you're looking for men who are climbing with the same intensity and the same heart.</p>
+        <p>You still have a tremendous amount of life in you. You're on your second or third mountain, and you're looking for men who are climbing with the same intensity and the same heart.</p>
         <p style="color: var(--chamoisee); font-weight: 500; font-style: italic;">You are ready, genuinely ready, to be in a room where you are not the only one.</p>
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Reserve My Seat</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -726,33 +840,49 @@
         <p class="body-text body-text-white" style="max-width: 650px; margin: 0 auto; font-size: 0.95rem; opacity: 0.8;">Hear from leaders who have experienced Re's retreats and masterminds firsthand.</p>
       </div>
       <div class="video-testimonials-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; max-width: 900px; margin: 0 auto;">
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/FkvaVtLkRU8" title="Dr. Anthony Balduzzi testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="FkvaVtLkRU8" data-title="Dr. Anthony Balduzzi testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/FkvaVtLkRU8/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Dr. Anthony Balduzzi</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/1oV0NexnMYY" title="Mike Budny testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="1oV0NexnMYY" data-title="Mike Budny testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/1oV0NexnMYY/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Mike Budny</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/lj3YOt4ZAzI" title="Ben Tchoubineh testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="lj3YOt4ZAzI" data-title="Ben Tchoubineh testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/lj3YOt4ZAzI/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Ben Tchoubineh</div>
           </div>
         </div>
-        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2);">
-          <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-            <iframe src="https://www.youtube.com/embed/bZEmezOcKbk" title="Thomas Ruggiero testimonial" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+        <div class="yt-facade" data-video-id="bZEmezOcKbk" data-title="Thomas Ruggiero testimonial" style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.2); background: rgba(0,0,0,0.2); cursor: pointer;" onclick="loadYouTube(this)">
+          <div style="position: relative; padding-bottom: 56.25%; height: 0; background: url('https://img.youtube.com/vi/bZEmezOcKbk/hqdefault.jpg') center/cover no-repeat;">
+            <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.35);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(160,127,86,0.85); display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease;">
+                <svg width="20" height="22" viewBox="0 0 28 32" fill="none" style="margin-left: 3px;"><path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/></svg>
+              </div>
+            </div>
           </div>
           <div style="padding: 0.8rem 1rem; text-align: center;">
             <div style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; color: var(--linen);">Thomas Ruggiero</div>
@@ -819,7 +949,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 3rem;">
-        <a href="#application-form" class="cta-button">Apply for Your Founding Seat</a>
+        <a href="#application-form" class="cta-button">Apply Now</a>
       </div>
     </div>
   </section>
@@ -833,8 +963,8 @@
     </div>
   </section>
 
-  <!-- INVESTMENT (Direct Response) -->
-  <section class="section-linen investment-section">
+  <!-- INVESTMENT (Direct Response) — HIDDEN FOR FEEDBACK PHASE -->
+  <section class="section-linen investment-section" style="display: none;">
     <div class="container" style="max-width: 820px;">
       <p class="eyebrow" style="color: var(--russet);">The Investment</p>
       <h2 style="color: var(--black); margin-bottom: 0.5rem;">Your Founding Seat</h2>
@@ -848,12 +978,12 @@
       <div style="text-align: center; background: #fff; border: 2px solid rgba(145,83,53,0.3); padding: 2.5rem 2rem; margin: 0 auto 2.5rem; max-width: 520px; position: relative;">
 
         <!-- "Save $2,500" flag -->
-        <div style="position: absolute; top: -1px; right: -1px; background: #915335; color: #fff; font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.2rem;">SAVE $2,500</div>
+        <div style="position: absolute; top: -1px; right: -1px; background: #915335; color: #fff; font-family: 'Raleway', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.5rem 1.2rem;">SAVE $2,500</div>
 
-        <p style="font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #999; margin: 0 0 0.6rem;">Standard Investment</p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: #999; margin: 0 0 0.6rem;">Standard Investment</p>
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 600; color: #999; text-decoration: line-through; line-height: 1; margin-bottom: 0.8rem;">$10,000</div>
 
-        <p style="font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #915335; margin: 0 0 0.4rem;">Founding Member Rate (First 10 Only)</p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #915335; margin: 0 0 0.4rem;">Founding Member Rate (First 10 Only)</p>
         <div style="font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 700; color: var(--black); line-height: 1; margin-bottom: 0.5rem;">$7,500</div>
 
         <p style="font-family: 'Raleway', sans-serif; font-size: 0.75rem; color: #666; margin: 0;">Payment plans available &middot; Mention it in your application</p>
@@ -878,13 +1008,13 @@
 
       <!-- Guarantee -->
       <div style="max-width: 580px; margin: 2rem auto; text-align: center; padding: 1.5rem; border: 1px solid rgba(160,127,86,0.2); background: rgba(255,255,255,0.7);">
-        <p style="font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #915335; margin: 0 0 0.5rem;">100% Satisfaction Guarantee</p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #915335; margin: 0 0 0.5rem;">100% Satisfaction Guarantee</p>
         <p class="body-text" style="font-size: 0.92rem; line-height: 1.75; color: #555; margin: 0;">If you attend the full gathering and genuinely feel it did not deliver what was promised, contact Re within 7 days and you will receive a full refund. No hoops. No fine print. That is how confident we are in what happens in this room.</p>
       </div>
 
       <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="#application-form" class="cta-button" style="border-color: var(--black); color: var(--black); font-size: 0.82rem; padding: 1rem 3rem;">Claim My Founding Seat &rarr;</a>
-        <p style="font-family: 'Raleway', sans-serif; font-size: 0.7rem; color: #999; margin-top: 0.75rem; letter-spacing: 0.1em;">Founding pricing ends when the first 10 seats are claimed</p>
+        <a href="#application-form" class="cta-button" style="border-color: var(--black); color: var(--black); font-size: 0.82rem; padding: 1rem 3rem;">Apply Now</a>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; color: #999; margin-top: 0.75rem; letter-spacing: 0.1em;">Founding pricing ends when the first 10 seats are claimed</p>
       </div>
     </div>
   </section>
@@ -895,8 +1025,7 @@
     <div class="container fade-in">
       <h2 style="margin-bottom: 1.5rem;">This Room Won't Wait.</h2>
       <div class="divider"></div>
-      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 1.5rem; text-align: center;">The men who are invited into these seats will discover something that no mastermind, retreat, or conference has ever given them: the experience of being fully known by men who are their equals in both accomplishment and identity. You are not buying a ticket. You are claiming your seat at a table that was finally built for the whole man.</p>
-      <p class="body-text" style="max-width: 620px; margin: 0 auto 2.5rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book your conversation with Re Perez. The call is not a pitch. It's a mutual exploration of whether this is your room.</p>
+      <p class="body-text body-text-white" style="max-width: 620px; margin: 0 auto 2rem; text-align: center;">If everything on this page resonates, the next step is simple. Fill out the application below and book a conversation with Re Perez. It is not a pitch. It is a mutual exploration of whether this is your room.</p>
 
       <!-- TRUST BLOCK -->
       <div class="form-trust-block">
@@ -982,6 +1111,27 @@
           </div>
         </div>
 
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Where will we stay and is accommodation included?</button>
+          <div class="faq-answer">
+            <p>The gathering takes place at a private luxury venue in the Texas Hill Country outside Austin. Accommodation is included in your investment. You will have your own private room for the duration of the experience. All meals, programming, and excursions are also included. Details on the venue and arrival logistics will be shared with accepted members.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How many men will be in the room?</button>
+          <div class="faq-answer">
+            <p>This is an intimate gathering by design. The founding cohort will be limited to a small group of men, likely between 15 and 25. This is not a conference with hundreds of people. Every man in the room will be personally vetted and every conversation will be personal. The size is intentional so that by the time you leave, there are no strangers.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">What happens after I apply?</button>
+          <div class="faq-answer">
+            <p>After you submit your application, Re Perez will personally review it. If there is a potential fit, you will be invited to a one on one conversation with Re. This is not a sales call. It is a genuine exploration of whether this gathering is right for you and whether you are right for the room. If it is a mutual yes, you will receive your invitation to join the founding cohort.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -993,6 +1143,7 @@
     <img src="images/hls-logo-stacked.svg" alt="Higher Love Summit" class="footer-logo" loading="lazy">
     <p>&copy; 2026 Higher Love. All rights reserved.</p>
     <p style="margin-top: 0.5rem;"><a href="/privacy.html" style="color: var(--khaki); opacity: 0.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html" style="color: var(--khaki); opacity: 0.7;">Terms & Conditions</a></p>
+    <p style="margin-top: 0.5rem;">Questions? <a href="#application-form" style="color: var(--chamoisee); opacity: 0.85;">Reach out through the application form</a></p>
     <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
   </footer>
 
@@ -1022,15 +1173,32 @@
       });
     })();
 
+    // YouTube facade loader
+    function loadYouTube(el) {
+      var id = el.getAttribute('data-video-id');
+      var title = el.getAttribute('data-title') || 'Video';
+      var wrapper = el.querySelector('div');
+      wrapper.innerHTML = '<div style="position: relative; padding-bottom: 56.25%; height: 0;">' +
+        '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="' + title + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>';
+      el.style.cursor = 'default';
+      el.onclick = null;
+    }
+    window.loadYouTube = loadYouTube;
+
     // Video poster overlay + play
+    var videoStarted = false;
     function playInvitationVideo() {
       var video = document.getElementById('optin-video');
       var overlay = document.getElementById('video-poster-overlay');
-      if (overlay && video) {
+      if (!videoStarted && overlay && video) {
+        videoStarted = true;
         overlay.style.opacity = '0';
         setTimeout(function() { overlay.style.display = 'none'; }, 500);
         video.controls = true;
         video.play();
+        // Remove wrapper onclick so native controls work on mobile
+        var wrapper = document.getElementById('video-wrapper');
+        if (wrapper) { wrapper.removeAttribute('onclick'); wrapper.style.cursor = 'default'; }
       }
     }
     window.playInvitationVideo = playInvitationVideo;
