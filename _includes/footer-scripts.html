@@ -1,0 +1,100 @@
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <img src="images/hls-logo-stacked.svg" alt="Higher Love Summit" class="footer-logo" loading="lazy">
+    <p>&copy; 2026 Higher Love. All rights reserved.</p>
+    <p style="margin-top: 0.5rem;"><a href="/privacy.html" style="color: var(--khaki); opacity: 0.7;">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms.html" style="color: var(--khaki); opacity: 0.7;">Terms & Conditions</a></p>
+    <p style="margin-top: 0.5rem;">Questions? <a href="#application-form" style="color: var(--chamoisee); opacity: 0.85;">Reach out through the application form</a></p>
+    <p style="margin-top: 0.5rem;">A creation by <a href="https://categoryofonebranding.com" target="_blank" rel="noopener" style="color: var(--khaki); opacity: 0.7;">Category of One Branding LLC</a></p>
+  </footer>
+
+  <!-- FLOATING CTA (mobile) -->
+  <a href="#application-form" class="floating-cta" id="floatingCta" aria-label="Apply Now">
+    <span>Apply Now</span>
+  </a>
+
+  <script src="https://link.reperez.com/js/form_embed.js"></script>
+  <script src="script.js"></script>
+  <script>
+    // FAQ accordion
+    (function() {
+      document.querySelectorAll('.faq-question').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var item = this.parentElement;
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(function(el) {
+            el.classList.remove('open');
+            el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+
+    // YouTube facade loader
+    function loadYouTube(el) {
+      var id = el.getAttribute('data-video-id');
+      var title = el.getAttribute('data-title') || 'Video';
+      var wrapper = el.querySelector('div');
+      wrapper.innerHTML = '<div style="position: relative; padding-bottom: 56.25%; height: 0;">' +
+        '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="' + title + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>';
+      el.style.cursor = 'default';
+      el.onclick = null;
+    }
+    window.loadYouTube = loadYouTube;
+
+    // Video poster overlay + play
+    var videoStarted = false;
+    function playInvitationVideo() {
+      var video = document.getElementById('optin-video');
+      var overlay = document.getElementById('video-poster-overlay');
+      if (!videoStarted && overlay && video) {
+        videoStarted = true;
+        overlay.style.opacity = '0';
+        setTimeout(function() { overlay.style.display = 'none'; }, 500);
+        video.controls = true;
+        video.play();
+        // Remove wrapper onclick so native controls work on mobile
+        var wrapper = document.getElementById('video-wrapper');
+        if (wrapper) { wrapper.removeAttribute('onclick'); wrapper.style.cursor = 'default'; }
+      }
+    }
+    window.playInvitationVideo = playInvitationVideo;
+
+    // Letter toggle
+    function toggleLetter() {
+      var letter = document.getElementById('invitation-letter');
+      var toggleText = document.getElementById('letter-toggle-text');
+      if (letter.style.display === 'none' || letter.style.display === '') {
+        letter.style.display = 'block';
+        toggleText.innerHTML = 'Hide the letter &uarr;';
+      } else {
+        letter.style.display = 'none';
+        toggleText.innerHTML = 'Prefer to read? See the letter &darr;';
+      }
+    }
+    window.toggleLetter = toggleLetter;
+
+    // Floating CTA visibility
+    (function() {
+      var fab = document.getElementById('floatingCta');
+      var hero = document.querySelector('.hero');
+      var form = document.getElementById('application-form');
+      if (!fab || !hero) return;
+      function check() {
+        var heroBottom = hero.getBoundingClientRect().bottom;
+        var formTop = form ? form.getBoundingClientRect().top : Infinity;
+        var show = heroBottom < 0 && formTop > window.innerHeight;
+        fab.classList.toggle('visible', show);
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      check();
+    })();
+
+  </script>
+</body>
+</html>
