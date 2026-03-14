@@ -1,4 +1,4 @@
-name: Apply structured data fix
+name: Apply site fixes
 on:
   workflow_dispatch:
 permissions:
@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Add performer and validFrom to structured data
+      - name: Apply hero sub-line rollback and structured data fix
         run: |
           python3 << 'PYEOF'
           import json, re
@@ -16,39 +16,53 @@ jobs:
           with open('index.html', 'r') as f:
               html = f.read()
 
+          changes = []
+
+          # 1. Replace hero-sub with short brotherhood one-liner
+          old_hero_sub = 'You have been in rooms full of brilliant people. You have been welcomed. You have been respected. And you have still only ever felt about 70% there. This room exists because 70% is not enough.'
+          new_hero_sub = 'The brotherhood for accomplished, growth-oriented, high-vibe gay men.'
+
+          if old_hero_sub in html:
+              html = html.replace(old_hero_sub, new_hero_sub)
+              changes.append('Replaced hero sub-line with brotherhood one-liner')
+          else:
+              print('WARNING: Could not find hero-sub text to replace')
+
+          # 2. Add performer and validFrom to structured data
           pattern = r'(<script type="application/ld\+json">)(.*?)(</script>)'
           match = re.search(pattern, html, re.DOTALL)
-          if not match:
-              print("ERROR: No structured data found")
-              exit(1)
-
-          sd = json.loads(match.group(2))
-
-          # Add performer
-          sd["performer"] = {
-              "@type": "Person",
-              "name": "Re Perez",
-              "url": "https://reperez.com"
-          }
-
-          # Add validFrom to each offer
-          for offer in sd.get("offers", []):
-              offer["validFrom"] = "2026-03-01"
-
-          new_json = json.dumps(sd, indent=4)
-          new_block = match.group(1) + "\n  " + new_json + "\n  " + match.group(3)
-          html = html[:match.start()] + new_block + html[match.end():]
+          if match:
+              sd = json.loads(match.group(2))
+              if 'performer' not in sd:
+                  sd['performer'] = {
+                      '@type': 'Person',
+                      'name': 'Re Perez',
+                      'url': 'https://reperez.com'
+                  }
+                  changes.append('Added performer to structured data')
+              for offer in sd.get('offers', []):
+                  if 'validFrom' not in offer:
+                      offer['validFrom'] = '2026-03-01'
+                      changes.append('Added validFrom to offer')
+              new_json = json.dumps(sd, indent=4)
+              new_block = match.group(1) + '\n  ' + new_json + '\n  ' + match.group(3)
+              html = html[:match.start()] + new_block + html[match.end():]
+          else:
+              print('WARNING: Could not find structured data block')
 
           with open('index.html', 'w') as f:
               f.write(html)
 
-          print("Structured data fix applied successfully")
+          for c in changes:
+              print(f'OK: {c}')
+          if not changes:
+              print('No changes applied')
           PYEOF
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git diff --cached --quiet && echo "No changes" && exit 0
-          git commit -m "fix: add performer and validFrom to Event structured data"
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "fix: brotherhood hero sub-line + structured data (performer/validFrom)"
           git push
