@@ -1,0 +1,20 @@
+name: Restore index.html
+on:
+  workflow_dispatch:
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore index.html from last good commit
+        run: |
+          git checkout 6322b6c786a87a5b02cb42d0fddfb57f8ef8a30f -- index.html
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Restore site to last known good version"
+          git push
