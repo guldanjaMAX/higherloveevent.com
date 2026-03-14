@@ -1,0 +1,51 @@
+name: Fix hero CSS
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix hero max-width in styles.css
+        run: |
+          python3 << 'PYEOF'
+          with open('styles.css', 'r') as f:
+              css = f.read()
+
+          old = 'max-width: 1280px;'
+          if old in css:
+              # Only replace the one inside .hero.hero-split rule
+              idx = css.find('.hero.hero-split')
+              if idx >= 0:
+                  brace = css.find('{', idx)
+                  end_brace = css.find('}', brace)
+                  rule = css[brace:end_brace]
+                  if old in rule:
+                      new_rule = rule.replace(old, 'max-width: 100%;')
+                      css = css[:brace] + new_rule + css[end_brace:]
+                      print('OK: Changed .hero.hero-split max-width from 1280px to 100% in styles.css')
+                  else:
+                      print('WARNING: max-width 1280px not in hero-split rule')
+              else:
+                  print('WARNING: .hero.hero-split selector not found')
+          else:
+              print('WARNING: max-width: 1280px not found anywhere in styles.css')
+
+          with open('styles.css', 'w') as f:
+              f.write(css)
+          PYEOF
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "fix: hero background now full viewport width on wide screens"
+          git push
+      - name: Clean up this workflow
+        run: |
+          git rm .github/workflows/fix-css.yml
+          git commit -m "Clean up: remove temporary CSS fix workflow"
+          git push
