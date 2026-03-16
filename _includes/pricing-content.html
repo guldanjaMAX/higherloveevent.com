@@ -204,7 +204,7 @@
   <section class="pricing-final-cta">
     <div class="container">
       <h2>This Room Was Built For You.</h2>
-      <p class="body-text" style="max-width: 560px; margin: 0 auto 2rem; font-size: 1.05rem; line-height: 1.75; color: rgba(237,227,218,0.8);">The door is open. The conversation starts with a 2 minute application. Re reads every single one personally.</p>
+      <p class="body-text" style="max-width: 560px; margin: 0 auto 2.5rem; font-size: 1.08rem; line-height: 1.85; color: rgba(237,227,218,0.8);">The door is open. The conversation starts with a 2 minute application. Re reads every single one personally.</p>
       <a href="/#application-form" class="pricing-final-btn">Apply Now</a>
       <p class="footer-date-line">HIGHER LOVE SUMMIT &middot; SEPTEMBER 18&ndash;20, 2026 &middot; AUSTIN, TEXAS</p>
     </div>
@@ -219,8 +219,12 @@
             entry.target.classList.add('visible');
           }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+      // Fallback: make all visible after 2s in case observer doesn't fire
+      setTimeout(function() {
+        document.querySelectorAll('.fade-up').forEach(function(el) { el.classList.add('visible'); });
+      }, 2000);
     })();
 
     // Pricing FAQ accordion
