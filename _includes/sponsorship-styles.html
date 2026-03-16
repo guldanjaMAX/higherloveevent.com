@@ -1,0 +1,224 @@
+  <!-- Sponsorship Page Styles -->
+  <style>
+    .sponsor-hero {
+      text-align: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+    }
+    .sponsor-hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(160,127,86,0.25), transparent);
+    }
+    .sponsor-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--linen);
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+    .sponsor-hero .hero-body {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: rgba(237,227,218,0.8);
+    }
+    .sponsor-divider {
+      width: 60px;
+      height: 1.5px;
+      background: var(--chamoisee);
+      margin: 2rem auto;
+      opacity: 0.6;
+    }
+
+    /* Audience Profile */
+    .audience-section {
+      padding: 4rem 1.5rem;
+      position: relative;
+    }
+    .audience-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(160,127,86,0.15), transparent);
+    }
+    .audience-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 3rem auto 0;
+      text-align: center;
+    }
+    .stat-item .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--chamoisee);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-item .stat-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--khaki);
+      line-height: 1.5;
+    }
+
+    /* Why Partner */
+    .why-section {
+      padding: 4rem 1.5rem 5rem;
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem 4rem;
+      max-width: 960px;
+      margin: 3rem auto 0;
+    }
+    .why-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--linen);
+      margin-bottom: 0.75rem;
+    }
+    .why-block p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: rgba(237,227,218,0.72);
+    }
+
+    /* Opportunities */
+    .opps-section {
+      padding: 4rem 1.5rem 5rem;
+      position: relative;
+    }
+    .opps-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(160,127,86,0.15), transparent);
+    }
+    .opps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      max-width: 1060px;
+      margin: 3rem auto 0;
+    }
+    .opp-card {
+      padding: 3rem 2.25rem;
+      border: 1px solid rgba(160,127,86,0.15);
+      text-align: center;
+      transition: border-color 0.3s ease;
+    }
+    .opp-card:hover {
+      border-color: rgba(160,127,86,0.35);
+    }
+    .opp-card h3 {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      margin-bottom: 1.25rem;
+    }
+    .opp-card p {
+      font-size: 0.97rem;
+      line-height: 1.75;
+      color: rgba(237,227,218,0.7);
+    }
+
+    /* Quote */
+    .sponsor-quote {
+      text-align: center;
+      padding: 4rem 1.5rem 5rem;
+    }
+    .sponsor-quote blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--linen);
+      line-height: 1.7;
+      max-width: 640px;
+      margin: 0 auto 1.25rem;
+    }
+    .sponsor-quote .attribution {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--chamoisee);
+      font-style: italic;
+    }
+
+    /* Form Section */
+    .form-section {
+      padding: 3rem 1.5rem 5rem;
+      position: relative;
+    }
+    .form-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(160,127,86,0.2), transparent);
+    }
+    .form-wrapper {
+      max-width: 720px;
+      margin: 2.5rem auto 0;
+      min-height: 1100px;
+    }
+    .form-wrapper iframe {
+      width: 100%;
+      min-height: 1093px;
+      border: none;
+      border-radius: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .audience-stats { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .opps-grid { grid-template-columns: 1fr; max-width: 480px; gap: 1.5rem; }
+      .sponsor-hero h1 { font-size: 2.2rem; }
+    }
+    @media (max-width: 600px) {
+      .sponsor-hero { padding: 5rem 1rem 2.5rem; }
+      .sponsor-hero h1 { font-size: 1.9rem; }
+      .stat-item .stat-number { font-size: 2.2rem; }
+      .opp-card { padding: 2.25rem 1.5rem; }
+    }
+
+    /* Fade-in */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
