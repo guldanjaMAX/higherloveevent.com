@@ -7,6 +7,7 @@
       text-align: center;
       padding: 7rem 1.5rem 4rem;
       position: relative;
+      background: url('/images/pricing-hero-bg.jpg') center center / cover no-repeat;
     }
     .pricing-hero::after {
       content: '';
@@ -117,6 +118,7 @@
     }
     .pricing-tier:hover {
       border-color: rgba(160,127,86,0.35);
+      box-shadow: 0 0 40px rgba(160,127,86,0.06), 0 8px 32px rgba(0,0,0,0.3);
     }
 
     /* Featured (middle) tier */
@@ -125,6 +127,7 @@
       background: linear-gradient(180deg, rgba(160,127,86,0.08) 0%, rgba(10,10,10,0) 60%);
       transform: scaleY(1.02);
       z-index: 2;
+      box-shadow: 0 0 60px rgba(160,127,86,0.08), 0 4px 24px rgba(0,0,0,0.4);
     }
     .pricing-tier--featured:hover {
       border-color: var(--chamoisee);
@@ -134,7 +137,9 @@
       top: -1px;
       left: 50%;
       transform: translateX(-50%) translateY(-50%);
-      background: var(--chamoisee);
+      background: linear-gradient(135deg, var(--chamoisee) 0%, #c9a96e 50%, var(--chamoisee) 100%);
+      background-size: 200% 200%;
+      animation: badge-shimmer 4s ease infinite;
       color: var(--black);
       font-family: 'Raleway', sans-serif;
       font-size: 0.68rem;
@@ -143,6 +148,10 @@
       text-transform: uppercase;
       padding: 0.5rem 1.6rem;
       white-space: nowrap;
+    }
+    @keyframes badge-shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
     .tier-name {
       font-family: 'Raleway', sans-serif;
@@ -345,6 +354,7 @@
       padding: 3rem 2.5rem;
       border: 1px solid rgba(160,127,86,0.2);
       background: rgba(160,127,86,0.04);
+      box-shadow: 0 0 40px rgba(160,127,86,0.04);
     }
     .guarantee-box h3 {
       font-family: 'Raleway', sans-serif;
