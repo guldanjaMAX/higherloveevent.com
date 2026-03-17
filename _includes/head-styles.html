@@ -336,4 +336,238 @@
       .cookie-inner { flex-direction: column; gap: 1rem; text-align: center; }
       .cookie-actions { justify-content: center; }
     }
+  
+    /* === RE'S CINEMATIC STORY SECTION === */
+    .re-host-intro {
+      max-width: 700px; margin: 0 auto; padding: 3rem 1.5rem 2rem; text-align: center;
+    }
+    .re-host-intro-photo {
+      width: 140px; height: 140px; border-radius: 50%; object-fit: cover;
+      object-position: center top; border: 2px solid rgba(160,127,86,0.3);
+      display: block; margin: 0 auto 1.5rem;
+    }
+    .re-host-intro h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.4rem;
+      font-weight: 600; color: var(--linen); margin-bottom: 1rem;
+    }
+    .re-host-tagline {
+      font-family: 'EB Garamond', serif; font-size: 1.1rem;
+      color: rgba(237,227,218,0.7); line-height: 1.7; max-width: 550px; margin: 0 auto;
+    }
+    .re-chapter-card {
+      height: 55vh; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 2rem; position: relative;
+    }
+    .re-chapter-card .re-chapter-number {
+      font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(160,127,86,0.5); margin-bottom: 1.5rem;
+    }
+    .re-chapter-card .re-chapter-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 500;
+      color: var(--linen); letter-spacing: 0.02em; margin-bottom: 0.8rem;
+    }
+    .re-chapter-card .re-chapter-subtitle {
+      font-family: 'Raleway', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.25em; text-transform: uppercase; color: var(--chamoisee);
+    }
+    .re-chapter-card::after {
+      content: ''; position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%);
+      width: 40px; height: 1px; background: var(--chamoisee); opacity: 0.4;
+    }
+    .re-film-scene {
+      position: relative; min-height: 85vh; display: flex; align-items: center; overflow: hidden;
+    }
+    .re-film-scene .re-scene-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .re-film-scene .re-scene-bg img {
+      width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%) contrast(1.1);
+    }
+    .re-film-scene .re-scene-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+      opacity: 0.3; pointer-events: none;
+    }
+    .re-film-scene .re-scene-overlay { position: absolute; inset: 0; z-index: 1; }
+    .re-film-scene .re-scene-text {
+      position: relative; z-index: 2; max-width: 520px; padding: 4rem;
+    }
+    .re-film-scene.re-text-right .re-scene-text { margin-left: auto; }
+    .re-film-scene .re-scene-text p {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.1rem;
+      line-height: 1.85; color: rgba(237,227,218,0.92); margin-bottom: 1.4rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .re-pull-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem; font-style: italic; color: var(--chamoisee);
+      line-height: 1.5; padding: 1rem 0; margin: 1rem 0;
+      border-left: 2px solid rgba(160,127,86,0.3); padding-left: 1.5rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .re-audit-questions {
+      padding-left: 1.5rem; border-left: 2px solid rgba(160,127,86,0.3); margin: 1.5rem 0;
+    }
+    .re-audit-questions p {
+      font-style: italic; color: var(--linen); margin-bottom: 0.6rem;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .re-letter-section {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; overflow: hidden;
+    }
+    .re-letter-photo-side {
+      position: relative; overflow: hidden; background: #111;
+    }
+    .re-letter-photo-side img {
+      width: 100%; height: 100%; object-fit: cover; filter: sepia(20%) contrast(1.05);
+    }
+    .re-letter-photo-caption {
+      position: absolute; bottom: 1.2rem; left: 0; right: 0; text-align: center;
+      font-family: 'Raleway', sans-serif; font-size: 0.68rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: rgba(237,227,218,0.45);
+    }
+    .re-letter-text-side {
+      display: flex; flex-direction: column; justify-content: center; padding: 3rem 3.5rem;
+      background: rgba(10,10,10,0.95);
+    }
+    .re-letter-card {
+      background: rgba(160,127,86,0.04); border: 1px solid rgba(160,127,86,0.12);
+      border-radius: 4px; padding: 2.5rem 2rem;
+    }
+    .re-letter-label {
+      font-family: 'Raleway', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--chamoisee); margin-bottom: 1.2rem;
+    }
+    .re-letter-card p {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.02rem;
+      line-height: 1.8; color: rgba(237,227,218,0.88); font-style: italic; margin-bottom: 1rem;
+    }
+    .re-letter-card p:last-child { margin-bottom: 0; }
+    .re-closing-hero {
+      position: relative; width: 100%; height: 70vh; min-height: 400px; overflow: hidden;
+    }
+    .re-closing-hero > img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      filter: grayscale(20%) contrast(1.1);
+    }
+    .re-closing-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 70%, rgba(0,0,0,0.97) 100%);
+    }
+    .re-closing-content {
+      position: absolute; bottom: 0; left: 0; right: 0; text-align: center; padding: 3rem 1.5rem 4rem;
+    }
+    .re-closing-content p {
+      font-family: 'EB Garamond', serif; font-size: 1.08rem; line-height: 1.85;
+      color: rgba(237,227,218,0.88); margin-bottom: 1rem;
+    }
+    .re-built-it {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+      font-style: italic; color: var(--chamoisee); margin-bottom: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .re-chapter-card { height: 35vh; }
+      .re-chapter-card .re-chapter-title { font-size: 1.8rem; }
+
+      /* MOBILE FILM SCENES: photo block + text block (no overlay) */
+      .re-film-scene {
+        min-height: auto; flex-direction: column; position: relative;
+      }
+      .re-film-scene .re-scene-bg {
+        position: relative; height: 45vh; min-height: 260px;
+      }
+      .re-film-scene .re-scene-bg img {
+        filter: grayscale(20%) contrast(1.05);
+      }
+      .re-film-scene .re-scene-overlay {
+        background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.7) 100%) !important;
+      }
+      .re-film-scene .re-scene-text {
+        position: relative; max-width: 100%; padding: 2rem 1.5rem 2.5rem;
+        background: var(--black);
+      }
+      .re-film-scene .re-scene-text p {
+        text-shadow: none; font-size: 1.05rem; line-height: 1.8;
+        color: rgba(237,227,218,0.9);
+      }
+      .re-film-scene.re-text-right .re-scene-text { margin-left: 0; }
+      .re-pull-quote {
+        font-size: 1.25rem; text-shadow: none;
+        border-left-color: rgba(160,127,86,0.4);
+      }
+      .re-audit-questions p { text-shadow: none; }
+
+      /* Letter section */
+      .re-letter-section { grid-template-columns: 1fr; }
+      .re-letter-photo-side { height: 45vh; min-height: 260px; }
+      .re-letter-text-side { padding: 2rem 1.5rem; }
+      .re-letter-card { padding: 2rem 1.5rem; }
+      .re-letter-card p { font-size: 0.95rem; line-height: 1.75; }
+
+      /* Host intro */
+      .re-host-intro h2 { font-size: 2rem; }
+      .re-host-tagline { font-size: 1rem; }
+
+      /* Closing texture */
+      .re-closing-texture { min-height: 45vh; }
+      .re-closing-content-centered { padding: 3rem 1.5rem; }
+      .re-built-it { font-size: 1.6rem; }
+    }
+
+    /* Extra small (phones) */
+    @media (max-width: 480px) {
+      .re-chapter-card { height: 28vh; }
+      .re-chapter-card .re-chapter-title { font-size: 1.5rem; }
+      .re-film-scene .re-scene-bg { height: 35vh; min-height: 220px; }
+      .re-film-scene .re-scene-text { padding: 1.5rem 1.25rem 2rem; }
+      .re-film-scene .re-scene-text p { font-size: 1rem; }
+      .re-letter-photo-side { height: 35vh; min-height: 220px; }
+      .re-polaroid-scene { padding: 2.5rem 1.25rem; gap: 2rem; }
+      .re-polaroid { max-width: 240px; padding: 8px 8px 36px; }
+      .re-polaroid-caption { font-size: 0.85rem; bottom: 8px; }
+      .re-polaroid-text p { font-size: 1rem; }
+      .re-closing-opener, .re-closing-statement { font-size: 1rem; }
+      .re-built-it { font-size: 1.4rem; }
+    }
+
+
+    /* === POLAROID SCENE (Chapter 3) === */
+    .re-polaroid-scene {
+      display: flex; align-items: center; justify-content: center;
+      gap: 4rem; padding: 4rem 3rem; min-height: 70vh;
+    }
+    .re-polaroid-text {
+      max-width: 480px; flex: 1;
+    }
+    .re-polaroid-text p {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.1rem;
+      line-height: 1.85; color: rgba(237,227,218,0.92); margin-bottom: 1.4rem;
+    }
+    .re-polaroid-frame {
+      flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+    }
+    .re-polaroid {
+      background: #f5f0eb; padding: 12px 12px 48px; transform: rotate(-2.5deg);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 2px 8px rgba(0,0,0,0.3);
+      max-width: 340px; position: relative;
+    }
+    .re-polaroid img {
+      width: 100%; display: block;
+      filter: sepia(25%) contrast(0.95) brightness(1.02) saturate(0.85);
+    }
+    .re-polaroid-caption {
+      position: absolute; bottom: 10px; left: 0; right: 0; text-align: center;
+      font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+      font-style: italic; color: #555; letter-spacing: 0.02em;
+    }
+    @media (max-width: 900px) {
+      .re-polaroid-scene {
+        flex-direction: column-reverse; gap: 2.5rem; padding: 3rem 1.5rem;
+      }
+      .re-polaroid-text { max-width: 100%; }
+      .re-polaroid { max-width: 280px; }
+    }
   </style>
