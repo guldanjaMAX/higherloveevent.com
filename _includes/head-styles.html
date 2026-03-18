@@ -414,6 +414,77 @@
       font-style: italic; color: var(--linen); margin-bottom: 0.6rem;
       text-shadow: 0 1px 8px rgba(0,0,0,0.5);
     }
+    /* === CHAPTER THREE: 70% YES SCENE === */
+    .re-chapter4-scene {
+      position: relative; display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 80vh; overflow: hidden;
+    }
+    .re-chapter4-ghost-photo {
+      position: relative; z-index: 0; overflow: hidden;
+    }
+    .re-chapter4-ghost-photo img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      filter: grayscale(15%) contrast(1.1);
+    }
+    .re-chapter4-overlay {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(90deg, transparent 0%, transparent 35%, rgba(10,10,10,0.85) 60%, var(--dark-bg) 100%);
+    }
+    .re-chapter4-content {
+      position: relative; z-index: 2; display: flex; flex-direction: column;
+      justify-content: center; padding: 4rem 3.5rem; background: var(--dark-bg);
+    }
+    .re-chapter4-eyebrow {
+      display: block; font-family: 'Raleway', sans-serif; font-size: 0.72rem;
+      font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--chamoisee); margin-bottom: 1.8rem;
+    }
+    .re-chapter4-questions {
+      padding-left: 1.5rem; border-left: 2px solid rgba(160,127,86,0.3); margin-bottom: 2rem;
+    }
+    .re-chapter4-questions p {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.08rem; font-style: italic;
+      line-height: 1.75; color: rgba(237,227,218,0.85); margin-bottom: 0.7rem;
+    }
+    .re-chapter4-divider {
+      width: 40px; height: 1px; background: var(--chamoisee); opacity: 0.4; margin-bottom: 2rem;
+    }
+    .re-chapter4-resolution {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.05rem; line-height: 1.8;
+      color: rgba(237,227,218,0.88); margin-bottom: 1rem;
+    }
+    .re-chapter4-statement {
+      display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.45rem;
+      font-style: italic; color: var(--chamoisee); line-height: 1.5; margin-top: 1.2rem;
+    }
+
+    /* === CLOSING TEXTURE SECTION === */
+    .re-closing-texture {
+      position: relative; min-height: 60vh; display: flex; align-items: center;
+      justify-content: center; background: var(--dark-bg); overflow: hidden;
+    }
+    .re-closing-glow {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 700px; height: 450px;
+      background: radial-gradient(ellipse at center, rgba(160,127,86,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .re-closing-grain {
+      position: absolute; inset: 0; opacity: 0.35; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+    }
+    .re-closing-content-centered {
+      position: relative; z-index: 2; text-align: center; max-width: 720px; padding: 5rem 2rem;
+    }
+    .re-closing-opener {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.15rem; line-height: 1.85;
+      color: rgba(237,227,218,0.8); margin-bottom: 2rem;
+    }
+    .re-closing-statement {
+      font-family: 'EB Garamond', Georgia, serif; font-size: 1.08rem; line-height: 1.8;
+      color: rgba(237,227,218,0.72); margin-bottom: 2.5rem;
+    }
+
     .re-letter-section {
       display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; overflow: hidden;
     }
@@ -515,6 +586,15 @@
       .re-closing-texture { min-height: 45vh; }
       .re-closing-content-centered { padding: 3rem 1.5rem; }
       .re-built-it { font-size: 1.6rem; }
+
+      /* Chapter 3 scene */
+      .re-chapter4-scene { grid-template-columns: 1fr; min-height: auto; }
+      .re-chapter4-ghost-photo { height: 55vw; min-height: 280px; }
+      .re-chapter4-overlay {
+        background: linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.9) 80%, var(--dark-bg) 100%);
+      }
+      .re-chapter4-content { padding: 2.5rem 1.5rem 3rem; }
+      .re-chapter4-statement { font-size: 1.2rem; }
     }
 
     /* Extra small (phones) */
@@ -531,6 +611,9 @@
       .re-polaroid-text p { font-size: 1rem; }
       .re-closing-opener, .re-closing-statement { font-size: 1rem; }
       .re-built-it { font-size: 1.4rem; }
+      .re-chapter4-ghost-photo { height: 45vw; min-height: 220px; }
+      .re-chapter4-content { padding: 2rem 1.25rem 2.5rem; }
+      .re-chapter4-statement { font-size: 1.1rem; }
     }
 
 
