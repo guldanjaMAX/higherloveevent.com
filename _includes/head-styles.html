@@ -653,4 +653,19 @@
       .re-polaroid-text { max-width: 100%; }
       .re-polaroid { max-width: 280px; }
     }
-  </style>
+
+    /* === NAV LOGO OVERRIDE: HLS Full Horizontal === */
+    .nav-logo-img {
+      height: 18px !important;
+      width: auto !important;
+      max-width: 280px !important;
+    }
+    nav .logo img, nav .logo svg {
+      height: 18px !important;
+      width: auto !important;
+    }
+    @media (max-width: 768px) {
+      .nav-logo-img { height: 14px !important; max-width: 210px !important; }
+      nav .logo img, nav .logo svg { height: 14px !important; }
+    }
+    </style>
