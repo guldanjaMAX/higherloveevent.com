@@ -1,4 +1,4 @@
-   </main>
+  </main>
 
   <!-- FOOTER -->
   <footer role="contentinfo">
@@ -96,5 +96,160 @@
     })();
 
   </script>
+
+  <!-- ENHANCED GA4 EVENT TRACKING -->
+  <script>
+  (function() {
+    if (typeof gtag !== 'function') return;
+
+    // --- 1. VIDEO TRACKING (Re's personal note video in hero) ---
+    var heroVideo = document.getElementById('optin-video');
+    if (heroVideo) {
+      var _vidFired = false;
+      var _vidMilestones = { 25: false, 50: false, 75: false, 90: false };
+
+      heroVideo.addEventListener('play', function() {
+        if (!_vidFired) {
+          _vidFired = true;
+          gtag('event', 'video_start', {
+            event_category: 'video',
+            video_title: 'Re Perez Personal Note'
+          });
+        }
+      });
+
+      heroVideo.addEventListener('timeupdate', function() {
+        if (!heroVideo.duration) return;
+        var pct = (heroVideo.currentTime / heroVideo.duration) * 100;
+        [25, 50, 75, 90].forEach(function(m) {
+          if (!_vidMilestones[m] && pct >= m) {
+            _vidMilestones[m] = true;
+            gtag('event', 'video_progress', {
+              event_category: 'video',
+              video_title: 'Re Perez Personal Note',
+              video_percent: m
+            });
+          }
+        });
+      });
+
+      heroVideo.addEventListener('ended', function() {
+        gtag('event', 'video_complete', {
+          event_category: 'video',
+          video_title: 'Re Perez Personal Note'
+        });
+      });
+    }
+
+    // --- 2. CTA CLICK TRACKING (all Apply Now links) ---
+    document.querySelectorAll('a[href="#application-form"], a[href="/#application-form"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var loc = 'page';
+        if (el.id === 'floatingCta' || el.closest('#floatingCta')) {
+          loc = 'floating_mobile';
+        } else if (el.closest('#nav')) {
+          loc = 'nav';
+        } else if (el.closest('.hero')) {
+          loc = 'hero';
+        } else if (el.closest('.re-closing-texture')) {
+          loc = 'story_closing';
+        } else if (el.classList.contains('cta-button')) {
+          loc = 'section_cta';
+        } else if (el.closest('footer')) {
+          loc = 'footer';
+        }
+        gtag('event', 'cta_click', {
+          event_category: 'conversion',
+          cta_location: loc,
+          cta_text: (el.textContent || '').trim().substring(0, 50)
+        });
+      });
+    });
+
+    // --- 3. STORY TOGGLE TRACKING ---
+    // Note: onclick="toggleReStory()" fires first, so class reflects new state when our listener runs
+    var _storyBtn = document.getElementById('re-story-btn');
+    if (_storyBtn) {
+      _storyBtn.addEventListener('click', function() {
+        var isNowOpen = (document.getElementById('re-story-content') || {}).classList &&
+                        document.getElementById('re-story-content').classList.contains('re-story-open');
+        gtag('event', isNowOpen ? 'story_expand' : 'story_collapse', {
+          event_category: 'engagement',
+          content_name: 'Re Full Story'
+        });
+      });
+    }
+
+    // --- 4. SCROLL DEPTH MILESTONES ---
+    var _scrollFired = { 25: false, 50: false, 75: false, 90: false };
+    window.addEventListener('scroll', function() {
+      var scrolled = window.scrollY + window.innerHeight;
+      var total = document.documentElement.scrollHeight;
+      if (!total) return;
+      var pct = (scrolled / total) * 100;
+      [25, 50, 75, 90].forEach(function(m) {
+        if (!_scrollFired[m] && pct >= m) {
+          _scrollFired[m] = true;
+          gtag('event', 'scroll_depth', {
+            event_category: 'engagement',
+            scroll_percent: m
+          });
+        }
+      });
+    }, { passive: true });
+
+    // --- 5. FAQ OPEN TRACKING ---
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var qEl = btn.querySelector('.faq-q') || btn.querySelector('span') || btn;
+        var qText = (qEl.textContent || '').replace(/[+\-×]/g, '').trim().substring(0, 80);
+        // Only fire on open (not close)
+        var item = btn.parentElement;
+        if (!item.classList.contains('open')) {
+          gtag('event', 'faq_open', {
+            event_category: 'engagement',
+            faq_question: qText
+          });
+        }
+      });
+    });
+
+    // --- 6. APPLICATION FORM VISIBILITY ---
+    var _formEl = document.getElementById('application-form');
+    if (_formEl && 'IntersectionObserver' in window) {
+      var _formSeen = false;
+      var _formObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (!_formSeen && entry.isIntersecting) {
+            _formSeen = true;
+            gtag('event', 'form_viewed', {
+              event_category: 'conversion',
+              form_name: 'Application Form'
+            });
+            _formObs.disconnect();
+          }
+        });
+      }, { threshold: 0.3 });
+      _formObs.observe(_formEl);
+    }
+
+    // --- 7. TIME ON PAGE MILESTONES ---
+    [
+      [30000,  30],
+      [60000,  60],
+      [120000, 120],
+      [300000, 300]
+    ].forEach(function(pair) {
+      setTimeout(function() {
+        gtag('event', 'time_on_page', {
+          event_category: 'engagement',
+          seconds_on_page: pair[1]
+        });
+      }, pair[0]);
+    });
+
+  })();
+  </script>
+
 </body>
 </html>
