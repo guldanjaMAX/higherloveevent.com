@@ -1,21 +1,68 @@
   <!-- Hero above-the-fold fit -->
   <style>
-    .hero.hero-split {
-      padding-top: 90px;
-      padding-bottom: 1rem;
+    /* Desktop: tighten hero to fit above fold */
+    @media (min-width: 769px) {
+      .hero.hero-split {
+        padding-top: 90px;
+        padding-bottom: 1rem;
+      }
+      .hero-split-text {
+        max-width: 500px;
+      }
+      .hero h1 {
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+        margin-bottom: 0.5rem;
+      }
+      .hero-sub {
+        margin: 0.3rem 0 0.8rem;
+      }
+      .hero-details {
+        margin-bottom: 0.5rem;
+      }
     }
-    .hero-split-text {
-      max-width: 500px;
-    }
-    .hero h1 {
-      font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-      margin-bottom: 0.5rem;
-    }
-    .hero-sub {
-      margin: 0.3rem 0 0.8rem;
-    }
-    .hero-details {
-      margin-bottom: 0.5rem;
+
+    /* Mobile: clean compact hero */
+    @media (max-width: 768px) {
+      .hero.hero-split {
+        padding: 70px 1.25rem 1.5rem;
+        gap: 1.25rem;
+        min-height: auto;
+      }
+      .hero-split-text {
+        max-width: 100%;
+        order: 0;
+      }
+      .hero h1 {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        line-height: 1.15;
+        margin-bottom: 0.5rem;
+      }
+      .hero-sub {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin: 0 auto 0.75rem;
+      }
+      .hero-details {
+        font-size: 0.72rem;
+        margin-bottom: 0.6rem;
+      }
+      .hero-split .hero-cta-group {
+        justify-content: center !important;
+        margin-top: 0.5rem;
+      }
+      .hero-split .hero-cta-group .cta-button {
+        padding: 0.8rem 1.6rem;
+        font-size: 0.7rem;
+      }
+      .hero-split-video {
+        order: 1;
+        max-width: 90%;
+        margin: 0 auto;
+      }
+      /* Hide video caption on mobile to save space */
+      .hero-split-video > .flame-container > p {
+        display: none;
+      }
     }
   </style>
 
@@ -572,7 +619,7 @@
       color: var(--chamoisee); margin-bottom: 1.2rem;
     }
     .re-letter-card p {
-      font-family: 'EB Garamond', Georgia, serif; font-size: 1.02rem;
+      font-family: 'EB Garamond', Georgia, serif; font-size: clamp(1.15rem, 2.2vw, 1.35rem);
       line-height: 1.8; color: rgba(237,227,218,0.88); font-style: italic; margin-bottom: 1rem;
     }
     .re-letter-card p:last-child { margin-bottom: 0; }
