@@ -8,113 +8,170 @@
 
   <!-- SMALL HOST INTRO -->
   <div class="re-host-intro fade-in">
-    <img src="images/re-host-cutout.png" alt="Re Perez" class="re-host-intro-photo" loading="lazy">
+    <img src="images/re-perez-2026.jpg" alt="Re Perez" class="re-host-intro-photo" loading="lazy" style="object-position: center center;">
     <p class="eyebrow">Your Host</p>
     <h2>Re Perez</h2>
-    <p class="re-host-tagline">Super connector. Curator of transformational experiences. Brand consultant to high performers.</p>
+    <p class="re-host-tagline">Super connector. Curator of experiences that change how men see themselves. 24 years building brands for founders and leaders.</p>
   </div>
 
-  <!-- CHAPTER ONE: COMING OUT -->
-  <div class="re-chapter-card fade-in">
-    <p class="re-chapter-number">Chapter One</p>
-    <h2 class="re-chapter-title">Coming Out</h2>
-    <p class="re-chapter-subtitle">New York City &middot; 1991</p>
-  </div>
-
-  <div class="re-film-scene fade-in">
-    <div class="re-scene-bg">
-      <img src="images/re-young-19.jpg" alt="Re Perez at 19 years old" loading="lazy" style="object-position: center center;">
-    </div>
-    <div class="re-scene-overlay" style="background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.1) 100%);"></div>
-    <div class="re-scene-text">
-      <p>I came out in the early nineties in New York City. I was nineteen years old, and back then, it was not safe to come out of the closet.</p>
-      <p>I navigated the streets of New York and the professional world while going to NYU, and even though it was a city where you would think you could be yourself, you still had to be undercover.</p>
-      <p>Deep down, I never really saw myself living past thirty. There were not a lot of role models of gay men who were vibrant, living full lives past a certain age. And the ones who were did not feel like me.</p>
-    </div>
-  </div>
-
-  <!-- CHAPTER TWO: THE DIAGNOSIS -->
-  <div class="re-chapter-card fade-in">
-    <p class="re-chapter-number">Chapter Two</p>
-    <h2 class="re-chapter-title">The Diagnosis</h2>
-    <p class="re-chapter-subtitle">November 2025</p>
-  </div>
-
-  <div class="re-polaroid-scene fade-in">
-    <div class="re-polaroid-text">
-      <p>In November 2025, I was diagnosed with prostate cancer. Low risk. Caught early. Right now, I am okay.</p>
-      <p>But here is the thing about a diagnosis, even a good one. It does not whisper. It does not tap you on the shoulder. It walks into the room, sits down across from you, and says: <em>We need to talk.</em></p>
-      <div class="re-pull-quote">&ldquo;A health scare is a ruthless audit. It strips everything away and asks the questions that actually matter.&rdquo;</div>
-    </div>
-    <div class="re-polaroid-frame">
-      <div class="re-polaroid">
-        <img src="images/re-before-2021.jpg" alt="Re Perez, before" loading="lazy">
-        <p class="re-polaroid-caption">Before. &mdash; 2021</p>
+  <!-- RE'S PERSONAL VIDEO NOTE -->
+  <div class="re-video-note fade-in" style="max-width: 640px; margin: 2rem auto; text-align: center;">
+    <div style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 16/9; background: #0a0a0a;" onclick="playInvitationVideo()">
+      <video id="optin-video" preload="metadata" style="width: 100%; height: 100%; display: block; background: #0a0a0a; object-fit: cover;" playsinline>
+        <source src="https://pub-d080c466f8504291b98ad793f9eb1f30.r2.dev/higher-love/re-perez-note-2026.mp4" type="video/mp4">
+      </video>
+      <div id="video-poster-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;" class="video-poster-editorial">
+        <div class="play-circle-editorial">
+          <svg width="34" height="38" viewBox="0 0 28 32" fill="none" style="margin-left: 5px;">
+            <path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/>
+          </svg>
+        </div>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0.8rem 0 0; pointer-events: none; opacity: 0.7;">2 MIN · A PERSONAL NOTE FROM RE</p>
       </div>
     </div>
+    <p style="font-family: 'EB Garamond', serif; font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.5); text-align: center; margin-top: 0.75rem;">Hear the story behind Higher Love directly from Re</p>
   </div>
 
-  <!-- CHAPTER THREE: 70% YES -->
-  <div class="re-chapter-card fade-in">
-    <p class="re-chapter-number">Chapter Three</p>
-    <h2 class="re-chapter-title">70% Yes</h2>
-    <p class="re-chapter-subtitle">The Ruthless Audit</p>
+  <!-- STORY TOGGLE -->
+  <div class="re-story-toggle-wrap fade-in">
+    <p class="re-story-teaser">New York City. 1991. A diagnosis that changed everything. And how a 70% life became the reason this room exists.</p>
+    <button class="re-story-btn" id="re-story-btn" onclick="toggleReStory()" aria-expanded="false" aria-controls="re-story-content">
+      <span class="re-story-btn-label">Read Re&rsquo;s Full Story</span>
+      <svg class="re-story-chevron" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
   </div>
 
-  <div class="re-chapter4-scene fade-in">
-    <div class="re-chapter4-ghost-photo">
-      <img src="images/re-chapter4.png" alt="Re Perez" loading="lazy">
-    </div>
-    <div class="re-chapter4-overlay"></div>
-    <div class="re-chapter4-content">
-      <span class="re-chapter4-eyebrow">A health scare is a ruthless audit</span>
-      <div class="re-chapter4-questions">
-        <p>Are you doing something that brings you great joy and fulfillment?</p>
-        <p>Are you living your highest potential and being a world class steward of your gifts?</p>
-        <p>Are you creating the value that only you can uniquely create?</p>
-        <p>Are you living fully, or are you <em>living carefully?</em></p>
+  <!-- COLLAPSIBLE STORY CONTENT -->
+  <div class="re-story-content" id="re-story-content" aria-hidden="true">
+    <div class="re-story-inner">
+
+      <!-- CHAPTER ONE: COMING OUT -->
+      <div class="re-chapter-card fade-in">
+        <p class="re-chapter-number">Chapter One</p>
+        <h2 class="re-chapter-title">Coming Out</h2>
+        <p class="re-chapter-subtitle">New York City · 1991</p>
       </div>
-      <div class="re-chapter4-divider"></div>
-      <p class="re-chapter4-resolution">I sat with those questions. The answer was yes. But a <strong>70% yes.</strong></p>
-      <p class="re-chapter4-resolution">The diagnosis made me realize I was done shrinking one part of myself to fit into a room. Done waiting for someone else to build the thing I kept looking for.</p>
-      <span class="re-chapter4-statement">&ldquo;Done pretending that 70% was enough.&rdquo;</span>
-    </div>
-  </div>
 
-  <div style="width: 60px; height: 1px; background: var(--chamoisee); margin: 3rem auto; opacity: 0.5;"></div>
-
-  <!-- LETTER TO 19 YEAR OLD SELF with young Re photo -->
-  <div class="re-letter-section fade-in">
-    <div class="re-letter-photo-side">
-      <img src="images/re-young-childhood.jpg" alt="Re Perez as a young man" loading="lazy">
-      <p class="re-letter-photo-caption">Re &mdash; Before New York</p>
-    </div>
-    <div class="re-letter-text-side">
-      <div class="re-letter-card">
-        <p class="re-letter-label">A Letter to My 19 Year Old Self</p>
-        <p>Dear Re:</p>
-        <p>You took the first step by coming out of the closet. That took everything. Do not minimize it.</p>
-        <p>You are going to go on a journey to discover who you really are and what you are capable of. You are going to fall in love and also go through heartbreak. One of those heartbreaks is going to shatter your heart into a million pieces and you are going to feel like everything is ending you. It will not.</p>
-        <p>You are going to doubt yourself constantly, but you are going to take action anyway. Because of that, you are going to create extraordinary things faster than most.</p>
-        <p>You are going to start your own branding agency. Build a team. Help thousands of entrepreneurs and founders find their voice, build their brands, and step into their identity. You are going to travel the world. Speak on stages in front of thousands of people. You are going to write a boldly titled book called <em>Your Brand Should Be Gay (Even If You&rsquo;re Not)</em>. People are going to love it the moment they hear the title.</p>
-        <p>Your spiritual mentors and teachers will crack you wide open. You are going to find communities and rooms that show you what is possible. And some of them are going to show you, by their absence, what still needs to be created.</p>
-        <p>Here is what I need you to know: being gay is not the thing that limits you. It is one of the things that makes you extraordinary. The integration of strength and softness, of ambition and love, of building and nurturing. That is not a contradiction. That is the whole point.</p>
-        <p>In November 2025, you are going to face a health scare. And in the stillness it creates, you are going to finally understand what you have been building toward your whole life.</p>
-        <p>A room. A brotherhood. For gay men like us.</p>
-        <p>Build it. Call it Higher Love.</p>
-        <p style="margin-bottom: 0;">&mdash; Re, 54</p>
+      <div class="re-film-scene fade-in">
+        <div class="re-scene-bg">
+          <img src="images/re-young-19.jpg" alt="Re Perez at 19 years old" loading="lazy" style="object-position: center center;">
+        </div>
+        <div class="re-scene-overlay" style="background: linear-gradient(90deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.1) 100%);"></div>
+        <div class="re-scene-text">
+          <p>I came out in the early nineties in New York City. I was nineteen years old, and back then, it was not safe to come out of the closet.</p>
+          <p>I navigated the streets of New York and the professional world while going to NYU, and even though it was a city where you would think you could be yourself, you still had to be undercover.</p>
+          <p>Deep down, I never really saw myself living past thirty. There were not a lot of role models of gay men who were vibrant, living full lives past a certain age. And the ones who were did not feel like me.</p>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- CLOSING HERO -- textured, no photo -->
-  <div class="re-closing-texture fade-in">
-    <div class="re-closing-glow"></div>
-    <div class="re-closing-grain"></div>
-    <div class="re-closing-content-centered">
-      <p class="re-closing-opener">The prostate cancer was not the end of the story. It was the sentence that started a new chapter.</p>
-      <p class="re-built-it">The room I was looking for did not exist. So I built it.</p>
-      <p class="re-closing-statement">The first people through this door are not filling seats. They are making a statement. And I will remember every single one of them.</p>
-      <a href="#application-form" class="cta-button">Apply Now</a>
-    </div>
-  </div>
+      <!-- CHAPTER TWO: THE DIAGNOSIS -->
+      <div class="re-chapter-card fade-in">
+        <p class="re-chapter-number">Chapter Two</p>
+        <h2 class="re-chapter-title">The Diagnosis</h2>
+        <p class="re-chapter-subtitle">November 2025</p>
+      </div>
+
+      <div class="re-polaroid-scene fade-in">
+        <div class="re-polaroid-text">
+          <p>In November 2025, I was diagnosed with prostate cancer. Low risk. Caught early. Right now, I am okay.</p>
+          <p>But here is the thing about a diagnosis, even a good one. It does not whisper. It does not tap you on the shoulder. It walks into the room, sits down across from you, and says: <em>We need to talk.</em></p>
+          <div class="re-pull-quote">&ldquo;A health scare is a ruthless audit. It strips everything away and asks the questions that actually matter.&rdquo;</div>
+        </div>
+        <div class="re-polaroid-frame">
+          <div class="re-polaroid">
+            <img src="images/re-before-2021.jpg" alt="Re Perez, before" loading="lazy">
+            <p class="re-polaroid-caption">Before. — 2021</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHAPTER THREE: 70% YES -->
+      <div class="re-chapter-card fade-in">
+        <p class="re-chapter-number">Chapter Three</p>
+        <h2 class="re-chapter-title">70% Yes</h2>
+        <p class="re-chapter-subtitle">The Ruthless Audit</p>
+      </div>
+
+      <div class="re-chapter4-scene fade-in">
+        <div class="re-chapter4-ghost-photo">
+          <img src="images/re-chapter4.png" alt="Re Perez" loading="lazy">
+        </div>
+        <div class="re-chapter4-overlay"></div>
+        <div class="re-chapter4-content">
+          <span class="re-chapter4-eyebrow">A health scare is a ruthless audit</span>
+          <div class="re-chapter4-questions">
+            <p>Are you doing something that brings you great joy and fulfillment?</p>
+            <p>Are you living your highest potential and being a world class steward of your gifts?</p>
+            <p>Are you creating the value that only you can uniquely create?</p>
+            <p>Are you living fully, or are you <em>living carefully?</em></p>
+          </div>
+          <div class="re-chapter4-divider"></div>
+          <p class="re-chapter4-resolution">I sat with those questions. The answer was yes. But a <strong>70% yes.</strong></p>
+          <p class="re-chapter4-resolution">The diagnosis made me realize I was done shrinking one part of myself to fit into a room. Done waiting for someone else to build the thing I kept looking for.</p>
+          <span class="re-chapter4-statement">&ldquo;Done pretending that 70% was enough.&rdquo;</span>
+        </div>
+      </div>
+
+      <div style="width: 60px; height: 1px; background: var(--chamoisee); margin: 3rem auto; opacity: 0.5;"></div>
+
+      <!-- LETTER TO 19 YEAR OLD SELF with young Re photo -->
+      <div class="re-letter-section fade-in">
+        <div class="re-letter-photo-side">
+          <img src="images/re-young-childhood.jpg" alt="Re Perez as a young man" loading="lazy">
+          <p class="re-letter-photo-caption">Re — Before New York</p>
+        </div>
+        <div class="re-letter-text-side">
+          <div class="re-letter-card">
+            <p class="re-letter-label">A Letter to My 19 Year Old Self</p>
+            <p>Dear Re:</p>
+            <p>You took the first step by coming out of the closet. That took everything. Do not minimize it.</p>
+            <p>You are going on a journey to discover who you really are and what you are capable of. You are going to fall in love and also go through heartbreak. One of those heartbreaks is going to shatter your heart into a million pieces and you are going to feel like everything is ending you. It will not.</p>
+            <p>You are going to doubt yourself constantly, but you are going to take action anyway. Because of that, you are going to create extraordinary things faster than most.</p>
+            <p>You are going to start your own branding agency. Build a team. Help thousands of entrepreneurs and founders find their voice, build their brands, and step into their identity. You are going to travel the world. Speak on stages in front of thousands of people. You are going to write a boldly titled book called <em>Your Brand Should Be Gay (Even If You&rsquo;re Not)</em>. People are going to love it the moment they hear the title.</p>
+            <p>Your spiritual mentors and teachers will crack you wide open. You are going to find communities and rooms that show you what is possible. And some of them are going to show you, by their absence, what still needs to be created.</p>
+            <p>Here is what I need you to know: being gay is not the thing that limits you. It is one of the things that makes you extraordinary. The integration of strength and softness, of ambition and love, of building and nurturing. That is not a contradiction. That is the whole point.</p>
+            <p>In November 2025, you are going to face a health scare. And in the stillness it creates, you are going to finally understand what you have been building toward your whole life.</p>
+            <p>A room. A brotherhood. For gay men like us.</p>
+            <p>Build it. Call it Higher Love.</p>
+            <p style="margin-bottom: 0;">— Re, 54</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CLOSING HERO -- textured, no photo -->
+      <div class="re-closing-texture fade-in">
+        <div class="re-closing-glow"></div>
+        <div class="re-closing-grain"></div>
+        <div class="re-closing-content-centered">
+          <p class="re-closing-opener">The prostate cancer was not the end of the story. It was the sentence that started a new chapter.</p>
+          <p class="re-built-it">The room I was looking for did not exist. So I built it.</p>
+          <p class="re-closing-statement">The first people through this door are not filling seats. They are making a statement. And I will remember every single one of them.</p>
+          <a href="#application-form" class="cta-button">Request Your Invitation</a>
+        </div>
+      </div>
+
+    </div><!-- end .re-story-inner -->
+  </div><!-- end .re-story-content -->
+
+  <script>
+    function toggleReStory() {
+      var content = document.getElementById('re-story-content');
+      var btn = document.getElementById('re-story-btn');
+      var isOpen = content.classList.contains('re-story-open');
+      if (isOpen) {
+        content.classList.remove('re-story-open');
+        btn.classList.remove('re-story-btn-open');
+        btn.setAttribute('aria-expanded', 'false');
+        content.setAttribute('aria-hidden', 'true');
+        var label = btn.querySelector('.re-story-btn-label');
+        label.textContent = 'Read Re\u2019s Full Story';
+      } else {
+        content.classList.add('re-story-open');
+        btn.classList.add('re-story-btn-open');
+        btn.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
+        var label = btn.querySelector('.re-story-btn-label');
+        label.textContent = 'Close Story';
+      }
+    }
+  </script>
