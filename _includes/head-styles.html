@@ -66,6 +66,234 @@
     }
   </style>
 
+  <!-- Design Recommendation Styles -->
+  <style>
+    /* HERO: headline dominance — heavier weight so it wins the eye race against video */
+    .hero h1 {
+      font-weight: 700;
+    }
+
+    /* STORY ARC HIGHLIGHT STRIP — 3 visible quote lines above toggle */
+    .story-arc-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      padding: 0 1.5rem;
+    }
+    .story-arc-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+    .story-arc-year {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      white-space: nowrap;
+      padding-top: 0.3rem;
+      min-width: 56px;
+    }
+    .story-arc-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.08rem;
+      font-style: italic;
+      color: rgba(237,227,218,0.72);
+      line-height: 1.55;
+    }
+
+    /* QUALIFYING SECTION: gold left borders on each paragraph */
+    .qual-manifesto p {
+      border-left: 2px solid rgba(212,165,68,0.28);
+      padding-left: 1.5rem;
+      margin-bottom: 1.75rem;
+      transition: border-color 0.4s ease;
+    }
+    .qual-manifesto p:hover {
+      border-color: rgba(212,165,68,0.65);
+    }
+    .qual-manifesto p:last-of-type {
+      border-color: var(--chamoisee);
+    }
+
+    /* Mid-section quiet text CTA */
+    .qual-mid-cta {
+      text-align: center;
+      margin: 2rem 0 2.5rem;
+    }
+    .qual-mid-cta a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(212,165,68,0.3);
+      padding-bottom: 2px;
+      transition: border-color 0.3s, color 0.3s;
+    }
+    .qual-mid-cta a:hover {
+      color: var(--linen);
+      border-color: var(--chamoisee);
+    }
+
+    /* NOT FOR YOU: bordered list items instead of bullet points */
+    .qual-list-bordered {
+      list-style: none;
+      padding: 0;
+      max-width: 660px;
+    }
+    .qual-list-bordered li {
+      border-left: 2px solid rgba(212,165,68,0.22);
+      padding: 0 0 0 1.5rem;
+      margin-bottom: 2rem;
+      font-size: 0.97rem;
+      line-height: 1.78;
+      color: rgba(237,227,218,0.78);
+      transition: border-color 0.3s;
+    }
+    .qual-list-bordered li:hover {
+      border-color: rgba(212,165,68,0.55);
+    }
+
+    /* EXPERIENCE SECTION: full-bleed image break */
+    .experience-image-break {
+      position: relative;
+      width: 100%;
+      height: 52vh;
+      min-height: 280px;
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .experience-image-break img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .experience-image-break .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(10,8,6,0.55) 0%,
+        rgba(10,8,6,0.1) 40%,
+        rgba(10,8,6,0.65) 100%);
+    }
+
+    /* SHIFT QUOTE: elevated typographic treatment */
+    .shift-quote-elevated {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: rgba(237,227,218,0.85);
+      max-width: 680px;
+      margin: 3rem auto 0;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    /* WHO'S IN THE ROOM: social proof strip above form */
+    .whos-in-room {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(212,165,68,0.22);
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    .whos-in-room-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      margin-bottom: 0.9rem;
+    }
+    .whos-in-room-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 2rem;
+      margin-bottom: 0.9rem;
+    }
+    .whos-in-room-item {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.98rem;
+      color: rgba(237,227,218,0.6);
+    }
+    .whos-in-room-note {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: rgba(237,227,218,0.3);
+    }
+
+    /* FAQ CLOSING CTA */
+    .faq-closing-cta {
+      text-align: center;
+      padding: 3.5rem 1.5rem 0.5rem;
+    }
+    .faq-closing-cta h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.6rem;
+    }
+    .faq-closing-cta p {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.82rem;
+      color: #777;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* STICKY MOBILE CTA */
+    .sticky-apply-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 990;
+      background: rgba(10,8,6,0.96);
+      border-top: 1px solid rgba(212,165,68,0.22);
+      padding: 0.85rem 1.5rem;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: translateY(100%);
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .sticky-apply-bar.is-visible {
+      transform: translateY(0);
+    }
+    .sticky-apply-bar a {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      text-decoration: none;
+    }
+    .sticky-apply-bar .sticky-pipe {
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      background: rgba(212,165,68,0.3);
+      margin: 0 0.8rem;
+      vertical-align: middle;
+    }
+    @media (max-width: 768px) {
+      .sticky-apply-bar { display: block; }
+    }
+  </style>
+
   <!-- Pillar Grid + Dual CTA + HIGHER Horizontal Styles -->
   <style>
     .pillars-grid {
