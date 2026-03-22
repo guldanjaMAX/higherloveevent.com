@@ -119,23 +119,36 @@
       border-color: var(--chamoisee);
     }
 
-    /* Mid-section quiet text CTA */
+    /* Mid-section CTA — prominent button block for high-intent visitors */
     .qual-mid-cta {
       text-align: center;
-      margin: 2rem 0 2.5rem;
+      margin: 3rem 0 3.5rem;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid rgba(160,127,86,0.15);
+      border-bottom: 1px solid rgba(160,127,86,0.15);
+    }
+    .qual-mid-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: rgba(237,227,218,0.6);
+      font-style: italic;
+      margin-bottom: 1.25rem;
     }
     .qual-mid-cta a {
+      display: inline-block;
       font-family: 'Raleway', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.18em;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--chamoisee);
       text-decoration: none;
-      border-bottom: 1px solid rgba(212,165,68,0.3);
-      padding-bottom: 2px;
-      transition: border-color 0.3s, color 0.3s;
+      border: 1px solid rgba(160,127,86,0.5);
+      padding: 0.85rem 2.25rem;
+      border-radius: 1px;
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
     }
     .qual-mid-cta a:hover {
+      background: rgba(160,127,86,0.1);
       color: var(--linen);
       border-color: var(--chamoisee);
     }
@@ -157,6 +170,31 @@
     }
     .qual-list-bordered li:hover {
       border-color: rgba(212,165,68,0.55);
+    }
+
+    /* POST IMAGE-BREAK INLINE CTA */
+    .image-break-cta {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      background: var(--raisin);
+    }
+    .image-break-cta p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(237,227,218,0.55);
+      margin: 0;
+    }
+    .image-break-cta a {
+      color: var(--chamoisee);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(160,127,86,0.4);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .image-break-cta a:hover {
+      color: var(--linen);
+      border-color: var(--chamoisee);
     }
 
     /* EXPERIENCE SECTION: full-bleed image break */
