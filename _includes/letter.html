@@ -17,17 +17,17 @@
 
   <!-- RE'S PERSONAL VIDEO NOTE -->
   <div class="re-video-note fade-in" style="max-width: 640px; margin: 2rem auto; text-align: center;">
-    <div style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 16/9; background: #0a0a0a;" onclick="playInvitationVideo()">
-      <video id="optin-video" preload="metadata" style="width: 100%; height: 100%; display: block; background: #0a0a0a; object-fit: cover;" playsinline>
+    <div id="re-letter-wrapper" style="position: relative; width: 100%; border-radius: 12px; overflow: hidden; cursor: pointer; aspect-ratio: 16/9; background: #0a0a0a;" onclick="playLetterVideo()">
+      <video id="re-letter-video" preload="metadata" style="width: 100%; height: 100%; display: block; background: #0a0a0a; object-fit: cover;" playsinline>
         <source src="https://pub-d080c466f8504291b98ad793f9eb1f30.r2.dev/higher-love/re-perez-note-2026.mp4" type="video/mp4">
       </video>
-      <div id="video-poster-overlay" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;" class="video-poster-editorial">
+      <div id="re-letter-poster" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; transition: opacity 0.5s ease;" class="video-poster-editorial">
         <div class="play-circle-editorial">
           <svg width="34" height="38" viewBox="0 0 28 32" fill="none" style="margin-left: 5px;">
             <path d="M28 16L0 32V0L28 16Z" fill="#EDE3DA"/>
           </svg>
         </div>
-        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0.8rem 0 0; pointer-events: none; opacity: 0.7;">2 MIN · A PERSONAL NOTE FROM RE</p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--linen); margin: 0.8rem 0 0; pointer-events: none; opacity: 0.7;">2 MIN &middot; A PERSONAL NOTE FROM RE</p>
       </div>
     </div>
     <p style="font-family: 'EB Garamond', serif; font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.5); text-align: center; margin-top: 0.75rem;">Hear the story behind Higher Love directly from Re</p>
@@ -189,6 +189,23 @@
         content.setAttribute('aria-hidden', 'false');
         var label = btn.querySelector('.re-story-btn-label');
         label.textContent = 'Close Story';
+        // Reveal any fade-in elements inside the story that were hidden at page load
+        content.querySelectorAll('.fade-in').forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+    }
+
+    function playLetterVideo() {
+      var video = document.getElementById('re-letter-video');
+      var overlay = document.getElementById('re-letter-poster');
+      var wrapper = document.getElementById('re-letter-wrapper');
+      if (video && overlay) {
+        overlay.style.opacity = '0';
+        setTimeout(function() { overlay.style.display = 'none'; }, 500);
+        video.controls = true;
+        video.play();
+        if (wrapper) { wrapper.removeAttribute('onclick'); wrapper.style.cursor = 'default'; }
       }
     }
   </script>
