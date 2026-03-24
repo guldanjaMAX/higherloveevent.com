@@ -1039,4 +1039,71 @@
     @media (max-width: 768px) {
       .nav-logo-svg { height: 14px; }
     }
+
+    /* === RE SPEAKING AUTHORITY SECTION === */
+    .re-speaking-section {
+      background: var(--dark-bg, #0a0806);
+      overflow: hidden;
+      padding: 0 0 2rem;
+    }
+    .re-speaking-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: flex-end;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .re-speaking-image {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-top: 2rem;
+    }
+    .re-speaking-image img {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      filter: drop-shadow(0 30px 80px rgba(0,0,0,0.7));
+    }
+    .re-speaking-copy {
+      padding: 4rem 4rem 4rem 2rem;
+    }
+    .re-speaking-h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--linen, #EDE3DA);
+      margin-bottom: 0;
+    }
+    .re-speaking-h2 em {
+      font-style: italic;
+      color: var(--chamoisee, #D4A544);
+    }
+    .re-speaking-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--chamoisee, #D4A544);
+      margin: 1.5rem 0;
+      opacity: 0.6;
+    }
+    .re-speaking-body {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: rgba(237,227,218,0.75);
+      margin-bottom: 0;
+    }
+    @media (max-width: 1024px) {
+      .re-speaking-image img { max-width: 420px; }
+      .re-speaking-copy { padding: 3rem 2rem 3rem 1.5rem; }
+    }
+    @media (max-width: 768px) {
+      .re-speaking-inner { grid-template-columns: 1fr; }
+      .re-speaking-image { order: 2; padding: 0 2rem; justify-content: center; }
+      .re-speaking-image img { max-width: 280px; }
+      .re-speaking-copy { order: 1; padding: 3.5rem 1.5rem 1.5rem; }
+      .re-speaking-h2 { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+      .re-speaking-body { font-size: 1.08rem; }
+    }
     </style>
