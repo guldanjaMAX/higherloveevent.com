@@ -1653,6 +1653,132 @@ button:focus-visible {
 }
 
 /* ========================================
+   VIDEO TESTIMONIAL CARDS (Greg Pignataro style)
+   ======================================== */
+.vtc-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.video-testimonial-card {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(160,127,86,0.18);
+  overflow: hidden;
+}
+
+.vtc-video {
+  cursor: pointer;
+}
+
+.vtc-video:hover .vtc-play-btn {
+  transform: scale(1.1);
+}
+
+.vtc-play-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(160,127,86,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.vtc-content {
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 1px solid rgba(160,127,86,0.12);
+}
+
+.vtc-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  border: 1px solid rgba(160,127,86,0.35);
+  display: inline-block;
+  padding: 0.28rem 0.75rem;
+  margin-bottom: 1.1rem;
+  width: fit-content;
+}
+
+.vtc-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.18rem;
+  font-style: italic;
+  color: var(--linen);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.vtc-author-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+}
+
+.vtc-author-role {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.74rem;
+  color: var(--linen);
+  opacity: 0.5;
+  margin-top: 0.2rem;
+  letter-spacing: 0.04em;
+}
+
+.vtc-watch {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.2rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--chamoisee);
+  opacity: 0.75;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.vtc-watch:hover {
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .video-testimonial-card {
+    grid-template-columns: 1fr 1.3fr;
+  }
+  .vtc-content {
+    padding: 1.5rem;
+  }
+  .vtc-quote {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .video-testimonial-card {
+    grid-template-columns: 1fr;
+  }
+  .vtc-content {
+    border-left: none;
+    border-top: 1px solid rgba(160,127,86,0.12);
+    padding: 1.25rem;
+  }
+}
+
+/* ========================================
    ANIMATIONS
    ======================================== */
 .fade-in {
