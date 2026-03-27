@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Love Manifesto — Design Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #060606;
+    --card-bg: #0d0d0d;
+    --card-border: rgba(160,127,86,0.15);
+    --gold: #a07f56;
+    --gold-light: #c9a96e;
+    --linen: #ede3da;
+    --linen-soft: rgba(237,227,218,0.88);
+    --linen-muted: rgba(237,227,218,0.6);
+    --white-92: rgba(255,255,255,0.92);
+    --white-70: rgba(255,255,255,0.7);
+  }
+
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: var(--bg);
+    color: var(--linen);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ── */
+  .presentation-header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+  .presentation-header .label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .presentation-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.3;
+    color: var(--linen);
+    margin-bottom: 2rem;
+  }
+  .presentation-header .brief {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--linen-soft);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ── Analysis Box ── */
+  .analysis {
+    max-width: 860px;
+    margin: 0 auto 4rem;
+    padding: 2.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+  }
+  .analysis h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .analysis-item .label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+  .analysis-item p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: var(--linen-muted);
+  }
+
+  /* ── Concept Cards ── */
+  .concepts { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
+
+  .concept-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .concept-card:nth-child(1) { animation-delay: 0.1s; }
+  .concept-card:nth-child(2) { animation-delay: 0.3s; }
+  .concept-card:nth-child(3) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .concept-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 2rem;
+  }
+  .concept-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    color: var(--linen);
+    line-height: 1.2;
+  }
+  .concept-tagline {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 0.4rem;
+  }
+
+  /* Confidence ring */
+  .confidence {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    position: relative;
+  }
+  .confidence svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+  }
+  .confidence-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.06);
+    stroke-width: 3;
+  }
+  .confidence-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 226;
+    stroke-dashoffset: 226;
+    transition: stroke-dashoffset 1.5s ease;
+  }
+  .confidence-fill.high { stroke: #8faa7b; }
+  .confidence-fill.mid { stroke: #c9a96e; }
+  .confidence-fill.low { stroke: #789094; }
+  .confidence-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--linen);
+    letter-spacing: 0.02em;
+  }
+
+  /* Section labels */
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(160,127,86,0.15);
+  }
+  .concept-section {
+    margin-bottom: 2rem;
+  }
+  .concept-section p, .concept-section li {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--white-92);
+  }
+
+  /* Visual spec grid */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2.5rem;
+  }
+  .spec-item .spec-key {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.3rem;
+  }
+  .spec-item .spec-val {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--linen-muted);
+  }
+
+  /* ── Rendered Preview ── */
+  .preview-frame {
+    margin: 2.5rem 0 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(160,127,86,0.1);
+  }
+  .preview-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  /* ── Preview 1: The Covenant ── */
+  .preview-covenant {
+    background: #0a0a0a;
+    padding: 6rem 2rem;
+    text-align: center;
+  }
+  .preview-covenant .gold-line {
+    width: 1.5px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin: 0 auto 3rem;
+  }
+  .preview-covenant .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+  }
+  .preview-covenant .manifesto-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+    font-weight: 300;
+    line-height: 1.9;
+    color: rgba(237,227,218,0.88);
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .preview-covenant .manifesto-text .gold {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+  .preview-covenant .manifesto-break {
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: rgba(160,127,86,0.35);
+    margin: 2.5rem auto;
+  }
+  .preview-covenant .closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-top: 3rem;
+  }
+
+  /* ── Preview 2: The Confessional ── */
+  .preview-confessional {
+    background: #0a0a0a;
+    padding: 5rem 2rem;
+  }
+  .preview-confessional .inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3px 1fr;
+    gap: 0 3.5rem;
+  }
+  .preview-confessional .gold-rail {
+    background: linear-gradient(to bottom, transparent 0%, var(--gold) 15%, var(--gold) 85%, transparent 100%);
+    opacity: 0.4;
+    border-radius: 2px;
+  }
+  .preview-confessional .content {
+    padding: 1rem 0;
+  }
+  .preview-confessional .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+  }
+  .preview-confessional .stanza {
+    margin-bottom: 2.5rem;
+  }
+  .preview-confessional .stanza p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 300;
+    line-height: 2;
+    color: rgba(237,227,218,0.9);
+  }
+  .preview-confessional .stanza p .gold {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+  .preview-confessional .stanza-lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--linen);
+    margin-bottom: 1.2rem;
+  }
+  .preview-confessional .divider {
+    width: 30px;
+    height: 1px;
+    background: rgba(160,127,86,0.4);
+    margin: 0 0 2.5rem;
+  }
+  .preview-confessional .closing-block {
+    border-top: 1px solid rgba(160,127,86,0.15);
+    padding-top: 2.5rem;
+    margin-top: 1rem;
+    text-align: left;
+  }
+  .preview-confessional .closing-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--gold-light);
+  }
+  .preview-confessional .closing-block .sign {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(160,127,86,0.7);
+    margin-top: 1.2rem;
+  }
+
+  /* ── Preview 3: The Litany ── */
+  .preview-litany {
+    background: #0a0a0a;
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .preview-litany::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(160,127,86,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .preview-litany .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .preview-litany .line-group {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .preview-litany .manifesto-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(237,227,218,0.88);
+    margin-bottom: 0.3rem;
+  }
+  .preview-litany .manifesto-line.lead {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--linen);
+    margin-bottom: 1.2rem;
+  }
+  .preview-litany .manifesto-line.body {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+  }
+  .preview-litany .manifesto-line.emphasis {
+    font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+    color: var(--gold-light);
+    font-weight: 400;
+    font-style: italic;
+  }
+  .preview-litany .stanza-gap {
+    height: 2.5rem;
+  }
+  .preview-litany .section-divider {
+    width: 50px;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 2.5rem auto;
+  }
+  .preview-litany .closing {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--gold-light);
+    margin-top: 1rem;
+    font-style: italic;
+  }
+  .preview-litany .closing-sub {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(160,127,86,0.65);
+    margin-top: 1rem;
+  }
+
+  /* ── Comparison ── */
+  .comparison {
+    max-width: 860px;
+    margin: 2rem auto 5rem;
+    padding: 2.5rem;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+  }
+  .comparison h3 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .comparison p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--white-92);
+    margin-bottom: 1rem;
+  }
+  .comparison p:last-child { margin-bottom: 0; }
+  .comparison strong { color: var(--gold-light); font-weight: 500; }
+
+  @media (max-width: 700px) {
+    .analysis-grid { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .concept-top { flex-direction: column; }
+    .concept-card { padding: 2rem 1.5rem; }
+    .preview-confessional .inner { grid-template-columns: 2px 1fr; gap: 0 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<div class="presentation-header">
+  <div class="label">Higher Love Brotherhood — Section Design</div>
+  <h1>The Manifesto</h1>
+  <p class="brief">
+    A deeply resonant declaration that sits directly below the hero fold. This is the moment where a visitor discovers what Higher Love actually stands for, and either feels seen or knows this is not their room. It must be emotionally honest, unapologetically specific to gay men who lead, and impossible to skim.
+  </p>
+</div>
+
+<!-- ═══════════════ ANALYSIS ═══════════════ -->
+<div class="analysis">
+  <h3>Strategic Analysis</h3>
+  <div class="analysis-grid">
+    <div class="analysis-item">
+      <div class="label">Functional Goal</div>
+      <p>Establish identity and create self-selection. The right man reads this and feels a pull in his chest. The wrong man leaves. Both outcomes are wins.</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">Emotional Goal</div>
+      <p>Recognition. The feeling of "someone finally said it." This section must land the way a letter from a close friend does: intimate, unguarded, deeply specific.</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">User State of Mind</div>
+      <p>Intrigued but guarded. He has just read a bold H1 and is deciding whether to keep scrolling. He has been to other "communities." He is tired of surface level. He needs to feel that this is different in the first three lines.</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">Design Physics</div>
+      <p>Reference: Maverick1000 manifesto. Large centered serif, gold accents on key phrases, vertical gold line, generous whitespace. The copy itself is the design. Typography and space do the heavy lifting.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONCEPT 1 ═══════════════ -->
+<div class="concepts">
+
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Covenant</div>
+      <div class="concept-tagline">Centered. Continuous. Unbroken.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80">
+        <circle class="confidence-bg" cx="40" cy="40" r="36"/>
+        <circle class="confidence-fill high" cx="40" cy="40" r="36" style="stroke-dashoffset: 29;"/>
+      </svg>
+      <div class="confidence-text">87%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      The closest descendant of the Maverick reference. The entire manifesto is rendered as a single, centered column of large Cormorant Garamond text on a #0a0a0a background. A thin vertical gold line descends from the section edge into the eyebrow label "What We Believe." The copy flows as one continuous block, with key conviction phrases highlighted in gold (#c9a96e). Thin horizontal gold hairlines separate the three emotional movements: the invitation ("Imagine a room..."), the belief statements ("We believe your gay identity..."), and the declaration ("This is not a network..."). The section closes with "Higher Love Brotherhood." rendered in larger italic gold as a standalone sign-off. No imagery. No cards. No columns. Just text, space, and conviction.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      This approach trusts the copy completely. When writing is this emotionally specific, the best design decision is to get out of its way. The Maverick1000 manifesto proved this: a single centered column with gold accents creates the feeling of reading something sacred, almost like a creed. The continuous flow forces the reader into a meditative rhythm where they cannot skim, only absorb. The gold highlights act as emotional anchors, giving the eye permission to linger on the phrases that hit hardest.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">Cormorant Garamond 300/400 for manifesto body. Raleway 500 for eyebrow. EB Garamond italic for closing.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Color Palette</div>
+        <div class="spec-val">Background #0a0a0a. Body text rgba(237,227,218,0.88). Gold accents #c9a96e. Hairlines rgba(160,127,86,0.35).</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Single centered column, max-width 780px. Padding 6rem vertical. Line-height 1.9 for breathing room.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Vertical gold line (60px) above eyebrow. Thin horizontal dividers between movements. Standalone italic gold closing line.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENDERED PREVIEW -->
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-covenant">
+      <div class="gold-line"></div>
+      <div class="eyebrow">What We Believe</div>
+      <div class="manifesto-text">
+        <span class="gold">Imagine a room full of gay men who are your peers.</span>
+        Not just professionally. In every way.
+        Men who have built real things and done the inner work to match.
+        Men who lead with integrity in business and in life.
+        Men who are conscious, ambitious, and wide open at the same time.
+        Men who will challenge you, hold you, and go to the depth with you without flinching.
+        <span class="gold">Imagine that room existing for you.</span>
+
+        <span class="manifesto-break"></span>
+
+        We believe your gay identity is not a footnote to your leadership.
+        <span class="gold">It is the source of it.</span>
+        The depth you carry. The perspective you earned.
+        The hard-won wholeness of a man who has integrated all of himself.
+        That is not incidental to what you are building.
+        It is the most powerful thing about you.
+
+        <span class="manifesto-break"></span>
+
+        We believe <span class="gold">brotherhood is the infrastructure</span> for the life you are building.
+        You would never scale something meaningful without the right people in the room.
+        The same is true for the fullest version of your life.
+        The men you surround yourself with are a decision.
+        Higher Love Brotherhood exists to make that decision an extraordinary one.
+
+        <span class="manifesto-break"></span>
+
+        This is not a network. Not a retreat.
+        Not a room where you perform.
+        It is a brotherhood where you can put the armor aside and just "be."
+        Where the conversation goes past the surface and dives deep into the question:
+        <span class="gold">Are you living fully or are you living carefully?</span>
+
+        <span class="manifesto-break"></span>
+
+        We believe the man who leads from higher love elevates every room he walks into.
+        And when you put a room full of those men together,
+        the ripple effect reaches far beyond what any one of them could have built alone.
+        That is what we are here. To build together.
+      </div>
+      <div class="closing">This room is built for you.<br>Higher Love Brotherhood.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONCEPT 2 ═══════════════ -->
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Confessional</div>
+      <div class="concept-tagline">Left-aligned. Stanza by stanza. Like reading a letter.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80">
+        <circle class="confidence-bg" cx="40" cy="40" r="36"/>
+        <circle class="confidence-fill high" cx="40" cy="40" r="36" style="stroke-dashoffset: 22;"/>
+      </svg>
+      <div class="confidence-text">90%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      The manifesto is broken into distinct stanzas, left-aligned against a continuous gold vertical rail that runs the full height of the section. Each stanza begins with a larger italic lead-in line that captures the emotional thesis of that passage, followed by the supporting lines in a slightly smaller weight. The gold rail creates a visual throughline that says "this is one continuous truth." Thin horizontal dividers between stanzas create natural breathing pauses. The section closes with a bordered block containing the closing declaration in larger italic gold, with "Higher Love Brotherhood" as a small-caps sign-off below. The left-alignment gives it the intimacy of reading a personal letter or journal entry, rather than the formality of a centered decree.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      Centering text creates authority. Left-aligning text creates intimacy. For a manifesto about brotherhood and vulnerability, intimacy is the stronger play. The stanza structure lets each belief statement land with its own weight before the next one arrives. The gold rail is a quiet structural backbone that says "all of these truths are connected." The larger italic lead-ins create a scannable emotional skeleton for the reader who scrolls fast, while rewarding the one who reads every word. This format also handles mobile beautifully because left-aligned text with natural line breaks reads better on narrow screens than centered text that rewraps unpredictably.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">Cormorant Garamond 400 italic for stanza leads (2rem). Cormorant Garamond 300 for body lines (1.35rem). Raleway 500 for eyebrow and sign-off.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Color Palette</div>
+        <div class="spec-val">Background #0a0a0a. Body rgba(237,227,218,0.9). Lead lines #ede3da. Gold rail and accents rgba(160,127,86,0.4). Closing #c9a96e.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Two-column grid: 3px gold rail + content. Max-width 900px, left-aligned. 5rem vertical padding.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Continuous gold rail. Italic stanza leads. Hairline dividers between stanzas. Bordered closing block with sign-off.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENDERED PREVIEW -->
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-confessional">
+      <div class="inner">
+        <div class="gold-rail"></div>
+        <div class="content">
+          <div class="eyebrow">What We Believe</div>
+
+          <div class="stanza">
+            <div class="stanza-lead">Imagine a room full of gay men who are your peers.</div>
+            <p>Not just professionally. In every way.
+            Men who have built real things and done the inner work to match.
+            Men who lead with integrity in business and in life.
+            Men who are conscious, ambitious, and <span class="gold">wide open at the same time.</span>
+            Men who will challenge you, hold you, and go to the depth with you without flinching.
+            Imagine that room existing for you.</p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="stanza">
+            <div class="stanza-lead">Your gay identity is not a footnote to your leadership.</div>
+            <p><span class="gold">It is the source of it.</span>
+            The depth you carry. The perspective you earned.
+            The hard-won wholeness of a man who has integrated all of himself.
+            That is not incidental to what you are building.
+            It is the most powerful thing about you.</p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="stanza">
+            <div class="stanza-lead">Brotherhood is the infrastructure for the life you are building.</div>
+            <p>You would never scale something meaningful without the right people in the room.
+            The same is true for the fullest version of your life.
+            The men you surround yourself with are a decision.
+            <span class="gold">Higher Love Brotherhood exists to make that decision an extraordinary one.</span></p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="stanza">
+            <div class="stanza-lead">This is not a network. Not a retreat. Not a room where you perform.</div>
+            <p>It is a brotherhood where you can put the armor aside and just "be."
+            Where the conversation goes past the surface and dives deep into the question:
+            <span class="gold">Are you living fully or are you living carefully?</span></p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="stanza">
+            <div class="stanza-lead">The man who leads from higher love elevates every room he walks into.</div>
+            <p>And when you put a room full of those men together,
+            the ripple effect reaches far beyond what any one of them could have built alone.
+            That is what we are here. To build together.</p>
+          </div>
+
+          <div class="closing-block">
+            <p>This room is built for you.</p>
+            <div class="sign">Higher Love Brotherhood</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CONCEPT 3 ═══════════════ -->
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Litany</div>
+      <div class="concept-tagline">Line by line. Each truth stands alone.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80">
+        <circle class="confidence-bg" cx="40" cy="40" r="36"/>
+        <circle class="confidence-fill mid" cx="40" cy="40" r="36" style="stroke-dashoffset: 45;"/>
+      </svg>
+      <div class="confidence-text">80%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      Every sentence is rendered as its own line, centered, with deliberate variation in size, weight, and color to create a visual rhythm. Opening invitation lines are large and italic. Belief statements are medium-weight. The key emotional pivot points ("It is the source of it." / "Are you living fully or are you living carefully?") are rendered in gold at a slightly larger size. Thin gold gradient dividers separate the five movements. A subtle radial gold glow sits behind the center of the section, creating a sense of warmth and gravitas without being visible as an obvious element. The closing "Higher Love Brotherhood" sits beneath a final divider with a small-caps label. The effect is somewhere between poetry and scripture: each line demands to be read on its own terms.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      This is the most typographically dramatic option. By giving each sentence its own line and its own visual weight, nothing gets lost in a paragraph. The reader cannot skim because there are no paragraphs to skim. Every truth is isolated and elevated. The risk is that the section becomes very tall on desktop and could feel like a wall of single lines. But for a manifesto that is inherently poetic and rhythmic, this format honors the writing by treating each line like it matters. The radial glow adds the warmth that a pure text-on-black approach can lack.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">Cormorant Garamond 400 italic for lead lines (2.2rem). 300 for body lines (1.25rem). 400 for emphasis lines (1.35rem gold). Raleway 500 for labels.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Color Palette</div>
+        <div class="spec-val">Background #0a0a0a. Body rgba(237,227,218,0.88). Emphasis #c9a96e. Radial glow rgba(160,127,86,0.06). Dividers gold gradient.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Centered column, max-width 700px. 6rem vertical padding. Variable line spacing based on line type.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Each sentence on its own line. Three type sizes create visual hierarchy. Radial glow. Gradient dividers between movements.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RENDERED PREVIEW -->
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-litany">
+      <div class="eyebrow">What We Believe</div>
+      <div class="line-group">
+        <div class="manifesto-line lead">Imagine a room full of gay men who are your peers.</div>
+        <div class="manifesto-line body">Not just professionally. In every way.</div>
+        <div class="manifesto-line body">Men who have built real things and done the inner work to match.</div>
+        <div class="manifesto-line body">Men who lead with integrity in business and in life.</div>
+        <div class="manifesto-line body">Men who are conscious, ambitious, and wide open at the same time.</div>
+        <div class="manifesto-line body">Men who will challenge you, hold you, and go to the depth with you without flinching.</div>
+        <div class="manifesto-line emphasis">Imagine that room existing for you.</div>
+
+        <div class="section-divider"></div>
+
+        <div class="manifesto-line lead">Your gay identity is not a footnote to your leadership.</div>
+        <div class="manifesto-line emphasis">It is the source of it.</div>
+        <div class="manifesto-line body">The depth you carry. The perspective you earned.</div>
+        <div class="manifesto-line body">The hard-won wholeness of a man who has integrated all of himself.</div>
+        <div class="manifesto-line body">That is not incidental to what you are building.</div>
+        <div class="manifesto-line emphasis">It is the most powerful thing about you.</div>
+
+        <div class="section-divider"></div>
+
+        <div class="manifesto-line lead">Brotherhood is the infrastructure for the life you are building.</div>
+        <div class="manifesto-line body">You would never scale something meaningful without the right people in the room.</div>
+        <div class="manifesto-line body">The same is true for the fullest version of your life.</div>
+        <div class="manifesto-line body">The men you surround yourself with are a decision.</div>
+        <div class="manifesto-line emphasis">Higher Love Brotherhood exists to make that decision an extraordinary one.</div>
+
+        <div class="section-divider"></div>
+
+        <div class="manifesto-line lead">This is not a network. Not a retreat. Not a room where you perform.</div>
+        <div class="manifesto-line body">It is a brotherhood where you can put the armor aside and just "be."</div>
+        <div class="manifesto-line body">Where the conversation goes past the surface and dives deep into the question:</div>
+        <div class="manifesto-line emphasis">Are you living fully or are you living carefully?</div>
+
+        <div class="section-divider"></div>
+
+        <div class="manifesto-line lead">The man who leads from higher love elevates every room he walks into.</div>
+        <div class="manifesto-line body">And when you put a room full of those men together,</div>
+        <div class="manifesto-line body">the ripple effect reaches far beyond what any one of them could have built alone.</div>
+        <div class="manifesto-line body">That is what we are here. To build together.</div>
+
+        <div class="stanza-gap"></div>
+
+        <div class="closing">This room is built for you.</div>
+        <div class="closing-sub">Higher Love Brotherhood</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end .concepts -->
+
+<!-- ═══════════════ COMPARISON ═══════════════ -->
+<div class="comparison">
+  <h3>Which Direction?</h3>
+  <p>
+    <strong>The Confessional (90%)</strong> is the strongest option. The left-aligned stanza structure creates the intimacy this copy deserves. The italic lead-in lines give each section a clear emotional anchor, the gold rail provides structure without rigidity, and the whole thing reads like a letter from someone who actually knows you. It also handles mobile perfectly because left-aligned text with natural breaks does not rewrap unpredictably.
+  </p>
+  <p>
+    <strong>The Covenant (87%)</strong> is the safest option and the closest to the Maverick reference. It will work well. The risk is that the centered continuous block can feel formal or institutional when the copy is this personal and vulnerable. If you want the Maverick feel adapted for Higher Love, this is it.
+  </p>
+  <p>
+    <strong>The Litany (80%)</strong> is the most visually dramatic but also the tallest section on the page. Each line standing alone creates real impact, but the section could feel like it stretches forever on desktop. Best suited if you want maximum emotional weight on every single sentence and do not mind the vertical real estate.
+  </p>
+</div>
+
+</body>
+</html>
