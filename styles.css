@@ -701,7 +701,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: clamp(1.05rem, 1.6vw, 1.15rem);
   line-height: 1.7;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.92);
   max-width: 580px;
   margin: 0.4rem 0 1.2rem;
 }
@@ -793,7 +793,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: clamp(1.08rem, 1.9vw, 1.22rem);
   line-height: 1.8;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.92);
   margin: 2.5rem 0;
   padding: 1.5rem 0 1.5rem 1.5rem;
   border-left: 2px solid rgba(160,127,86,0.35);
@@ -812,7 +812,7 @@ nav .nav-cta:hover {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.65;
+  opacity: 0.85;
   margin-top: 0.6rem;
 }
 
@@ -1028,7 +1028,7 @@ nav .nav-cta:hover {
   color: var(--chamoisee);
   line-height: 1;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .outcome-card h3 {
@@ -1042,7 +1042,7 @@ nav .nav-cta:hover {
 .outcome-card .body-text {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.92);
 }
 
 .outcome-source {
@@ -1051,7 +1051,7 @@ nav .nav-cta:hover {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.82;
   margin-top: 0.75rem;
 }
 
@@ -1239,7 +1239,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
   color: var(--linen);
-  opacity: 0.75;
+  opacity: 0.88;
 }
 
 /* ========================================
@@ -1324,7 +1324,7 @@ nav .nav-cta:hover {
 }
 
 .form-input::placeholder {
-  color: rgba(188,178,166,0.55);
+  color: rgba(188,178,166,0.65);
   font-style: italic;
 }
 
@@ -1423,7 +1423,7 @@ footer {
 footer .footer-logo {
   width: 120px;
   margin: 0 auto 1.5rem;
-  opacity: 0.75;
+  opacity: 0.88;
 }
 
 footer p {
@@ -1431,7 +1431,7 @@ footer p {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 /* ========================================
@@ -1562,7 +1562,7 @@ button:focus-visible {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   font-style: italic;
   margin-bottom: 0.75rem;
 }
@@ -1600,7 +1600,7 @@ button:focus-visible {
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.8;
   z-index: 0;
   pointer-events: none;
 }
@@ -1634,7 +1634,7 @@ button:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.82;
 }
 
 .form-fallback a {
@@ -1758,7 +1758,7 @@ button:focus-visible {
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(237,227,218,0.5);
+  color: rgba(237,227,218,0.82);
 }
 
 /* ── Name Bar ── */
@@ -1788,7 +1788,7 @@ button:focus-visible {
 .vtc-overlay-role {
   font-family: 'Raleway', sans-serif;
   font-size: 0.6rem;
-  color: rgba(237,227,218,0.5);
+  color: rgba(237,227,218,0.78);
   letter-spacing: 0.06em;
   margin-top: 2px;
 }
@@ -1822,7 +1822,7 @@ button:focus-visible {
   color: #a07f56;
   line-height: 0.5;
   margin-bottom: 14px;
-  opacity: 0.38;
+  opacity: 0.52;
   user-select: none;
 }
 
@@ -1850,7 +1850,7 @@ button:focus-visible {
 .vtc-author-role {
   font-family: 'Raleway', sans-serif;
   font-size: 0.67rem;
-  color: rgba(237,227,218,0.45);
+  color: rgba(237,227,218,0.72);
   margin-top: 3px;
   letter-spacing: 0.04em;
 }
@@ -1865,7 +1865,7 @@ button:focus-visible {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--chamoisee);
-  opacity: 0.75;
+  opacity: 0.88;
   cursor: pointer;
   border-bottom: 1px solid rgba(160,127,86,0.25);
   padding-bottom: 1px;
@@ -1983,15 +1983,6 @@ button:focus-visible {
   #video-poster-overlay p { font-size: 0.68rem !important; letter-spacing: 0.16em; opacity: 1 !important; }
   .flame-container { padding: 16px; }
 
-  /* Contrast improvements on mobile */
-  .hero-sub { color: rgba(255,255,255,0.92) !important; font-size: 1.2rem; line-height: 1.65; }
-  .hero-video-caption { color: rgba(255,255,255,0.78) !important; }
-  .vtc-play-label { color: rgba(237,227,218,0.88) !important; font-size: 0.65rem; }
-  .vtc-overlay-role { color: rgba(237,227,218,0.82) !important; font-size: 0.62rem; }
-  .vtc-overlay-name { color: #ede3da !important; }
-  .stat-src { opacity: 0.88 !important; }
-  .outcome-source { opacity: 0.82 !important; }
-  .form-fallback { opacity: 0.82 !important; }
 
   .letter .salutation { font-size: 1.5rem; }
   .letter-emphasis { font-size: 1.2rem; padding-left: 1.2rem; }
