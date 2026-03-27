@@ -1980,8 +1980,18 @@ button:focus-visible {
   /* Hero video play button — scale down for mobile */
   .play-circle-editorial { width: 60px; height: 60px; margin-bottom: 0.6rem; }
   .play-circle-editorial svg { width: 22px !important; height: 24px !important; }
-  #video-poster-overlay p { font-size: 0.68rem !important; letter-spacing: 0.16em; }
+  #video-poster-overlay p { font-size: 0.68rem !important; letter-spacing: 0.16em; opacity: 1 !important; }
   .flame-container { padding: 16px; }
+
+  /* Contrast improvements on mobile */
+  .hero-sub { color: rgba(255,255,255,0.92) !important; font-size: 1.2rem; line-height: 1.65; }
+  .hero-video-caption { color: rgba(255,255,255,0.78) !important; }
+  .vtc-play-label { color: rgba(237,227,218,0.88) !important; font-size: 0.65rem; }
+  .vtc-overlay-role { color: rgba(237,227,218,0.82) !important; font-size: 0.62rem; }
+  .vtc-overlay-name { color: #ede3da !important; }
+  .stat-src { opacity: 0.88 !important; }
+  .outcome-source { opacity: 0.82 !important; }
+  .form-fallback { opacity: 0.82 !important; }
 
   .letter .salutation { font-size: 1.5rem; }
   .letter-emphasis { font-size: 1.2rem; padding-left: 1.2rem; }
