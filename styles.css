@@ -1651,7 +1651,6 @@ button:focus-visible {
 .yt-facade:hover div[style*="border-radius: 50%"] {
   transform: scale(1.1);
 }
-
 /* ========================================
    VIDEO TESTIMONIAL CARDS (Greg Pignataro style)
    ======================================== */
@@ -1674,7 +1673,6 @@ button:focus-visible {
   position: relative;
 }
 
-/* Video overlay: centered play button */
 .vtc-play-overlay {
   position: absolute;
   inset: 0;
@@ -1707,7 +1705,6 @@ button:focus-visible {
   box-shadow: 0 0 28px rgba(160,127,86,0.45);
 }
 
-/* Video overlay: gradient + name at bottom */
 .vtc-name-bar {
   position: absolute;
   bottom: 0;
@@ -1737,7 +1734,6 @@ button:focus-visible {
   margin-top: 0.2rem;
 }
 
-/* Right side content */
 .vtc-content {
   padding: 2rem 2.5rem;
   display: flex;
