@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Love — Hero Concepts for Re</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #08080a;
+    color: #e8e0d8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === HEADER === */
+  .page-header {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 32px 48px;
+    text-align: center;
+  }
+  .page-header .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .page-header .brief {
+    font-size: 15px;
+    color: rgba(232,224,216,0.65);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* === ANALYSIS BOX === */
+  .analysis {
+    max-width: 860px;
+    margin: 0 auto 64px;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .analysis-card {
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.02);
+  }
+  .analysis-card .a-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .analysis-card p {
+    font-size: 13px;
+    color: rgba(232,224,216,0.7);
+  }
+  @media (max-width: 640px) {
+    .analysis { grid-template-columns: 1fr; }
+  }
+
+  /* === CONCEPT SECTION === */
+  .concept {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+  .concept:nth-child(1) { animation-delay: 0.1s; }
+  .concept:nth-child(2) { animation-delay: 0.3s; }
+  .concept:nth-child(3) { animation-delay: 0.5s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .concept-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .concept-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .concept-tagline {
+    font-size: 14px;
+    color: rgba(232,224,216,0.5);
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 32px;
+  }
+
+  /* === RENDERED HERO MOCKUP === */
+  .hero-mockup {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    margin-bottom: 32px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .hero-mockup img.hero-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-mockup .hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+  .hero-mockup .hero-copy {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+  .hero-mockup .mock-logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 28px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
+  }
+  .hero-mockup .mock-h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 3vw, 36px);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
+    color: #fff;
+    max-width: 700px;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+  .hero-mockup .mock-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(12px, 1.8vw, 20px);
+    font-style: italic;
+    color: rgba(237,227,218,0.85);
+    margin-bottom: 24px;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+  }
+  .hero-mockup .mock-cta {
+    display: inline-block;
+    padding: 14px 40px;
+    border: 1.5px solid #c9a96e;
+    color: #c9a96e;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .hero-mockup .mock-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 32px;
+  }
+  .hero-mockup .mock-nav-logo {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+  }
+  .hero-mockup .mock-nav-cta {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c9a96e;
+    border: 1px solid rgba(201,169,110,0.4);
+    padding: 8px 20px;
+    font-weight: 500;
+  }
+
+  /* === RATIONALE + SCORE === */
+  .concept-details {
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 640px) {
+    .concept-details { grid-template-columns: 1fr; }
+  }
+
+  .detail-section { margin-bottom: 24px; }
+  .detail-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .detail-text {
+    font-size: 14px;
+    color: rgba(232,224,216,0.75);
+  }
+  .rationale-text {
+    font-size: 14px;
+    color: rgba(232,224,216,0.75);
+    padding-left: 16px;
+    border-left: 2px solid rgba(201,169,110,0.3);
+  }
+
+  /* Confidence ring */
+  .score-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .confidence-ring {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .confidence-ring svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+  }
+  .confidence-ring .ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.06);
+    stroke-width: 3;
+  }
+  .confidence-ring .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 207.35;
+    transition: stroke-dashoffset 1.2s ease;
+  }
+  .ring-fill.high { stroke: #7fba6a; }
+  .ring-fill.medium { stroke: #c9a96e; }
+  .confidence-ring .ring-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .score-caption {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(232,224,216,0.4);
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* === DIVIDER === */
+  .section-divider {
+    max-width: 800px;
+    margin: 0 auto 64px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,110,0.2), transparent);
+  }
+
+  /* === BEYOND THE HERO === */
+  .beyond {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 32px 100px;
+  }
+  .beyond h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .beyond .beyond-sub {
+    font-size: 14px;
+    color: rgba(232,224,216,0.55);
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .placement-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .placement-grid { grid-template-columns: 1fr; }
+  }
+  .placement-card {
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.02);
+  }
+  .placement-card .placement-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.8);
+  }
+  .placement-card .placement-body {
+    padding: 20px;
+  }
+  .placement-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .placement-card p {
+    font-size: 13px;
+    color: rgba(232,224,216,0.6);
+  }
+  .placement-card .placement-section {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  /* === RECOMMENDATION === */
+  .rec-section {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 32px 100px;
+    text-align: center;
+  }
+  .rec-section h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .rec-section p {
+    font-size: 14px;
+    color: rgba(232,224,216,0.7);
+    margin-bottom: 12px;
+  }
+  .rec-box {
+    margin-top: 24px;
+    padding: 24px;
+    border: 1px solid rgba(127,186,106,0.3);
+    border-radius: 12px;
+    background: rgba(127,186,106,0.04);
+  }
+  .rec-box .rec-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7fba6a;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .rec-box p { margin: 0; color: rgba(232,224,216,0.85); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="page-header">
+  <p class="eyebrow">Higher Love Brotherhood — For Re</p>
+  <h1>Above the Fold: Three Directions</h1>
+  <p class="brief">Three fully rendered hero concepts using real photos and real copy. Each takes a different emotional approach to the same question: what does the Integrated King feel the moment he lands on this page?</p>
+</div>
+
+<!-- STRATEGIC ANALYSIS -->
+<div class="analysis">
+  <div class="analysis-card">
+    <p class="a-label">Functional Goal</p>
+    <p>Immediate identity establishment. Within 2 seconds, a visitor knows: this is a premium brotherhood for entrepreneurial gay men. The background image does the emotional heavy lifting. The H1 does the intellectual framing. The CTA catches anyone ready to act.</p>
+  </div>
+  <div class="analysis-card">
+    <p class="a-label">Emotional Goal</p>
+    <p>Recognition. The right man sees this hero and thinks: "This exists? For me?" That feeling of being seen for the first time. Not sold to. Seen. The wrong man bounces immediately. That is by design.</p>
+  </div>
+  <div class="analysis-card">
+    <p class="a-label">The Maverick Pattern</p>
+    <p>Logo top center. Full bleed cinematic background. Large bold centered headline. Italic serif subheadline. One or two CTAs. Scroll cue at bottom. The background image is the soul of the design. It conveys what words cannot: "this is who is in this room."</p>
+  </div>
+  <div class="analysis-card">
+    <p class="a-label">What Changes Between Options</p>
+    <p>The headline, subheadline, and CTA copy stay the same across all three. What changes is the background photo and the emotional frequency it sets. Same words, completely different feeling. That is the power of image selection for this hero.</p>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- CONCEPT 1: THE FIRESIDE -->
+<div class="concept">
+  <p class="concept-label">Concept 1</p>
+  <h2 class="concept-name">The Fireside</h2>
+  <p class="concept-tagline">Where the armor comes off and the real conversation begins</p>
+
+  <div class="hero-mockup">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=1800&q=80&fit=crop" alt="">
+    <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.7) 100%);"></div>
+    <div class="mock-nav">
+      <span class="mock-nav-logo">Higher Love</span>
+      <span class="mock-nav-cta">Request Your Invitation</span>
+    </div>
+    <div class="hero-copy">
+      <img class="mock-logo" src="https://raw.githubusercontent.com/guldanjaMAX/higherloveevent.com/dev/images/hls-logo-stacked.svg" alt="Higher Love" onerror="this.style.display='none'">
+      <h2 class="mock-h1">THE ROOM THAT SHOULD HAVE EXISTED 20 YEARS AGO.</h2>
+      <p class="mock-sub">A curated brotherhood for entrepreneurial gay men in their 40s and 50s.</p>
+      <span class="mock-cta">Request An Invitation</span>
+    </div>
+  </div>
+
+  <div class="concept-details">
+    <div>
+      <div class="detail-section">
+        <p class="detail-label">Why This Photo</p>
+        <p class="detail-text">Campfire light through ancient trees under a starlit sky. No people visible, which is the counterintuitive power here: the absence of faces means the visitor projects himself into the scene. He imagines sitting in that circle. The warm amber light naturally matches the Higher Love gold palette. The night sky communicates depth, vastness, and the kind of conversation that only happens after the sun goes down and the walls come down with it.</p>
+      </div>
+      <div class="detail-section">
+        <p class="detail-label">Strategic Rationale</p>
+        <p class="rationale-text">Fire circles are the oldest form of men's gathering on earth. This image taps into something primal that every man recognizes, even if he has never sat around a fire with other men. The circular composition signals equality: no one at the head of the table. The dusk timing says "the performing is over for the day; now we go real." This is the most emotionally resonant option because it does not show the brotherhood, it invites you into it. The Integrated King does not need to see other men to know this is his room. He feels it.</p>
+      </div>
+    </div>
+    <div class="score-wrap">
+      <div class="confidence-ring">
+        <svg viewBox="0 0 70 70"><circle class="ring-bg" cx="35" cy="35" r="33"/><circle class="ring-fill high" cx="35" cy="35" r="33" style="stroke-dashoffset: 18.66;"/></svg>
+        <span class="ring-label">91%</span>
+      </div>
+      <span class="score-caption">Confidence</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- CONCEPT 2: THE CONVERSATION -->
+<div class="concept">
+  <p class="concept-label">Concept 2</p>
+  <h2 class="concept-name">The Conversation</h2>
+  <p class="concept-tagline">You will not be the only one in the room anymore</p>
+
+  <div class="hero-mockup">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1606817863280-26adec923b1a?w=1800&q=80&fit=crop" alt="" style="object-position: center 20%;">
+    <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.55) 40%, rgba(10,10,10,0.75) 100%);"></div>
+    <div class="mock-nav">
+      <span class="mock-nav-logo">Higher Love</span>
+      <span class="mock-nav-cta">Request Your Invitation</span>
+    </div>
+    <div class="hero-copy">
+      <img class="mock-logo" src="https://raw.githubusercontent.com/guldanjaMAX/higherloveevent.com/dev/images/hls-logo-stacked.svg" alt="Higher Love" onerror="this.style.display='none'">
+      <h2 class="mock-h1">THE ROOM THAT SHOULD HAVE EXISTED 20 YEARS AGO.</h2>
+      <p class="mock-sub">A curated brotherhood for entrepreneurial gay men in their 40s and 50s.</p>
+      <span class="mock-cta">Request An Invitation</span>
+    </div>
+  </div>
+
+  <div class="concept-details">
+    <div>
+      <div class="detail-section">
+        <p class="detail-label">Why This Photo</p>
+        <p class="detail-text">A man in his mid 40s, blue polo, genuine warm smile, in close conversation with another man partially visible. This is the most literal representation of the promise: real connection between peers. The man's face is open, unguarded, present. He looks like someone who has done the work. The close crop creates intimacy. The natural lighting says "this is not staged." The second man visible at the edge invites the viewer to take his seat at the table.</p>
+      </div>
+      <div class="detail-section">
+        <p class="detail-label">Strategic Rationale</p>
+        <p class="rationale-text">This direction answers the Integrated King's core question head on: "Will I find my people here?" It shows a man who could be him, in a moment of genuine connection. Two person compositions signal depth over breadth, quality over quantity. The casual warmth communicates that status markers do not matter in this room. The trade off is specificity: showing a face means some visitors will not see themselves in it. But for the man who does, this image is magnetic. He thinks: "That could be me across the table." This is the safest bet if a custom photo shoot is not possible because two men in warm conversation is the easiest composition to source from stock photography while still hitting the emotional target.</p>
+      </div>
+    </div>
+    <div class="score-wrap">
+      <div class="confidence-ring">
+        <svg viewBox="0 0 70 70"><circle class="ring-bg" cx="35" cy="35" r="33"/><circle class="ring-fill high" cx="35" cy="35" r="33" style="stroke-dashoffset: 20.74;"/></svg>
+        <span class="ring-label">90%</span>
+      </div>
+      <span class="score-caption">Confidence</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- CONCEPT 3: THE COASTLINE -->
+<div class="concept">
+  <p class="concept-label">Concept 3</p>
+  <h2 class="concept-name">The Coastline</h2>
+  <p class="concept-tagline">You have earned this moment of pause with men who understand</p>
+
+  <div class="hero-mockup">
+    <img class="hero-bg-img" src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1800&q=80&fit=crop" alt="" style="object-position: center 60%;">
+    <div class="hero-overlay" style="background: linear-gradient(to bottom, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.7) 100%);"></div>
+    <div class="mock-nav">
+      <span class="mock-nav-logo">Higher Love</span>
+      <span class="mock-nav-cta">Request Your Invitation</span>
+    </div>
+    <div class="hero-copy">
+      <img class="mock-logo" src="https://raw.githubusercontent.com/guldanjaMAX/higherloveevent.com/dev/images/hls-logo-stacked.svg" alt="Higher Love" onerror="this.style.display='none'">
+      <h2 class="mock-h1">THE ROOM THAT SHOULD HAVE EXISTED 20 YEARS AGO.</h2>
+      <p class="mock-sub">A curated brotherhood for entrepreneurial gay men in their 40s and 50s.</p>
+      <span class="mock-cta">Request An Invitation</span>
+    </div>
+  </div>
+
+  <div class="concept-details">
+    <div>
+      <div class="detail-section">
+        <p class="detail-label">Why This Photo</p>
+        <p class="detail-text">Warm coastal scene with turquoise water, palm trees, and golden sand. The palette is warm golds and soft aquas. Like The Fireside, there are no people in this image, but the emotional register is completely different. Where The Fireside is primal and contemplative, The Coastline is aspirational and warm. It says "retreat." It says "you have built something extraordinary and now you can set it down for a moment."</p>
+      </div>
+      <div class="detail-section">
+        <p class="detail-label">Strategic Rationale</p>
+        <p class="rationale-text">The Higher Love Summit is in Austin, but the emotional promise is escape: a place where the weight lifts. Coastal imagery naturally signals that permission to exhale. This direction leans into the aspirational positioning: the Integrated King has achieved material success and now seeks something money cannot buy. The trade off is that this could read as "luxury vacation" rather than "brotherhood," and the turquoise palette is a departure from the brand's warm amber tones. It works best if the brand wants to lead with aspiration rather than depth. Lower confidence because it risks attracting the wrong men: those seeking lifestyle aesthetics rather than inner work.</p>
+      </div>
+    </div>
+    <div class="score-wrap">
+      <div class="confidence-ring">
+        <svg viewBox="0 0 70 70"><circle class="ring-bg" cx="35" cy="35" r="33"/><circle class="ring-fill medium" cx="35" cy="35" r="33" style="stroke-dashoffset: 41.47;"/></svg>
+        <span class="ring-label">80%</span>
+      </div>
+      <span class="score-caption">Confidence</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- BEYOND THE HERO: Photo Placement Ideas -->
+<div class="beyond">
+  <p class="eyebrow" style="font-family: 'Raleway', sans-serif; font-size: 11px; letter-spacing: 3.5px; text-transform: uppercase; color: #c9a96e; margin-bottom: 16px; font-weight: 500; text-align: center;">Beyond the Hero</p>
+  <h2>Where These Photos Work Across the Site</h2>
+  <p class="beyond-sub">The photos from the direction exploration are not limited to the hero. Here is where each one could strengthen other sections of the site.</p>
+
+  <div class="placement-grid">
+    <div class="placement-card">
+      <img class="placement-img" src="https://images.unsplash.com/photo-1606817863280-26adec923b1a?w=800&q=80&fit=crop" alt="">
+      <div class="placement-body">
+        <p class="placement-section">Re's Letter Section</p>
+        <h4>The Intimate Conversation</h4>
+        <p>If this photo is not used in the hero, it belongs in Re's letter section. Place it alongside "Dear Brother" as a visual representation of what Re is inviting you into. Two men, real talk, no performance. The warmth of this image softens the vulnerability of the letter and signals: this is what it actually feels like to be in this community.</p>
+      </div>
+    </div>
+
+    <div class="placement-card">
+      <img class="placement-img" src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=800&q=80&fit=crop" alt="">
+      <div class="placement-body">
+        <p class="placement-section">Testimonials Section</p>
+        <h4>The Brotherhood Portrait</h4>
+        <p>A warm, confident man smiling directly into the camera. This photo is ideal for the testimonials section. Place it as a large portrait next to a key testimonial quote. It gives the social proof a face and a feeling. The directness of his gaze says: "I am the proof that this works."</p>
+      </div>
+    </div>
+
+    <div class="placement-card">
+      <img class="placement-img" src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=800&q=80&fit=crop" alt="">
+      <div class="placement-body">
+        <p class="placement-section">"Is This Your Room?" Section</p>
+        <h4>The Deep Listening</h4>
+        <p>The warm coffee shop interior with intimate lighting. This photo pairs perfectly with the "Is This Your Room?" audience qualification section. The cozy interior says: this is not a stadium event, it is a private room where the real conversations happen. Use it as a background or alongside the qualifying questions.</p>
+      </div>
+    </div>
+
+    <div class="placement-card">
+      <img class="placement-img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80&fit=crop" alt="">
+      <div class="placement-body">
+        <p class="placement-section">CTA / Application Section</p>
+        <h4>The Golden Hour Table</h4>
+        <p>The warm outdoor dinner table at golden hour. This photo belongs at the bottom of the page, in or near the application form. After someone has read the manifesto, heard from Re, and decided this is their room, this image gives them a glimpse of what is waiting on the other side. It is the visual reward at the end of the emotional journey: a seat at this table is waiting for you.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- RECOMMENDATION -->
+<div class="rec-section">
+  <h2>Recommendation</h2>
+  <p><strong style="color:#fff;">The Fireside</strong> (91%) is the strongest direction for the hero. It taps into the oldest archetype of men's gathering, naturally aligns with the brand's gold and amber palette, and does something the other two cannot: it invites the visitor to project himself into the scene rather than comparing himself to someone in a photo. The absence of visible faces is a feature, not a limitation. It creates space for the Integrated King to feel: "I belong here."</p>
+  <p><strong style="color:#fff;">The Conversation</strong> (90%) is the strongest backup and the safest choice if you want to lead with human faces. It is the most literal and immediately relatable.</p>
+  <p>Both directions can be live today using the current Unsplash imagery. For maximum impact, we recommend a custom photo shoot with 4 to 6 real members once you are ready to invest in that.</p>
+
+  <div class="rec-box">
+    <p class="rec-label">What is Live Right Now</p>
+    <p>The Fireside concept is currently deployed to the dev site at <strong>dev.higherloveevent-com.pages.dev</strong> with the full redesigned flow: Hero → Video Intro → Manifesto → Letter → rest of site. Re can see it live and scroll through the entire experience.</p>
+  </div>
+</div>
+
+</body>
+</html>
