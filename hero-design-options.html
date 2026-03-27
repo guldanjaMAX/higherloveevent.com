@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Love Hero — Design Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #060606;
+    --card-bg: #0d0d0d;
+    --card-border: rgba(160,127,86,0.15);
+    --gold: #a07f56;
+    --gold-light: #c9a96e;
+    --linen: #ede3da;
+    --linen-soft: rgba(237,227,218,0.88);
+    --linen-muted: rgba(237,227,218,0.6);
+    --white-92: rgba(255,255,255,0.92);
+  }
+  html { font-size: 17px; scroll-behavior: smooth; }
+  body { font-family: 'EB Garamond', Georgia, serif; background: var(--bg); color: var(--linen); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  .presentation-header { max-width: 860px; margin: 0 auto; padding: 5rem 2rem 3rem; text-align: center; }
+  .presentation-header .label { font-family: 'Raleway', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .presentation-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 300; line-height: 1.3; color: var(--linen); margin-bottom: 2rem; }
+  .presentation-header .brief { font-size: 1.05rem; line-height: 1.85; color: var(--linen-soft); max-width: 700px; margin: 0 auto; }
+
+  .analysis { max-width: 860px; margin: 0 auto 4rem; padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; }
+  .analysis h3 { font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .analysis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .analysis-item .label { font-family: 'Raleway', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.5rem; }
+  .analysis-item p { font-size: 0.95rem; line-height: 1.75; color: var(--linen-muted); }
+
+  .concepts { max-width: 1100px; margin: 0 auto; padding: 0 2rem 4rem; }
+  .concept-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 3rem; margin-bottom: 3rem; opacity: 0; transform: translateY(30px); animation: fadeUp 0.7s ease forwards; }
+  .concept-card:nth-child(1) { animation-delay: 0.1s; }
+  .concept-card:nth-child(2) { animation-delay: 0.3s; }
+  .concept-card:nth-child(3) { animation-delay: 0.5s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  .concept-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; gap: 2rem; }
+  .concept-name { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: var(--linen); line-height: 1.2; }
+  .concept-tagline { font-family: 'EB Garamond', serif; font-size: 1.05rem; font-style: italic; color: var(--gold-light); margin-top: 0.4rem; }
+
+  .confidence { flex-shrink: 0; width: 80px; height: 80px; position: relative; }
+  .confidence svg { width: 80px; height: 80px; transform: rotate(-90deg); }
+  .confidence-bg { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 3; }
+  .confidence-fill { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 226; stroke-dashoffset: 226; transition: stroke-dashoffset 1.5s ease; }
+  .confidence-fill.high { stroke: #8faa7b; }
+  .confidence-fill.mid { stroke: #c9a96e; }
+  .confidence-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'Raleway', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--linen); }
+
+  .section-label { font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid rgba(160,127,86,0.15); }
+  .concept-section { margin-bottom: 2rem; }
+  .concept-section p { font-size: 0.98rem; line-height: 1.8; color: var(--white-92); }
+
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.5rem; }
+  .spec-item .spec-key { font-family: 'Raleway', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 0.3rem; }
+  .spec-item .spec-val { font-size: 0.92rem; line-height: 1.65; color: var(--linen-muted); }
+
+  .preview-label { font-family: 'Raleway', sans-serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .preview-frame { margin: 2.5rem 0 1rem; border-radius: 8px; overflow: hidden; border: 1px solid rgba(160,127,86,0.1); }
+
+  /* ═══ PREVIEW 1: The Gathering ═══ */
+  .preview-gathering {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background:
+      linear-gradient(180deg, rgba(6,4,2,0.3) 0%, rgba(6,4,2,0.15) 30%, rgba(6,4,2,0.5) 70%, rgba(10,10,10,1) 100%),
+      linear-gradient(0deg, rgba(10,10,10,0.9) 0%, transparent 30%),
+      url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=1600&q=80') center center / cover no-repeat;
+  }
+  .preview-gathering .logo-mark {
+    width: 180px;
+    margin-bottom: 2.5rem;
+    opacity: 0.92;
+    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.5));
+  }
+  .preview-gathering .eyebrow {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 1.5rem;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+  }
+  .preview-gathering h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.2;
+    max-width: 800px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+  }
+  .preview-gathering .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(237,227,218,0.88);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    line-height: 1.6;
+  }
+  .preview-gathering .cta-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .preview-gathering .cta-primary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--linen);
+    background: var(--gold);
+    padding: 1rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .preview-gathering .cta-secondary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(237,227,218,0.8);
+    background: transparent;
+    padding: 1rem 2.5rem;
+    border: 1px solid rgba(237,227,218,0.3);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .preview-gathering .scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(160,127,86,0.5), transparent);
+  }
+
+  /* ═══ PREVIEW 2: The Threshold ═══ */
+  .preview-threshold {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background:
+      linear-gradient(180deg, rgba(10,8,5,0.6) 0%, rgba(10,8,5,0.35) 40%, rgba(10,8,5,0.7) 80%, #0a0a0a 100%),
+      url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80') center 30% / cover no-repeat;
+  }
+  .preview-threshold .logo-mark {
+    width: 160px;
+    margin-bottom: 2rem;
+    opacity: 0.88;
+    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.5));
+  }
+  .preview-threshold h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.15;
+    max-width: 850px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 3px 40px rgba(0,0,0,0.7);
+  }
+  .preview-threshold h1 .accent {
+    display: block;
+    color: var(--gold-light);
+  }
+  .preview-threshold .sub {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    color: rgba(237,227,218,0.85);
+    max-width: 560px;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+  .preview-threshold .cta-primary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: var(--gold-light);
+    padding: 1.1rem 3rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 40px rgba(160,127,86,0.2);
+  }
+  .preview-threshold .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(237,227,218,0.4);
+  }
+
+  /* ═══ PREVIEW 3: The Ember ═══ */
+  .preview-ember {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 80%, rgba(160,127,86,0.08) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(8,6,4,0.7) 0%, rgba(8,6,4,0.3) 30%, rgba(8,6,4,0.6) 70%, #0a0a0a 100%),
+      url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1600&q=80') center 25% / cover no-repeat;
+  }
+  .preview-ember .logo-mark {
+    width: 200px;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 20px rgba(0,0,0,0.5));
+  }
+  .preview-ember h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(1.8rem, 4.5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1.25;
+    max-width: 750px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+  }
+  .preview-ember .divider {
+    width: 50px;
+    height: 1.5px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 0 auto 1.5rem;
+  }
+  .preview-ember .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(237,227,218,0.9);
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    line-height: 1.65;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+  .preview-ember .cta-row {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .preview-ember .cta-primary {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--linen);
+    background: rgba(160,127,86,0.85);
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .preview-ember .cta-ghost {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    background: transparent;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(160,127,86,0.35);
+  }
+
+  /* ═══ Background Image Ideas ═══ */
+  .bg-ideas { max-width: 1100px; margin: 0 auto 4rem; padding: 0 2rem; }
+  .bg-ideas h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; text-align: center; margin-bottom: 0.5rem; }
+  .bg-ideas .sub { font-size: 1rem; color: var(--linen-muted); text-align: center; margin-bottom: 2.5rem; }
+  .bg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .bg-card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+  }
+  .bg-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.7);
+  }
+  .bg-card-body { padding: 1.25rem; }
+  .bg-card-body h4 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+  }
+  .bg-card-body p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--linen-muted);
+  }
+  .bg-card-body .rec {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 3px;
+  }
+  .bg-card-body .rec.top { background: rgba(143,170,123,0.15); color: #8faa7b; }
+  .bg-card-body .rec.good { background: rgba(201,169,110,0.15); color: var(--gold-light); }
+  .bg-card-body .rec.alt { background: rgba(120,144,148,0.15); color: #789094; }
+
+  .comparison { max-width: 860px; margin: 2rem auto 5rem; padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 8px; }
+  .comparison h3 { font-family: 'Raleway', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .comparison p { font-size: 1rem; line-height: 1.85; color: var(--white-92); margin-bottom: 1rem; }
+  .comparison p:last-child { margin-bottom: 0; }
+  .comparison strong { color: var(--gold-light); font-weight: 500; }
+
+  /* Placeholder logo for previews */
+  .logo-placeholder {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    color: var(--linen);
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .logo-placeholder .flame {
+    display: block;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 20px rgba(160,127,86,0.3));
+  }
+  .logo-placeholder .wordmark {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+  .logo-placeholder .wordmark-sub {
+    display: block;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 0.3rem;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width: 700px) {
+    .analysis-grid { grid-template-columns: 1fr; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .concept-top { flex-direction: column; }
+    .concept-card { padding: 2rem 1.5rem; }
+    .bg-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="presentation-header">
+  <div class="label">Higher Love Brotherhood — Hero Redesign</div>
+  <h1>Above the Fold</h1>
+  <p class="brief">
+    A complete hero redesign inspired by the Maverick1000 site. Full-width background image, actual Higher Love logo (not typed text), bold all-caps centered H1, subheadline, and CTA. The video moves back below the fold to the letter section where it was before. The goal: the user lands and immediately feels the gravity of what this is.
+  </p>
+</div>
+
+<!-- ═══ ANALYSIS ═══ -->
+<div class="analysis">
+  <h3>Strategic Analysis</h3>
+  <div class="analysis-grid">
+    <div class="analysis-item">
+      <div class="label">Functional Goal</div>
+      <p>Immediate identity establishment. Within 2 seconds, the visitor knows: this is a premium brotherhood for entrepreneurial gay men. The background image does the emotional heavy lifting. The H1 does the intellectual framing. The CTA catches anyone ready to act.</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">The Maverick Pattern</div>
+      <p>Logo top center. Full-bleed cinematic background image. Large bold centered headline. Italic serif subheadline. One or two CTAs. Scroll cue at bottom. The background image is the soul of the design. It conveys what words cannot: "this is who is in this room."</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">Background Image Strategy</div>
+      <p>The Maverick site uses a nature/forest backdrop that conveys "escape from the ordinary." For Higher Love, the image needs to convey brotherhood, warmth, and depth. Options include: men in conversation (silhouettes), an intimate gathering scene, warm architectural interiors, or abstract warmth with golden light.</p>
+    </div>
+    <div class="analysis-item">
+      <div class="label">Video Relocation</div>
+      <p>The video returns to the letter section below the fold. This follows the Maverick pattern where the hero is purely typographic + imagery. The video becomes a reward for scrolling, not a demand on arrival. This also dramatically simplifies the hero on mobile.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONCEPT 1 ═══ -->
+<div class="concepts">
+
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Gathering</div>
+      <div class="concept-tagline">Warmth. Belonging. A room full of light.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80"><circle class="confidence-bg" cx="40" cy="40" r="36"/><circle class="confidence-fill high" cx="40" cy="40" r="36" style="stroke-dashoffset: 20;"/></svg>
+      <div class="confidence-text">91%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      Full-viewport hero with a warm, ambient background image of men gathered in golden evening light. The Higher Love stacked logo sits at top center, full SVG, at about 180px wide. Below it, the H1 in Raleway 800 weight, all caps, wide letter-spacing: "THE WORLD'S FIRST BROTHERHOOD FOR ENTREPRENEURIAL GAY MEN." Below the H1, a Cormorant Garamond italic subheadline: "A curated community of growth-oriented gay men in their late 30s, 40s, and 50s." Two CTAs side by side: a solid gold "Request An Invitation" and a ghost-border "Discover Our Story." The entire composition is center-aligned. A subtle 1px gold vertical line descends from the bottom of the hero as a scroll cue. The background has a deep gradient overlay that goes from dark at top and bottom (for logo/text legibility) to slightly lighter in the middle where the image breathes.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      This is the direct Maverick translation for Higher Love. The dual-CTA pattern ("Apply" + "Learn More") captures both the ready-to-act visitor and the still-exploring one. The warm gathering background image immediately communicates "these are real men, in a real room, having real connection" without showing specific faces that might alienate. The gradient overlay is critical: it turns any photo into a cinematic moment. The bold uppercase H1 in a sans-serif (Raleway) creates the authoritative, no-apologies energy that Re wants. The italic serif subheadline softens it with specificity.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">H1: Raleway 800, all caps, 0.08em letter-spacing, clamp(2.2rem, 5vw, 3.5rem). Sub: Cormorant Garamond 300 italic, 1.3rem. CTAs: Raleway 600, 0.72rem.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Full viewport (100svh). Everything centered. Logo 180px. Max-width 800px for H1. Max-width 600px for sub. CTAs in flex row.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Background</div>
+        <div class="spec-val">Full-bleed image with gradient overlay: dark top (0.6 opacity), lighter middle (0.15), dark bottom fading to #0a0a0a.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Stacked SVG logo. Dual CTAs (solid gold + ghost border). Vertical gold scroll cue line. Text shadows for depth.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-gathering">
+      <div class="logo-placeholder">
+        <span class="flame">🔥</span>
+        <span class="wordmark">Higher Love</span>
+        <span class="wordmark-sub">Brotherhood</span>
+      </div>
+      <h1>The World's First Brotherhood For Entrepreneurial Gay Men</h1>
+      <p class="sub">A curated community of growth-oriented gay men in their late 30s, 40s, and 50s.</p>
+      <div class="cta-row">
+        <a class="cta-primary">Request An Invitation</a>
+        <a class="cta-secondary">Discover Our Story</a>
+      </div>
+      <div class="scroll-cue"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONCEPT 2 ═══ -->
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Threshold</div>
+      <div class="concept-tagline">Bold entry. The headline IS the experience.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80"><circle class="confidence-bg" cx="40" cy="40" r="36"/><circle class="confidence-fill high" cx="40" cy="40" r="36" style="stroke-dashoffset: 27;"/></svg>
+      <div class="confidence-text">88%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      Same full-viewport structure, but the typographic hierarchy shifts. The logo is slightly smaller (160px). The H1 is split across two lines where the second line is rendered in gold, creating a visual "reveal" moment: "THE WORLD'S FIRST BROTHERHOOD" in white, then "FOR ENTREPRENEURIAL GAY MEN" in gold. This color shift makes the specificity of the audience impossible to miss — it is not an afterthought, it is the point. The subheadline is in EB Garamond (not italic) for a slightly more grounded, editorial feel. Only one CTA: a solid gold button with dark text ("Request An Invitation") that demands a decision. The background image leans more dramatic — think warm bokeh lights or an evening event atmosphere rather than a literal gathering.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      The two-tone headline is a power move. By making "FOR ENTREPRENEURIAL GAY MEN" the gold line, you are saying: this identity is the feature, not the qualifier. The single CTA removes choice paralysis and creates a binary: you are either ready to request an invitation, or you scroll to learn more. No hand-holding. This respects the audience — these are accomplished men who make decisions. The more atmospheric background (lights, bokeh, warm glow) avoids the risk of literal imagery feeling generic, and instead creates an emotional texture that says "something special is happening here."
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">H1: Raleway 900, all caps, 0.06em spacing, clamp(2.4rem, 5.5vw, 4rem). Line 2 in gold. Sub: EB Garamond 400, 1.25rem. CTA: Raleway 600.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Full viewport. Center-aligned. Logo 160px. Max-width 850px for H1. Single CTA. Scroll text cue at bottom.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Background</div>
+        <div class="spec-val">Atmospheric/bokeh background. Heavier overlay (0.6 to 0.35 to 0.7) for strong text contrast. Bottom fades to #0a0a0a.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Two-tone headline (white + gold). Single decisive CTA with dark text on gold. Gold box-shadow glow on CTA. Text scroll cue.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-threshold">
+      <div class="logo-placeholder">
+        <span class="flame">🔥</span>
+        <span class="wordmark">Higher Love</span>
+        <span class="wordmark-sub">Brotherhood</span>
+      </div>
+      <h1>The World's First Brotherhood<br><span class="accent">For Entrepreneurial Gay Men</span></h1>
+      <p class="sub">A curated community of growth-oriented gay men in their late 30s, 40s, and 50s.</p>
+      <a class="cta-primary">Request An Invitation</a>
+      <div class="scroll-cue">Scroll to Explore</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ CONCEPT 3 ═══ -->
+<div class="concept-card">
+  <div class="concept-top">
+    <div>
+      <div class="concept-name">The Ember</div>
+      <div class="concept-tagline">Intimate. Grounded. The warmth before the fire.</div>
+    </div>
+    <div class="confidence">
+      <svg viewBox="0 0 80 80"><circle class="confidence-bg" cx="40" cy="40" r="36"/><circle class="confidence-fill mid" cx="40" cy="40" r="36" style="stroke-dashoffset: 40;"/></svg>
+      <div class="confidence-text">82%</div>
+    </div>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Design Direction</div>
+    <p>
+      The most understated of the three. The logo is larger (200px) and given more vertical breathing room. Below it, a thin gold gradient divider. The H1 is bold but slightly smaller than the other options, letting the words sit with more dignity on the page. Below the H1, another thin gold divider, then the subheadline in larger Cormorant Garamond italic — almost a pull quote. Two CTAs: a soft gold fill button and a text-link style "Learn Our Story" with a bottom border. The background image is the most intimate: think friends in deep conversation, or a close-up of hands holding whiskey glasses, or a table set for a meaningful dinner. The overlay is heavier, making the image feel like a memory or a mood rather than a literal scene. A subtle radial gold glow sits behind the center content.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Strategic Rationale</div>
+    <p>
+      Where the other two concepts lead with authority, this one leads with intimacy. The larger logo and additional breathing room say "we do not need to shout." The dividers between elements create a sense of ceremony — this is not a landing page, this is an invitation. The risk is that it may feel too quiet for a first-time visitor who needs to be grabbed. But for the man who already feels something pulling him toward this, the restraint is the signal that this is real.
+    </p>
+  </div>
+
+  <div class="concept-section">
+    <div class="section-label">Visual Spec</div>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-key">Typography</div>
+        <div class="spec-val">H1: Raleway 700, all caps, 0.12em spacing, clamp(1.8rem, 4.5vw, 3rem). Sub: Cormorant Garamond 300 italic, 1.5rem. Dividers between each element.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Layout</div>
+        <div class="spec-val">Full viewport. Center-aligned. Logo 200px with extra margin. Max-width 750px for H1. Max-width 580px for sub.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Background</div>
+        <div class="spec-val">Intimate/moody image. Heavy overlay (0.7 to 0.3 to 0.6). Radial gold glow at center (rgba(160,127,86,0.08)). Bottom fades to #0a0a0a.</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-key">Key Elements</div>
+        <div class="spec-val">Larger logo. Gold gradient dividers between elements. Radial glow. Solid + text-link CTA pair. Most vertical breathing room.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="preview-label">Rendered Preview</div>
+  <div class="preview-frame">
+    <div class="preview-ember">
+      <div class="logo-placeholder">
+        <span class="flame">🔥</span>
+        <span class="wordmark">Higher Love</span>
+        <span class="wordmark-sub">Brotherhood</span>
+      </div>
+      <h1>The World's First Brotherhood For Entrepreneurial Gay Men</h1>
+      <div class="divider"></div>
+      <p class="sub">A curated community of growth-oriented gay men in their late 30s, 40s, and 50s.</p>
+      <div class="cta-row">
+        <a class="cta-primary">Request An Invitation</a>
+        <a class="cta-ghost">Learn Our Story</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ═══ BACKGROUND IMAGE IDEAS ═══ -->
+<div class="bg-ideas">
+  <h2>Background Image Directions</h2>
+  <p class="sub">Six directions for the hero background, from literal to abstract. Each can be sourced from stock, shot custom, or generated with AI.</p>
+  <div class="bg-grid">
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80" alt="Friends gathered">
+      <div class="bg-card-body">
+        <h4>The Brotherhood Moment</h4>
+        <p>A group of men in warm, natural connection. Not posed. Caught mid-laugh or deep in conversation. Dark-toned with golden hour light. This is the most direct "show what the room feels like" approach.</p>
+        <span class="rec top">Recommended</span>
+      </div>
+    </div>
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=600&q=80" alt="Evening event">
+      <div class="bg-card-body">
+        <h4>The Evening Atmosphere</h4>
+        <p>Warm bokeh lights, an out-of-focus gathering, the amber glow of an intimate event. No faces. Just the feeling of walking into a room where something meaningful is happening. This is the Maverick pattern adapted for nighttime warmth.</p>
+        <span class="rec top">Recommended</span>
+      </div>
+    </div>
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80" alt="Warm lights">
+      <div class="bg-card-body">
+        <h4>The Golden Blur</h4>
+        <p>Abstract warm light particles or bokeh. No people, no setting. Just warmth, glow, and energy. The safest option because it avoids literal imagery entirely and lets the typography carry the meaning. Works with any overlay treatment.</p>
+        <span class="rec good">Strong Alternative</span>
+      </div>
+    </div>
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80" alt="Intimate interior">
+      <div class="bg-card-body">
+        <h4>The Room Itself</h4>
+        <p>A stunning interior — a private dining room, a lodge with warm lighting, an architecturally beautiful gathering space. The literal "room" metaphor from the copy. This grounds the brand in a physical aspirational space.</p>
+        <span class="rec good">Strong Alternative</span>
+      </div>
+    </div>
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Austin landscape">
+      <div class="bg-card-body">
+        <h4>The Austin Horizon</h4>
+        <p>Texas Hill Country at golden hour, or the Austin skyline at dusk. Ties the brand to its geographic home while conveying expansiveness and possibility. Similar to how Maverick uses Pacific Northwest nature.</p>
+        <span class="rec alt">Worth Exploring</span>
+      </div>
+    </div>
+    <div class="bg-card">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Single portrait">
+      <div class="bg-card-body">
+        <h4>AI Generated: Brotherhood Silhouettes</h4>
+        <p>Use Imagen 4 or Midjourney to generate a custom scene: silhouettes of men gathered around a fire or table, shot from behind, warm amber tones. This gives you a perfectly tailored image that no stock library can match. Can iterate on mood and composition.</p>
+        <span class="rec top">Recommended</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ COMPARISON ═══ -->
+<div class="comparison">
+  <h3>Which Direction?</h3>
+  <p>
+    <strong>The Gathering (91%)</strong> is the strongest option. It is the closest to the Maverick reference Re loved, with the dual-CTA pattern that captures both ready and exploring visitors. The warm gathering background makes the brand feel real and aspirational. It is the safe bet that will definitely work.
+  </p>
+  <p>
+    <strong>The Threshold (88%)</strong> is the boldest option. The two-tone headline where "FOR ENTREPRENEURIAL GAY MEN" renders in gold is a powerful design choice that centers the audience's identity as the feature, not the qualifier. Single CTA means it requires more conviction but rewards it with clarity. If Re wants to make the gayness feel unapologetic and celebrated, this is the one.
+  </p>
+  <p>
+    <strong>The Ember (82%)</strong> is the most refined option. More breathing room, more ceremony, more restraint. It is beautiful but risks being too quiet for a first impression. Best suited if the brand leans more toward private luxury than community energy.
+  </p>
+  <p>
+    For the background image, I would recommend starting with <strong>"The Evening Atmosphere"</strong> (warm bokeh/event lighting) or commissioning an <strong>AI-generated "Brotherhood Silhouettes"</strong> scene. Both avoid the pitfall of stock photos looking generic while carrying the exact emotional tone this brand needs.
+  </p>
+</div>
+
+</body>
+</html>
