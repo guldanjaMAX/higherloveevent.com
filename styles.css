@@ -701,7 +701,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: clamp(1.05rem, 1.6vw, 1.15rem);
   line-height: 1.7;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.92);
   max-width: 580px;
   margin: 0.4rem 0 1.2rem;
 }
@@ -793,7 +793,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: clamp(1.08rem, 1.9vw, 1.22rem);
   line-height: 1.8;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.92);
   margin: 2.5rem 0;
   padding: 1.5rem 0 1.5rem 1.5rem;
   border-left: 2px solid rgba(160,127,86,0.35);
@@ -812,7 +812,7 @@ nav .nav-cta:hover {
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.65;
+  opacity: 0.85;
   margin-top: 0.6rem;
 }
 
@@ -1028,7 +1028,7 @@ nav .nav-cta:hover {
   color: var(--chamoisee);
   line-height: 1;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 
 .outcome-card h3 {
@@ -1042,7 +1042,7 @@ nav .nav-cta:hover {
 .outcome-card .body-text {
   font-size: 1.15rem;
   line-height: 1.8;
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.92);
 }
 
 .outcome-source {
@@ -1051,7 +1051,7 @@ nav .nav-cta:hover {
   font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.82;
   margin-top: 0.75rem;
 }
 
@@ -1239,7 +1239,7 @@ nav .nav-cta:hover {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
   color: var(--linen);
-  opacity: 0.75;
+  opacity: 0.88;
 }
 
 /* ========================================
@@ -1324,7 +1324,7 @@ nav .nav-cta:hover {
 }
 
 .form-input::placeholder {
-  color: rgba(188,178,166,0.55);
+  color: rgba(188,178,166,0.65);
   font-style: italic;
 }
 
@@ -1423,7 +1423,7 @@ footer {
 footer .footer-logo {
   width: 120px;
   margin: 0 auto 1.5rem;
-  opacity: 0.75;
+  opacity: 0.88;
 }
 
 footer p {
@@ -1431,7 +1431,7 @@ footer p {
   font-size: 0.82rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 /* ========================================
@@ -1562,7 +1562,7 @@ button:focus-visible {
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   font-style: italic;
   margin-bottom: 0.75rem;
 }
@@ -1600,7 +1600,7 @@ button:focus-visible {
   font-size: 0.8rem;
   letter-spacing: 0.15em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.8;
   z-index: 0;
   pointer-events: none;
 }
@@ -1634,7 +1634,7 @@ button:focus-visible {
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   color: var(--khaki);
-  opacity: 0.6;
+  opacity: 0.82;
 }
 
 .form-fallback a {
@@ -1651,6 +1651,255 @@ button:focus-visible {
 .yt-facade:hover div[style*="border-radius: 50%"] {
   transform: scale(1.1);
 }
+/* ========================================
+   VIDEO TESTIMONIAL CARDS — Editorial Style
+   ======================================== */
+
+/* ── Card Stack ── */
+.vtc-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Base Card ── */
+.video-testimonial-card {
+  display: grid;
+  background: #111009;
+  border: 1px solid rgba(160,127,86,0.32);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(160,127,86,0.04), 0 16px 48px rgba(0,0,0,0.45);
+  transition: box-shadow 0.3s ease;
+}
+.video-testimonial-card:hover {
+  box-shadow: 0 0 0 1px rgba(160,127,86,0.08), 0 20px 56px rgba(0,0,0,0.55);
+}
+
+/* Both orientations use the same column split and fixed height */
+.vtc-horizontal,
+.vtc-vertical {
+  grid-template-columns: 42% 58%;
+}
+
+/* ── Video Side ── */
+.vtc-video {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fixed-height wrapper — thumbnail fills via cover/crop regardless of orientation.
+   loadYouTube() replaces innerHTML of this div with the iframe. */
+.vtc-aspect-wrapper {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+/* When the iframe is injected, make it fill the fixed-height container */
+.vtc-aspect-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ── Corner Brackets ── */
+.vtc-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 4;
+  pointer-events: none;
+}
+.vtc-bracket-tl { top: 12px; left: 12px; border-top: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-bracket-tr { top: 12px; right: 12px; border-top: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+/* Bottom brackets clear the name bar */
+.vtc-bracket-bl { bottom: 48px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-bracket-br { bottom: 48px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+
+/* ── Play Overlay ── */
+.vtc-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+  transition: opacity 0.3s ease;
+}
+
+.vtc-play-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(160,127,86,0.18);
+  border: 1.5px solid rgba(201,169,110,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.vtc-play-btn-sm {
+  width: 46px;
+  height: 46px;
+}
+.vtc-video:hover .vtc-play-btn {
+  background: rgba(160,127,86,0.28);
+  box-shadow: 0 0 28px rgba(160,127,86,0.4);
+  transform: scale(1.06);
+}
+
+.vtc-play-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(237,227,218,0.82);
+}
+
+/* ── Name Bar ── */
+.vtc-name-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+  padding: 2.5rem 14px 10px;
+  z-index: 4;
+  pointer-events: none;
+}
+.vtc-name-bar-tall {
+  padding: 3rem 10px 10px;
+}
+
+.vtc-overlay-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ede3da;
+  line-height: 1.2;
+}
+.vtc-overlay-role {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  color: rgba(237,227,218,0.78);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* ── Quote Panel ── */
+.vtc-content {
+  padding: 2rem 2.25rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #0e0c09;
+  border-left: 2px solid rgba(160,127,86,0.32);
+  position: relative;
+}
+/* Subtle vertical glow behind the left border */
+.vtc-content::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: -1px;
+  width: 4px;
+  background: radial-gradient(ellipse at center, rgba(160,127,86,0.5) 0%, transparent 70%);
+  filter: blur(3px);
+  pointer-events: none;
+}
+
+.vtc-quote-mark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.8rem;
+  color: #a07f56;
+  line-height: 0.5;
+  margin-bottom: 14px;
+  opacity: 0.52;
+  user-select: none;
+}
+
+.vtc-quote {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--linen);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+/* ── Attribution ── */
+.vtc-attribution { margin-top: auto; }
+
+.vtc-author-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+}
+.vtc-author-role {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.67rem;
+  color: rgba(237,227,218,0.72);
+  margin-top: 3px;
+  letter-spacing: 0.04em;
+}
+
+.vtc-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--chamoisee);
+  opacity: 0.88;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(160,127,86,0.25);
+  padding-bottom: 1px;
+  transition: opacity 0.2s ease;
+  width: fit-content;
+}
+.vtc-watch:hover { opacity: 1; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .vtc-horizontal,
+  .vtc-vertical   { grid-template-columns: 45% 55%; }
+  .vtc-aspect-wrapper { height: 220px; }
+  .vtc-content    { padding: 1.5rem 1.5rem 1.5rem 1.5rem; }
+  .vtc-quote      { font-size: 1.05rem; }
+  .vtc-quote-mark { font-size: 3rem; }
+}
+
+@media (max-width: 640px) {
+  .vtc-horizontal,
+  .vtc-vertical {
+    grid-template-columns: 1fr;
+  }
+  .vtc-aspect-wrapper { height: 200px; }
+  .vtc-content {
+    border-left: none;
+    border-top: 1px solid rgba(160,127,86,0.2);
+    padding: 1.5rem 1.25rem;
+  }
+  .vtc-content::before { display: none; }
+  .vtc-quote { font-size: 1rem; line-height: 1.6; }
+  .vtc-quote-mark { font-size: 2.8rem; }
+}
+
 
 /* ========================================
    ANIMATIONS
@@ -1727,6 +1976,13 @@ button:focus-visible {
   .hero-sub { font-size: 1.1rem; margin-bottom: 1rem; line-height: 1.6; }
   .hero-details { font-size: 0.75rem; letter-spacing: 0.2em; margin-bottom: 1rem; }
   .cta-button { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; }
+
+  /* Hero video play button — scale down for mobile */
+  .play-circle-editorial { width: 60px; height: 60px; margin-bottom: 0.6rem; }
+  .play-circle-editorial svg { width: 22px !important; height: 24px !important; }
+  #video-poster-overlay p { font-size: 0.68rem !important; letter-spacing: 0.16em; opacity: 1 !important; }
+  .flame-container { padding: 16px; }
+
 
   .letter .salutation { font-size: 1.5rem; }
   .letter-emphasis { font-size: 1.2rem; padding-left: 1.2rem; }

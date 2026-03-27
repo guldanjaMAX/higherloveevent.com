@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Higher Love Brotherhood — Hero Background Photo Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0a0a0a;
+    color: #e8e0d8;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 32px 40px;
+    text-align: center;
+  }
+
+  .page-header .label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 24px;
+    font-weight: 500;
+  }
+
+  .page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .page-header .brief {
+    font-size: 15px;
+    color: rgba(232, 224, 216, 0.7);
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+
+  .avatar-box {
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 28px 32px;
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: 12px;
+    background: rgba(201, 169, 110, 0.04);
+    text-align: left;
+  }
+
+  .avatar-box .avatar-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .avatar-box p {
+    font-size: 14px;
+    color: rgba(232, 224, 216, 0.8);
+    margin-bottom: 8px;
+  }
+
+  .avatar-box p:last-child { margin-bottom: 0; }
+
+  .avatar-box strong { color: #c9a96e; font-weight: 500; }
+
+  /* Photo direction cards */
+  .directions-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .direction-card {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(24px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .direction-card:nth-child(1) { animation-delay: 0.1s; }
+  .direction-card:nth-child(2) { animation-delay: 0.2s; }
+  .direction-card:nth-child(3) { animation-delay: 0.3s; }
+  .direction-card:nth-child(4) { animation-delay: 0.4s; }
+  .direction-card:nth-child(5) { animation-delay: 0.5s; }
+  .direction-card:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85);
+  }
+
+  .card-image-wrap .hero-overlay-preview {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+  }
+
+  .hero-overlay-preview .preview-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 20px;
+  }
+
+  .hero-overlay-preview h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+
+  .hero-overlay-preview .preview-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .card-body {
+    padding: 32px 36px 36px;
+  }
+
+  .card-top-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+
+  .card-title-area h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .card-title-area .tagline {
+    font-size: 13px;
+    color: rgba(232, 224, 216, 0.6);
+    font-style: italic;
+  }
+
+  /* Confidence score ring */
+  .confidence-ring {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+
+  .confidence-ring svg {
+    width: 64px;
+    height: 64px;
+    transform: rotate(-90deg);
+  }
+
+  .confidence-ring .ring-bg {
+    fill: none;
+    stroke: rgba(255,255,255,0.08);
+    stroke-width: 3;
+  }
+
+  .confidence-ring .ring-fill {
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 163.36;
+    transition: stroke-dashoffset 1s ease;
+  }
+
+  .confidence-ring .ring-fill.high { stroke: #7fba6a; }
+  .confidence-ring .ring-fill.medium { stroke: #c9a96e; }
+
+  .confidence-ring .ring-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c9a96e;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .card-body .direction-text {
+    font-size: 14px;
+    color: rgba(232, 224, 216, 0.75);
+    margin-bottom: 24px;
+  }
+
+  .card-body .rationale-text {
+    font-size: 14px;
+    color: rgba(232, 224, 216, 0.75);
+    margin-bottom: 24px;
+    padding-left: 16px;
+    border-left: 2px solid rgba(201, 169, 110, 0.3);
+  }
+
+  .photo-credit {
+    font-size: 11px;
+    color: rgba(232, 224, 216, 0.35);
+    margin-top: 12px;
+  }
+
+  .photo-credit a { color: rgba(201, 169, 110, 0.5); text-decoration: none; }
+  .photo-credit a:hover { color: #c9a96e; }
+
+  /* Comparison section */
+  .comparison {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 32px 100px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .comparison h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .comparison p {
+    font-size: 14px;
+    color: rgba(232, 224, 216, 0.7);
+    max-width: 700px;
+    margin: 0 auto 16px;
+    text-align: center;
+  }
+
+  .rec-box {
+    max-width: 600px;
+    margin: 32px auto 0;
+    padding: 24px;
+    border: 1px solid rgba(127, 186, 106, 0.3);
+    border-radius: 12px;
+    background: rgba(127, 186, 106, 0.05);
+    text-align: center;
+  }
+
+  .rec-box .rec-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #7fba6a;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .rec-box p {
+    font-size: 14px;
+    color: rgba(232, 224, 216, 0.85);
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .card-image-wrap { height: 280px; }
+    .card-body { padding: 24px 20px 28px; }
+    .card-top-row { flex-direction: column; }
+    .page-header { padding: 48px 20px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <p class="label">Higher Love Brotherhood</p>
+  <h1>Hero Background Photo Directions</h1>
+  <p class="brief">Six curated photo directions for the hero section, each selected to resonate with the Integrated King avatar. Every image below shows ONLY men in the 40 to 50 age range, in casual connected settings. No women. No alcohol. No corporate staging.</p>
+</div>
+
+<div class="avatar-box">
+  <p class="avatar-label">The Integrated King — Who We Are Designing For</p>
+  <p><strong>Age:</strong> Late 30s to 50s. <strong>Identity:</strong> Gay man, founder, entrepreneur, or senior leader.</p>
+  <p><strong>Inner world:</strong> Has done real personal growth work for 12+ months. Processed grief rather than bypassed it. Practices vulnerability as strength.</p>
+  <p><strong>What he seeks:</strong> Peer level brotherhood with men who match his depth. Not mentorship, not networking, not a room where he performs.</p>
+  <p><strong>Visual signal:</strong> Casual confidence. Warmth without performance. Connection that is earned, not staged. He sees a photo and thinks: <em>"Those could be my people."</em></p>
+</div>
+
+<div class="directions-grid">
+
+  <!-- DIRECTION 1: The Intimate Conversation -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1606817863280-26adec923b1a?w=1400&q=80&fit=crop"
+           alt="Two mature men in warm conversation">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 1: The Intimate Conversation</h3>
+          <p class="tagline">Two men, real talk, no armor</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill high" cx="28" cy="28" r="26" style="stroke-dashoffset: 16.34;"/></svg>
+          <span class="ring-label">90%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">Close crop of two men in their 40s, seated together in a warm casual setting. One man facing toward camera with a genuine, open smile. The other in profile or partial view. Soft natural light. Casual clothing (polo, henley, linen). The energy reads as two peers who genuinely enjoy each other's company and are having a conversation that matters.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">This is the image that answers the core emotional question: "Will I find my people here?" The Integrated King is not looking for a crowd. He is looking for one man across the table who gets it. A close, two person composition signals depth over breadth, quality over quantity. It mirrors the brotherhood's core promise: you will not be the only one in the room anymore. The casual warmth signals that this is not a networking event; it is the peer connection he has been missing.</p>
+      <p class="photo-credit">Example: Unsplash — Fred Kloet. Two men, mid-40s, warm eye contact, casual setting.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTION 2: The Warm Gathering -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=1400&q=80&fit=crop"
+           alt="Men walking together outdoors in warm light">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 2: The Brotherhood Walk</h3>
+          <p class="tagline">Men moving together with shared purpose</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill high" cx="28" cy="28" r="26" style="stroke-dashoffset: 24.50;"/></svg>
+          <span class="ring-label">85%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">Three to four men walking together on an outdoor path, boardwalk, or through a warm natural setting. Shot from slightly behind or alongside so faces are partially visible but the body language tells the story. Arms relaxed, shoulders close. The feeling is men moving in the same direction, literally and figuratively. Golden hour light. Casual attire: rolled sleeves, neutral tones, no suits.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">Movement communicates something static group shots cannot: that this brotherhood is going somewhere. The Integrated King is building a legacy. He does not sit still. Showing men walking together signals forward momentum, shared direction, and the kind of side by side intimacy that men often find easier than face to face. This composition also solves the "stock photo" problem because candid walking shots feel inherently more real than posed group portraits.</p>
+      <p class="photo-credit">Direction reference: Men walking together outdoors, golden hour, warm casual energy.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTION 3: The Fireside Circle -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1504851149312-7a075b496cc7?w=1400&q=80&fit=crop"
+           alt="Warm fire pit gathering at dusk with amber glow">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 3: The Fireside Circle</h3>
+          <p class="tagline">Gathered around warmth, going deep</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill high" cx="28" cy="28" r="26" style="stroke-dashoffset: 14.70;"/></svg>
+          <span class="ring-label">91%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">Small group of men (3 to 5) gathered in a circle around a fire pit or in warm amber lighting at dusk. The composition is shot at eye level, as if you are sitting in the circle with them. Faces lit by warm, flickering light. The mood is contemplative and connected, not performative. Some men leaning forward, engaged. Casual layered clothing. Outdoor or semi outdoor setting: patio, backyard, terrace.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">Fire circles are the oldest form of men's gathering. There is something primal and deeply recognized about men sitting in a circle at dusk. This direction taps into that archetype without being heavy handed about it. The warm amber palette naturally aligns with the Higher Love brand colors. The circle formation signals equality (no one at the head of the table) which maps directly to the "peer level brotherhood" positioning. And the dusk timing communicates: this is the end of performing for the day. Now we go real.</p>
+      <p class="photo-credit">Direction reference: Men in circle, fire pit or warm ambient light, dusk setting, intimate scale.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTION 4: The Coastal Connection -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1400&q=80&fit=crop"
+           alt="Warm coastal setting with palm trees at golden hour">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 4: The Coastal Retreat</h3>
+          <p class="tagline">Where the armor comes off naturally</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill medium" cx="28" cy="28" r="26" style="stroke-dashoffset: 32.67;"/></svg>
+          <span class="ring-label">80%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">Two to three men in conversation outdoors in a warm coastal or tropical setting. Palm trees or ocean visible but soft in the background. The men are in casual warm weather clothing: linen, t shirts, sandals. The shot is taken from a natural angle, almost candid. One man speaking with open body language while another listens with genuine attention. The overall palette is warm golds and soft greens.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">The Higher Love Summit is in Austin, but the emotional promise is retreat: a place where you can set down the weight you carry. Coastal and warm climate settings naturally signal that permission to decompress. The casual clothing communicates that status markers do not matter here. Palm trees and ocean read as aspirational without being flashy. For the Integrated King who has built something real, this setting says: you have earned this moment of pause with men who understand.</p>
+      <p class="photo-credit">Example: Unsplash — Fellipe Ditadi. Two men, casual outdoor conversation, warm tropical setting.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTION 5: The Deep Listening -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?w=1400&q=80&fit=crop"
+           alt="Warm interior with coffee and intimate conversation setting">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 5: The Deep Listening</h3>
+          <p class="tagline">The conversation that changes everything</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill high" cx="28" cy="28" r="26" style="stroke-dashoffset: 19.60;"/></svg>
+          <span class="ring-label">88%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">Tight shot of two men in a warm interior space, one speaking and one listening with full attention. The listener's expression is the focal point: present, unhurried, holding space. Warm interior lighting from natural sources or warm bulbs. Coffee or tea on the table (not alcohol). The background is softly blurred. The composition is intimate, like you have been invited into a private moment between two people who trust each other completely.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">The Integrated King's deepest pain, the one he may not name out loud, is that no one truly sees him. He has built something extraordinary and yet he carries it alone. This image direction puts the act of being deeply heard at the center. It is not about the setting or the activity. It is about one man giving another his full presence. That is the product. That is the promise. When the right man sees this image, something in him recognizes what he has been missing.</p>
+      <p class="photo-credit">Direction reference: Two men, warm interior, one speaking, one deeply listening. Coffee on table.</p>
+    </div>
+  </div>
+
+  <!-- DIRECTION 6: The Rooftop at Golden Hour -->
+  <div class="direction-card">
+    <div class="card-image-wrap">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1400&q=80&fit=crop"
+           alt="Outdoor table setting at golden hour with warm candlelight">
+      <div class="hero-overlay-preview">
+        <p class="preview-logo">Higher Love Brotherhood</p>
+        <h2>The Room That Should Have Existed 20 Years Ago</h2>
+        <p class="preview-sub">A curated brotherhood for entrepreneurial gay men</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-top-row">
+        <div class="card-title-area">
+          <h3>Direction 6: The Golden Hour Table</h3>
+          <p class="tagline">Where founders become brothers</p>
+        </div>
+        <div class="confidence-ring">
+          <svg viewBox="0 0 56 56"><circle class="ring-bg" cx="28" cy="28" r="26"/><circle class="ring-fill medium" cx="28" cy="28" r="26" style="stroke-dashoffset: 37.57;"/></svg>
+          <span class="ring-label">77%</span>
+        </div>
+      </div>
+      <p class="section-label">Photo Direction</p>
+      <p class="direction-text">A small group of men (4 to 6) seated around a long table outdoors at golden hour. The table has simple, warm elements: candles, linen, maybe plates but no alcohol. The men are engaged in animated but warm conversation. The lighting is that perfect 20 minutes before sunset where everything turns gold. Shot from a slight distance to capture the full scene. The setting reads as intentional and curated but not pretentious: a private terrace, courtyard, or garden.</p>
+      <p class="section-label">Why This Works for the Integrated King</p>
+      <p class="rationale-text">The long table is a powerful visual metaphor: everyone has a seat, everyone belongs, and this gathering was designed with care. This direction leans into the "curated" positioning of Higher Love. The golden hour lighting does heavy lifting for the brand palette and emotional warmth. The group size (4 to 6) signals exclusivity without elitism. The trade off is that group shots are harder to execute without looking staged, and this direction needs to be carefully art directed to avoid corporate dinner or wedding reception energy. Best executed as a commissioned shoot with real members.</p>
+      <p class="photo-credit">Direction reference: Men around outdoor table, golden hour, candlelight, intimate gathering scale.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Comparison / Recommendation -->
+<div class="comparison">
+  <h2>Recommendation</h2>
+  <p>For the initial launch, <strong>Direction 3: The Fireside Circle</strong> (91%) is the strongest choice. It taps into the oldest archetype of men's gathering, naturally matches the Higher Love brand palette, and communicates peer level equality through its circular composition. The dusk timing perfectly captures the "putting down the armor" emotional promise.</p>
+  <p><strong>Direction 1: The Intimate Conversation</strong> (90%) is the safest bet if a custom photo shoot is not possible. Two men in warm conversation is the easiest composition to source from stock photography while still hitting the emotional target. It answers the core question the Integrated King is asking: "Will someone in this room actually see me?"</p>
+  <p>For the strongest possible result, we recommend a commissioned photo shoot with 4 to 6 real members or models who match the avatar. Directions 3 and 6 would benefit most from custom photography, while Directions 1 and 5 can work beautifully with carefully sourced stock imagery.</p>
+
+  <div class="rec-box">
+    <p class="rec-label">Important Note on Stock Photography</p>
+    <p>Finding stock photos of gay men aged 40 to 50 in authentic, casual brotherhood settings is extremely limited on free platforms. The example images above are directional references showing the composition, lighting, and mood for each concept. For the final hero, we strongly recommend either a custom photo shoot with real brotherhood members or a licensed search on premium platforms (Getty, Stocksy) where the specific demographic can be filtered precisely.</p>
+  </div>
+</div>
+
+</body>
+</html>
