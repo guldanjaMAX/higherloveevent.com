@@ -1676,14 +1676,10 @@ button:focus-visible {
   box-shadow: 0 0 0 1px rgba(160,127,86,0.08), 0 20px 56px rgba(0,0,0,0.55);
 }
 
-/* Horizontal 16:9 — wide video left, quote right */
-.vtc-horizontal {
-  grid-template-columns: 55% 45%;
-}
-
-/* Vertical 9:16 — narrow portrait video left, quote right */
+/* Both orientations use the same column split and fixed height */
+.vtc-horizontal,
 .vtc-vertical {
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 42% 58%;
 }
 
 /* ── Video Side ── */
@@ -1693,19 +1689,20 @@ button:focus-visible {
   overflow: hidden;
 }
 
-/* Aspect-ratio wrapper — loadYouTube() replaces innerHTML of this div */
+/* Fixed-height wrapper — thumbnail fills via cover/crop regardless of orientation.
+   loadYouTube() replaces innerHTML of this div with the iframe. */
 .vtc-aspect-wrapper {
   position: relative;
-  height: 0;
+  height: 260px;
   overflow: hidden;
 }
-/* Horizontal: 16:9 */
-.vtc-horizontal .vtc-aspect-wrapper {
-  padding-bottom: 56.25%;
-}
-/* Vertical: 9:16 */
-.vtc-vertical .vtc-aspect-wrapper {
-  padding-bottom: 177.78%;
+/* When the iframe is injected, make it fill the fixed-height container */
+.vtc-aspect-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
 /* ── Corner Brackets ── */
@@ -1719,10 +1716,8 @@ button:focus-visible {
 .vtc-bracket-tl { top: 12px; left: 12px; border-top: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
 .vtc-bracket-tr { top: 12px; right: 12px; border-top: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
 /* Bottom brackets clear the name bar */
-.vtc-horizontal .vtc-bracket-bl { bottom: 48px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
-.vtc-horizontal .vtc-bracket-br { bottom: 48px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
-.vtc-vertical .vtc-bracket-bl  { bottom: 58px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
-.vtc-vertical .vtc-bracket-br  { bottom: 58px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+.vtc-bracket-bl { bottom: 48px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-bracket-br { bottom: 48px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
 
 /* ── Play Overlay ── */
 .vtc-play-overlay {
@@ -1881,8 +1876,9 @@ button:focus-visible {
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .vtc-horizontal { grid-template-columns: 50% 50%; }
-  .vtc-vertical   { grid-template-columns: 26% 74%; }
+  .vtc-horizontal,
+  .vtc-vertical   { grid-template-columns: 45% 55%; }
+  .vtc-aspect-wrapper { height: 220px; }
   .vtc-content    { padding: 1.5rem 1.5rem 1.5rem 1.5rem; }
   .vtc-quote      { font-size: 1.05rem; }
   .vtc-quote-mark { font-size: 3rem; }
@@ -1893,6 +1889,7 @@ button:focus-visible {
   .vtc-vertical {
     grid-template-columns: 1fr;
   }
+  .vtc-aspect-wrapper { height: 200px; }
   .vtc-content {
     border-left: none;
     border-top: 1px solid rgba(160,127,86,0.2);
