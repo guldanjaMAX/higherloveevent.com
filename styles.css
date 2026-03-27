@@ -1652,177 +1652,257 @@ button:focus-visible {
   transform: scale(1.1);
 }
 /* ========================================
-   VIDEO TESTIMONIAL CARDS (Greg Pignataro style)
+   VIDEO TESTIMONIAL CARDS — Editorial Style
    ======================================== */
+
+/* ── Card Stack ── */
 .vtc-stack {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
+/* ── Base Card ── */
 .video-testimonial-card {
   display: grid;
-  grid-template-columns: 2fr 3fr;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(160,127,86,0.18);
+  background: #111009;
+  border: 1px solid rgba(160,127,86,0.32);
+  border-radius: 14px;
   overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(160,127,86,0.04), 0 16px 48px rgba(0,0,0,0.45);
+  transition: box-shadow 0.3s ease;
+}
+.video-testimonial-card:hover {
+  box-shadow: 0 0 0 1px rgba(160,127,86,0.08), 0 20px 56px rgba(0,0,0,0.55);
 }
 
+/* Horizontal 16:9 — wide video left, quote right */
+.vtc-horizontal {
+  grid-template-columns: 55% 45%;
+}
+
+/* Vertical 9:16 — narrow portrait video left, quote right */
+.vtc-vertical {
+  grid-template-columns: 30% 70%;
+}
+
+/* ── Video Side ── */
 .vtc-video {
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 }
 
+/* Aspect-ratio wrapper — loadYouTube() replaces innerHTML of this div */
+.vtc-aspect-wrapper {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+/* Horizontal: 16:9 */
+.vtc-horizontal .vtc-aspect-wrapper {
+  padding-bottom: 56.25%;
+}
+/* Vertical: 9:16 */
+.vtc-vertical .vtc-aspect-wrapper {
+  padding-bottom: 177.78%;
+}
+
+/* ── Corner Brackets ── */
+.vtc-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  z-index: 4;
+  pointer-events: none;
+}
+.vtc-bracket-tl { top: 12px; left: 12px; border-top: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-bracket-tr { top: 12px; right: 12px; border-top: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+/* Bottom brackets clear the name bar */
+.vtc-horizontal .vtc-bracket-bl { bottom: 48px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-horizontal .vtc-bracket-br { bottom: 48px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+.vtc-vertical .vtc-bracket-bl  { bottom: 58px; left: 12px; border-bottom: 1.5px solid #a07f56; border-left: 1.5px solid #a07f56; }
+.vtc-vertical .vtc-bracket-br  { bottom: 58px; right: 12px; border-bottom: 1.5px solid #a07f56; border-right: 1.5px solid #a07f56; }
+
+/* ── Play Overlay ── */
 .vtc-play-overlay {
   position: absolute;
   inset: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0,0,0,0.22);
-  transition: background 0.25s ease;
-  z-index: 1;
-}
-
-.vtc-video:hover .vtc-play-overlay {
-  background: rgba(0,0,0,0.1);
+  gap: 10px;
+  z-index: 3;
+  transition: opacity 0.3s ease;
 }
 
 .vtc-play-btn {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(160,127,86,0.9);
+  background: rgba(160,127,86,0.18);
+  border: 1.5px solid rgba(201,169,110,0.65);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 0 0 0 rgba(160,127,86,0);
+  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
-
+.vtc-play-btn-sm {
+  width: 46px;
+  height: 46px;
+}
 .vtc-video:hover .vtc-play-btn {
-  transform: scale(1.1);
-  box-shadow: 0 0 28px rgba(160,127,86,0.45);
+  background: rgba(160,127,86,0.28);
+  box-shadow: 0 0 28px rgba(160,127,86,0.4);
+  transform: scale(1.06);
 }
 
+.vtc-play-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(237,227,218,0.5);
+}
+
+/* ── Name Bar ── */
 .vtc-name-bar {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.5) 55%, transparent 100%);
-  padding: 2.5rem 1rem 0.85rem;
-  z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 55%, transparent 100%);
+  padding: 2.5rem 14px 10px;
+  z-index: 4;
   pointer-events: none;
+}
+.vtc-name-bar-tall {
+  padding: 3rem 10px 10px;
 }
 
 .vtc-overlay-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
   font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: #ede3da;
   line-height: 1.2;
-  letter-spacing: 0.01em;
 }
-
 .vtc-overlay-role {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.62rem;
-  color: #a07f56;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: 0.2rem;
+  font-size: 0.6rem;
+  color: rgba(237,227,218,0.5);
+  letter-spacing: 0.06em;
+  margin-top: 2px;
 }
 
+/* ── Quote Panel ── */
 .vtc-content {
-  padding: 2rem 2.5rem;
+  padding: 2rem 2.25rem 2rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 1px solid rgba(160,127,86,0.12);
+  background: #0e0c09;
+  border-left: 2px solid rgba(160,127,86,0.32);
+  position: relative;
+}
+/* Subtle vertical glow behind the left border */
+.vtc-content::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  left: -1px;
+  width: 4px;
+  background: radial-gradient(ellipse at center, rgba(160,127,86,0.5) 0%, transparent 70%);
+  filter: blur(3px);
+  pointer-events: none;
 }
 
-.vtc-label {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--chamoisee);
-  border: 1px solid rgba(160,127,86,0.35);
-  display: inline-block;
-  padding: 0.28rem 0.75rem;
-  margin-bottom: 1.1rem;
-  width: fit-content;
+.vtc-quote-mark {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.8rem;
+  color: #a07f56;
+  line-height: 0.5;
+  margin-bottom: 14px;
+  opacity: 0.38;
+  user-select: none;
 }
 
 .vtc-quote {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.18rem;
+  font-size: 1.15rem;
   font-style: italic;
+  font-weight: 400;
   color: var(--linen);
-  line-height: 1.75;
+  line-height: 1.65;
   margin-bottom: 1.25rem;
 }
 
+/* ── Attribution ── */
+.vtc-attribution { margin-top: auto; }
+
 .vtc-author-name {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--chamoisee);
 }
-
 .vtc-author-role {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.74rem;
-  color: var(--linen);
-  opacity: 0.5;
-  margin-top: 0.2rem;
+  font-size: 0.67rem;
+  color: rgba(237,227,218,0.45);
+  margin-top: 3px;
   letter-spacing: 0.04em;
 }
 
 .vtc-watch {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  margin-top: 1.2rem;
+  gap: 6px;
+  margin-top: 1rem;
   font-family: 'Raleway', sans-serif;
-  font-size: 0.74rem;
-  letter-spacing: 0.06em;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--chamoisee);
   opacity: 0.75;
   cursor: pointer;
+  border-bottom: 1px solid rgba(160,127,86,0.25);
+  padding-bottom: 1px;
   transition: opacity 0.2s ease;
+  width: fit-content;
 }
+.vtc-watch:hover { opacity: 1; }
 
-.vtc-watch:hover {
-  opacity: 1;
-}
-
+/* ── Responsive ── */
 @media (max-width: 900px) {
-  .video-testimonial-card {
-    grid-template-columns: 1fr 1.3fr;
-  }
-  .vtc-content {
-    padding: 1.5rem;
-  }
-  .vtc-quote {
-    font-size: 1.05rem;
-  }
+  .vtc-horizontal { grid-template-columns: 50% 50%; }
+  .vtc-vertical   { grid-template-columns: 26% 74%; }
+  .vtc-content    { padding: 1.5rem 1.5rem 1.5rem 1.5rem; }
+  .vtc-quote      { font-size: 1.05rem; }
+  .vtc-quote-mark { font-size: 3rem; }
 }
 
 @media (max-width: 640px) {
-  .video-testimonial-card {
+  .vtc-horizontal,
+  .vtc-vertical {
     grid-template-columns: 1fr;
   }
   .vtc-content {
     border-left: none;
-    border-top: 1px solid rgba(160,127,86,0.12);
-    padding: 1.25rem;
+    border-top: 1px solid rgba(160,127,86,0.2);
+    padding: 1.5rem 1.25rem;
   }
+  .vtc-content::before { display: none; }
+  .vtc-quote { font-size: 1rem; line-height: 1.6; }
+  .vtc-quote-mark { font-size: 2.8rem; }
 }
+
 
 /* ========================================
    ANIMATIONS
