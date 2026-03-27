@@ -1,3 +1,109 @@
+  <!-- Manifesto: The Litany -->
+  <style>
+    .manifesto {
+      position: relative;
+      background: #0a0a0a;
+      padding: 6rem 2rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .manifesto-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(160,127,86,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .manifesto-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .manifesto-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--chamoisee);
+      margin-bottom: 3.5rem;
+    }
+    .manifesto-lines {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ml {
+      text-align: center;
+      margin: 0 0 0.35rem;
+      max-width: 700px;
+    }
+    .ml-lead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--linen);
+      margin-bottom: 1rem;
+    }
+    .ml-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.65;
+      color: rgba(237,227,218,0.88);
+      margin-bottom: 0.3rem;
+    }
+    .ml-emphasis {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      color: #c9a96e;
+      margin-top: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .manifesto-divider {
+      width: 50px;
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--chamoisee), transparent);
+      margin: 2.5rem auto;
+    }
+    .manifesto-stanza-gap {
+      height: 2.5rem;
+    }
+    .manifesto-closing {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 2.8vw, 1.75rem);
+      font-weight: 400;
+      font-style: italic;
+      color: #c9a96e;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .manifesto-sign {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(160,127,86,0.65);
+      margin-top: 0.75rem;
+    }
+    @media (max-width: 768px) {
+      .manifesto { padding: 4rem 1.5rem; }
+      .manifesto-glow { width: 350px; height: 350px; }
+      .ml-lead { margin-bottom: 0.75rem; }
+      .manifesto-divider { margin: 2rem auto; }
+    }
+  </style>
+
   <!-- Hero above-the-fold fit -->
   <style>
     /* Desktop: tighten hero to fit above fold */
